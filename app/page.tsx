@@ -8,10 +8,16 @@ import EventList from "@/components/EventList";
 import { getAllEvents } from "@/data/getEvents";
 
 // Leaflet touches `window`, so the map must be client-only with SSR disabled.
-const EventMap = dynamic(() => import("@/components/EventMap"), { ssr: false });
+const EventMap = dynamic(() => import("@/components/EventMap"), {
+  ssr: false,
+  loading: () => <div className="map-loading">Caricamento mappa…</div>,
+});
 
 function iso(d: Date) {
-  return d.toISOString().slice(0, 10);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 
 const DOW_FULL = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];

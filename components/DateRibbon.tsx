@@ -9,7 +9,10 @@ const MONTHS = [
 ];
 
 function iso(d: Date) {
-  return d.toISOString().slice(0, 10);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
 }
 function addDays(d: Date, n: number) {
   const c = new Date(d);
@@ -83,11 +86,17 @@ export default function DateRibbon({
             datesWithEvents.has(dISO) ? "has-events" : "",
           ].filter(Boolean).join(" ");
           return (
-            <div key={dISO} className={classes} onClick={() => setSelectedDate(dISO)}>
+            <button
+              key={dISO}
+              type="button"
+              className={classes}
+              aria-pressed={dISO === selectedDate}
+              onClick={() => setSelectedDate(dISO)}
+            >
               <div className="dow">{DOW[d.getDay()]}</div>
               <div className="num">{d.getDate()}</div>
               <div className="dot" />
-            </div>
+            </button>
           );
         })}
       </div>

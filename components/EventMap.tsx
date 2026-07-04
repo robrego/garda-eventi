@@ -1,10 +1,38 @@
 "use client";
 
-import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import { useEffect } from "react";
+import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
+import type { LatLngBoundsLiteral } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { EventItem, TOWN_COORDS, CATEGORIES } from "@/data/config";
 
-const ALL_TOWN_COORDS = Object.values(TOWN_COORDS);
+const ALL_TOWN_COORDS = Object.values(TOWN_COORDS) as LatLngBoundsLiteral;
+
+function eventBounds(events: EventItem[]): LatLngBoundsLiteral {
+  const towns = Array.from(new Set(events.map((e) => e.town)));
+  const coords = towns.map((t) => TOWN_COORDS[t]).filter(Boolean) as LatLngBoundsLiteral;
+  return coords.length > 0 ? coords : ALL_TOWN_COORDS;
+}
+
+function MapControls({ events }: { events: EventItem[] }) {
+  const map = useMap();
+
+  useEffect(() => {
+    map.fitBounds(eventBounds(events), { padding: [24, 24] });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [events]);
+
+  return (
+    <button
+      type="button"
+      className="map-refit"
+      aria-label="Centra la mappa sugli eventi del giorno"
+      onClick={() => map.fitBounds(eventBounds(events), { padding: [24, 24] })}
+    >
+      ⌖ Centra sugli eventi
+    </button>
+  );
+}
 
 export default function EventMap({
   events,
@@ -15,8 +43,8 @@ export default function EventMap({
 }) {
   return (
     <MapContainer
-      bounds={ALL_TOWN_COORDS}
-      boundsOptions={{ padding: [24, 24] }}
+      center={[45.6, 10.65]}
+      zoom={10}
       scrollWheelZoom={false}
       style={{ height: "100%", width: "100%" }}
     >
@@ -24,6 +52,7 @@ export default function EventMap({
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
+      <MapControls events={events} />
       {events.map((e) => (
         <CircleMarker
           key={e.id}

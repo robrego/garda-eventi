@@ -90,12 +90,29 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 }
 
 .view-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; width: 100%; margin-top: 4px; }
-.view-toggle button { flex: 1; border: none; background: white; color: var(--lake-mid); font-size: 15px; padding: 10px 8px; cursor: pointer; font-weight: 600; }
+.view-toggle button { flex: 1; border: none; background: white; color: var(--lake-mid); font-size: 15px; padding: 10px 10px; cursor: pointer; font-weight: 600; white-space: nowrap; }
 .view-toggle button.active { background: var(--green); color: white; }
 
 .layout { display: flex; flex-direction: column; gap: 14px; }
 
 #map { height: 300px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--lake-glass); }
+.map-loading { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--lake-mid); font-weight: 600; }
+
+.map-refit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--lake-deep);
+  cursor: pointer;
+}
+.map-refit:hover { background: var(--lake-glass); }
 
 .leaflet-popup-content { font-family: "Work Sans", sans-serif; font-size: 15px; line-height: 1.4; }
 .leaflet-popup-content strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; color: var(--lake-deep); }
@@ -132,7 +149,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   .day-chip { width: 68px; padding: 10px 0 12px; }
   .day-chip .num { font-size: 27px; }
   .filters { margin-bottom: 18px; }
-  .view-toggle { width: auto; margin-left: auto; margin-top: 0; }
+  .view-toggle { width: auto; margin-left: auto; margin-top: 0; flex-shrink: 0; }
   .layout { flex-direction: row; align-items: start; }
   .layout.list-only, .layout.map-only { flex-direction: column; }
   .map-pane, .list-col { flex: 1 1 0; min-width: 0; }
