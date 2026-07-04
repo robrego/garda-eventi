@@ -78,7 +78,7 @@ export default function Home() {
             <path d="M6 17c3-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0" stroke="#3f9d5f" strokeWidth="1" fill="none" opacity="0.9" />
             <circle cx="14" cy="12" r="2.2" fill="#faf6ec" />
           </svg>
-          <h1>Lago di Garda e Dintorni</h1>
+          <h1>Lago di Garda</h1>
         </div>
         <div className="date-picker-wrap">
           <span className="date-picker-label">{selectedDateLabel}</span>
