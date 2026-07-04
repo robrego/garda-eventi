@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const DOW = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
 const MONTHS = [
@@ -32,10 +32,29 @@ export default function DateRibbon({
   todayISO: string;
   datesWithEvents: Set<string>;
 }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [numDays, setNumDays] = useState(7);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const recalc = () => {
+      const chip = el.querySelector<HTMLElement>(".day-chip");
+      const gap = 8;
+      const chipWidth = chip ? chip.offsetWidth : 58;
+      const fit = Math.floor((el.clientWidth + gap) / (chipWidth + gap));
+      setNumDays(Math.max(7, fit));
+    };
+    recalc();
+    const ro = new ResizeObserver(recalc);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   const days = useMemo(() => {
     const start = new Date(weekAnchor);
-    return Array.from({ length: 7 }, (_, i) => addDays(start, i));
-  }, [weekAnchor]);
+    return Array.from({ length: numDays }, (_, i) => addDays(start, i));
+  }, [weekAnchor, numDays]);
 
   return (
     <div className="ribbon-wrap">
@@ -45,16 +64,16 @@ export default function DateRibbon({
         </div>
         <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
           <div className="ribbon-nav">
-            <button aria-label="Settimana precedente" onClick={() => setWeekAnchor(addDays(weekAnchor, -7))}>
+            <button aria-label="Giorni precedenti" onClick={() => setWeekAnchor(addDays(weekAnchor, -numDays))}>
               &larr;
             </button>
-            <button aria-label="Settimana successiva" onClick={() => setWeekAnchor(addDays(weekAnchor, 7))}>
+            <button aria-label="Giorni successivi" onClick={() => setWeekAnchor(addDays(weekAnchor, numDays))}>
               &rarr;
             </button>
           </div>
         </div>
       </div>
-      <div className="ribbon-track">
+      <div className="ribbon-track" ref={trackRef}>
         {days.map((d) => {
           const dISO = iso(d);
           const classes = [

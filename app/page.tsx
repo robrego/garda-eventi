@@ -60,7 +60,7 @@ export default function Home() {
           </svg>
           <div>
             <h1>Lago di Garda e Dintorni</h1>
-            <div className="brand-sub">Eventi da Peschiera a Limone</div>
+            <div className="brand-sub">Vedi gli eventi</div>
           </div>
         </div>
         <div className="today-pill">

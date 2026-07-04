@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Lago di Garda e Dintorni – Eventi",
-  description: "Eventi sulla sponda lombarda del Lago di Garda, da Peschiera a Limone, giorno per giorno.",
+  description: "Eventi sul Lago di Garda, sponda lombarda e veneta, giorno per giorno.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

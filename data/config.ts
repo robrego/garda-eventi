@@ -15,9 +15,40 @@ export const TOWN_COORDS: Record<string, [number, number]> = {
   Tignale:    [45.7300, 10.6317],
   Tremosine:  [45.7700, 10.6678],
   Limone:     [45.8092, 10.7900],
+  // Sponda veneta, da sud a nord
+  Lazise:         [45.4949, 10.7371],
+  Bardolino:      [45.5497, 10.7205],
+  Garda:          [45.5762, 10.6975],
+  "Torri del Benaco": [45.6136, 10.6873],
+  Malcesine:      [45.7669, 10.8095],
 };
 
 export const TOWNS = Object.keys(TOWN_COORDS);
+
+// Raggruppamento delle città per il filtro a tendina
+export const AREA_ORDER = ["Basso Garda", "Sponda lombarda", "Sponda veneta"];
+
+export const TOWN_AREAS: Record<string, string> = {
+  Peschiera: "Basso Garda",
+  Sirmione: "Basso Garda",
+  Desenzano: "Basso Garda",
+  Padenghe: "Sponda lombarda",
+  Moniga: "Sponda lombarda",
+  Manerba: "Sponda lombarda",
+  "San Felice": "Sponda lombarda",
+  Salò: "Sponda lombarda",
+  Gardone: "Sponda lombarda",
+  Toscolano: "Sponda lombarda",
+  Gargnano: "Sponda lombarda",
+  Tignale: "Sponda lombarda",
+  Tremosine: "Sponda lombarda",
+  Limone: "Sponda lombarda",
+  Lazise: "Sponda veneta",
+  Bardolino: "Sponda veneta",
+  Garda: "Sponda veneta",
+  "Torri del Benaco": "Sponda veneta",
+  Malcesine: "Sponda veneta",
+};
 
 export const CATEGORIES: Record<string, string> = {
   market:  "Mercato",
@@ -32,11 +63,12 @@ export const CATEGORIES: Record<string, string> = {
 
 // Giorno della settimana (0 = domenica) -> città con mercato settimanale
 export const MARKET_DAYS: Record<number, string[]> = {
-  1: ["Sirmione", "Peschiera", "Gardone", "Toscolano"],
+  1: ["Sirmione", "Peschiera", "Gardone", "Toscolano", "Torri del Benaco"],
   2: ["Desenzano", "Salò", "Manerba"],
-  3: ["Gargnano", "San Felice"],
-  4: ["Limone", "Padenghe"],
-  5: ["Moniga"],
+  3: ["Gargnano", "San Felice", "Lazise"],
+  4: ["Limone", "Padenghe", "Bardolino"],
+  5: ["Moniga", "Garda"],
+  6: ["Malcesine"],
 };
 
 export type EventItem = {

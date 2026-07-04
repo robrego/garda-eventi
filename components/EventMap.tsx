@@ -4,6 +4,8 @@ import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { EventItem, TOWN_COORDS, CATEGORIES } from "@/data/config";
 
+const ALL_TOWN_COORDS = Object.values(TOWN_COORDS);
+
 export default function EventMap({
   events,
   onSelect,
@@ -13,8 +15,8 @@ export default function EventMap({
 }) {
   return (
     <MapContainer
-      center={[45.47, 10.62]}
-      zoom={12}
+      bounds={ALL_TOWN_COORDS}
+      boundsOptions={{ padding: [24, 24] }}
       scrollWheelZoom={false}
       style={{ height: "100%", width: "100%" }}
     >

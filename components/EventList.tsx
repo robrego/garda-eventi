@@ -16,6 +16,23 @@ function formatItalianDate(d: Date) {
   return `${DOW_FULL[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}`;
 }
 
+const DOMAIN_RE = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$/;
+
+function SourceLine({ src }: { src: string }) {
+  if (DOMAIN_RE.test(src.trim())) {
+    const href = src.trim().startsWith("http") ? src.trim() : `https://${src.trim()}`;
+    return (
+      <>
+        Fonte:{" "}
+        <a href={href} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+          {src}
+        </a>
+      </>
+    );
+  }
+  return <>Fonte: {src}</>;
+}
+
 export default function EventList({
   selectedDate,
   events,
@@ -62,7 +79,7 @@ export default function EventList({
             <div className="event-cat">{CATEGORIES[e.cat]}</div>
           </div>
           <div className="event-desc">{e.desc}</div>
-          <div className="event-src">Fonte: {e.src}</div>
+          <div className="event-src"><SourceLine src={e.src} /></div>
         </div>
       ))}
     </div>

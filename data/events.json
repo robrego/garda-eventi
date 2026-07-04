@@ -240,5 +240,23 @@
   { "date": "2026-09-15", "town": "Limone", "title": "Arte nei Vicoli", "cat": "art", "time": "10:00–18:00", "desc": "Ultimo appuntamento stagionale della mostra d'arte nel centro storico.", "src": "visitlimonesulgarda.com" },
   { "date": "2026-09-16", "town": "Limone", "title": "Limonaia sotto le Stelle", "cat": "festival", "time": "20:00–23:00", "desc": "Penultimo appuntamento stagionale nella Limonaia del Castèl con musica e prodotti tipici.", "src": "visitlimonesulgarda.com" },
   { "date": "2026-09-20", "town": "Limone", "title": "Alpine Festival ai Fortini", "cat": "sport", "time": "10:00", "desc": "Gara di cammino a regolarità tra i sentieri montani sopra Limone, ai Fortini.", "src": "visitlimonesulgarda.com" },
-  { "date": "2026-09-27", "town": "Limone", "title": "Concerto della Banda di Tremosine", "cat": "concert", "time": "16:00", "desc": "Concerto pomeridiano della Banda Musicale di Tremosine in Piazza Garibaldi a Limone.", "src": "visitlimonesulgarda.com" }
+  { "date": "2026-09-27", "town": "Limone", "title": "Concerto della Banda di Tremosine", "cat": "concert", "time": "16:00", "desc": "Concerto pomeridiano della Banda Musicale di Tremosine in Piazza Garibaldi a Limone.", "src": "visitlimonesulgarda.com" },
+
+  { "date": "2026-07-04", "town": "Bardolino", "title": "Notte Gialla", "cat": "festival", "time": "18:00–23:00", "desc": "Evento di Coldiretti Verona e Campagna Amica con produttori a km zero, stand gastronomici e musica dal vivo sul lungolago.", "src": "veronasera.it" },
+  { "date": "2026-10-01", "town": "Bardolino", "title": "Festa dell'Uva e del Vino", "cat": "sagra", "time": "giornata intera", "desc": "Storica festa del vino di Bardolino (dal 1929): stand enogastronomici, sfilate di carri e bande musicali, degustazioni guidate del Consorzio Vini. Prosegue fino al 5 ottobre.", "src": "bardolinotop.it" },
+
+  { "date": "2026-08-01", "town": "Lazise", "title": "Antica Sagra della Madonna della Neve", "cat": "sagra", "time": "19:00", "desc": "Apertura degli stand gastronomici a Colà di Lazise, con spettacolo teatrale della compagnia Gard Art in Località Madonna.", "src": "comune.lazise.vr.it" },
+  { "date": "2026-08-02", "town": "Lazise", "title": "Antica Sagra della Madonna della Neve", "cat": "sagra", "time": "21:00", "desc": "Serata clou della sagra di Colà con il concerto di apertura dei Mixoro, hit anni '80-'90-2000.", "src": "comune.lazise.vr.it" },
+  { "date": "2026-08-03", "town": "Lazise", "title": "Antica Sagra della Madonna della Neve", "cat": "sagra", "time": "10:30", "desc": "Santa Messa patronale nella chiesa della Madonna della Neve a Colà, seguita da rinfresco a cura della polisportiva locale.", "src": "comune.lazise.vr.it" },
+
+  { "date": "2026-07-05", "town": "Garda", "title": "Garda in Jazz", "cat": "concert", "time": "in serata", "desc": "Serata conclusiva del festival Garda in Jazz, rassegna di concerti nelle piazze e negli scorci più suggestivi del centro storico.", "src": "comune.garda.vr.it" },
+
+  { "date": "2026-07-11", "town": "Torri del Benaco", "title": "Torri IN Fashion", "cat": "festival", "time": "in serata", "desc": "Sfilata su passerella di 30 metri con cinque stilisti, seconda edizione dell'evento moda sul lungolago.", "src": "modaestyle.it" },
+  { "date": "2026-07-12", "town": "Torri del Benaco", "title": "Torri IN Fashion", "cat": "festival", "time": "10:00–20:00", "desc": "Secondo giorno di Torri IN Fashion: market di lusso, Tesla Experience con test drive panoramici, workshop su beauty e benessere.", "src": "modaestyle.it" },
+
+  { "date": "2026-07-20", "town": "Malcesine", "title": "Festa della Musica", "cat": "festival", "time": "in serata", "desc": "Stand gastronomici, giochi per bambini e musica dal vivo per le vie del paese.", "src": "gardatoday.it" },
+  { "date": "2026-07-21", "town": "Malcesine", "title": "Festa della Musica", "cat": "festival", "time": "in serata", "desc": "Secondo giorno della Festa della Musica, con musica dal vivo e stand gastronomici.", "src": "gardatoday.it" },
+  { "date": "2026-07-31", "town": "Malcesine", "title": "Festa dei Ciclamini – Apertura", "cat": "concert", "time": "21:00", "desc": "Concerto corale sul porto per l'apertura della Festa dei Ciclamini a Cassone di Malcesine.", "src": "garda-outdoors.com" },
+  { "date": "2026-08-01", "town": "Malcesine", "title": "Festa dei Ciclamini", "cat": "sagra", "time": "in serata", "desc": "Stand gastronomici con prodotti tipici locali e intrattenimento musicale a Cassone di Malcesine.", "src": "garda-outdoors.com" },
+  { "date": "2026-08-02", "town": "Malcesine", "title": "Festa dei Ciclamini – Chiusura", "cat": "sagra", "time": "22:30", "desc": "Giornata conclusiva della Festa dei Ciclamini: stand gastronomici, musica dal vivo e spettacolo pirotecnico sul lago alle 22:30.", "src": "garda-outdoors.com" }
 ]

@@ -1,6 +1,6 @@
 "use client";
 
-import { TOWNS } from "@/data/config";
+import { AREA_ORDER, TOWN_AREAS, TOWNS } from "@/data/config";
 
 export type ViewMode = "split" | "list" | "map";
 
@@ -15,23 +15,30 @@ export default function Filters({
   view: ViewMode;
   setView: (v: ViewMode) => void;
 }) {
+  const townsByArea = AREA_ORDER.map((area) => ({
+    area,
+    towns: TOWNS.filter((town) => TOWN_AREAS[town] === area),
+  }));
+
   return (
     <div className="filters">
-      <button
-        className={`filter-chip${townFilter === "all" ? " active" : ""}`}
-        onClick={() => setTownFilter("all")}
+      <select
+        className="town-select"
+        aria-label="Filtra per città"
+        value={townFilter}
+        onChange={(e) => setTownFilter(e.target.value)}
       >
-        Tutte
-      </button>
-      {TOWNS.map((town) => (
-        <button
-          key={town}
-          className={`filter-chip${townFilter === town ? " active" : ""}`}
-          onClick={() => setTownFilter(town)}
-        >
-          {town}
-        </button>
-      ))}
+        <option value="all">Tutte le città</option>
+        {townsByArea.map(({ area, towns }) => (
+          <optgroup key={area} label={area}>
+            {towns.map((town) => (
+              <option key={town} value={town}>
+                {town}
+              </option>
+            ))}
+          </optgroup>
+        ))}
+      </select>
 
       <div className="view-toggle">
         <button className={view === "split" ? "active" : ""} onClick={() => setView("split")}>
