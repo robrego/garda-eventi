@@ -20,6 +20,11 @@ function iso(d: Date) {
   return `${y}-${m}-${day}`;
 }
 
+function dateFromISO(s: string) {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
 export default function Home() {
   const allEvents = useMemo(() => getAllEvents(), []);
 
@@ -37,6 +42,14 @@ export default function Home() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const datesWithEvents = useMemo(() => new Set(allEvents.map((e) => e.date)), [allEvents]);
+
+  const selectedDateLabel = useMemo(
+    () =>
+      new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "short", year: "numeric" }).format(
+        dateFromISO(selectedDate)
+      ),
+    [selectedDate]
+  );
 
   const dayEvents = useMemo(() => {
     let list = allEvents.filter((e) => e.date === selectedDate);
@@ -67,13 +80,16 @@ export default function Home() {
           </svg>
           <h1>Lago di Garda e Dintorni</h1>
         </div>
-        <input
-          type="date"
-          className="date-picker"
-          value={selectedDate}
-          onChange={(e) => handleDatePick(e.target.value)}
-          aria-label="Scegli una data"
-        />
+        <div className="date-picker-wrap">
+          <span className="date-picker-label">{selectedDateLabel}</span>
+          <input
+            type="date"
+            className="date-picker-input"
+            value={selectedDate}
+            onChange={(e) => handleDatePick(e.target.value)}
+            aria-label="Scegli una data"
+          />
+        </div>
       </header>
 
       <DateRibbon
