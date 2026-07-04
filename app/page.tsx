@@ -20,12 +20,6 @@ function iso(d: Date) {
   return `${y}-${m}-${day}`;
 }
 
-const DOW_FULL = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
-const MONTHS = [
-  "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
-  "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",
-];
-
 export default function Home() {
   const allEvents = useMemo(() => getAllEvents(), []);
 
@@ -54,6 +48,13 @@ export default function Home() {
     .filter(Boolean)
     .join(" ");
 
+  const handleDatePick = (value: string) => {
+    if (!value) return;
+    setSelectedDate(value);
+    const [y, m, d] = value.split("-").map(Number);
+    setWeekAnchor(new Date(y, m - 1, d));
+  };
+
   return (
     <div className="app">
       <header className="top">
@@ -64,14 +65,15 @@ export default function Home() {
             <path d="M6 17c3-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0" stroke="#3f9d5f" strokeWidth="1" fill="none" opacity="0.9" />
             <circle cx="14" cy="12" r="2.2" fill="#faf6ec" />
           </svg>
-          <div>
-            <h1>Lago di Garda e Dintorni</h1>
-            <div className="brand-sub">Vedi gli eventi</div>
-          </div>
+          <h1>Lago di Garda e Dintorni</h1>
         </div>
-        <div className="today-pill">
-          Oggi è <strong>{DOW_FULL[today.getDay()]} {today.getDate()} {MONTHS[today.getMonth()]}</strong>
-        </div>
+        <input
+          type="date"
+          className="date-picker"
+          value={selectedDate}
+          onChange={(e) => handleDatePick(e.target.value)}
+          aria-label="Scegli una data"
+        />
       </header>
 
       <DateRibbon
