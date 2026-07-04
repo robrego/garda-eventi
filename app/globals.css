@@ -23,7 +23,7 @@ html, body {
 
 .app { max-width: 1220px; margin: 0 auto; padding: 16px 14px 50px; }
 
-header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
 .brand-mark { display: flex; align-items: center; gap: 10px; }
 
 h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 28px; letter-spacing: -0.01em; margin: 0; color: var(--lake-deep); line-height: 1.05; }
@@ -33,42 +33,42 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   font-family: "Work Sans", sans-serif;
   color: var(--lake-deep);
   background: white;
-  border: 1px solid var(--line);
+  border: none;
   padding: 9px 14px;
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
 }
 
-.ribbon-wrap { position: relative; margin: 0 0 14px; background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 14px 10px; }
+.ribbon-wrap { position: relative; margin: 0 0 22px; background: white; border-radius: var(--radius); padding: 14px 14px 10px; }
 .ribbon-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
 .ribbon-header .month { font-family: "Bricolage Grotesque", sans-serif; font-size: 19px; font-weight: 700; color: var(--lake-deep); text-transform: capitalize; }
 
 .ribbon-nav { display: flex; gap: 6px; }
-.ribbon-nav button { border: 1px solid var(--line); background: var(--lake-glass); color: var(--lake-deep); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 19px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-.ribbon-nav button:hover { background: #cde3de; }
+.ribbon-nav button { border: none; background: rgba(44, 106, 114, 0.08); color: var(--lake-deep); width: 40px; height: 40px; border-radius: 10px; cursor: pointer; font-size: 19px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.ribbon-nav button:hover { background: rgba(44, 106, 114, 0.14); }
 
 .ribbon-track { position: relative; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
 
-.day-chip { position: relative; z-index: 1; flex: 0 0 auto; width: 58px; text-align: center; padding: 8px 0 10px; border-radius: 12px; cursor: pointer; border: 1px solid transparent; background: transparent; }
+.day-chip { position: relative; z-index: 1; flex: 0 0 auto; width: 58px; text-align: center; padding: 8px 0 10px; border-radius: 12px; cursor: pointer; border: none; background: transparent; }
 .day-chip .dow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--lake-mid); font-weight: 700; }
 .day-chip .num { font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-top: 2px; }
 .day-chip .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); margin: 4px auto 0; opacity: 0; }
 .day-chip.has-events .dot { opacity: 1; }
 .day-chip:hover { background: var(--lake-glass); }
-.day-chip.active { background: var(--lake-deep); border-color: var(--lake-deep); }
+.day-chip.active { background: var(--lake-deep); }
 .day-chip.active .dow { color: #cfe6df; }
 .day-chip.active .num { color: white; }
 .day-chip.active .dot { background: #a6e8bb; }
-.day-chip.is-today:not(.active) { border-color: var(--green); background: white; }
+.day-chip.is-today:not(.active) { background: rgba(63, 157, 95, 0.12); }
 
-.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; align-items: center; }
 .town-select {
   font-size: 15px;
   font-family: "Work Sans", sans-serif;
   padding: 10px 38px 10px 14px;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: none;
   background-color: white;
   color: var(--lake-deep);
   cursor: pointer;
@@ -82,14 +82,14 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   background-position: right 12px center;
 }
 
-.view-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; width: 100%; margin-top: 4px; }
+.view-toggle { display: flex; border: none; background: var(--lake-glass); border-radius: 999px; overflow: hidden; width: 100%; margin-top: 4px; }
 .view-toggle button { flex: 1; border: none; background: white; color: var(--lake-mid); font-size: 15px; padding: 10px 10px; cursor: pointer; font-weight: 600; white-space: nowrap; }
 .view-toggle button.active { background: var(--green); color: white; }
 
-.layout { display: flex; flex-direction: column; gap: 14px; }
+.layout { display: flex; flex-direction: column; gap: 22px; }
 .layout.list-only .map-pane, .layout.map-only .list-col { display: none; }
 
-#map { height: 300px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--lake-glass); }
+#map { height: 300px; border-radius: var(--radius); border: none; background: var(--lake-glass); overflow: hidden; }
 .map-loading { height: 100%; display: flex; align-items: center; justify-content: center; color: var(--lake-mid); font-weight: 600; }
 
 .map-refit {
@@ -101,7 +101,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   font-weight: 600;
   padding: 9px 14px;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: none;
   background: white;
   color: var(--lake-deep);
   cursor: pointer;
@@ -111,13 +111,13 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .leaflet-popup-content { font-family: "Work Sans", sans-serif; font-size: 15px; line-height: 1.4; }
 .leaflet-popup-content strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 16px; color: var(--lake-deep); }
 
-.list-col { display: flex; flex-direction: column; gap: 12px; }
+.list-col { display: flex; flex-direction: column; gap: 20px; }
 
 .date-heading { font-family: "Bricolage Grotesque", sans-serif; font-size: 19px; font-weight: 700; color: var(--lake-deep); margin: 2px 0 4px; text-transform: capitalize; }
 
-.event-card { background: white; border: 1px solid var(--line); border-radius: 14px; padding: 15px 16px; cursor: pointer; transition: border-color 0.15s; }
-.event-card:hover { border-color: var(--lake-mid); }
-.event-card.selected { border-color: var(--green); box-shadow: inset 0 0 0 2px var(--green); }
+.event-card { background: white; border: none; border-radius: 14px; padding: 15px 16px; cursor: pointer; transition: background-color 0.15s; }
+.event-card:hover { background: var(--lake-glass); }
+.event-card.selected { box-shadow: inset 0 0 0 2px var(--green); }
 
 .event-top { display: flex; justify-content: space-between; gap: 10px; }
 .event-name { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 19px; color: var(--ink); margin: 0 0 4px; line-height: 1.2; }
