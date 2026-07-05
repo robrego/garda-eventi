@@ -7,6 +7,6 @@ import { getAllEvents } from "@/data/getEvents";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { events, hasLiveData } = await getAllEvents();
-  return <EventsApp events={events} hasLiveData={hasLiveData} />;
+  const { events } = await getAllEvents();
+  return <EventsApp events={events} />;
 }

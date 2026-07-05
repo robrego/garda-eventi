@@ -25,13 +25,7 @@ function dateFromISO(s: string) {
   return new Date(y, m - 1, d);
 }
 
-export default function EventsApp({
-  events: allEvents,
-  hasLiveData,
-}: {
-  events: EventItem[];
-  hasLiveData: boolean;
-}) {
+export default function EventsApp({ events: allEvents }: { events: EventItem[] }) {
   const today = useMemo(() => {
     const d = new Date();
     d.setHours(0, 0, 0, 0);
@@ -121,12 +115,6 @@ export default function EventsApp({
           />
         </div>
       </header>
-
-      <div className="source-banner">
-        {hasLiveData
-          ? "Eventi aggiornati automaticamente ogni settimana"
-          : "Eventi di base — nessuna fonte automatica ancora collegata"}
-      </div>
 
       <DateRibbon
         weekAnchor={weekAnchor}
