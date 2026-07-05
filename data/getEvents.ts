@@ -1,5 +1,10 @@
+import { get } from "@vercel/blob";
 import rawEvents from "./events.json";
 import { MARKET_DAYS, EventItem } from "./config";
+
+export const SCRAPED_BLOB_PATHNAME = "garda-scraped-events.json";
+
+export type RawEvent = Omit<EventItem, "id">;
 
 function iso(d: Date) {
   const y = d.getFullYear();
@@ -13,25 +18,17 @@ function addDays(d: Date, n: number) {
   return c;
 }
 
-/**
- * Returns the full event list: curated real events from events.json plus
- * generated weekly market entries for a rolling window around today.
- */
-export function getAllEvents(): EventItem[] {
-  const events: EventItem[] = rawEvents.map((e, i) => ({ id: `ev${i}`, ...e }));
-
+function marketEvents(): RawEvent[] {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  let idCounter = events.length;
+  const events: RawEvent[] = [];
   for (let i = -3; i < 32; i++) {
     const d = addDays(today, i);
-    const dow = d.getDay();
-    const towns = MARKET_DAYS[dow];
+    const towns = MARKET_DAYS[d.getDay()];
     if (!towns) continue;
     towns.forEach((town) => {
       events.push({
-        id: `market${idCounter++}`,
         date: iso(d),
         town,
         title: "Mercato settimanale",
@@ -42,6 +39,56 @@ export function getAllEvents(): EventItem[] {
       });
     });
   }
-
   return events;
+}
+
+function dedupe(events: RawEvent[]): RawEvent[] {
+  const seen = new Set<string>();
+  const out: RawEvent[] = [];
+  for (const e of events) {
+    const key = `${e.date}|${e.town}|${e.title.toLowerCase()}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(e);
+  }
+  return out;
+}
+
+/**
+ * Reads the weekly scraper's output from Vercel Blob. Isolated behind a
+ * try/catch: if Blob isn't configured (no token) or the cron hasn't run
+ * yet, we fall back to the static curated list rather than breaking the
+ * page.
+ */
+async function fetchScrapedEvents(): Promise<RawEvent[]> {
+  if (!process.env.BLOB_READ_WRITE_TOKEN) return [];
+  try {
+    const result = await get(SCRAPED_BLOB_PATHNAME, { access: "private" });
+    if (!result?.stream) return [];
+    const text = await new Response(result.stream).text();
+    const data = JSON.parse(text);
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Returns the full event list: curated events from events.json, plus
+ * whatever the weekly scraper found in Blob storage, plus generated
+ * weekly market entries. `hasLiveData` tells the UI whether any
+ * automated source actually contributed events this run.
+ */
+export async function getAllEvents(): Promise<{ events: EventItem[]; hasLiveData: boolean }> {
+  const scraped = await fetchScrapedEvents();
+  const curated = dedupe([...(rawEvents as RawEvent[]), ...scraped]);
+
+  const events: EventItem[] = curated.map((e, i) => ({ id: `ev${i}`, ...e }));
+
+  let idCounter = events.length;
+  for (const m of marketEvents()) {
+    events.push({ id: `market${idCounter++}`, ...m });
+  }
+
+  return { events, hasLiveData: scraped.length > 0 };
 }
