@@ -76,6 +76,32 @@ export const MARKET_DAYS: Record<number, string[]> = {
   6: ["Malcesine"],
 };
 
+// Comune crest (stemma) image, used as the cover placeholder for events
+// that don't have a real photo/poster yet.
+export const TOWN_CREST: Partial<Record<string, string>> = {
+  Peschiera: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Peschiera_del_Garda-Stemma.svg",
+  Sirmione: "https://upload.wikimedia.org/wikipedia/commons/4/42/Sirmione-Stemma.svg",
+  Desenzano: "https://upload.wikimedia.org/wikipedia/commons/d/df/Desenzano_del_Garda-Stemma.svg",
+  Padenghe: "https://upload.wikimedia.org/wikipedia/it/2/24/Padenghe_sul_Garda-Stemma.png",
+  Moniga: "https://upload.wikimedia.org/wikipedia/it/5/55/Moniga_del_Garda-Stemma.png",
+  Manerba: "https://upload.wikimedia.org/wikipedia/it/6/68/Manerba_del_Garda-Stemma.png",
+  "San Felice": "https://upload.wikimedia.org/wikipedia/it/3/39/San_Felice_del_Benaco-Stemma.png",
+  Salò: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Sal%C3%B2-Stemma.svg",
+  Gardone: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Gardone_Riviera-Stemma.svg",
+  Toscolano: "https://upload.wikimedia.org/wikipedia/it/c/c0/Toscolano_Maderno-Stemma.png",
+  Gargnano: "https://upload.wikimedia.org/wikipedia/it/f/fa/Gargnano-Stemma.png",
+  Tignale: "https://upload.wikimedia.org/wikipedia/it/1/19/Tignale-Stemma.png",
+  Tremosine: "https://upload.wikimedia.org/wikipedia/it/9/9c/Tremosine_sul_Garda-Stemma.png",
+  Limone: "https://upload.wikimedia.org/wikipedia/commons/d/d8/Limone_sul_Garda-Stemma.svg",
+  Lazise: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Lazise-Stemma.svg",
+  Bardolino: "https://upload.wikimedia.org/wikipedia/commons/4/4d/Bardolino-Stemma.svg",
+  Garda: "https://upload.wikimedia.org/wikipedia/it/6/69/Garda-Stemma.png",
+  "Torri del Benaco": "https://upload.wikimedia.org/wikipedia/it/3/3d/Torri_del_Benaco-Stemma.png",
+  Malcesine: "https://upload.wikimedia.org/wikipedia/it/8/8d/Malcesine-Stemma.png",
+  Riva: "https://upload.wikimedia.org/wikipedia/commons/4/42/Riva_del_Garda-Stemma.svg",
+  Torbole: "https://upload.wikimedia.org/wikipedia/it/a/ab/Nago-Torbole-Stemma.png",
+};
+
 export type EventItem = {
   id: string;
   date: string; // YYYY-MM-DD

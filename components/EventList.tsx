@@ -1,8 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { EventItem, CATEGORIES } from "@/data/config";
+import { EventItem, CATEGORIES, TOWN_CREST } from "@/data/config";
 import AddCoverForm from "@/components/AddCoverForm";
+
+function CoverPlaceholder({ town }: { town: string }) {
+  const crest = TOWN_CREST[town];
+  if (crest) {
+    return <img src={crest} alt="" className="event-cover-crest" loading="lazy" />;
+  }
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="event-cover-icon">
+      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="8" cy="9.5" r="1.6" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 const DOW_FULL = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
 const MONTHS = [
@@ -51,6 +65,7 @@ export default function EventList({
   onCoverSaved: () => void;
 }) {
   const [coverTarget, setCoverTarget] = useState<EventItem | null>(null);
+  const [brokenImages, setBrokenImages] = useState<Set<string>>(new Set());
   const d = dateFromISO(selectedDate);
   const sorted = [...events].sort((a, b) => {
     if (a.cat === "market" && b.cat !== "market") return 1;
@@ -91,38 +106,49 @@ export default function EventList({
             }
           }}
         >
-          {e.image && (
-            <img
-              src={e.image}
-              alt=""
-              className="event-cover"
-              loading="lazy"
-              onError={(ev) => {
-                (ev.currentTarget as HTMLImageElement).style.display = "none";
-              }}
-            />
-          )}
-          {!e.image && canAddCover && (
-            <button
-              type="button"
-              className="event-add-cover"
-              onClick={(ev) => {
-                ev.stopPropagation();
-                setCoverTarget(e);
-              }}
-            >
-              + Copertina
-            </button>
-          )}
-          <div className="event-top">
-            <div>
-              <p className="event-name">{e.title}</p>
-              <div className="event-meta">{e.town} · {e.time}</div>
+          <div className="event-card-body">
+            <div className="event-cover-col">
+              {e.image && !brokenImages.has(e.id) ? (
+                <img
+                  src={e.image}
+                  alt=""
+                  className="event-cover"
+                  loading="lazy"
+                  onError={() => {
+                    setBrokenImages((prev) => new Set(prev).add(e.id));
+                  }}
+                />
+              ) : canAddCover ? (
+                <button
+                  type="button"
+                  className="event-cover-placeholder clickable"
+                  onClick={(ev) => {
+                    ev.stopPropagation();
+                    setCoverTarget(e);
+                  }}
+                  aria-label="Aggiungi una copertina per questo evento"
+                >
+                  <CoverPlaceholder town={e.town} />
+                  <span className="event-cover-add-label">+ copertina</span>
+                </button>
+              ) : (
+                <div className="event-cover-placeholder" aria-hidden="true">
+                  <CoverPlaceholder town={e.town} />
+                </div>
+              )}
             </div>
-            <div className="event-cat">{CATEGORIES[e.cat]}</div>
+            <div className="event-main">
+              <div className="event-top">
+                <div>
+                  <p className="event-name">{e.title}</p>
+                  <div className="event-meta">{e.town} · {e.time}</div>
+                </div>
+                <div className="event-cat">{CATEGORIES[e.cat]}</div>
+              </div>
+              <div className="event-desc">{e.desc}</div>
+              <div className="event-src"><SourceLine src={e.src} /></div>
+            </div>
           </div>
-          <div className="event-desc">{e.desc}</div>
-          <div className="event-src"><SourceLine src={e.src} /></div>
         </div>
       ))}
 
