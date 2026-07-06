@@ -58,6 +58,34 @@ function stripHtml(html: string): string {
     .trim();
 }
 
+// Fetches the event's own page and pulls its og:image, if any. Each
+// feed only carries ~5 items, so this is a handful of extra requests
+// per town — cheap enough for a weekly cron. Isolated behind its own
+// try/catch + timeout: a slow or image-less page just means no cover,
+// never a broken scrape.
+async function fetchOgImage(pageUrl: string): Promise<string | undefined> {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 6000);
+    const res = await fetch(pageUrl, {
+      headers: { "User-Agent": "GardaEventiBot/1.0" },
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+    if (!res.ok) return undefined;
+    const html = await res.text();
+    const match = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
+      ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
+    const url = match?.[1];
+    // Municipium falls back to the comune's crest/logo when a page has
+    // no dedicated photo — that's not an event cover, skip it.
+    if (url && /stemma/i.test(url)) return undefined;
+    return url;
+  } catch {
+    return undefined;
+  }
+}
+
 /**
  * Municipium is a CMS used by several Italian comuni (Peschiera, Garda
  * both confirmed) that exposes an `/it/eventi/feed` RSS endpoint (the
@@ -92,6 +120,9 @@ export function createMunicipiumScraper(town: string, feedUrl: string, srcName: 
         const date = extractDate(body, referenceDate) ?? extractDate(title, referenceDate);
         if (!date) continue;
 
+        const link = typeof item.link === "string" ? item.link : undefined;
+        const image = link ? await fetchOgImage(link) : undefined;
+
         events.push({
           date,
           town,
@@ -100,6 +131,7 @@ export function createMunicipiumScraper(town: string, feedUrl: string, srcName: 
           time: extractTime(body) ?? "Vedi il sito per l'orario",
           desc: body.slice(0, 300) || title,
           src: srcName,
+          ...(image ? { image } : {}),
         });
       }
       return events;

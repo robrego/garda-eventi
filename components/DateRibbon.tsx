@@ -3,10 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const DOW = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
-const MONTHS = [
-  "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
-  "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",
-];
 
 function iso(d: Date) {
   const y = d.getFullYear();
@@ -46,7 +42,7 @@ export default function DateRibbon({
       const gap = 8;
       const chipWidth = chip ? chip.offsetWidth : 58;
       const fit = Math.floor((el.clientWidth + gap) / (chipWidth + gap));
-      setNumDays(Math.max(7, fit));
+      setNumDays(Math.max(3, fit));
     };
     recalc();
     const ro = new ResizeObserver(recalc);
@@ -61,20 +57,13 @@ export default function DateRibbon({
 
   return (
     <div className="ribbon-wrap">
-      <div className="ribbon-header">
-        <div className="month">
-          {MONTHS[weekAnchor.getMonth()]} {weekAnchor.getFullYear()}
-        </div>
-        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-          <div className="ribbon-nav">
-            <button aria-label="Giorni precedenti" onClick={() => setWeekAnchor(addDays(weekAnchor, -numDays))}>
-              &larr;
-            </button>
-            <button aria-label="Giorni successivi" onClick={() => setWeekAnchor(addDays(weekAnchor, numDays))}>
-              &rarr;
-            </button>
-          </div>
-        </div>
+      <div className="ribbon-nav">
+        <button aria-label="Giorni precedenti" onClick={() => setWeekAnchor(addDays(weekAnchor, -numDays))}>
+          &larr;
+        </button>
+        <button aria-label="Giorni successivi" onClick={() => setWeekAnchor(addDays(weekAnchor, numDays))}>
+          &rarr;
+        </button>
       </div>
       <div className="ribbon-track" ref={trackRef}>
         {days.map((d) => {

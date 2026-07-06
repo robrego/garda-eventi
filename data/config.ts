@@ -85,4 +85,6 @@ export type EventItem = {
   time: string;
   desc: string;
   src: string;
+  image?: string;
+  addedBy?: string; // email of the user who submitted it manually, if any
 };

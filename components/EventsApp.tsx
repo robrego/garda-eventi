@@ -1,11 +1,13 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import DateRibbon from "@/components/DateRibbon";
 import Filters, { ViewMode } from "@/components/Filters";
 import EventList from "@/components/EventList";
 import { EventItem } from "@/data/config";
+import AuthWidget from "@/components/AuthWidget";
 
 // Leaflet touches `window`, so the map must be client-only with SSR disabled.
 const EventMap = dynamic(() => import("@/components/EventMap"), {
@@ -26,6 +28,7 @@ function dateFromISO(s: string) {
 }
 
 export default function EventsApp({ events: allEvents }: { events: EventItem[] }) {
+  const router = useRouter();
   const today = useMemo(() => {
     const d = new Date();
     d.setHours(0, 0, 0, 0);
@@ -38,6 +41,14 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
   const [townFilter, setTownFilter] = useState("all");
   const [view, setView] = useState<ViewMode>("split");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null | undefined>(undefined);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((r) => r.json())
+      .then((d) => setEmail(d.email))
+      .catch(() => setEmail(null));
+  }, []);
 
   const datesWithEvents = useMemo(() => new Set(allEvents.map((e) => e.date)), [allEvents]);
 
@@ -90,29 +101,22 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           </svg>
           <h1>Lago di Garda</h1>
         </div>
-        <div
-          className="date-picker-wrap"
-          role="button"
-          tabIndex={0}
-          aria-label="Scegli una data"
-          onClick={() => openDatePicker()}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
-              openDatePicker();
-            }
-          }}
-        >
-          <span className="date-picker-label">{selectedDateLabel}</span>
-          <input
-            ref={dateInputRef}
-            type="date"
-            className="date-picker-input"
-            value={selectedDate}
-            onChange={(e) => handleDatePick(e.target.value)}
-            tabIndex={-1}
-            aria-hidden="true"
-          />
+        <div className="header-actions">
+          <div className="date-picker-wrap">
+            <button type="button" className="date-picker-label" aria-label="Scegli una data" onClick={openDatePicker}>
+              {selectedDateLabel}
+            </button>
+            <input
+              ref={dateInputRef}
+              type="date"
+              className="date-picker-input"
+              value={selectedDate}
+              onChange={(e) => handleDatePick(e.target.value)}
+              tabIndex={-1}
+              aria-hidden="true"
+            />
+          </div>
+          <AuthWidget email={email} onEmailChange={setEmail} />
         </div>
       </header>
 
@@ -130,7 +134,7 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
       <div className={layoutClass}>
         <div className="map-pane">
           <div id="map">
-            <EventMap events={dayEvents} onSelect={setSelectedId} />
+            <EventMap events={dayEvents} selectedId={selectedId} onSelect={setSelectedId} />
           </div>
         </div>
         <EventList
@@ -138,6 +142,8 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           events={dayEvents}
           selectedId={selectedId}
           onSelect={setSelectedId}
+          canAddCover={!!email}
+          onCoverSaved={() => router.refresh()}
         />
       </div>
     </div>

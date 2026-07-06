@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { EventItem, CATEGORIES } from "@/data/config";
+import AddCoverForm from "@/components/AddCoverForm";
 
 const DOW_FULL = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
 const MONTHS = [
@@ -38,14 +40,23 @@ export default function EventList({
   events,
   selectedId,
   onSelect,
+  canAddCover,
+  onCoverSaved,
 }: {
   selectedDate: string;
   events: EventItem[];
   selectedId: string | null;
   onSelect: (id: string) => void;
+  canAddCover: boolean;
+  onCoverSaved: () => void;
 }) {
+  const [coverTarget, setCoverTarget] = useState<EventItem | null>(null);
   const d = dateFromISO(selectedDate);
-  const sorted = [...events].sort((a, b) => a.time.localeCompare(b.time));
+  const sorted = [...events].sort((a, b) => {
+    if (a.cat === "market" && b.cat !== "market") return 1;
+    if (a.cat !== "market" && b.cat === "market") return -1;
+    return a.time.localeCompare(b.time);
+  });
 
   return (
     <div className="list-col">
@@ -69,8 +80,40 @@ export default function EventList({
           key={e.id}
           id={`card-${e.id}`}
           className={`event-card${selectedId === e.id ? " selected" : ""}`}
+          role="button"
+          tabIndex={0}
+          aria-pressed={selectedId === e.id}
           onClick={() => onSelect(e.id)}
+          onKeyDown={(ev) => {
+            if (ev.key === "Enter" || ev.key === " ") {
+              ev.preventDefault();
+              onSelect(e.id);
+            }
+          }}
         >
+          {e.image && (
+            <img
+              src={e.image}
+              alt=""
+              className="event-cover"
+              loading="lazy"
+              onError={(ev) => {
+                (ev.currentTarget as HTMLImageElement).style.display = "none";
+              }}
+            />
+          )}
+          {!e.image && canAddCover && (
+            <button
+              type="button"
+              className="event-add-cover"
+              onClick={(ev) => {
+                ev.stopPropagation();
+                setCoverTarget(e);
+              }}
+            >
+              + Copertina
+            </button>
+          )}
           <div className="event-top">
             <div>
               <p className="event-name">{e.title}</p>
@@ -82,6 +125,17 @@ export default function EventList({
           <div className="event-src"><SourceLine src={e.src} /></div>
         </div>
       ))}
+
+      {coverTarget && (
+        <AddCoverForm
+          event={coverTarget}
+          onClose={() => setCoverTarget(null)}
+          onSaved={() => {
+            setCoverTarget(null);
+            onCoverSaved();
+          }}
+        />
+      )}
     </div>
   );
 }

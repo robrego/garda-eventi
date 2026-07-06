@@ -11,7 +11,9 @@
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "@vercel/blob": "^2.5.0",
+    "bcryptjs": "^3.0.3",
     "fast-xml-parser": "^5.9.3",
+    "jose": "^5.10.0",
     "leaflet": "^1.9.4",
     "next": "14.2.35",
     "react": "^18.3.1",
@@ -19,6 +21,7 @@
     "react-leaflet": "^4.2.1"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/leaflet": "^1.9.12",
     "@types/node": "^20.14.13",
     "@types/react": "^18.3.3",

@@ -1,6 +1,8 @@
 import { get } from "@vercel/blob";
 import rawEvents from "./events.json";
 import { MARKET_DAYS, EventItem } from "./config";
+import { readManualEvents } from "@/lib/manualEvents";
+import { readImageOverrides, imageOverrideKey } from "@/lib/imageOverrides";
 
 export const SCRAPED_BLOB_PATHNAME = "garda-scraped-events.json";
 
@@ -74,16 +76,25 @@ async function fetchScrapedEvents(): Promise<RawEvent[]> {
 }
 
 /**
- * Returns the full event list: curated events from events.json, plus
- * whatever the weekly scraper found in Blob storage, plus generated
- * weekly market entries. `hasLiveData` tells the UI whether any
- * automated source actually contributed events this run.
+ * Returns the full event list: manually-submitted events (highest
+ * priority — a person deliberately added or corrected these), then the
+ * weekly scraper's output from Blob, then curated events.json, plus
+ * generated weekly market entries. `hasLiveData` tells the UI whether
+ * any automated source actually contributed events this run.
  */
 export async function getAllEvents(): Promise<{ events: EventItem[]; hasLiveData: boolean }> {
-  const scraped = await fetchScrapedEvents();
-  const curated = dedupe([...(rawEvents as RawEvent[]), ...scraped]);
+  const [manual, scraped, overrides] = await Promise.all([
+    readManualEvents(),
+    fetchScrapedEvents(),
+    readImageOverrides(),
+  ]);
+  const curated = dedupe([...manual, ...scraped, ...(rawEvents as RawEvent[])]);
+  const overrideMap = new Map(overrides.map((o) => [imageOverrideKey(o), o.image]));
 
-  const events: EventItem[] = curated.map((e, i) => ({ id: `ev${i}`, ...e }));
+  const events: EventItem[] = curated.map((e, i) => {
+    const override = overrideMap.get(imageOverrideKey(e));
+    return { id: `ev${i}`, ...e, ...(override ? { image: override } : {}) };
+  });
 
   let idCounter = events.length;
   for (const m of marketEvents()) {

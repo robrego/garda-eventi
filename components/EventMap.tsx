@@ -36,9 +36,11 @@ function MapControls({ events }: { events: EventItem[] }) {
 
 export default function EventMap({
   events,
+  selectedId,
   onSelect,
 }: {
   events: EventItem[];
+  selectedId: string | null;
   onSelect: (id: string) => void;
 }) {
   return (
@@ -53,23 +55,31 @@ export default function EventMap({
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
       />
       <MapControls events={events} />
-      {events.map((e) => (
-        <CircleMarker
-          key={e.id}
-          center={TOWN_COORDS[e.town]}
-          radius={10}
-          pathOptions={{ color: "#2c6a72", weight: 1, fillColor: "#3f9d5f", fillOpacity: 0.9 }}
-          eventHandlers={{ click: () => onSelect(e.id) }}
-        >
-          <Popup>
-            <strong>{e.title}</strong>
-            <br />
-            {e.town} · {e.time}
-            <br />
-            <span style={{ color: "#5c979a" }}>{CATEGORIES[e.cat]}</span>
-          </Popup>
-        </CircleMarker>
-      ))}
+      {events.map((e) => {
+        const selected = e.id === selectedId;
+        return (
+          <CircleMarker
+            key={e.id}
+            center={TOWN_COORDS[e.town]}
+            radius={selected ? 14 : 10}
+            pathOptions={{
+              color: selected ? "#3f9d5f" : "#2c6a72",
+              weight: selected ? 3 : 1,
+              fillColor: "#3f9d5f",
+              fillOpacity: 0.9,
+            }}
+            eventHandlers={{ click: () => onSelect(e.id) }}
+          >
+            <Popup>
+              <strong>{e.title}</strong>
+              <br />
+              {e.town} · {e.time}
+              <br />
+              <span style={{ color: "#5c979a" }}>{CATEGORIES[e.cat]}</span>
+            </Popup>
+          </CircleMarker>
+        );
+      })}
     </MapContainer>
   );
 }
