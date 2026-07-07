@@ -5,6 +5,19 @@ import { EventItem, CATEGORIES, TOWN_CREST } from "@/data/config";
 import AddCoverForm from "@/components/AddCoverForm";
 import EditDescForm from "@/components/EditDescForm";
 
+function LinkArrowIcon() {
+  return (
+    <svg
+      viewBox="0 0 12 12"
+      fill="none"
+      aria-hidden="true"
+      className="event-name-link-icon"
+    >
+      <path d="M3.5 8.5L8.5 3.5M8.5 3.5H4.5M8.5 3.5V7.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function CoverPlaceholder({ town }: { town: string }) {
   const crest = TOWN_CREST[town];
   if (crest) {
@@ -154,7 +167,7 @@ export default function EventList({
                         onClick={(ev) => ev.stopPropagation()}
                       >
                         {e.title}
-                        <span className="event-name-link-icon" aria-hidden="true">↗</span>
+                        <LinkArrowIcon />
                       </a>
                     ) : (
                       e.title

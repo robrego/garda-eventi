@@ -1,6 +1,5 @@
 "use client";
 
-import { RefObject } from "react";
 import { AREA_ORDER, TOWN_AREAS, TOWNS } from "@/data/config";
 
 export type ViewMode = "split" | "list" | "map";
@@ -13,8 +12,6 @@ export default function Filters({
   selectedDateLabel,
   selectedDate,
   onDatePick,
-  onOpenDatePicker,
-  dateInputRef,
 }: {
   townFilter: string;
   setTownFilter: (t: string) => void;
@@ -23,8 +20,6 @@ export default function Filters({
   selectedDateLabel: string;
   selectedDate: string;
   onDatePick: (value: string) => void;
-  onOpenDatePicker: () => void;
-  dateInputRef: RefObject<HTMLInputElement>;
 }) {
   const townsByArea = AREA_ORDER.map((area) => ({
     area,
@@ -34,18 +29,16 @@ export default function Filters({
   return (
     <div className="filters">
       <div className="date-picker-wrap">
-        <button type="button" className="date-picker-label" aria-label="Scegli una data" onClick={onOpenDatePicker}>
-          {selectedDateLabel}
-        </button>
         <input
-          ref={dateInputRef}
           type="date"
           className="date-picker-input"
           value={selectedDate}
           onChange={(e) => onDatePick(e.target.value)}
-          tabIndex={-1}
-          aria-hidden="true"
+          aria-label="Scegli una data"
         />
+        <span className="date-picker-label" aria-hidden="true">
+          {selectedDateLabel}
+        </span>
       </div>
       <select
         className="town-select"

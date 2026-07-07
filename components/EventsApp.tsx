@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import DateRibbon from "@/components/DateRibbon";
@@ -77,18 +77,6 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
     setWeekAnchor(new Date(y, m - 1, d));
   };
 
-  const dateInputRef = useRef<HTMLInputElement>(null);
-  const openDatePicker = () => {
-    const input = dateInputRef.current;
-    if (!input) return;
-    if (typeof input.showPicker === "function") {
-      input.showPicker();
-    } else {
-      input.focus();
-      input.click();
-    }
-  };
-
   return (
     <div className="app">
       <header className="top">
@@ -123,8 +111,6 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
         selectedDateLabel={selectedDateLabel}
         selectedDate={selectedDate}
         onDatePick={handleDatePick}
-        onOpenDatePicker={openDatePicker}
-        dateInputRef={dateInputRef}
       />
 
       <div className={layoutClass}>
