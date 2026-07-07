@@ -140,6 +140,7 @@ export default function EventList({
                   <CoverPlaceholder town={e.town} />
                 </div>
               )}
+              <div className="event-cat event-cat-mobile">{CATEGORIES[e.cat]}</div>
             </div>
             <div className="event-main">
               <div className="event-top">
@@ -161,7 +162,7 @@ export default function EventList({
                   </p>
                   <div className="event-meta">{e.town} · {e.time}</div>
                 </div>
-                <div className="event-cat">{CATEGORIES[e.cat]}</div>
+                <div className="event-cat event-cat-desktop">{CATEGORIES[e.cat]}</div>
               </div>
               <div className="event-desc">
                 {e.desc}

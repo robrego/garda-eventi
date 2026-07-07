@@ -102,20 +102,6 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           <h1>Lago di Garda</h1>
         </div>
         <div className="header-actions">
-          <div className="date-picker-wrap">
-            <button type="button" className="date-picker-label" aria-label="Scegli una data" onClick={openDatePicker}>
-              {selectedDateLabel}
-            </button>
-            <input
-              ref={dateInputRef}
-              type="date"
-              className="date-picker-input"
-              value={selectedDate}
-              onChange={(e) => handleDatePick(e.target.value)}
-              tabIndex={-1}
-              aria-hidden="true"
-            />
-          </div>
           <AuthWidget email={email} onEmailChange={setEmail} />
         </div>
       </header>
@@ -129,7 +115,17 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
         datesWithEvents={datesWithEvents}
       />
 
-      <Filters townFilter={townFilter} setTownFilter={setTownFilter} view={view} setView={setView} />
+      <Filters
+        townFilter={townFilter}
+        setTownFilter={setTownFilter}
+        view={view}
+        setView={setView}
+        selectedDateLabel={selectedDateLabel}
+        selectedDate={selectedDate}
+        onDatePick={handleDatePick}
+        onOpenDatePicker={openDatePicker}
+        dateInputRef={dateInputRef}
+      />
 
       <div className={layoutClass}>
         <div className="map-pane">
