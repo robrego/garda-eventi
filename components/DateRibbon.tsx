@@ -41,7 +41,9 @@ export default function DateRibbon({
       const chip = el.querySelector<HTMLElement>(".day-chip");
       const gap = 8;
       const chipWidth = chip ? chip.offsetWidth : 58;
-      const fit = Math.floor((el.clientWidth + gap) / (chipWidth + gap));
+      const paddingRight = parseFloat(getComputedStyle(el).paddingRight) || 0;
+      const available = el.clientWidth - paddingRight;
+      const fit = Math.floor((available + gap) / (chipWidth + gap));
       setNumDays(Math.max(3, fit));
     };
     recalc();

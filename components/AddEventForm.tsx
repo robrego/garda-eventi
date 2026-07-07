@@ -18,6 +18,7 @@ export default function AddEventForm({
   const [desc, setDesc] = useState("");
   const [src, setSrc] = useState("");
   const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
@@ -28,7 +29,7 @@ export default function AddEventForm({
       const res = await fetch("/api/events/manual", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ date, town, title, cat, time, desc, src, image }),
+        body: JSON.stringify({ date, town, title, cat, time, desc, src, image, url }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -109,6 +110,16 @@ export default function AddEventForm({
             placeholder="https://..."
             value={image}
             onChange={(e) => setImage(e.target.value)}
+          />
+        </label>
+
+        <label className="form-field">
+          Link alla pagina dell&apos;evento (opzionale)
+          <input
+            type="url"
+            placeholder="https://..."
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
           />
         </label>
 

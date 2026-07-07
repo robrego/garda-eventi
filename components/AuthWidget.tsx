@@ -77,10 +77,11 @@ export default function AuthWidget({
             className="add-event-btn"
             onClick={() => {
               setPendingAdd(true);
+              setMode("register");
               setShowAuth(true);
             }}
           >
-            + Aggiungi Evento
+            Registrati
           </button>
         )}
       </div>

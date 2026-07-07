@@ -132,6 +132,7 @@ export function createMunicipiumScraper(town: string, feedUrl: string, srcName: 
           desc: body.slice(0, 300) || title,
           src: srcName,
           ...(image ? { image } : {}),
+          ...(link ? { url: link } : {}),
         });
       }
       return events;

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { EventItem, CATEGORIES, TOWN_CREST } from "@/data/config";
 import AddCoverForm from "@/components/AddCoverForm";
+import EditDescForm from "@/components/EditDescForm";
 
 function CoverPlaceholder({ town }: { town: string }) {
   const crest = TOWN_CREST[town];
@@ -54,17 +55,20 @@ export default function EventList({
   events,
   selectedId,
   onSelect,
-  canAddCover,
+  canEdit,
   onCoverSaved,
+  onDescSaved,
 }: {
   selectedDate: string;
   events: EventItem[];
   selectedId: string | null;
   onSelect: (id: string) => void;
-  canAddCover: boolean;
+  canEdit: boolean;
   onCoverSaved: () => void;
+  onDescSaved: () => void;
 }) {
   const [coverTarget, setCoverTarget] = useState<EventItem | null>(null);
+  const [descTarget, setDescTarget] = useState<EventItem | null>(null);
   const [brokenImages, setBrokenImages] = useState<Set<string>>(new Set());
   const d = dateFromISO(selectedDate);
   const sorted = [...events].sort((a, b) => {
@@ -118,7 +122,7 @@ export default function EventList({
                     setBrokenImages((prev) => new Set(prev).add(e.id));
                   }}
                 />
-              ) : canAddCover ? (
+              ) : canEdit ? (
                 <button
                   type="button"
                   className="event-cover-placeholder clickable"
@@ -140,13 +144,41 @@ export default function EventList({
             <div className="event-main">
               <div className="event-top">
                 <div>
-                  <p className="event-name">{e.title}</p>
+                  <p className="event-name">
+                    {e.url ? (
+                      <a
+                        href={e.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(ev) => ev.stopPropagation()}
+                      >
+                        {e.title}
+                        <span className="event-name-link-icon" aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      e.title
+                    )}
+                  </p>
                   <div className="event-meta">{e.town} · {e.time}</div>
                 </div>
                 <div className="event-cat">{CATEGORIES[e.cat]}</div>
               </div>
-              <div className="event-desc">{e.desc}</div>
-              <div className="event-src"><SourceLine src={e.src} /></div>
+              <div className="event-desc">
+                {e.desc}
+                {canEdit && (
+                  <button
+                    type="button"
+                    className="event-edit-link"
+                    onClick={(ev) => {
+                      ev.stopPropagation();
+                      setDescTarget(e);
+                    }}
+                  >
+                    Modifica
+                  </button>
+                )}
+              </div>
+              {!e.url && <div className="event-src"><SourceLine src={e.src} /></div>}
             </div>
           </div>
         </div>
@@ -159,6 +191,17 @@ export default function EventList({
           onSaved={() => {
             setCoverTarget(null);
             onCoverSaved();
+          }}
+        />
+      )}
+
+      {descTarget && (
+        <EditDescForm
+          event={descTarget}
+          onClose={() => setDescTarget(null)}
+          onSaved={() => {
+            setDescTarget(null);
+            onDescSaved();
           }}
         />
       )}

@@ -112,5 +112,6 @@ export type EventItem = {
   desc: string;
   src: string;
   image?: string;
+  url?: string; // direct link to the event's own page, if known
   addedBy?: string; // email of the user who submitted it manually, if any
 };

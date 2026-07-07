@@ -3,6 +3,7 @@ import rawEvents from "./events.json";
 import { MARKET_DAYS, EventItem } from "./config";
 import { readManualEvents } from "@/lib/manualEvents";
 import { readImageOverrides, imageOverrideKey } from "@/lib/imageOverrides";
+import { readDescOverrides, descOverrideKey } from "@/lib/descOverrides";
 
 export const SCRAPED_BLOB_PATHNAME = "garda-scraped-events.json";
 
@@ -83,17 +84,20 @@ async function fetchScrapedEvents(): Promise<RawEvent[]> {
  * any automated source actually contributed events this run.
  */
 export async function getAllEvents(): Promise<{ events: EventItem[]; hasLiveData: boolean }> {
-  const [manual, scraped, overrides] = await Promise.all([
+  const [manual, scraped, imageOverrides, descOverrides] = await Promise.all([
     readManualEvents(),
     fetchScrapedEvents(),
     readImageOverrides(),
+    readDescOverrides(),
   ]);
   const curated = dedupe([...manual, ...scraped, ...(rawEvents as RawEvent[])]);
-  const overrideMap = new Map(overrides.map((o) => [imageOverrideKey(o), o.image]));
+  const imageOverrideMap = new Map(imageOverrides.map((o) => [imageOverrideKey(o), o.image]));
+  const descOverrideMap = new Map(descOverrides.map((o) => [descOverrideKey(o), o.desc]));
 
   const events: EventItem[] = curated.map((e, i) => {
-    const override = overrideMap.get(imageOverrideKey(e));
-    return { id: `ev${i}`, ...e, ...(override ? { image: override } : {}) };
+    const image = imageOverrideMap.get(imageOverrideKey(e));
+    const desc = descOverrideMap.get(descOverrideKey(e));
+    return { id: `ev${i}`, ...e, ...(image ? { image } : {}), ...(desc ? { desc } : {}) };
   });
 
   let idCounter = events.length;

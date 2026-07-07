@@ -142,8 +142,9 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           events={dayEvents}
           selectedId={selectedId}
           onSelect={setSelectedId}
-          canAddCover={!!email}
+          canEdit={!!email}
           onCoverSaved={() => router.refresh()}
+          onDescSaved={() => router.refresh()}
         />
       </div>
     </div>

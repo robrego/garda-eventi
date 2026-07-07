@@ -24,16 +24,18 @@
     "cat": "festival",
     "time": "20:30–00:00",
     "desc": "Musica dal vivo in Piazza Malvezzi, Piazza Matteotti, Duomo e Via Castello. Negozi e locali aperti fino a tardi.",
-    "src": "lagodigardaeventi.it"
+    "src": "lagodigardaeventi.it",
+    "url": "https://www.lagodigardaeventi.it/notte-bianca-desenzano/"
   },
   {
     "date": "2026-07-10",
     "town": "Desenzano",
-    "title": "Mostra al Castello",
+    "title": "Giorgio de Chirico. Un mondo senza tempo",
     "cat": "art",
     "time": "10:00–19:00",
-    "desc": "Esposizione temporanea negli spazi del Castello di Desenzano (in corso dal 27 giugno al 22 luglio).",
-    "src": "Garda Lombardia"
+    "desc": "Mostra dedicata a Giorgio de Chirico e al \"Ritorno all'ordine\": una ventina di opere da musei e collezioni private, bozzetti del Vittoriale per \"La figlia di Iorio\" e dipinti di Savinio, Tozzi, de Pisis e Sironi. A cura di Giordano Bruno Guerri, al Castello di Desenzano fino al 4 ottobre.",
+    "src": "Garda Lombardia",
+    "url": "https://gardalombardia.com/it/eventi/giorgio-de-chirico_4617"
   },
   {
     "date": "2026-07-11",
@@ -43,7 +45,8 @@
     "time": "21:30",
     "desc": "\"La pioggia che non cade mai\": data di apertura del Festival Jazz on the Road XXIII edizione, all'Arena del Castello di Desenzano.",
     "src": "jazzontheroad.net",
-    "image": "https://www.jazzontheroad.net/public/fotoevh/cammariere-sergio-jazz.jpg"
+    "image": "https://www.jazzontheroad.net/public/fotoevh/cammariere-sergio-jazz.jpg",
+    "url": "http://www.jazzontheroad.net/evento-jotr.asp?n=511A60704A6D9E00A84898FEAA97F4BEE2E326D3D6EE846311082C0CB06DFCB7"
   },
   {
     "date": "2026-07-15",
@@ -52,7 +55,8 @@
     "cat": "festival",
     "time": "20:30–00:00",
     "desc": "Seconda notte bianca di luglio: band locali in centro storico, negozi aperti.",
-    "src": "lagodigardaeventi.it"
+    "src": "lagodigardaeventi.it",
+    "url": "https://www.lagodigardaeventi.it/notte-bianca-desenzano/"
   },
   {
     "date": "2026-08-15",
@@ -64,6 +68,36 @@
     "src": "instagarda.net"
   },
   {
+    "date": "2026-07-03",
+    "town": "Desenzano",
+    "title": "Festa di San Luigi – 1ª serata",
+    "cat": "sagra",
+    "time": "19:30",
+    "desc": "Festa parrocchiale di San Martino della Battaglia: stand gastronomici e area birra dalle 19:30, serata con Graziani Bini.",
+    "src": "panesalamina.com",
+    "url": "https://www.panesalamina.com/festa-di-san-luigi-3-2026.html"
+  },
+  {
+    "date": "2026-07-04",
+    "town": "Desenzano",
+    "title": "Festa di San Luigi – 2ª serata",
+    "cat": "sagra",
+    "time": "19:30",
+    "desc": "Seconda serata della Festa di San Luigi a San Martino della Battaglia, con musica di Radio Bruno.",
+    "src": "panesalamina.com",
+    "url": "https://www.panesalamina.com/festa-di-san-luigi-3-2026.html"
+  },
+  {
+    "date": "2026-07-05",
+    "town": "Desenzano",
+    "title": "Festa di San Luigi – 3ª serata",
+    "cat": "sagra",
+    "time": "19:30",
+    "desc": "Serata conclusiva della Festa di San Luigi, con Graziano Fanelli ed Elena Camo, pesca di beneficenza e mercatino di merletti.",
+    "src": "panesalamina.com",
+    "url": "https://www.panesalamina.com/festa-di-san-luigi-3-2026.html"
+  },
+  {
     "date": "2026-07-07",
     "town": "Sirmione",
     "title": "Spazi del Suono",
@@ -71,7 +105,8 @@
     "time": "16:00–18:00",
     "desc": "Laboratorio artistico dedicato all'ascolto e alla sperimentazione sonora del paesaggio, alla Casa del Pescatore di Punta Grò.",
     "src": "Visit Sirmione",
-    "image": "https://visitsirmione.com/wp-content/uploads/2026/06/8x5-Spazi-del-suono-luglio-2026-568x355.jpg"
+    "image": "https://visitsirmione.com/wp-content/uploads/2026/06/8x5-Spazi-del-suono-luglio-2026-568x355.jpg",
+    "url": "https://visitsirmione.com/spazi-del-suono-luglio-2026/"
   },
   {
     "date": "2026-07-07",
@@ -80,7 +115,8 @@
     "cat": "cultura",
     "time": "20:45",
     "desc": "Giorgio Vacchiano presenta il suo libro sulle foreste che cambiano il pianeta, a Palazzo Callas Exhibitions.",
-    "src": "Visit Sirmione"
+    "src": "Visit Sirmione",
+    "url": "https://visitsirmione.com/giorgio-vacchiano-su-bresciaoggi-aiutiamo-le-foreste-ad-aiutarci-piantare-gli-alberi-non-puo-bastare-dobbiamo-ridurre-le-emissioni-luglio2026/"
   },
   {
     "date": "2026-07-09",
@@ -99,7 +135,8 @@
     "time": "16:00–18:00",
     "desc": "Seconda data del laboratorio di ascolto e sperimentazione sonora alla Casa del Pescatore di Punta Grò.",
     "src": "Visit Sirmione",
-    "image": "https://visitsirmione.com/wp-content/uploads/2026/06/8x5-Spazi-del-suono-luglio-2026-568x355.jpg"
+    "image": "https://visitsirmione.com/wp-content/uploads/2026/06/8x5-Spazi-del-suono-luglio-2026-568x355.jpg",
+    "url": "https://visitsirmione.com/spazi-del-suono-luglio-2026/"
   },
   {
     "date": "2026-08-10",
@@ -120,6 +157,26 @@
     "src": "instagarda.net"
   },
   {
+    "date": "2026-07-09",
+    "town": "Sirmione",
+    "title": "Rovizza in Festa – 1ª serata",
+    "cat": "sagra",
+    "time": "19:30",
+    "desc": "25esima edizione della festa parrocchiale di Rovizza, con stand gastronomici in Via Nicola Dal Prà.",
+    "src": "panesalamina.com",
+    "url": "https://www.panesalamina.com/rovizza-in-festa-2026.html"
+  },
+  {
+    "date": "2026-07-12",
+    "town": "Sirmione",
+    "title": "Rovizza in Festa – Chiusura",
+    "cat": "sagra",
+    "time": "19:30",
+    "desc": "Ultima serata della 25esima edizione di Rovizza in Festa, con stand gastronomici in Via Nicola Dal Prà.",
+    "src": "panesalamina.com",
+    "url": "https://www.panesalamina.com/rovizza-in-festa-2026.html"
+  },
+  {
     "date": "2026-07-04",
     "town": "Peschiera",
     "title": "Teatro Estivo",
@@ -131,21 +188,23 @@
   {
     "date": "2026-07-07",
     "town": "Peschiera",
-    "title": "Concerto Live Band",
+    "title": "Damavoci Gospel Singers & Corodoro",
     "cat": "concert",
     "time": "in serata",
-    "desc": "Concerto live nell'ambito degli eventi estivi organizzati dalle associazioni locali.",
+    "desc": "Le Damavoci Gospel Singers, gruppo vocale femminile specializzato in gospel moderno, insieme al coro Corodoro, alla Caserma d'Artiglieria di Porta Verona.",
     "src": "Comune di Peschiera del Garda",
-    "image": "https://peschiera-del-garda-api.municipiumapp.it/s3/5103/media/locandina-damavoci_corretto.jpg"
+    "image": "https://peschiera-del-garda-api.municipiumapp.it/s3/5103/media/locandina-damavoci_corretto.jpg",
+    "url": "https://www.comune.peschieradelgarda.vr.it/it/events/teatro-estivo-il-nodo-715825-715828"
   },
   {
     "date": "2026-07-10",
     "town": "Peschiera",
-    "title": "Concerto Musicale",
+    "title": "GardArt – Soul Express",
     "cat": "concert",
     "time": "in serata",
-    "desc": "Concerto musicale in programma nel calendario estivo comunale.",
+    "desc": "I Soul Express in un viaggio tra i cinquant'anni più significativi della storia della musica soul, alla Caserma d'Artiglieria di Porta Verona. Ingresso libero.",
     "src": "Comune di Peschiera del Garda",
+    "url": "https://www.lagodigardaveneto.com/it/eventi/concerto-gardart-10-luglio_11895",
     "image": "https://peschiera-del-garda-api.municipiumapp.it/s3/5103/media/locandina-gardart_corretto.jpg"
   },
   {
@@ -155,7 +214,8 @@
     "cat": "teatro",
     "time": "in serata",
     "desc": "Spettacolo teatrale a cura delle associazioni locali.",
-    "src": "Comune di Peschiera del Garda"
+    "src": "Comune di Peschiera del Garda",
+    "url": "https://www.comune.peschieradelgarda.vr.it/it/events/inizio-stagione-teatrale-estiva-715835-715836"
   },
   {
     "date": "2026-07-21",
@@ -164,7 +224,8 @@
     "cat": "teatro",
     "time": "in serata",
     "desc": "Spettacolo a cura della compagnia \"Il Sipario Onirico\" (teatro per famiglie e ragazzi) alla Caserma d’Artiglieria di Porta Verona. Il titolo esatto dello spettacolo di questa serata non è indicato nel programma ufficiale.",
-    "src": "comune.peschieradelgarda.vr.it"
+    "src": "comune.peschieradelgarda.vr.it",
+    "url": "https://www.comune.peschieradelgarda.vr.it/it/events/teatro-estivo-il-sipario-onirico-715832"
   },
   {
     "date": "2026-07-24",
@@ -173,7 +234,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Jacopo Taddei (sassofono) e Filippo Farinelli (pianoforte) al Teatro Estivo Caserma d'Artiglieria di Porta Verona. Ingresso libero.",
-    "src": "Garda Festival 2026"
+    "src": "Garda Festival 2026",
+    "url": "https://www.gardafestival.com/evento/jacopo-taddei-filippo-farinelli/"
   },
   {
     "date": "2026-07-25",
@@ -183,7 +245,8 @@
     "time": "19:15",
     "desc": "Talk esclusivo con Donatella Rettore e consegna del Premio Cigno del Garda 2026. Teatro Estivo Caserma d'Artiglieria di Porta Verona.",
     "src": "Garda Festival 2026",
-    "image": "https://www.rettore.com/wp-content/uploads/2026/07/Rettore-Garda.webp"
+    "image": "https://www.rettore.com/wp-content/uploads/2026/07/Rettore-Garda.webp",
+    "url": "https://www.gardafestival.com/evento/donatella-rettore/"
   },
   {
     "date": "2026-07-26",
@@ -192,7 +255,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "The Mozart Wunderkammer: concerto per i 270 anni dalla nascita di Mozart.",
-    "src": "Garda Festival 2026"
+    "src": "Garda Festival 2026",
+    "url": "https://www.gardafestival.com/evento/i-musici-piccinniani/"
   },
   {
     "date": "2026-07-31",
@@ -201,7 +265,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Vittorio Benaglia in un viaggio musicale crepuscolare alla viola, presso la Chiesa di San Martino.",
-    "src": "Garda Festival 2026"
+    "src": "Garda Festival 2026",
+    "url": "https://www.gardafestival.com/evento/vittorio-benaglia/"
   },
   {
     "date": "2026-07-03",
@@ -210,7 +275,8 @@
     "cat": "cultura",
     "time": "21:30",
     "desc": "Proiezione all'aperto al Teatro del Castello, ingresso €5.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
   },
   {
     "date": "2026-07-10",
@@ -220,7 +286,8 @@
     "time": "21:30",
     "desc": "Tappa del Festival Jazz on the Road XXIII edizione in Piazza G. D'Annunzio.",
     "src": "jazzontheroad.net",
-    "image": "https://www.jazzontheroad.net/public/fotoevh/karima-quartet.jpg"
+    "image": "https://www.jazzontheroad.net/public/fotoevh/karima-quartet.jpg",
+    "url": "https://jazzontheroad.net/evento-jotr.asp?n=723F5E34B4FCFF8AAA0F5550BA7DB7D41D320A774FDD81B3DD224481D7BFCE05"
   },
   {
     "date": "2026-07-14",
@@ -229,7 +296,8 @@
     "cat": "festival",
     "time": "21:15",
     "desc": "Performance di circo contemporaneo a cura dell'associazione Strabilio al Parco Vaso Rì.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
   },
   {
     "date": "2026-07-19",
@@ -238,7 +306,8 @@
     "cat": "cultura",
     "time": "21:30",
     "desc": "Proiezione all'aperto al Teatro del Castello, ingresso €5.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
   },
   {
     "date": "2026-07-22",
@@ -247,7 +316,8 @@
     "cat": "sport",
     "time": "pomeriggio",
     "desc": "Laboratori di diablo per bambini e ragazzi al Parco Vaso Rì, iscrizione obbligatoria.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
   },
   {
     "date": "2026-07-31",
@@ -256,7 +326,8 @@
     "cat": "cultura",
     "time": "21:30",
     "desc": "Proiezione del documentario LUX del regista Marco Preti al Teatro del Castello, ingresso gratuito.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
   },
   {
     "date": "2026-07-31",
@@ -265,7 +336,8 @@
     "cat": "festival",
     "time": "19:00",
     "desc": "Serata di festa del Gruppo Alpini di Padenghe al Parco Alpini.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
   },
   {
     "date": "2026-07-01",
@@ -274,7 +346,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici, artigianato e curiosità al Porto di Moniga, con musica dal vivo. Ogni mercoledì fino al 2 settembre.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-02",
@@ -283,7 +356,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori, artisti e hobbisti con prodotti dell'artigianato locale. Ogni giovedì fino al 3 settembre.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-08",
@@ -293,7 +367,8 @@
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-09",
@@ -303,7 +378,8 @@
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-13",
@@ -312,7 +388,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto tributo a Renato Zero in Piazza San Martino.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-07-15",
@@ -322,7 +399,8 @@
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-16",
@@ -332,7 +410,8 @@
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-19",
@@ -342,7 +421,8 @@
     "time": "19:00–24:00",
     "desc": "Tre giorni di festa al Parco degli Alpini con musica, gastronomia e convivialità.",
     "src": "gardanotizie.it",
-    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/42952369884210/festa-alpina-moniga-2024.jpg"
+    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/42952369884210/festa-alpina-moniga-2024.jpg",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-07-20",
@@ -352,7 +432,8 @@
     "time": "19:00–24:00",
     "desc": "Seconda serata del Festival degli Alpini al Parco degli Alpini.",
     "src": "gardanotizie.it",
-    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/42952369884210/festa-alpina-moniga-2024.jpg"
+    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/42952369884210/festa-alpina-moniga-2024.jpg",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-07-21",
@@ -362,7 +443,8 @@
     "time": "19:00–24:00",
     "desc": "Terza e ultima serata del Festival degli Alpini al Parco degli Alpini.",
     "src": "gardanotizie.it",
-    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/42952369884210/festa-alpina-moniga-2024.jpg"
+    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/42952369884210/festa-alpina-moniga-2024.jpg",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-07-22",
@@ -372,7 +454,8 @@
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-23",
@@ -382,7 +465,8 @@
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-25",
@@ -392,7 +476,8 @@
     "time": "mattina",
     "desc": "Gara di nuoto in acque libere nel Lago di Garda davanti a Moniga del Garda.",
     "src": "gardaclick.com",
-    "image": "https://www.leonessaopenwater.com/wp-content/uploads/2026/05/DSC_0431-copia-scaled.jpg"
+    "image": "https://www.leonessaopenwater.com/wp-content/uploads/2026/05/DSC_0431-copia-scaled.jpg",
+    "url": "https://www.leonessaopenwater.com/"
   },
   {
     "date": "2026-07-29",
@@ -402,7 +487,8 @@
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-30",
@@ -412,7 +498,8 @@
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-02",
@@ -421,7 +508,8 @@
     "cat": "festival",
     "time": "21:00–23:00",
     "desc": "Serata fluo con musica rock e spettacolo pirotecnico al Porto di Moniga.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-08-05",
@@ -431,7 +519,8 @@
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
     "src": "comune.monigadelgarda.bs.it",
-    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp"
+    "image": "https://mycity.s3.sbg.io.cloud.ovh.net/5133860/Mercatini-serali.webp",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-06",
@@ -440,7 +529,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-09",
@@ -449,7 +539,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto tributo ai Maneskin in Piazza San Martino.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-08-10",
@@ -458,7 +549,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto tributo ai Beatles con mostra iconografica in Piazza San Martino.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-08-12",
@@ -467,7 +559,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-13",
@@ -476,7 +569,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-15",
@@ -485,7 +579,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto tributo a Zucchero Fornaciari per Ferragosto in Piazza San Martino.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-08-16",
@@ -494,7 +589,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Prima di tre serate di festa organizzate dall'oratorio locale.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-08-17",
@@ -503,7 +599,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Seconda serata della festa dell'oratorio locale.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-08-18",
@@ -512,7 +609,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Terza e ultima serata della festa dell'oratorio locale.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/unestate-indimenticabile-a-moniga-del-garda/"
   },
   {
     "date": "2026-08-19",
@@ -521,7 +619,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-20",
@@ -530,7 +629,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-26",
@@ -539,7 +639,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Bancarelle con prodotti tipici e artigianato al Porto di Moniga.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-08-27",
@@ -548,7 +649,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Piazza San Martino animata da espositori e artisti locali.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-09-02",
@@ -557,7 +659,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Ultima serata stagionale al Porto di Moniga con bancarelle e musica.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-09-03",
@@ -566,7 +669,8 @@
     "cat": "festival",
     "time": "19:00–23:00",
     "desc": "Ultima serata stagionale in Piazza San Martino.",
-    "src": "comune.monigadelgarda.bs.it"
+    "src": "comune.monigadelgarda.bs.it",
+    "url": "https://www.gardanotizie.it/shopping-in-riva-al-lago-e-giovedi-in-piazza-nuove-manifestazioni-per-promuovere-moniga-del-garda/"
   },
   {
     "date": "2026-07-07",
@@ -576,7 +680,8 @@
     "time": "20:00–23:00",
     "desc": "Mercatini serali sotto le stelle nel centro storico con musica dal vivo, shopping e prodotti artigianali. Ogni martedì fino al 25 agosto.",
     "src": "visitmanerba.it",
-    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg"
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
   },
   {
     "date": "2026-07-12",
@@ -586,7 +691,8 @@
     "time": "21:00",
     "desc": "Inaugurazione del festival jazz internazionale: contrabbassista Christian McBride e chitarrista Julian Lage, unica data italiana. Piazza Aldo Moro. Biglietti €20.",
     "src": "musicajazz.it",
-    "image": "https://api.gdb.atexcloud.io/image-service/view/acePublic/alias/contentid/1psl5rvkgc1kurxdusy/0/il-contrabbassista-christian-mcbride.webp?f=16%3A9&w=826"
+    "image": "https://api.gdb.atexcloud.io/image-service/view/acePublic/alias/contentid/1psl5rvkgc1kurxdusy/0/il-contrabbassista-christian-mcbride.webp?f=16%3A9&w=826",
+    "url": "https://visitmanerba.it/minerva-musicae/"
   },
   {
     "date": "2026-07-14",
@@ -596,7 +702,8 @@
     "time": "20:00–23:00",
     "desc": "Mercatini serali sotto le stelle con musica dal vivo e prodotti artigianali.",
     "src": "visitmanerba.it",
-    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg"
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
   },
   {
     "date": "2026-07-17",
@@ -606,7 +713,8 @@
     "time": "21:00",
     "desc": "Duello tra due pianoforti con Dado Moroni e Andrea Bacchetti. Piazza Aldo Moro.",
     "src": "musicajazz.it",
-    "image": "https://www.musicajazz.it/wp-content/uploads/Moroni-Bacchetti-300x169.jpg"
+    "image": "https://www.musicajazz.it/wp-content/uploads/Moroni-Bacchetti-300x169.jpg",
+    "url": "https://visitmanerba.it/minerva-musicae/"
   },
   {
     "date": "2026-07-20",
@@ -615,7 +723,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Il pianista jazz Antonio Faraò in concerto. Piazza Aldo Moro.",
-    "src": "musicajazz.it"
+    "src": "musicajazz.it",
+    "url": "https://visitmanerba.it/minerva-musicae/"
   },
   {
     "date": "2026-07-21",
@@ -625,7 +734,8 @@
     "time": "20:00–23:00",
     "desc": "Mercatini serali sotto le stelle con musica dal vivo e prodotti artigianali.",
     "src": "visitmanerba.it",
-    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg"
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
   },
   {
     "date": "2026-07-22",
@@ -635,7 +745,8 @@
     "time": "21:00",
     "desc": "Il leggendario chitarrista Al Di Meola con il suo trio acustico, in coincidenza con il suo 72° compleanno. Piazza Aldo Moro. Biglietti €30.",
     "src": "musicajazz.it",
-    "image": "https://www.musicajazz.it/wp-content/uploads/Al-di-Meola-1-1-300x300.jpg"
+    "image": "https://www.musicajazz.it/wp-content/uploads/Al-di-Meola-1-1-300x300.jpg",
+    "url": "https://visitmanerba.it/minerva-musicae/"
   },
   {
     "date": "2026-07-23",
@@ -645,7 +756,8 @@
     "time": "21:00",
     "desc": "Il chitarrista Bill Frisell con il sassofonista Greg Tardy. Piazza Aldo Moro.",
     "src": "musicajazz.it",
-    "image": "https://www.musicajazz.it/wp-content/uploads/Bill-Frisell-di-Carole-DInverno-696x521.jpg"
+    "image": "https://www.musicajazz.it/wp-content/uploads/Bill-Frisell-di-Carole-DInverno-696x521.jpg",
+    "url": "https://visitmanerba.it/minerva-musicae/"
   },
   {
     "date": "2026-07-25",
@@ -654,7 +766,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Gran finale del festival con la Fanfara del 3° Reggimento Carabinieri Lombardia. Piazza Aldo Moro.",
-    "src": "musicajazz.it"
+    "src": "musicajazz.it",
+    "url": "https://visitmanerba.it/minerva-musicae/"
   },
   {
     "date": "2026-07-26",
@@ -673,7 +786,8 @@
     "time": "20:00–23:00",
     "desc": "Mercatini serali sotto le stelle con musica dal vivo e prodotti artigianali.",
     "src": "visitmanerba.it",
-    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg"
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
   },
   {
     "date": "2026-08-04",
@@ -683,7 +797,8 @@
     "time": "20:00–23:00",
     "desc": "Mercatini serali sotto le stelle con musica dal vivo e prodotti artigianali.",
     "src": "visitmanerba.it",
-    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg"
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/visit-manerba-eventi-martedi-d-incanto.jpg",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
   },
   {
     "date": "2026-08-11",
@@ -692,25 +807,8 @@
     "cat": "market",
     "time": "20:00–23:00",
     "desc": "Mercatini serali sotto le stelle con musica dal vivo e prodotti artigianali.",
-    "src": "visitmanerba.it"
-  },
-  {
-    "date": "2026-08-11",
-    "town": "Manerba",
-    "title": "Manerbeer Festival – apertura",
-    "cat": "festival",
-    "time": "18:00",
-    "desc": "Cinque serate (11–15 agosto) di concerti pop e rock, birre artigianali e food truck in riva al lago.",
-    "src": "gardapost.it"
-  },
-  {
-    "date": "2026-08-15",
-    "town": "Manerba",
-    "title": "Manerbeer Festival – gran finale",
-    "cat": "festival",
-    "time": "18:00",
-    "desc": "Serata di chiusura del Manerbeer Festival con concerto finale e birre artigianali.",
-    "src": "gardapost.it"
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
   },
   {
     "date": "2026-08-18",
@@ -719,7 +817,8 @@
     "cat": "market",
     "time": "20:00–23:00",
     "desc": "Mercatini serali sotto le stelle con musica dal vivo e prodotti artigianali.",
-    "src": "visitmanerba.it"
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
   },
   {
     "date": "2026-08-22",
@@ -737,7 +836,83 @@
     "cat": "market",
     "time": "20:00–23:00",
     "desc": "Ultimo appuntamento stagionale dei mercatini serali nel centro storico.",
-    "src": "visitmanerba.it"
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/martedi-dincanto/"
+  },
+  {
+    "date": "2026-08-12",
+    "town": "Manerba",
+    "title": "Manerbeer Festival – Tributo a Vasco Rossi",
+    "cat": "sagra",
+    "time": "18:00",
+    "desc": "Prima serata del Manerbeer Festival a Parco Rolli: area food truck dalle 18, tributo a Vasco Rossi in apertura.",
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/manerbeer-festival/",
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/eventi-web-sagra2.jpg"
+  },
+  {
+    "date": "2026-08-13",
+    "town": "Manerba",
+    "title": "Manerbeer Festival – Tributo Jova Beach Party",
+    "cat": "sagra",
+    "time": "18:00",
+    "desc": "Seconda serata del Manerbeer Festival a Parco Rolli, con tributo al Jova Beach Party.",
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/manerbeer-festival/",
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/eventi-web-sagra2.jpg"
+  },
+  {
+    "date": "2026-08-14",
+    "town": "Manerba",
+    "title": "Manerbeer Festival – Tributo Genux",
+    "cat": "sagra",
+    "time": "18:00",
+    "desc": "Terza serata del Manerbeer Festival a Parco Rolli, con tributo ai Genux.",
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/manerbeer-festival/",
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/eventi-web-sagra2.jpg"
+  },
+  {
+    "date": "2026-08-15",
+    "town": "Manerba",
+    "title": "Manerbeer Festival – Latin Night",
+    "cat": "sagra",
+    "time": "18:00",
+    "desc": "Quarta serata del Manerbeer Festival a Parco Rolli, format latino con DJ set.",
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/manerbeer-festival/",
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/eventi-web-sagra2.jpg"
+  },
+  {
+    "date": "2026-08-16",
+    "town": "Manerba",
+    "title": "Manerbeer Festival – Tributo Green Day e Linkin Park",
+    "cat": "sagra",
+    "time": "18:00",
+    "desc": "Quinta e ultima serata del Manerbeer Festival a Parco Rolli, con tributi a Green Day e Linkin Park.",
+    "src": "visitmanerba.it",
+    "url": "https://visitmanerba.it/eventi/manerbeer-festival/",
+    "image": "https://visitmanerba.it/wp-content/uploads/2025/05/eventi-web-sagra2.jpg"
+  },
+  {
+    "date": "2026-08-26",
+    "town": "Manerba",
+    "title": "Le Notti del Vino – 1ª serata",
+    "cat": "sagra",
+    "time": "in serata",
+    "desc": "Degustazione di vini del territorio abbinati a proposte gastronomiche, al Parco della Rocca con vista sul lago.",
+    "src": "garda-outdoors.com",
+    "url": "https://www.garda-outdoors.com/en/le-notti-del-vino-2026-a-toast-under-the-stars-in-manerba-del-garda/"
+  },
+  {
+    "date": "2026-08-27",
+    "town": "Manerba",
+    "title": "Le Notti del Vino – 2ª serata",
+    "cat": "sagra",
+    "time": "in serata",
+    "desc": "Seconda e ultima serata de Le Notti del Vino al Parco della Rocca, degustazioni ed enogastronomia locale.",
+    "src": "garda-outdoors.com",
+    "url": "https://www.garda-outdoors.com/en/le-notti-del-vino-2026-a-toast-under-the-stars-in-manerba-del-garda/"
   },
   {
     "date": "2026-08-30",
@@ -746,7 +921,8 @@
     "cat": "festival",
     "time": "giornata intera",
     "desc": "Festa patronale di San Felice del Benaco in onore dei santi patroni Felice, Adauto e Flavia.",
-    "src": "italia-italy.org"
+    "src": "italia-italy.org",
+    "url": "https://italia-italy.org/evt18991-eventi-san_felice_del_benaco/ss-felice-adauto-e-flavia-san-felice-del-benaco"
   },
   {
     "date": "2026-07-02",
@@ -755,7 +931,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Prima serata della rassegna estiva di musica dal vivo in piazza.",
-    "src": "gardapost.it"
+    "src": "gardapost.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11071/pagsistema.html"
   },
   {
     "date": "2026-07-09",
@@ -765,7 +942,8 @@
     "time": "18:00",
     "desc": "Quattro giorni di street food internazionale in Piazza Serenissima sul lungolago.",
     "src": "gardanotizie.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp",
+    "url": "https://www.panesalamina.com/salo-street-food-festival-2-2026.html"
   },
   {
     "date": "2026-07-10",
@@ -775,7 +953,8 @@
     "time": "18:00",
     "desc": "Seconda giornata del festival dello street food in Piazza Serenissima.",
     "src": "gardanotizie.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp",
+    "url": "https://www.panesalamina.com/salo-street-food-festival-2-2026.html"
   },
   {
     "date": "2026-07-11",
@@ -785,7 +964,8 @@
     "time": "18:00",
     "desc": "Terza giornata del festival dello street food in Piazza Serenissima.",
     "src": "gardanotizie.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp",
+    "url": "https://www.panesalamina.com/salo-street-food-festival-2-2026.html"
   },
   {
     "date": "2026-07-12",
@@ -795,7 +975,8 @@
     "time": "18:00",
     "desc": "Ultima giornata del festival dello street food in Piazza Serenissima.",
     "src": "gardanotizie.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/street-food-2.webp",
+    "url": "https://www.panesalamina.com/salo-street-food-festival-2-2026.html"
   },
   {
     "date": "2026-07-16",
@@ -805,7 +986,8 @@
     "time": "21:00",
     "desc": "Anteprima della 67ª edizione: il Quartetto Asturia sullo storico veliero Circe in navigazione nel golfo di Salò.",
     "src": "comune.salo.bs.it",
-    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/261731603250O__O2.png"
+    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/261731603250O__O2.png",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11153/pagsistema.html"
   },
   {
     "date": "2026-07-18",
@@ -815,7 +997,8 @@
     "time": "21:30",
     "desc": "Laura Marzadori al violino, Gioele Dix voce recitante, Orchestra Filarmonica Italiana. Piazza Duomo.",
     "src": "comune.salo.bs.it",
-    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/O__O3.png"
+    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/O__O3.png",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11154/pagsistema.html"
   },
   {
     "date": "2026-07-21",
@@ -834,7 +1017,8 @@
     "time": "21:30",
     "desc": "Paolo Ghidoni (violino) e Marco Tezza (pianoforte) al Chiostro del MuSa.",
     "src": "comune.salo.bs.it",
-    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/261731606220O__O4.png"
+    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/261731606220O__O4.png",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11155/pagsistema.html"
   },
   {
     "date": "2026-07-25",
@@ -844,7 +1028,8 @@
     "time": "21:30",
     "desc": "Lucilla Rose Mariotti al violino con l'Orchestra Filarmonica Italiana esegue Vivaldi. Piazza Duomo.",
     "src": "comune.salo.bs.it",
-    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/261731606070O__O5.png"
+    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/261731606070O__O5.png",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11156/pagsistema.html"
   },
   {
     "date": "2026-07-26",
@@ -863,7 +1048,8 @@
     "time": "21:30",
     "desc": "Joanna Trzeciak al pianoforte con il Quartetto Sangiorgi. Chiostro del MuSa.",
     "src": "comune.salo.bs.it",
-    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/O__O6.png"
+    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/O__O6.png",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11157/pagsistema.html"
   },
   {
     "date": "2026-07-30",
@@ -882,7 +1068,8 @@
     "time": "21:30",
     "desc": "Nurie Chung al violino con l'Orchestra Filarmonica Italiana. Piazza Duomo.",
     "src": "comune.salo.bs.it",
-    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/O__O7.png"
+    "image": "https://www.comune.salo.bs.it/download/oggetto_calendario_eventi/288/O__O7.png",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11158/pagsistema.html"
   },
   {
     "date": "2026-08-04",
@@ -900,7 +1087,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Seconda serata della rassegna musicale estiva in piazza.",
-    "src": "gardapost.it"
+    "src": "gardapost.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11072/pagsistema.html"
   },
   {
     "date": "2026-08-08",
@@ -909,7 +1097,8 @@
     "cat": "concert",
     "time": "21:30",
     "desc": "Il soprano Cristina Mosca e l'Orchestra Filarmonica Italiana celebrano Nino Rota. Piazza Duomo.",
-    "src": "comune.salo.bs.it"
+    "src": "comune.salo.bs.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11159/pagsistema.html"
   },
   {
     "date": "2026-08-15",
@@ -945,7 +1134,8 @@
     "cat": "cultura",
     "time": "21:00",
     "desc": "Proiezione della commedia italiana \"La vita da grandi\", diretta da Greta Scarano, al Parco Canipari, Villa di Salò. Ingresso libero fino a esaurimento posti.",
-    "src": "bsnews.it"
+    "src": "bsnews.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11067/pagsistema.html"
   },
   {
     "date": "2026-08-29",
@@ -963,7 +1153,8 @@
     "cat": "market",
     "time": "giornata intera",
     "desc": "Mercatino di artigianato artistico sul lungolago.",
-    "src": "comune.salo.bs.it"
+    "src": "comune.salo.bs.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11059/pagsistema.html"
   },
   {
     "date": "2026-08-31",
@@ -972,7 +1163,8 @@
     "cat": "cultura",
     "time": "21:00",
     "desc": "Proiezione del film \"Bridget Jones: Un amore di ragazzo\", diretto da Michael Morris, al Parco Canipari. Ingresso libero fino a esaurimento posti.",
-    "src": "bsnews.it"
+    "src": "bsnews.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11068/pagsistema.html"
   },
   {
     "date": "2026-09-03",
@@ -981,7 +1173,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Serata conclusiva della rassegna musicale estiva.",
-    "src": "gardapost.it"
+    "src": "gardapost.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/11073/pagsistema.html"
   },
   {
     "date": "2026-09-05",
@@ -1008,7 +1201,8 @@
     "cat": "festival",
     "time": "giornata intera",
     "desc": "Mostra-mercato di piante rare e fiori nel centro storico (17–20 settembre).",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/10037/pagsistema.html"
   },
   {
     "date": "2026-09-18",
@@ -1017,7 +1211,8 @@
     "cat": "festival",
     "time": "giornata intera",
     "desc": "Seconda giornata della mostra-mercato botanica.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/10037/pagsistema.html"
   },
   {
     "date": "2026-09-19",
@@ -1026,7 +1221,8 @@
     "cat": "festival",
     "time": "giornata intera",
     "desc": "Terza giornata della mostra-mercato botanica.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/10037/pagsistema.html"
   },
   {
     "date": "2026-09-20",
@@ -1035,7 +1231,8 @@
     "cat": "festival",
     "time": "giornata intera",
     "desc": "Ultima giornata della mostra-mercato botanica.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.comune.salo.bs.it/area_letturaEvento/10037/pagsistema.html"
   },
   {
     "date": "2026-09-27",
@@ -1062,7 +1259,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Concerto di Daniele Silvestri all'Anfiteatro del Vittoriale degli Italiani.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-daniele-silvestri-2026-2/"
   },
   {
     "date": "2026-07-06",
@@ -1072,7 +1270,8 @@
     "time": "21:15",
     "desc": "Serata jazz con Stefano Bollani e i suoi All Stars all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/02/272x411-ANNUNCIO-7.jpg"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/02/272x411-ANNUNCIO-7.jpg",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-stefano-bollani-all-stars-2026/"
   },
   {
     "date": "2026-07-08",
@@ -1082,7 +1281,8 @@
     "time": "21:15",
     "desc": "La contrabbassista e vocalist jazz Esperanza Spalding all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/03/272x411-ANNUNCIO-6.png"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/03/272x411-ANNUNCIO-6.png",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-esperanza-spalding-2026/"
   },
   {
     "date": "2026-07-11",
@@ -1092,7 +1292,8 @@
     "time": "21:15",
     "desc": "Concerto di LP (Laura Pergolizzi) all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/02/272x411-ANNUNCIO-3.png"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/02/272x411-ANNUNCIO-3.png",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-lp-2026-2/"
   },
   {
     "date": "2026-07-12",
@@ -1101,7 +1302,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Serata poetica e musicale «Benedetti gli istanti» all'Anfiteatro del Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/piu-luce-2026/"
   },
   {
     "date": "2026-07-16",
@@ -1111,7 +1313,8 @@
     "time": "21:15",
     "desc": "La pianista e vocalist jazz canadese Diana Krall all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/10/272x411-ANNUNCIO.jpg"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/10/272x411-ANNUNCIO.jpg",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-diana-krall-2026/"
   },
   {
     "date": "2026-07-21",
@@ -1121,7 +1324,8 @@
     "time": "21:15",
     "desc": "Il gruppo indie rock Two Door Cinema Club all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/04/1080x1080-ANNUNCIO-11.png"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/04/1080x1080-ANNUNCIO-11.png",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-two-door-cinema-club/"
   },
   {
     "date": "2026-07-24",
@@ -1131,7 +1335,8 @@
     "time": "21:15",
     "desc": "Il cantautore australiano Chet Faker (Nick Murphy) all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-6.jpg"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-6.jpg",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-chet-faker-2026/"
   },
   {
     "date": "2026-07-25",
@@ -1141,7 +1346,8 @@
     "time": "21:15",
     "desc": "Prima delle quattro serate di Coez all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-coez-2026/"
   },
   {
     "date": "2026-07-26",
@@ -1151,7 +1357,8 @@
     "time": "21:15",
     "desc": "Seconda serata di Coez all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-coez-2026-2/"
   },
   {
     "date": "2026-07-29",
@@ -1161,7 +1368,8 @@
     "time": "21:15",
     "desc": "Il duo acustico norvegese Kings of Convenience all'Anfiteatro del Vittoriale. Sold out.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/01/272x411-ANNUNCIO-2.png"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/01/272x411-ANNUNCIO-2.png",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/concerto-kings-of-convenience-italia-2026/"
   },
   {
     "date": "2026-07-31",
@@ -1171,7 +1379,8 @@
     "time": "21:15",
     "desc": "Concerto di Niccolò Fabi all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/02/272x411-ANNUNCIO-4.png"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2026/02/272x411-ANNUNCIO-4.png",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-niccolo-fabi-2026-3/"
   },
   {
     "date": "2026-08-01",
@@ -1181,7 +1390,8 @@
     "time": "21:15",
     "desc": "Terza serata di Coez all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-coez-2026-3/"
   },
   {
     "date": "2026-08-02",
@@ -1191,7 +1401,8 @@
     "time": "21:15",
     "desc": "Quarta e ultima serata di Coez all'Anfiteatro del Vittoriale.",
     "src": "anfiteatrodelvittoriale.it",
-    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg"
+    "image": "https://www.anfiteatrodelvittoriale.it/wp-content/uploads/2025/12/272x411-ANNUNCIO-5.jpg",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-coez-2026-4/"
   },
   {
     "date": "2026-09-04",
@@ -1200,7 +1411,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Prima di 10 serate di Biagio Antonacci Unplugged all'Anfiteatro del Vittoriale, con orchestra d'archi.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-05",
@@ -1209,7 +1421,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Seconda serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-06",
@@ -1218,7 +1431,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Terza serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-08",
@@ -1227,7 +1441,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Quarta serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-09",
@@ -1236,7 +1451,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Quinta serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-11",
@@ -1245,7 +1461,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Sesta serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-12",
@@ -1254,7 +1471,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Settima serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-13",
@@ -1263,7 +1481,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Ottava serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-15",
@@ -1272,7 +1491,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Nona serata di Biagio Antonacci Unplugged al Vittoriale.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-16",
@@ -1281,7 +1501,8 @@
     "cat": "concert",
     "time": "21:15",
     "desc": "Ultima serata di Biagio Antonacci Unplugged al Vittoriale, chiusura della stagione Tener-a-mente 2026.",
-    "src": "anfiteatrodelvittoriale.it"
+    "src": "anfiteatrodelvittoriale.it",
+    "url": "https://www.anfiteatrodelvittoriale.it/event/biglietti-concerto-biagio-antonacci/"
   },
   {
     "date": "2026-09-17",
@@ -1293,13 +1514,36 @@
     "src": "lagodigarda.com"
   },
   {
+    "date": "2026-07-24",
+    "town": "Gardone",
+    "title": "Sagra di San Michele – Apertura",
+    "cat": "sagra",
+    "time": "19:00",
+    "desc": "Apertura della sagra parrocchiale con stand gastronomici, dieci giorni di festa fino al 2 agosto. Info su Instagram @san.michele.in.festa.",
+    "src": "panesalamina.com",
+    "url": "https://www.panesalamina.com/sagra-di-san-michele-2-2026.html",
+    "image": "https://www.panesalamina.com/wp-content/uploads/2026/06/sagra-di-san-michele.jpg"
+  },
+  {
+    "date": "2026-08-02",
+    "town": "Gardone",
+    "title": "Sagra di San Michele – Chiusura",
+    "cat": "sagra",
+    "time": "19:00",
+    "desc": "Serata conclusiva della sagra parrocchiale, con stand gastronomici aperti dieci giorni tra piazza e lungolago.",
+    "src": "panesalamina.com",
+    "url": "https://www.panesalamina.com/sagra-di-san-michele-2-2026.html",
+    "image": "https://www.panesalamina.com/wp-content/uploads/2026/06/sagra-di-san-michele.jpg"
+  },
+  {
     "date": "2026-07-03",
     "town": "Toscolano",
     "title": "Sagra di Gaino – 1ª serata",
     "cat": "sagra",
     "time": "19:30",
     "desc": "Prima serata della Sagra di Gaino: musica rock con i The Four Fingers, menu con hamburger e specialità locali.",
-    "src": "bresciatoday.it"
+    "src": "bresciatoday.it",
+    "url": "https://www.bresciatoday.it/eventi/sagre/toscolano-maderno-sagra-gaino-2026.html"
   },
   {
     "date": "2026-07-04",
@@ -1308,7 +1552,8 @@
     "cat": "sagra",
     "time": "19:30",
     "desc": "Seconda serata: DJ anni '80/'90/2000 e cover band.",
-    "src": "bresciatoday.it"
+    "src": "bresciatoday.it",
+    "url": "https://www.bresciatoday.it/eventi/sagre/toscolano-maderno-sagra-gaino-2026.html"
   },
   {
     "date": "2026-07-05",
@@ -1317,7 +1562,8 @@
     "cat": "sagra",
     "time": "19:30",
     "desc": "Terza serata con l'orchestra di Mery Maffeis. Menu tipico con spiedo bresciano e polenta.",
-    "src": "bresciatoday.it"
+    "src": "bresciatoday.it",
+    "url": "https://www.bresciatoday.it/eventi/sagre/toscolano-maderno-sagra-gaino-2026.html"
   },
   {
     "date": "2026-07-06",
@@ -1327,7 +1573,8 @@
     "time": "21:00",
     "desc": "Prima serata della rassegna Jazz Monday in Via Benamati: la Jazz Team Big Band, orchestra jazz di 16 elementi, con un sound potente ed energico. Direzione artistica Michele Carletti.",
     "src": "gardapost.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp",
+    "url": "https://www.gardapost.it/2026/06/29/lestate-di-toscolano-maderno-suona-jazz/"
   },
   {
     "date": "2026-07-10",
@@ -1337,7 +1584,8 @@
     "time": "19:30",
     "desc": "Quarta serata a tema western con la Highway 66 Country Band, menu con hamburger e tortillas.",
     "src": "bresciatoday.it",
-    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/40296860372875/sagra-di-gaino.jpg"
+    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/40296860372875/sagra-di-gaino.jpg",
+    "url": "https://www.bresciatoday.it/eventi/sagre/toscolano-maderno-sagra-gaino-2026.html"
   },
   {
     "date": "2026-07-11",
@@ -1347,7 +1595,8 @@
     "time": "19:30",
     "desc": "Quinta serata con tributo a Vasco Rossi dagli Alterego.",
     "src": "bresciatoday.it",
-    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/40296860372875/sagra-di-gaino.jpg"
+    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/40296860372875/sagra-di-gaino.jpg",
+    "url": "https://www.bresciatoday.it/eventi/sagre/toscolano-maderno-sagra-gaino-2026.html"
   },
   {
     "date": "2026-07-12",
@@ -1357,7 +1606,8 @@
     "time": "19:30",
     "desc": "Sesta e ultima serata della Sagra di Gaino con l'orchestra di Cristian Patarini.",
     "src": "bresciatoday.it",
-    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/40296860372875/sagra-di-gaino.jpg"
+    "image": "https://citynews-bresciatoday.stgy.ovh/~media/horizontal-low/40296860372875/sagra-di-gaino.jpg",
+    "url": "https://www.bresciatoday.it/eventi/sagre/toscolano-maderno-sagra-gaino-2026.html"
   },
   {
     "date": "2026-07-13",
@@ -1367,7 +1617,8 @@
     "time": "21:00",
     "desc": "Secondo lunedì della rassegna Jazz Monday in Via Benamati: J. & The Hot Four, formazione con contrabbasso e voci.",
     "src": "gardapost.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp",
+    "url": "https://www.gardapost.it/2026/06/29/lestate-di-toscolano-maderno-suona-jazz/"
   },
   {
     "date": "2026-07-20",
@@ -1377,7 +1628,8 @@
     "time": "21:00",
     "desc": "Terzo lunedì della rassegna Jazz Monday in Via Benamati: il sassofonista Gianni Alberti in trio con organo e batteria.",
     "src": "gardapost.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp",
+    "url": "https://www.gardapost.it/2026/06/29/lestate-di-toscolano-maderno-suona-jazz/"
   },
   {
     "date": "2026-07-24",
@@ -1387,7 +1639,8 @@
     "time": "21:00",
     "desc": "Federico Calcagno al clarinetto con The Dolphians al Parco Bernini. Tra tradizione e innovazione nel jazz europeo.",
     "src": "gardapost.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/calcagno.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/calcagno.webp",
+    "url": "https://www.gardapost.it/2026/06/29/lestate-di-toscolano-maderno-suona-jazz/"
   },
   {
     "date": "2026-07-26",
@@ -1396,7 +1649,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "La vincitrice di The Voice Senior Patrizia Conte tra jazz standards e classici italiani rivisitati. Parco Bernini.",
-    "src": "gardapost.it"
+    "src": "gardapost.it",
+    "url": "https://www.gardapost.it/2026/06/29/lestate-di-toscolano-maderno-suona-jazz/"
   },
   {
     "date": "2026-07-27",
@@ -1406,7 +1660,8 @@
     "time": "21:00",
     "desc": "Il trombettista americano Thomas Kirkpatrick (già con Chet Baker, Max Roach e George Coleman) chiude la rassegna. Via Benamati.",
     "src": "gardapost.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/toscoano-maderno-jazz-acli.webp",
+    "url": "https://www.gardapost.it/2026/06/29/lestate-di-toscolano-maderno-suona-jazz/"
   },
   {
     "date": "2026-08-11",
@@ -1415,7 +1670,8 @@
     "cat": "festival",
     "time": "in serata",
     "desc": "Festività patronale di Sant'Ercolano con processione e spettacolo pirotecnico sul lago.",
-    "src": "visittoscolanomaderno.info"
+    "src": "visittoscolanomaderno.info",
+    "url": "https://www.comune.toscolanomaderno.bs.it/vivere-il-comune/eventi/festa-di-santercolano"
   },
   {
     "date": "2026-07-04",
@@ -1433,7 +1689,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Serata musicale americana con sonorità country e folk in Piazza di Liano.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-05",
@@ -1442,7 +1699,8 @@
     "cat": "sagra",
     "time": "19:00",
     "desc": "Ventesima edizione della passeggiata enogastronomica con musica dal vivo, fiera dell'artigianato e Tombola del FUFF. In caso di pioggia: 12 luglio.",
-    "src": "gardapost.it"
+    "src": "gardapost.it",
+    "url": "https://www.gardapost.it/2026/06/30/cara-vecchia-gargnano-torna-la-passeggiata-gastronomica-2/"
   },
   {
     "date": "2026-07-07",
@@ -1452,7 +1710,8 @@
     "time": "21:00",
     "desc": "Proiezione all'aperto de \"I Puffi – Il film\" nell'Oratorio di Gargnano, ore 21:15.",
     "src": "gardapost.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/cinema-allaperto-gargnano.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/cinema-allaperto-gargnano.webp",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-10",
@@ -1461,7 +1720,8 @@
     "cat": "festival",
     "time": "in serata",
     "desc": "Mercato creativo e artigianale sul Lungolago Zanardelli con musica e prodotti locali.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-14",
@@ -1471,7 +1731,8 @@
     "time": "21:00",
     "desc": "Proiezione all'aperto del film \"Un bel giorno\" in piazza a Bogliaco, frazione di Gargnano, ore 21:15.",
     "src": "gardapost.it",
-    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/cinema-allaperto-gargnano.webp"
+    "image": "https://www.gardapost.it/wp-content/uploads/2026/06/cinema-allaperto-gargnano.webp",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-16",
@@ -1480,7 +1741,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Serata di musica live con artisti e band emergenti del territorio.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-17",
@@ -1489,7 +1751,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Concerto tributo agli 883 a Navazzo, borgata collinare di Gargnano.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-18",
@@ -1498,7 +1761,8 @@
     "cat": "sport",
     "time": "in giornata",
     "desc": "Regata velica sul Lago di Garda in partenza da Gargnano.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-22",
@@ -1507,7 +1771,8 @@
     "cat": "sagra",
     "time": "in serata",
     "desc": "Degustazione di vini della Valtenesi negli spazi di una limonaia storica, con musica e prodotti locali.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-22",
@@ -1516,7 +1781,8 @@
     "cat": "cultura",
     "time": "21:00",
     "desc": "Conferenza sugli ultimi giorni della Seconda Guerra Mondiale sul territorio gardesano a Palazzo Bettoni.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-23",
@@ -1525,7 +1791,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Concerto della Banda Musicale di Toscolano Maderno in Piazza Vittorio Veneto.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-25",
@@ -1534,7 +1801,8 @@
     "cat": "sagra",
     "time": "in serata",
     "desc": "Serata gastronomica con prodotti tipici locali a Sasso di Gargnano.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-26",
@@ -1544,7 +1812,8 @@
     "time": "10:00",
     "desc": "Rievocazione della tradizionale Fiera delle Cipolle in Piazza Feltrinelli con mercato di prodotti locali e gastronomia.",
     "src": "gardanotizie.it",
-    "image": "https://www.gardanotizie.it/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-21-at-13.58.52.jpeg"
+    "image": "https://www.gardanotizie.it/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-21-at-13.58.52.jpeg",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-29",
@@ -1553,7 +1822,8 @@
     "cat": "cultura",
     "time": "21:00",
     "desc": "Secondo incontro di approfondimento storico sulla Seconda Guerra Mondiale a Gargnano.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-07-31",
@@ -1562,7 +1832,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Serata musicale dell'Associazione Limes in Piazza di Liano.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-01",
@@ -1571,7 +1842,8 @@
     "cat": "festival",
     "time": "18:00",
     "desc": "Tradizionale festa dedicata ai turisti in Piazza Feltrinelli con musica, stand gastronomici e animazione.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-02",
@@ -1580,7 +1852,8 @@
     "cat": "festival",
     "time": "18:00",
     "desc": "Seconda serata della Festa dell'Ospite in Piazza Feltrinelli con intrattenimento dal vivo.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-04",
@@ -1589,7 +1862,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Serata di tango argentino con musiche di Astor Piazzolla.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-06",
@@ -1598,7 +1872,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto di arie d'opera con cantanti lirici in Piazza Vittorio Veneto.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-13",
@@ -1607,7 +1882,8 @@
     "cat": "festival",
     "time": "in serata",
     "desc": "Secondo appuntamento stagionale del mercato creativo sul Lungolago Zanardelli.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-15",
@@ -1616,7 +1892,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Serata tributo ai grandi della canzone italiana a Bogliaco.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-16",
@@ -1625,7 +1902,8 @@
     "cat": "market",
     "time": "giornata intera",
     "desc": "Mercato dell'antiquariato e del collezionismo nel centro, con la tradizionale Tombola del Fuff in serata.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-22",
@@ -1634,7 +1912,8 @@
     "cat": "sport",
     "time": "09:00",
     "desc": "Tradizionale traversata a nuoto verso Campione, seguita da Superstar Show serale in Piazza Feltrinelli.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-29",
@@ -1643,7 +1922,8 @@
     "cat": "sagra",
     "time": "12:00",
     "desc": "Gara gastronomica degli spiedi a Navazzo con prodotti tipici della tradizione bresciana.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-09-04",
@@ -1679,7 +1959,8 @@
     "cat": "festival",
     "time": "in serata",
     "desc": "Terzo appuntamento stagionale del mercato creativo sul Lungolago Zanardelli.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-09-12",
@@ -1688,7 +1969,8 @@
     "cat": "festival",
     "time": "10:00",
     "desc": "Raduno di Lambrette d'epoca a Bogliaco con esposizione e sfilata lungo il lungolago.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-09-13",
@@ -1697,7 +1979,8 @@
     "cat": "concert",
     "time": "18:00",
     "desc": "Concerto del 63° Festival Pianistico Internazionale di Brescia e Bergamo nella settecentesca Villa Bettoni di Bogliaco.",
-    "src": "festivalpianistico.it"
+    "src": "festivalpianistico.it",
+    "url": "https://www.festivalpianistico.it/concerto/josef-mossali-pianista-2-brescia/"
   },
   {
     "date": "2026-09-13",
@@ -1706,7 +1989,8 @@
     "cat": "sport",
     "time": "09:00",
     "desc": "Regata giovanile di vela leggera a Bogliaco di Gargnano.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-09-19",
@@ -1715,7 +1999,8 @@
     "cat": "sport",
     "time": "06:00",
     "desc": "Escursione all'alba a Valvestino per ascoltare il bramito dei cervi in amore. Prima data.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-09-20",
@@ -1724,7 +2009,8 @@
     "cat": "sport",
     "time": "06:00",
     "desc": "Seconda escursione all'alba a Valvestino per il bramito dei cervi.",
-    "src": "gardanotizie.it"
+    "src": "gardanotizie.it",
+    "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
     "date": "2026-08-09",
@@ -1733,7 +2019,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Serata in piazza con musica country live della Silverado Band a Tremosine sul Garda.",
-    "src": "tremosinesulgardaeventi.com"
+    "src": "tremosinesulgardaeventi.com",
+    "url": "https://www.tremosinesulgardaeventi.com/evento/musica-live-silverado-country-band/"
   },
   {
     "date": "2026-08-12",
@@ -1742,7 +2029,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Serata dedicata alla musica italiana con band tribute nel pittoresco borgo di Tremosine.",
-    "src": "tremosinesulgardaeventi.com"
+    "src": "tremosinesulgardaeventi.com",
+    "url": "https://www.tremosinesulgardaeventi.com/evento/musica-live-tributo-italiano-2026/"
   },
   {
     "date": "2026-09-04",
@@ -1751,7 +2039,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Serata in piazza con musica live della MG Project band a Tremosine sul Garda.",
-    "src": "tremosinesulgardaeventi.com"
+    "src": "tremosinesulgardaeventi.com",
+    "url": "https://www.tremosinesulgardaeventi.com/evento/musica-live-mg-project-2026/"
   },
   {
     "date": "2026-09-12",
@@ -1760,7 +2049,8 @@
     "cat": "festival",
     "time": "giornata intera",
     "desc": "Raduno di Lambrette d'epoca per una giornata alla scoperta di Tremosine: Campione, Strada della Forra e Pieve.",
-    "src": "tremosinesulgardaeventi.com"
+    "src": "tremosinesulgardaeventi.com",
+    "url": "https://www.tremosinesulgardaeventi.com/evento/raduno-lambrette-2026/"
   },
   {
     "date": "2026-07-05",
@@ -1769,7 +2059,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto tributo agli ABBA al Lungolago Marconi.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-07",
@@ -1778,7 +2069,8 @@
     "cat": "art",
     "time": "18:00",
     "desc": "Visita guidata agli uliveti storici di Limone sul Garda tra panorami sul lago e tradizioni olivicole locali.",
-    "src": "discoverlimonesulgarda.com"
+    "src": "discoverlimonesulgarda.com",
+    "url": "https://www.discoverlimonesulgarda.com/events-calendar/tour-uliveto/"
   },
   {
     "date": "2026-07-07",
@@ -1788,7 +2080,8 @@
     "time": "20:00",
     "desc": "Spettacolo di intrattenimento per bambini e famiglie al Lungolago Marconi.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2026/Bambini_26_3.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2026/Bambini_26_3.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-07",
@@ -1798,7 +2091,8 @@
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono lungo i caratteristici vicoli in salita del centro storico. Ogni martedì e domenica fino a settembre.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-08",
@@ -1808,7 +2102,8 @@
     "time": "20:00–23:00",
     "desc": "Il percorso della Limonaia del Castèl si illumina tra i pilastri di pietra e gli agrumi, con musica dal vivo e degustazione di prodotti al limone e limoncello. Ogni mercoledì fino a settembre.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-11",
@@ -1818,7 +2113,8 @@
     "time": "21:00",
     "desc": "Vivaldi International Project in concerto nel cortile della Chiesa Parrocchiale di San Benedetto.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/concerto_musica_classica24.jpeg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/concerto_musica_classica24.jpeg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-12",
@@ -1828,7 +2124,8 @@
     "time": "22:00",
     "desc": "Fuochi d'artificio sul golfo di Limone con musica dal vivo a partire dalle 21:00.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/fuochidartificio.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/fuochidartificio.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-14",
@@ -1837,7 +2134,8 @@
     "cat": "art",
     "time": "18:00",
     "desc": "Visita guidata agli uliveti storici di Limone sul Garda.",
-    "src": "discoverlimonesulgarda.com"
+    "src": "discoverlimonesulgarda.com",
+    "url": "https://www.discoverlimonesulgarda.com/events-calendar/tour-uliveto/"
   },
   {
     "date": "2026-07-14",
@@ -1847,7 +2145,8 @@
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono nei vicoli del centro storico.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-15",
@@ -1857,7 +2156,8 @@
     "time": "20:00–23:00",
     "desc": "Musica dal vivo e degustazione di prodotti tipici al limone nella storica Limonaia del Castèl.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-18",
@@ -1867,7 +2167,8 @@
     "time": "21:00",
     "desc": "Serata jazz con il Damiana Dellantonio Quartet alla Piazzetta Borgo.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2026/SJazz.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2026/SJazz.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-21",
@@ -1876,7 +2177,8 @@
     "cat": "art",
     "time": "18:00",
     "desc": "Visita guidata agli uliveti storici di Limone sul Garda.",
-    "src": "discoverlimonesulgarda.com"
+    "src": "discoverlimonesulgarda.com",
+    "url": "https://www.discoverlimonesulgarda.com/events-calendar/tour-uliveto/"
   },
   {
     "date": "2026-07-21",
@@ -1886,7 +2188,8 @@
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono nei vicoli del centro storico.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-22",
@@ -1896,7 +2199,8 @@
     "time": "20:00–23:00",
     "desc": "Musica dal vivo e degustazione di prodotti tipici al limone nella Limonaia del Castèl.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-25",
@@ -1906,7 +2210,8 @@
     "time": "21:00–23:00",
     "desc": "Concerto jazz a bordo di una barca a vela sul Lago di Garda.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/concerto_veliero_2024.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/concerto_veliero_2024.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-28",
@@ -1915,7 +2220,8 @@
     "cat": "art",
     "time": "18:00",
     "desc": "Visita guidata agli uliveti storici di Limone sul Garda.",
-    "src": "discoverlimonesulgarda.com"
+    "src": "discoverlimonesulgarda.com",
+    "url": "https://www.discoverlimonesulgarda.com/events-calendar/tour-uliveto/"
   },
   {
     "date": "2026-07-28",
@@ -1925,7 +2231,8 @@
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono nei vicoli del centro storico.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-28",
@@ -1935,7 +2242,8 @@
     "time": "21:00",
     "desc": "Musica dai Balcani e dal Mediterraneo al Lungolago Marconi.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2026/Luca_De_Toni_1_.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2026/Luca_De_Toni_1_.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-29",
@@ -1945,7 +2253,8 @@
     "time": "20:00–23:00",
     "desc": "Musica dal vivo e degustazione di prodotti tipici al limone nella Limonaia del Castèl.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-02",
@@ -1955,7 +2264,8 @@
     "time": "20:00",
     "desc": "Spettacoli di magia e acrobati nel centro storico e sul Lungolago.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2025/Visit-Limone-fantasia-e-magia-210.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2025/Visit-Limone-fantasia-e-magia-210.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-04",
@@ -1965,7 +2275,8 @@
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono nei vicoli del centro storico.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/arte.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-05",
@@ -1975,7 +2286,8 @@
     "time": "20:00–23:00",
     "desc": "Musica dal vivo e degustazione di prodotti al limone nella Limonaia del Castèl.",
     "src": "visitlimonesulgarda.com",
-    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg"
+    "image": "https://www.visitlimonesulgarda.com/images/eventi/2024/limonaia_sotto_stelle_2024.jpg",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-08",
@@ -1984,7 +2296,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto tributo ai Queen da parte dei Vipers Band sul Lungolago Marconi.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-11",
@@ -1993,7 +2306,8 @@
     "cat": "art",
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono nei vicoli del centro storico.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-12",
@@ -2002,7 +2316,8 @@
     "cat": "festival",
     "time": "20:00–23:00",
     "desc": "Musica e degustazione di prodotti al limone nella Limonaia del Castèl.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-14",
@@ -2011,7 +2326,8 @@
     "cat": "festival",
     "time": "20:00–23:00",
     "desc": "Serata tematica gialla con musica, spettacoli, intrattenimento per bambini e fuochi d'artificio alle 23:00.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-15",
@@ -2020,7 +2336,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto di Ferragosto al Lungolago Marconi.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-16",
@@ -2029,7 +2346,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Serata di musica irlandese con The Willin' Fools sul lungolago.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-18",
@@ -2038,7 +2356,8 @@
     "cat": "art",
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono nei vicoli del centro storico.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-19",
@@ -2047,7 +2366,8 @@
     "cat": "festival",
     "time": "20:00–23:00",
     "desc": "Musica e degustazione nella Limonaia del Castèl.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-23",
@@ -2056,7 +2376,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Concerto tributo agli U2 da parte di Velvet Dress sul Lungolago Marconi.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-25",
@@ -2065,7 +2386,8 @@
     "cat": "art",
     "time": "10:00–18:00",
     "desc": "Pittori e scultori espongono nei vicoli del centro storico.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-26",
@@ -2074,7 +2396,8 @@
     "cat": "festival",
     "time": "20:00–23:00",
     "desc": "Ultimo appuntamento di agosto con musica e degustazioni nella Limonaia del Castèl.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-08-30",
@@ -2083,7 +2406,8 @@
     "cat": "concert",
     "time": "21:00",
     "desc": "Le melodie iconiche di Morricone nel Parco della Chiesa di San Pietro.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-01",
@@ -2092,7 +2416,8 @@
     "cat": "art",
     "time": "10:00–18:00",
     "desc": "Prima domenica di settembre con mostra e vendita d'arte nel centro storico.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-02",
@@ -2101,7 +2426,8 @@
     "cat": "festival",
     "time": "20:00–23:00",
     "desc": "Primo appuntamento di settembre nella Limonaia del Castèl.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-06",
@@ -2110,7 +2436,8 @@
     "cat": "sagra",
     "time": "11:00",
     "desc": "Evento gastronomico e musicale attraverso le colline e gli uliveti sopra Limone.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-08",
@@ -2119,7 +2446,8 @@
     "cat": "art",
     "time": "10:00–18:00",
     "desc": "Mostra e vendita di dipinti e sculture nel centro storico.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-12",
@@ -2128,7 +2456,8 @@
     "cat": "festival",
     "time": "22:00",
     "desc": "Fuochi d'artificio sul lago con musica dal vivo a partire dalle 21:00.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-15",
@@ -2137,7 +2466,8 @@
     "cat": "art",
     "time": "10:00–18:00",
     "desc": "Ultimo appuntamento stagionale della mostra d'arte nel centro storico.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-16",
@@ -2146,7 +2476,8 @@
     "cat": "festival",
     "time": "20:00–23:00",
     "desc": "Penultimo appuntamento stagionale nella Limonaia del Castèl con musica e prodotti tipici.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-20",
@@ -2155,7 +2486,8 @@
     "cat": "sport",
     "time": "10:00",
     "desc": "Gara di cammino a regolarità tra i sentieri montani sopra Limone, ai Fortini.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-09-27",
@@ -2164,7 +2496,8 @@
     "cat": "concert",
     "time": "16:00",
     "desc": "Concerto pomeridiano della Banda Musicale di Tremosine in Piazza Garibaldi a Limone.",
-    "src": "visitlimonesulgarda.com"
+    "src": "visitlimonesulgarda.com",
+    "url": "https://www.visitlimonesulgarda.com/it/eventi-limone-garda.htm"
   },
   {
     "date": "2026-07-04",
@@ -2173,7 +2506,8 @@
     "cat": "festival",
     "time": "18:00–23:00",
     "desc": "Evento di Coldiretti Verona e Campagna Amica con produttori a km zero, stand gastronomici e musica dal vivo sul lungolago.",
-    "src": "veronasera.it"
+    "src": "veronasera.it",
+    "url": "https://www.veronasera.it/eventi/notte-gialla-festa-bardolino-4-luglio-2026.html"
   },
   {
     "date": "2026-10-01",
@@ -2182,7 +2516,8 @@
     "cat": "sagra",
     "time": "giornata intera",
     "desc": "Storica festa del vino di Bardolino (dal 1929): stand enogastronomici, sfilate di carri e bande musicali, degustazioni guidate del Consorzio Vini. Prosegue fino al 5 ottobre.",
-    "src": "bardolinotop.it"
+    "src": "bardolinotop.it",
+    "url": "https://visitbardolino.it/en/eventi/festa-del-vino-bardolino/"
   },
   {
     "date": "2026-08-01",
@@ -2191,7 +2526,8 @@
     "cat": "sagra",
     "time": "19:00",
     "desc": "Apertura degli stand gastronomici a Colà di Lazise, con spettacolo teatrale della compagnia Gard Art in Località Madonna.",
-    "src": "comune.lazise.vr.it"
+    "src": "comune.lazise.vr.it",
+    "url": "https://www.comune.lazise.vr.it/vivere-il-comune/eventi/antica-sagra-della-madonna-della-neve-2/"
   },
   {
     "date": "2026-08-02",
@@ -2200,7 +2536,8 @@
     "cat": "sagra",
     "time": "21:00",
     "desc": "Serata clou della sagra di Colà con il concerto di apertura dei Mixoro, hit anni '80-'90-2000.",
-    "src": "comune.lazise.vr.it"
+    "src": "comune.lazise.vr.it",
+    "url": "https://www.comune.lazise.vr.it/vivere-il-comune/eventi/antica-sagra-della-madonna-della-neve-2/"
   },
   {
     "date": "2026-08-03",
@@ -2209,7 +2546,8 @@
     "cat": "sagra",
     "time": "10:30",
     "desc": "Santa Messa patronale nella chiesa della Madonna della Neve a Colà, seguita da rinfresco a cura della polisportiva locale.",
-    "src": "comune.lazise.vr.it"
+    "src": "comune.lazise.vr.it",
+    "url": "https://www.comune.lazise.vr.it/vivere-il-comune/eventi/antica-sagra-della-madonna-della-neve-2/"
   },
   {
     "date": "2026-07-05",
@@ -2218,7 +2556,8 @@
     "cat": "concert",
     "time": "in serata",
     "desc": "Serata conclusiva del festival Garda in Jazz, rassegna di concerti nelle piazze e negli scorci più suggestivi del centro storico.",
-    "src": "comune.garda.vr.it"
+    "src": "comune.garda.vr.it",
+    "url": "https://www.comune.garda.vr.it/it/eventi/festival-garda-jazz-musica-arte-2510023"
   },
   {
     "date": "2026-07-11",
@@ -2228,7 +2567,8 @@
     "time": "in serata",
     "desc": "Sfilata su passerella di 30 metri con cinque stilisti, seconda edizione dell'evento moda sul lungolago.",
     "src": "modaestyle.it",
-    "image": "https://www.modaestyle.it/wp-content/uploads/2026/06/IMG_7615-700x467.jpeg"
+    "image": "https://www.modaestyle.it/wp-content/uploads/2026/06/IMG_7615-700x467.jpeg",
+    "url": "https://www.modaestyle.it/torri-in-fashion-2026-il-glamour-torna-a-sfilare-sul-lago-di-garda/"
   },
   {
     "date": "2026-07-12",
@@ -2238,7 +2578,8 @@
     "time": "10:00–20:00",
     "desc": "Secondo giorno di Torri IN Fashion: market di lusso, Tesla Experience con test drive panoramici, workshop su beauty e benessere.",
     "src": "modaestyle.it",
-    "image": "https://www.modaestyle.it/wp-content/uploads/2026/06/IMG_7615-700x467.jpeg"
+    "image": "https://www.modaestyle.it/wp-content/uploads/2026/06/IMG_7615-700x467.jpeg",
+    "url": "https://www.modaestyle.it/torri-in-fashion-2026-il-glamour-torna-a-sfilare-sul-lago-di-garda/"
   },
   {
     "date": "2026-07-20",
@@ -2248,7 +2589,8 @@
     "time": "in serata",
     "desc": "Stand gastronomici, giochi per bambini e musica dal vivo per le vie del paese.",
     "src": "gardatoday.it",
-    "image": "https://gardatoday.it/uploads/media/f76ba297-9ee4-4d0e-b29d-2c98fc579577.jpg"
+    "image": "https://gardatoday.it/uploads/media/f76ba297-9ee4-4d0e-b29d-2c98fc579577.jpg",
+    "url": "https://gardatoday.it/eventi/malcesine-festa-della-musica"
   },
   {
     "date": "2026-07-21",
@@ -2258,7 +2600,8 @@
     "time": "in serata",
     "desc": "Secondo giorno della Festa della Musica, con musica dal vivo e stand gastronomici.",
     "src": "gardatoday.it",
-    "image": "https://gardatoday.it/uploads/media/f76ba297-9ee4-4d0e-b29d-2c98fc579577.jpg"
+    "image": "https://gardatoday.it/uploads/media/f76ba297-9ee4-4d0e-b29d-2c98fc579577.jpg",
+    "url": "https://gardatoday.it/eventi/malcesine-festa-della-musica"
   },
   {
     "date": "2026-07-31",
@@ -2268,7 +2611,8 @@
     "time": "21:00",
     "desc": "Concerto corale sul porto per l'apertura della Festa dei Ciclamini a Cassone di Malcesine.",
     "src": "garda-outdoors.com",
-    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/04/85679185-2fc1-41bb-a687-ee05a23486fa.51889a7d.jpg"
+    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/04/85679185-2fc1-41bb-a687-ee05a23486fa.51889a7d.jpg",
+    "url": "https://www.garda-outdoors.com/festa-dei-ciclamini-a-cassone-di-malcesine-un-evento-imperdibile/"
   },
   {
     "date": "2026-08-01",
@@ -2278,7 +2622,8 @@
     "time": "in serata",
     "desc": "Stand gastronomici con prodotti tipici locali e intrattenimento musicale a Cassone di Malcesine.",
     "src": "garda-outdoors.com",
-    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/04/85679185-2fc1-41bb-a687-ee05a23486fa.51889a7d.jpg"
+    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/04/85679185-2fc1-41bb-a687-ee05a23486fa.51889a7d.jpg",
+    "url": "https://www.garda-outdoors.com/festa-dei-ciclamini-a-cassone-di-malcesine-un-evento-imperdibile/"
   },
   {
     "date": "2026-08-02",
@@ -2288,7 +2633,8 @@
     "time": "22:30",
     "desc": "Giornata conclusiva della Festa dei Ciclamini: stand gastronomici, musica dal vivo e spettacolo pirotecnico sul lago alle 22:30.",
     "src": "garda-outdoors.com",
-    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/04/85679185-2fc1-41bb-a687-ee05a23486fa.51889a7d.jpg"
+    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/04/85679185-2fc1-41bb-a687-ee05a23486fa.51889a7d.jpg",
+    "url": "https://www.garda-outdoors.com/festa-dei-ciclamini-a-cassone-di-malcesine-un-evento-imperdibile/"
   },
   {
     "date": "2026-07-04",
@@ -2297,7 +2643,8 @@
     "cat": "concert",
     "time": "20:00",
     "desc": "Concerto della cover band Club Europe, tributo alla musica degli U2, in Piazza Lietzmann.",
-    "src": "gardatrentino.it"
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/eventi/club-europe-concert-tours_57377"
   },
   {
     "date": "2026-07-06",
@@ -2307,7 +2654,8 @@
     "time": "17:00",
     "desc": "Presentazione storica sui cento e più anni di turismo nella destinazione Garda Trentino.",
     "src": "gardatrentino.it",
-    "image": "https://www.gardatrentino.it/website_images/events/image-thumb__64286__ds-maxwidth1920/2026_Events_100_anni_turismo_APT.jpg"
+    "image": "https://www.gardatrentino.it/website_images/events/image-thumb__64286__ds-maxwidth1920/2026_Events_100_anni_turismo_APT.jpg",
+    "url": "https://www.gardatrentino.it/it/eventi/100-e-anni-di-turismo-nel-garda-trentino_94143"
   },
   {
     "date": "2026-07-09",
@@ -2315,8 +2663,9 @@
     "title": "Riva in Musica",
     "cat": "concert",
     "time": "20:00",
-    "desc": "Serata di concerti ed esibizioni musicali nel centro di Riva del Garda.",
+    "desc": "Terza serata del format: 10 postazioni con artisti e gruppi musicali diversi animano il centro storico tra vie, piazze, bar e ristoranti, dalle 20 a mezzanotte. A cura del Consorzio Riva in Centro.",
     "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/eventi/riva-in-musica_9219",
     "image": "https://www.gardatrentino.it/website_images/events/image-thumb__65396__ds-maxwidth1920/2026_Events_Riva_in_musica.webp"
   },
   {
@@ -2326,7 +2675,8 @@
     "cat": "sagra",
     "time": "18:30",
     "desc": "Tradizionale sagra della sardina di lago, con degustazioni a base di pesce in riva al Garda.",
-    "src": "gardatrentino.it"
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/eventi/sardelada_38783"
   },
   {
     "date": "2026-07-18",
@@ -2336,7 +2686,8 @@
     "time": "09:00",
     "desc": "Campionato italiano di windsurf, due giorni di regate (18-19 luglio) davanti a Torbole.",
     "src": "gardatrentino.it",
-    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/03/windsurfer_CSTORBOLE_EGiolai-0813.webp"
+    "image": "https://www.garda-outdoors.com/wp-content/uploads/2026/03/windsurfer_CSTORBOLE_EGiolai-0813.webp",
+    "url": "https://www.gardatrentino.it/it/eventi/italian-windsurfer-championship_64159"
   },
   {
     "date": "2026-07-19",
@@ -2345,7 +2696,8 @@
     "cat": "market",
     "time": "17:00",
     "desc": "Mercatino di modernariato e oggetti d'epoca in Piazza Lietzmann.",
-    "src": "gardatrentino.it"
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/Mercato-degli-hobbisti-Torbole/"
   },
   {
     "date": "2026-07-22",
@@ -2354,7 +2706,8 @@
     "cat": "sagra",
     "time": "08:00",
     "desc": "Tradizionale fiera di Santa Maddalena tra Piazza Lietzmann e via della Lòva.",
-    "src": "gardatrentino.it"
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/eventi/fiera-di-s-maddalena-a-torbole_10532"
   },
   {
     "date": "2026-07-30",
@@ -2364,7 +2717,8 @@
     "time": "09:00",
     "desc": "Mondiale giovanile di vela classe Cadet, in programma dal 30 luglio al 7 agosto davanti a Torbole.",
     "src": "gardatrentino.it",
-    "image": "https://www.gardatrentino.it/website_images/events/image-thumb__60189__fb-thumb/20251127164237_cadet.jpg"
+    "image": "https://www.gardatrentino.it/website_images/events/image-thumb__60189__fb-thumb/20251127164237_cadet.jpg",
+    "url": "https://www.gardatrentino.it/it/eventi/cadet-world-championship_91927"
   },
   {
     "date": "2026-09-26",
@@ -2373,7 +2727,8 @@
     "cat": "concert",
     "time": "16:00",
     "desc": "Concerto di Gianni Morandi a Torbole, località Foce Sarca.",
-    "src": "gardatrentino.it"
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/eventi/gianni-morandi-in-concerto_93812"
   },
   {
     "date": "2026-12-19",
@@ -2382,6 +2737,7 @@
     "cat": "art",
     "time": "10:00",
     "desc": "Mostra fotografica di paesaggi, in Piazza C. Battisti 3/A, dal 19 al 21 dicembre.",
-    "src": "gardatrentino.it"
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/eventi/ultimate-landscapes_88938"
   }
 ]

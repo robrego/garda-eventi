@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
   const desc = typeof body?.desc === "string" ? body.desc.trim() : "";
   const src = typeof body?.src === "string" ? body.src.trim() : "";
   const image = typeof body?.image === "string" ? body.image.trim() : "";
+  const url = typeof body?.url === "string" ? body.url.trim() : "";
 
   if (!DATE_RE.test(date)) {
     return NextResponse.json({ error: "Data non valida" }, { status: 400 });
@@ -38,6 +39,9 @@ export async function POST(req: NextRequest) {
   if (image && !/^https?:\/\//.test(image)) {
     return NextResponse.json({ error: "L'immagine deve essere un URL http(s)" }, { status: 400 });
   }
+  if (url && !/^https?:\/\//.test(url)) {
+    return NextResponse.json({ error: "Il link deve essere un URL http(s)" }, { status: 400 });
+  }
 
   await addManualEvent({
     date,
@@ -48,6 +52,7 @@ export async function POST(req: NextRequest) {
     desc: desc.slice(0, 500),
     src: src || `Aggiunto da ${email}`,
     ...(image ? { image } : {}),
+    ...(url ? { url } : {}),
     addedBy: email,
   });
 
