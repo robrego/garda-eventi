@@ -1,141 +1,176 @@
-# Contesto per Claude Code
+# Context for Claude Code
 
-Questo è "Lago di Garda e Dintorni" — un'app Next.js (App Router, no Tailwind,
-CSS semplice in `app/globals.css`) che mostra eventi locali su mappa + lista,
-con navigazione a calendario, toggle di lingua IT/EN, login utenti per
-inviare/correggere eventi, e uno scraper automatico che integra i dati curati
-a mano. Vedi anche README.md per l'architettura completa.
+This is "Lago di Garda e Dintorni" — a Next.js app (App Router, no Tailwind,
+plain CSS in `app/globals.css`) that shows local events on a map + list, with
+calendar navigation, an IT/EN language toggle, user login to submit/correct
+events, and an automatic scraper that merges in hand-curated data. See also
+README.md for the full architecture.
 
-## Cose da sapere prima di modificare
+## Things to know before making changes
 
-- **Pubblico target**: generazione più anziana. Testo grande, contrasto alto,
-  aree cliccabili larghe. Non ridurre le dimensioni dei font senza motivo.
-- **Palette**: niente arancione/corallo. Verde (`--green`) per gli accenti,
-  teal (`--lake-deep`) per la navigazione/stati attivi. Vedi le custom
-  properties in `app/globals.css`.
-- **Stroke**: bordi a 1px in tutta l'interfaccia, stile minimale. Mappa con
-  tile CARTO Positron (chiara, senza API key) invece degli OSM standard, per
-  uno sfondo pulito che fa risaltare i marker.
-- **Font**: Bricolage Grotesque per i titoli, Work Sans per il corpo del testo.
-- **Effetto vetro sui controlli pill**: i toggle/pulsanti principali (IT/EN,
-  Registrati/+Evento, Mappa+lista, day-chip attivo) usano un look
-  glassmorphism — sfondo semi-trasparente + `backdrop-filter: blur(...)` +
-  bordo chiaro sottile + ombra morbida. Gli stati "attivi/selezionati" usano
-  un verde/teal più scuro e più opaco (~0.9) apposta, non lo stesso verde
-  chiaro trasparente usato altrove — con opacità bassa il testo bianco sopra
-  non si legge bene. Non "semplificare" questi stili togliendo blur/bordo
-  pensando siano ridondanti: è una scelta estetica esplicita.
-- **Pattern mobile/desktop**: diversi componenti renderizzano DUE versioni
-  dello stesso elemento (una mobile, una desktop) e usano `display:none` nei
-  media query per alternarle, invece di logica JS/matchMedia — es. il pill
-  categoria evento (`.event-cat-mobile`/`.event-cat-desktop` in
-  `EventList.tsx`), il selettore vista (`.view-select` dropdown su mobile vs
-  `.view-toggle` a tre bottoni su desktop, in `Filters.tsx`), il menu header
-  (`.menu-toggle`/`.header-menu` a burger su mobile vs inline su desktop, in
-  `EventsApp.tsx`). Segui lo stesso pattern per nuovi controlli che devono
-  comportarsi diversamente in base allo schermo: più semplice e senza rischi
-  di hydration mismatch rispetto a `useState` + `matchMedia`.
-- **Zona geografica**: tutto il lago entro circa 50 km da Desenzano, sponda
-  lombarda, veneta e trentina, più l'entroterra entro 10-15 km dalla costa
-  (soglia di distanza scelta esplicitamente, non un limite amministrativo).
-  Sponda lombarda, da sud a nord: Peschiera, Sirmione, Desenzano, Padenghe,
-  Moniga, Manerba, San Felice, Salò, Gardone, Toscolano, Gargnano, Tignale,
-  Tremosine, Limone. Sponda veneta, da sud a nord: Lazise, Bardolino, Garda,
-  Torri del Benaco, Brenzone sul Garda, Malcesine. Sponda trentina, a nord:
-  Riva del Garda, Torbole. Entroterra (gruppo "Entroterra" in `TOWN_AREAS`,
-  tutte entro 3.5-10.7 km dalla città costiera più vicina — distanze
-  verificate, non stimate): Lonato del Garda, Castelnuovo del Garda,
-  Polpenazze del Garda, Affi, Cavaion Veronese, Costermano sul Garda, San
-  Zeno di Montagna, Bussolengo, Valeggio sul Mincio (lato lombardo/veneto),
-  Arco (lato trentino). Fuori scope: Verona città, Brescia, Mantova, e le
-  fiere in quota a un polo espositivo lontano dal lago (Fiera di Verona,
-  Fiera di Montichiari — vedi `data/scrapers/gardaclick.ts`). Se si
-  aggiungono città, aggiornare `data/config.ts` (TOWN_COORDS, MARKET_DAYS,
-  TOWN_AREAS, e `AREA_LABELS_EN` se l'area è nuova) e `data/events.json`.
-  Verificare sempre le coordinate reali (es. da Wikipedia) invece di
-  stimarle a memoria — è una mappa, un pin nel posto sbagliato è un bug
-  visibile.
-- **Mappa**: Leaflet + tile CARTO Positron (nessuna API key). Il componente
-  `EventMap.tsx` è client-only ed è importato con `dynamic(..., { ssr: false })`
-  in `EventsApp.tsx` perché Leaflet richiede `window`. I bounds si calcolano
-  automaticamente da `TOWN_COORDS`, non serve aggiornare centro/zoom a mano.
-  I controlli di zoom +/- sono restilizzati in `globals.css`
-  (`.leaflet-control-zoom`) per assomigliare al pulsante "Centra sugli eventi"
-  (`.map-refit`) invece dello stile Leaflet di default.
-- **Dati eventi**: la fonte primaria è `data/events.json` (curato a mano),
-  unito a runtime in `data/getEvents.ts` con eventi inviati dagli utenti
-  loggati, eventi scaricati dallo scraper automatico e mercati settimanali
-  generati proceduralmente (mai elencati uno per uno). Il campo `src` è
-  linkato automaticamente in `EventList.tsx` solo se assomiglia a un dominio
-  (es. `visitsirmione.com`); nomi descrittivi (es. "Garda Lombardia") restano
-  testo semplice.
+- **Target audience**: older generation. Large text, high contrast, wide
+  clickable areas. Don't shrink font sizes without a reason.
+- **Palette**: no orange/coral. Green (`--green`) for accents, teal
+  (`--lake-deep`) for navigation/active states. See the custom properties in
+  `app/globals.css`.
+- **Stroke**: 1px borders throughout the UI, minimal style. Map uses CARTO
+  Positron tiles (light, no API key) instead of standard OSM, for a clean
+  background that makes the markers stand out.
+- **Font**: Bricolage Grotesque for headings, Work Sans for body text.
+- **Glass effect on pill controls**: the main toggles/buttons (IT/EN,
+  Registrati/+Evento, Mappa+lista, active day-chip) use a glassmorphism
+  look — semi-transparent background + `backdrop-filter: blur(...)` + thin
+  light border + soft shadow. "Active/selected" states deliberately use a
+  darker, more opaque (~0.9) green/teal, not the same light transparent
+  green used elsewhere — at low opacity the white text on top isn't legible.
+  Don't "simplify" these styles by stripping the blur/border thinking
+  they're redundant: it's a deliberate aesthetic choice.
+- **Mobile/desktop pattern**: several components render TWO versions of the
+  same element (one mobile, one desktop) and use `display:none` in media
+  queries to switch between them, instead of JS/matchMedia logic — e.g. the
+  event category pill (`.event-cat-mobile`/`.event-cat-desktop` in
+  `EventList.tsx`), the view selector (`.view-select` dropdown on mobile vs
+  `.view-toggle` three-button bar on desktop, in `Filters.tsx`), the header
+  menu (`.menu-toggle`/`.header-menu` as a burger on mobile vs inline on
+  desktop, in `EventsApp.tsx`). Follow the same pattern for new controls
+  that need to behave differently by screen size: simpler and free of the
+  hydration-mismatch risk that comes with `useState` + `matchMedia`.
+- **Geographic area**: the whole lake within ~50 km of Desenzano, Lombardy,
+  Veneto and Trentino shores, plus the hinterland within 10-15 km of the
+  coast (an explicitly chosen distance threshold, not an administrative
+  boundary). Lombardy shore, south to north: Peschiera, Sirmione, Desenzano,
+  Padenghe, Moniga, Manerba, San Felice, Salò, Gardone, Toscolano, Gargnano,
+  Tignale, Tremosine, Limone. Veneto shore, south to north: Lazise,
+  Bardolino, Garda, Torri del Benaco, Brenzone sul Garda, Malcesine.
+  Trentino shore, to the north: Riva del Garda, Torbole. Hinterland
+  ("Entroterra" group in `TOWN_AREAS`, all within 3.5-10.7 km of the nearest
+  coastal town — verified distances, not estimates): Lonato del Garda,
+  Castelnuovo del Garda, Polpenazze del Garda, Affi, Cavaion Veronese,
+  Costermano sul Garda, San Zeno di Montagna, Bussolengo, Valeggio sul
+  Mincio (Lombardy/Veneto side), Arco (Trentino side). Out of scope: Verona
+  city, Brescia, Mantova, and fairs hosted at an exhibition center far from
+  the lake (Fiera di Verona, Fiera di Montichiari — see
+  `data/scrapers/gardaclick.ts`). When adding towns, update
+  `data/config.ts` (TOWN_COORDS, MARKET_DAYS, TOWN_AREAS, and
+  `AREA_LABELS_EN` if the area is new) and `data/events.json`. Always
+  verify real coordinates (e.g. from Wikipedia) instead of estimating from
+  memory — this is a map, a pin in the wrong place is a visible bug.
+- **Map**: Leaflet + CARTO Positron tiles (no API key). `EventMap.tsx` is
+  client-only and imported with `dynamic(..., { ssr: false })` in
+  `EventsApp.tsx` because Leaflet requires `window`. Bounds are computed
+  automatically from `TOWN_COORDS`, no need to update center/zoom by hand.
+  The +/- zoom controls are restyled in `globals.css`
+  (`.leaflet-control-zoom`) to match the "Centra sugli eventi" button
+  (`.map-refit`) instead of Leaflet's default look.
+- **Event data**: the primary source is `data/events.json` (hand-curated),
+  merged at runtime in `data/getEvents.ts` with events submitted by logged-in
+  users, events downloaded by the automatic scraper, and procedurally
+  generated weekly markets (never listed one by one). The `src` field is
+  auto-linked in `EventList.tsx` only if it looks like a domain (e.g.
+  `visitsirmione.com`); descriptive names (e.g. "Garda Lombardia") stay as
+  plain text.
 
-## Autenticazione e contributi utente
+## Authentication and user contributions
 
-- Login/registrazione con sessione via cookie JWT (`lib/auth.ts`), utenti
-  salvati su Vercel Blob (`lib/users.ts`) — non c'è un ruolo admin, chiunque
-  si registra può inviare eventi o correggere quelli esistenti.
-- Un utente loggato può: aggiungere un evento manuale (`AddEventForm.tsx` →
-  `lib/manualEvents.ts`), correggere la descrizione di un evento esistente
-  (`EditDescForm.tsx` → `lib/descOverrides.ts`), aggiungere una copertina
-  (`AddCoverForm.tsx` → `lib/imageOverrides.ts`). Tutto su Vercel Blob, niente
+- Login/registration with a JWT cookie session (`lib/auth.ts`), users stored
+  on Vercel Blob (`lib/users.ts`) — there's no admin role, anyone who
+  registers can submit events or correct existing ones.
+- A logged-in user can: add a manual event (`AddEventForm.tsx` →
+  `lib/manualEvents.ts`), correct an existing event's description
+  (`EditDescForm.tsx` → `lib/descOverrides.ts`), add a cover image
+  (`AddCoverForm.tsx` → `lib/imageOverrides.ts`). All on Vercel Blob, no
   database.
-- Gli eventi manuali/scraped e le correzioni non hanno una versione inglese
-  (`titleEn`/`descEn`) — restano nella lingua originale anche con il toggle
-  su EN. È un limite noto, non un bug.
+- Manual/scraped events and corrections have no English version
+  (`titleEn`/`descEn`) — they stay in their original language even with the
+  toggle set to EN. This is a known limitation, not a bug.
 
-## Traduzione IT/EN
+## IT/EN translation
 
-- Toggle persistito in `localStorage` via `LanguageProvider.tsx` (contesto
-  React, hook `useLang()`). Stringhe UI in `lib/i18n.ts` (dizionario piatto
-  `it`/`en`, più `DOW_SHORT`/`DOW_FULL`/`MONTHS` per le date). Categorie
-  (`CATEGORIES_EN`), etichette d'area (`AREA_LABELS_EN`) e time-label
-  descrittivi (`translateTime`, per le ~5 fasce come "in serata") vivono in
-  `data/config.ts`.
-- Gli eventi curati in `events.json` hanno `titleEn`/`descEn` opzionali; se
-  mancanti il rendering fa fallback su `title`/`desc` italiani (vedi limite
-  sopra per eventi manuali/scraped).
-- Quando aggiungi una stringa hardcoded in un componente, aggiungila al
-  dizionario in `lib/i18n.ts` e usa `t("chiave")` — non lasciare testo
-  italiano fisso nel JSX.
+- Toggle persisted in `localStorage` via `LanguageProvider.tsx` (React
+  context, `useLang()` hook). UI strings live in `lib/i18n.ts` (flat
+  `it`/`en` dictionary, plus `DOW_SHORT`/`DOW_FULL`/`MONTHS` for dates).
+  Categories (`CATEGORIES_EN`), area labels (`AREA_LABELS_EN`), and
+  descriptive time labels (`translateTime`, for the ~5 phrases like "in
+  serata") live in `data/config.ts`.
+- Curated events in `events.json` have optional `titleEn`/`descEn`; if
+  missing, rendering falls back to the Italian `title`/`desc` (see the
+  limitation above for manual/scraped events).
+- When adding a hardcoded string in a component, add it to the dictionary in
+  `lib/i18n.ts` and use `t("key")` — don't leave fixed Italian text in JSX.
 
-## Scraper automatico
+## Automatic scraper
 
-- `data/scrapers/` contiene i parser (uno per fonte confermata funzionante,
-  vedi commento in `data/scrapers/index.ts`), eseguiti da
-  `app/api/cron/scrape/route.ts` e salvati su Vercel Blob
+- `data/scrapers/` contains the parsers (one per confirmed-working source,
+  see the comment in `data/scrapers/index.ts`), run by
+  `app/api/cron/scrape/route.ts` and saved to Vercel Blob
   (`SCRAPED_BLOB_PATHNAME`).
-- `vercel.json` attiva la cron ogni settimana, ma la route esegue lo scraping
-  vero una settimana sì e una no (parità della settimana dall'epoch — la
-  sintassi cron standard non può esprimere "ogni 2 settimane" senza
-  sfasarsi). `GET /api/cron/scrape?force=1` con `Authorization: Bearer
-  $CRON_SECRET` forza un'esecuzione immediata per test/debug.
-- Fonti attive: `municipium.ts` (feed RSS, comuni sul CMS Municipium:
-  Peschiera, Garda) e `gardaclick.ts` (HTML statico, una tabella per stagione
-  raggruppata per mese, copre tutta l'area del Garda — il parser filtra per
-  sottostringa contro `TOWNS`, con un caso speciale a match esatto per
-  "Garda" per non matchare i tanti "X del/sul Garda" fuori scope).
-- Prima di aggiungere una fonte, verificare che abbia un feed RSS/JSON
-  stabile (pattern preferito, vedi `municipium.ts`). Se la fonte è solo HTML
-  statico scrapabile (vedi `gardaclick.ts`), serve un parser dedicato che
-  filtri per le sole città in scope (`TOWNS`/`TOWN_COORDS`) dato che queste
-  fonti spesso coprono un'area più ampia del lago (Verona, Brescia,
-  entroterra). Ogni scraper deve avere il proprio try/catch e non lanciare
-  mai un'eccezione che blocchi le altre fonti.
+- `vercel.json` triggers the cron weekly, but the route only actually
+  scrapes every other week (epoch-week parity — standard cron syntax can't
+  express "every 2 weeks" without drifting). `GET
+  /api/cron/scrape?force=1` with `Authorization: Bearer $CRON_SECRET` forces
+  an immediate run for testing/debugging.
+- Active sources: `municipium.ts` (RSS feed, comuni on the Municipium CMS:
+  Peschiera, Garda) and `gardaclick.ts` (static HTML, one table per season
+  grouped by month, covers the whole Garda area — the parser filters by
+  substring against `TOWNS`, with a special exact-match case for "Garda" so
+  it doesn't match the many out-of-scope "X del/sul Garda" entries).
+- Before adding a source, check whether it has a stable RSS/JSON feed
+  (preferred pattern, see `municipium.ts`). If the source is only scrapable
+  static HTML (see `gardaclick.ts`), it needs a dedicated parser that
+  filters to in-scope towns only (`TOWNS`/`TOWN_COORDS`), since these
+  sources often cover a much wider area than the lake (Verona, Brescia,
+  the hinterland). Every scraper needs its own try/catch and must never
+  throw an exception that blocks the other sources.
 
-## Task tipici
+## Typical tasks
 
-- "Aggiungi un evento" → aggiungere una riga a `data/events.json` con lo
-  stesso formato delle altre (date, town, title, cat, time, desc, src);
-  `titleEn`/`descEn` opzionali.
-- "Aggiungi una città" → aggiornare `TOWN_COORDS`, `MARKET_DAYS` e
-  `TOWN_AREAS` in `data/config.ts`. Il filtro a tendina in `Filters.tsx` e la
-  mappa la raccolgono automaticamente, non serve toccare i componenti.
-- "Aggiungi una fonte allo scraper" → vedi sezione "Scraper automatico" sopra
-  e il README per i dettagli tecnici.
-- "Aggiungi/traduci una stringa" → vedi sezione "Traduzione IT/EN" sopra.
-- "Collega un database" → sostituire `getAllEvents()` in `data/getEvents.ts`
-  con una chiamata a Supabase (schema suggerito in README.md), mantenendo lo
-  stesso tipo `EventItem` in uscita così i componenti non cambiano. Nota che
-  utenti/override/cache scraper sono già su Vercel Blob, non serve
-  migrare quelli per primi.
+- "Add an event" → add a row to `data/events.json` in the same format as the
+  others (date, town, title, cat, time, desc, src); `titleEn`/`descEn` are
+  optional.
+- "Add a town" → update `TOWN_COORDS`, `MARKET_DAYS`, and `TOWN_AREAS` in
+  `data/config.ts`. The dropdown filter in `Filters.tsx` and the map pick it
+  up automatically, no need to touch the components.
+- "Add a scraper source" → see the "Automatic scraper" section above and
+  the README for technical details.
+- "Add/translate a string" → see the "IT/EN translation" section above.
+- "Hook up a database" → replace `getAllEvents()` in `data/getEvents.ts`
+  with a Supabase call (suggested schema in README.md), keeping the same
+  `EventItem` output type so the components don't change. Note that
+  users/overrides/scraper cache are already on Vercel Blob — no need to
+  migrate those first.
+
+
+# Preferred libraries
+
+When a task falls into one of these areas, use the library instead of writing it
+from scratch, and install it if it isn't already in the project:
+
+- Animations, transitions, gestures: Motion (import from "motion/react"; this is
+  the current package, formerly called "framer-motion")
+- Smooth, premium scroll feel: Lenis
+- Scroll-triggered / timeline animation: GSAP with ScrollTrigger
+- 3D scenes: React Three Fiber with Drei helpers
+- Charts and data viz: Recharts (Visx or Nivo for custom work)
+- Icons: Lucide
+- Command palette (Cmd+K): cmdk
+- Toasts / notifications: Sonner
+- Drag and drop: dnd-kit
+- Sortable, filterable tables: TanStack Table (formerly React Table)
+- Dates: date-fns
+- Confetti / celebratory moments: canvas-confetti
+
+Always use the current version of a library's syntax. If you're unsure of the
+current API, check the library's docs before writing rather than relying on an
+older version you might remember.
+
+# Guardrails
+
+- Don't add a library when the platform already does the job well. A simple fade
+  or hover is native CSS (opacity and transform), not a dependency.
+- Match the tool to the size of the job. A one-off transition doesn't justify a
+  30-50KB animation runtime.
+- Prefer libraries that are actively maintained and widely used.
+- For performance, only animate transform, opacity, and filter. Avoid animating
+  width, height, or margin.
+- Respect prefers-reduced-motion in every animation.
+- Tell me which library you're using, and why, before installing anything new.
