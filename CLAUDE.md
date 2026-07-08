@@ -111,10 +111,20 @@ README.md for the full architecture.
   an immediate run for testing/debugging.
 - Active sources: `municipium.ts` (RSS feed, comuni on the Municipium CMS:
   Peschiera, Garda, Bussolengo, Calvagese della Riviera, Cavaion Veronese,
-  Costermano sul Garda, Affi — check a comune's `/it/eventi/feed` before
-  assuming it's not on Municipium, and watch for a false positive: some
-  WordPress sites return 200 with a generic empty "Commenti a:" comments
-  feed at that same path, not real events).
+  Costermano sul Garda, Affi, Brenzone sul Garda — check a comune's
+  `/it/eventi/feed` before assuming it's not on Municipium, watch for a
+  false positive (some WordPress sites return 200 with a generic empty
+  "Commenti a:" comments feed at that same path, not real events), and
+  verify the actual domain rather than guessing a "comune.<slug>.<prov>.it"
+  pattern from the town name — Brenzone sul Garda's real domain is
+  `comune.brenzone.vr.it`, not `comune.brenzonesulgarda.vr.it`).
+- Every other hinterland town without curated events was checked for a
+  feed/API and doesn't have one — see README's "Active scraper sources"
+  section for the full breakdown (which CMS each runs, why it's not
+  scrapable the cheap way). Don't re-investigate these from scratch; a
+  bespoke per-site HTML parser is a real, fragile engineering cost, not a
+  quick add — hand-curate `data/events.json` for these instead unless
+  asked to build one.
 - **Primary sources only.** A source must be the comune, the tourism board,
   or the event's own organizer — never a secondary aggregator that just
   republishes other people's listings (e.g. gardaclick.com,

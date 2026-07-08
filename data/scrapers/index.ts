@@ -44,4 +44,9 @@ export const SCRAPERS = [
     "https://www.comune.affi.vr.it/it/eventi/feed",
     "comune.affi.vr.it"
   ),
+  createMunicipiumScraper(
+    "Brenzone sul Garda",
+    "https://comune.brenzone.vr.it/it/eventi/feed",
+    "comune.brenzone.vr.it"
+  ),
 ];

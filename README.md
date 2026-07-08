@@ -103,12 +103,26 @@ vercel.json               # scraper cron schedule
 - **Municipium** (`municipium.ts`): generic parser for comuni on the
   Municipium CMS, which exposes an `/it/eventi/feed` RSS feed — active for
   Peschiera, Garda, Bussolengo, Calvagese della Riviera, Cavaion Veronese,
-  Costermano sul Garda, and Affi. Checked but not on Municipium (feed
-  missing/empty or a different CMS): Lonato del Garda, Castelnuovo del
-  Garda, Polpenazze del Garda, Muscoline, Bedizzole, Prevalle, Puegnago del
-  Garda, Valeggio sul Mincio, Tignale, Brenzone sul Garda, San Zeno di
-  Montagna, Tenno, Dro, Arco — for these, curate events by hand from the
-  comune's own site until/unless a working feed turns up.
+  Costermano sul Garda, Affi, and Brenzone sul Garda (its real domain is
+  `comune.brenzone.vr.it`, not the more obvious
+  `comune.brenzonesulgarda.vr.it` — always verify the actual domain, don't
+  assume the "sul/del Garda" pattern holds).
+
+Checked every other town without curated events for a scrapable source on
+its own site — none of these have a feed/API, only a real events page as
+static HTML, which would need a bespoke, fragile parser per site instead of
+one reusable pattern (and breaks the first time the town redesigns its
+site), so they're left for hand curation for now:
+- **Castelnuovo del Garda, Pastrengo**: WordPress, but no dedicated events
+  post type or REST endpoint — checked `/wp-json/wp/v2/types` and
+  `/categories` on both, nothing "eventi"-shaped.
+- **Muscoline, Bedizzole, Gavardo**: SecovalWEB ("Modello Comuni"), a
+  template common among small Brescia-province comuni. Muscoline has a
+  static `/pagina*_eventi.html` page; no feed.
+- **Lonato del Garda**: Drupal 9, no RSS/JSON:API feed found.
+- **Polpenazze del Garda, Prevalle, Puegnago del Garda, Valeggio sul
+  Mincio, Tignale, San Zeno di Montagna, Soiano del Lago, Tenno, Dro,
+  Arco**: no feed found, CMS not identified beyond that.
 
 ### Sourcing policy: primary sources only
 
