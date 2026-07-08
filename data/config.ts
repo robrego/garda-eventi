@@ -40,50 +40,52 @@ export const TOWN_COORDS: Record<string, [number, number]> = {
 
 export const TOWNS = Object.keys(TOWN_COORDS);
 
-// Raggruppamento delle città per il filtro a tendina
-export const AREA_ORDER = ["Basso Garda", "Sponda lombarda", "Sponda veneta", "Sponda trentina", "Entroterra"];
+// Raggruppamento delle città per il filtro a tendina, per regione
+// amministrativa (non per sponda) — include costa ed entroterra insieme.
+export const AREA_ORDER = ["Lombardia", "Veneto", "Trentino"];
 
 export const AREA_LABELS_EN: Record<string, string> = {
-  "Basso Garda": "Southern Garda",
-  "Sponda lombarda": "Lombardy shore",
-  "Sponda veneta": "Veneto shore",
-  "Sponda trentina": "Trentino shore",
-  "Entroterra": "Hinterland",
+  "Lombardia": "Lombardy",
+  "Veneto": "Veneto",
+  "Trentino": "Trentino",
 };
 
 export const TOWN_AREAS: Record<string, string> = {
-  Peschiera: "Basso Garda",
-  Sirmione: "Basso Garda",
-  Desenzano: "Basso Garda",
-  Padenghe: "Sponda lombarda",
-  Moniga: "Sponda lombarda",
-  Manerba: "Sponda lombarda",
-  "San Felice": "Sponda lombarda",
-  Salò: "Sponda lombarda",
-  Gardone: "Sponda lombarda",
-  Toscolano: "Sponda lombarda",
-  Gargnano: "Sponda lombarda",
-  Tignale: "Sponda lombarda",
-  Tremosine: "Sponda lombarda",
-  Limone: "Sponda lombarda",
-  Lazise: "Sponda veneta",
-  Bardolino: "Sponda veneta",
-  Garda: "Sponda veneta",
-  "Torri del Benaco": "Sponda veneta",
-  "Brenzone sul Garda": "Sponda veneta",
-  Malcesine: "Sponda veneta",
-  Riva: "Sponda trentina",
-  Torbole: "Sponda trentina",
-  "Lonato del Garda": "Entroterra",
-  "Castelnuovo del Garda": "Entroterra",
-  "Polpenazze del Garda": "Entroterra",
-  Affi: "Entroterra",
-  "Cavaion Veronese": "Entroterra",
-  "Costermano sul Garda": "Entroterra",
-  "San Zeno di Montagna": "Entroterra",
-  Bussolengo: "Entroterra",
-  "Valeggio sul Mincio": "Entroterra",
-  Arco: "Entroterra",
+  // Lombardia (provincia di Brescia)
+  Sirmione: "Lombardia",
+  Desenzano: "Lombardia",
+  Padenghe: "Lombardia",
+  Moniga: "Lombardia",
+  Manerba: "Lombardia",
+  "San Felice": "Lombardia",
+  Salò: "Lombardia",
+  Gardone: "Lombardia",
+  Toscolano: "Lombardia",
+  Gargnano: "Lombardia",
+  Tignale: "Lombardia",
+  Tremosine: "Lombardia",
+  Limone: "Lombardia",
+  "Lonato del Garda": "Lombardia",
+  "Polpenazze del Garda": "Lombardia",
+  // Veneto (provincia di Verona)
+  Peschiera: "Veneto",
+  Lazise: "Veneto",
+  Bardolino: "Veneto",
+  Garda: "Veneto",
+  "Torri del Benaco": "Veneto",
+  "Brenzone sul Garda": "Veneto",
+  Malcesine: "Veneto",
+  "Castelnuovo del Garda": "Veneto",
+  Affi: "Veneto",
+  "Cavaion Veronese": "Veneto",
+  "Costermano sul Garda": "Veneto",
+  "San Zeno di Montagna": "Veneto",
+  Bussolengo: "Veneto",
+  "Valeggio sul Mincio": "Veneto",
+  // Trentino (provincia di Trento)
+  Riva: "Trentino",
+  Torbole: "Trentino",
+  Arco: "Trentino",
 };
 
 export const CATEGORIES: Record<string, string> = {

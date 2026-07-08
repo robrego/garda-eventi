@@ -35,26 +35,30 @@ README.md for the full architecture.
   desktop, in `EventsApp.tsx`). Follow the same pattern for new controls
   that need to behave differently by screen size: simpler and free of the
   hydration-mismatch risk that comes with `useState` + `matchMedia`.
-- **Geographic area**: the whole lake within ~50 km of Desenzano, Lombardy,
-  Veneto and Trentino shores, plus the hinterland within 10-15 km of the
-  coast (an explicitly chosen distance threshold, not an administrative
-  boundary). Lombardy shore, south to north: Peschiera, Sirmione, Desenzano,
-  Padenghe, Moniga, Manerba, San Felice, Salò, Gardone, Toscolano, Gargnano,
-  Tignale, Tremosine, Limone. Veneto shore, south to north: Lazise,
-  Bardolino, Garda, Torri del Benaco, Brenzone sul Garda, Malcesine.
-  Trentino shore, to the north: Riva del Garda, Torbole. Hinterland
-  ("Entroterra" group in `TOWN_AREAS`, all within 3.5-10.7 km of the nearest
-  coastal town — verified distances, not estimates): Lonato del Garda,
-  Castelnuovo del Garda, Polpenazze del Garda, Affi, Cavaion Veronese,
-  Costermano sul Garda, San Zeno di Montagna, Bussolengo, Valeggio sul
-  Mincio (Lombardy/Veneto side), Arco (Trentino side). Out of scope: Verona
-  city, Brescia, Mantova, and fairs hosted at an exhibition center far from
-  the lake (Fiera di Verona, Fiera di Montichiari — see
-  `data/scrapers/gardaclick.ts`). When adding towns, update
-  `data/config.ts` (TOWN_COORDS, MARKET_DAYS, TOWN_AREAS, and
-  `AREA_LABELS_EN` if the area is new) and `data/events.json`. Always
-  verify real coordinates (e.g. from Wikipedia) instead of estimating from
-  memory — this is a map, a pin in the wrong place is a visible bug.
+- **Geographic area**: the whole lake within ~50 km of Desenzano — the
+  Lombardy, Veneto and Trentino shores — plus the hinterland within 10-15 km
+  of the coast (an explicitly chosen distance threshold, not an
+  administrative boundary). 32 towns total (`Object.keys(TOWN_COORDS).length`
+  in `data/config.ts`): Lombardy shore + hinterland (15): Sirmione,
+  Desenzano, Padenghe, Moniga, Manerba, San Felice, Salò, Gardone, Toscolano,
+  Gargnano, Tignale, Tremosine, Limone, Lonato del Garda, Polpenazze del
+  Garda. Veneto shore + hinterland (14): Peschiera, Lazise, Bardolino,
+  Garda, Torri del Benaco, Brenzone sul Garda, Malcesine, Castelnuovo del
+  Garda, Affi, Cavaion Veronese, Costermano sul Garda, San Zeno di Montagna,
+  Bussolengo, Valeggio sul Mincio. Trentino shore + hinterland (3): Riva del
+  Garda, Torbole, Arco. Hinterland towns are within 3.5-10.7 km of the
+  nearest coastal town — verified distances, not estimates. Out of scope:
+  Verona city, Brescia, Mantova, and fairs hosted at an exhibition center
+  far from the lake (Fiera di Verona, Fiera di Montichiari — see
+  `data/scrapers/gardaclick.ts`).
+- **Town filter grouping**: `TOWN_AREAS`/`AREA_ORDER` in `data/config.ts`
+  group towns by administrative region (Lombardia/Veneto/Trentino), mixing
+  shore and hinterland towns together — not by shore-vs-hinterland. When
+  adding towns, update `data/config.ts` (TOWN_COORDS, MARKET_DAYS,
+  TOWN_AREAS — pick the region, not the shore, and `AREA_LABELS_EN` only if
+  adding a 4th region) and `data/events.json`. Always verify real
+  coordinates (e.g. from Wikipedia) instead of estimating from memory —
+  this is a map, a pin in the wrong place is a visible bug.
 - **Map**: Leaflet + CARTO Positron tiles (no API key). `EventMap.tsx` is
   client-only and imported with `dynamic(..., { ssr: false })` in
   `EventsApp.tsx` because Leaflet requires `window`. Bounds are computed

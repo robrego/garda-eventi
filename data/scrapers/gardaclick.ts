@@ -11,8 +11,8 @@ const MONTHS_IT = [
 
 // GardaClick lists events for the whole Garda area, including plenty of
 // towns well outside our scope (Verona, Fiera di Montichiari, comuni we
-// don't cover — our scope now reaches ~10-15 km inland, see TOWN_AREAS'
-// "Entroterra" group, but not that far). Matching is a substring check
+// don't cover — our scope now reaches ~10-15 km inland, see TOWN_AREAS in
+// data/config.ts, but not that far). Matching is a substring check
 // against TOWNS — the table's location text is usually longer than our key
 // ("Desenzano del Garda", "Torbole sul Garda", "Bogliaco di Gargnano") —
 // except for "Garda" itself, which needs an exact match: as a substring it
