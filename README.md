@@ -106,13 +106,16 @@ vercel.json               # cron dello scraper
   pagina HTML statica per stagione
   (`gardaclick.com/eventi-fiere-mercati-lago-di-garda`) con una tabella
   raggruppata per mese, eventi/fiere/mercati di tutta l'area del Garda —
-  molti fuori dal nostro scope (Verona, entroterra, comuni non coperti). Il
-  parser filtra per sottostringa contro `TOWNS` (`data/config.ts`), con un
-  caso speciale per "Garda": come sottostringa matcherebbe anche ogni
-  "Castelnuovo/Costermano/Lonato del Garda" fuori scope, quindi per quella
-  città serve un match esatto. Niente descrizione o orario nella fonte, solo
-  giorno/i, città e nome — la description generata è quindi generica
-  ("Evento a {città}... consulta il sito dell'organizzatore").
+  molti fuori dal nostro scope (Verona città, Fiera di Verona/Montichiari,
+  comuni non coperti). Il parser filtra per sottostringa contro `TOWNS`
+  (`data/config.ts`, include anche il gruppo "Entroterra"), con un caso
+  speciale per "Garda": come sottostringa matcherebbe anche ogni comune
+  "X del/sul Garda" ancora fuori scope, quindi per quella città serve un
+  match esatto. Gli eventi taggati genericamente "Lago di Garda" (1000
+  Miglia, Lago di Garda in Love) vengono agganciati a Desenzano invece di
+  essere scartati. Niente descrizione o orario nella fonte, solo giorno/i,
+  città e nome — la description generata è quindi generica ("Evento a
+  {città}... consulta il sito dell'organizzatore").
 
 ### Aggiungere una nuova fonte
 
@@ -149,12 +152,18 @@ cambiare):
   San Felice del Benaco, Salò, Gardone Riviera, Toscolano-Maderno, Gargnano,
   Tignale, Tremosine, Limone sul Garda
 - Uffici turistici e comuni della sponda veneta: Lazise, Bardolino, Garda,
-  Torri del Benaco, Malcesine
+  Torri del Benaco, Brenzone sul Garda, Malcesine
 - Sponda trentina, a nord del lago: Riva del Garda, Torbole (gardatrentino.it)
+- Entroterra, entro 10-15 km dalla costa (gruppo "Entroterra" nel filtro
+  città — distanze verificate su Wikipedia, non stimate): Lonato del Garda,
+  Castelnuovo del Garda, Polpenazze del Garda, Affi, Cavaion Veronese,
+  Costermano sul Garda, San Zeno di Montagna, Bussolengo, Valeggio sul
+  Mincio, Arco
 
-Fuori scope: le città dell'entroterra (Verona, Brescia, Mantova). L'elenco
-aggiornato di città e coordinate è sempre in `data/config.ts` →
-`TOWN_COORDS`.
+Fuori scope: Verona città, Brescia, Mantova, e le fiere ospitate in un polo
+espositivo lontano dal lago (Fiera di Verona, Fiera di Montichiari — escluse
+esplicitamente nello scraper GardaClick, vedi sopra). L'elenco aggiornato di
+città e coordinate è sempre in `data/config.ts` → `TOWN_COORDS`.
 
 I link "Fonte" nelle card evento puntano al sito sorgente solo quando il campo
 `src` assomiglia a un dominio (es. `visitsirmione.com`); nomi descrittivi

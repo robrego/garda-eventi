@@ -10,13 +10,14 @@ const MONTHS_IT = [
 ];
 
 // GardaClick lists events for the whole Garda area, including plenty of
-// towns well outside our scope (Verona, the entroterra, comuni we don't
-// cover). Matching is a substring check against TOWNS — the table's
-// location text is usually longer than our key ("Desenzano del Garda",
-// "Torbole sul Garda", "Bogliaco di Gargnano") — except for "Garda" itself,
-// which needs an exact match: as a substring it would wrongly match every
-// out-of-scope "X del/sul Garda" entry (Castelnuovo del Garda, Costermano
-// sul Garda, Lonato del Garda, "Garda Trentino"...).
+// towns well outside our scope (Verona, Fiera di Montichiari, comuni we
+// don't cover — our scope now reaches ~10-15 km inland, see TOWN_AREAS'
+// "Entroterra" group, but not that far). Matching is a substring check
+// against TOWNS — the table's location text is usually longer than our key
+// ("Desenzano del Garda", "Torbole sul Garda", "Bogliaco di Gargnano") —
+// except for "Garda" itself, which needs an exact match: as a substring it
+// would wrongly match every out-of-scope "X del/sul Garda" entry
+// ("Garda Trentino", any future comune we still don't cover).
 //
 // A couple of entries (the "1000 Miglia" rally, "Lago di Garda in Love")
 // are tagged with the whole lake rather than one town — genuinely

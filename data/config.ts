@@ -20,22 +20,35 @@ export const TOWN_COORDS: Record<string, [number, number]> = {
   Bardolino:      [45.5497, 10.7205],
   Garda:          [45.5762, 10.6975],
   "Torri del Benaco": [45.6136, 10.6873],
+  "Brenzone sul Garda": [45.7000, 10.7667],
   Malcesine:      [45.7669, 10.8095],
   // Sponda trentina, a nord
   Riva:           [45.8858, 10.8412],
   Torbole:        [45.8527, 10.8812],
+  // Entroterra, entro 10-15 km dalla costa (vedi CLAUDE.md)
+  "Lonato del Garda":      [45.4657, 10.4749],
+  "Castelnuovo del Garda": [45.4333, 10.7667],
+  "Polpenazze del Garda":  [45.5522, 10.5075],
+  Affi:                    [45.5500, 10.7667],
+  "Cavaion Veronese":      [45.5401, 10.7705],
+  "Costermano sul Garda":  [45.5857, 10.7400],
+  "San Zeno di Montagna":  [45.6333, 10.7333],
+  Bussolengo:              [45.4667, 10.8500],
+  "Valeggio sul Mincio":   [45.3500, 10.7333],
+  Arco:                    [45.9192, 10.8862],
 };
 
 export const TOWNS = Object.keys(TOWN_COORDS);
 
 // Raggruppamento delle città per il filtro a tendina
-export const AREA_ORDER = ["Basso Garda", "Sponda lombarda", "Sponda veneta", "Sponda trentina"];
+export const AREA_ORDER = ["Basso Garda", "Sponda lombarda", "Sponda veneta", "Sponda trentina", "Entroterra"];
 
 export const AREA_LABELS_EN: Record<string, string> = {
   "Basso Garda": "Southern Garda",
   "Sponda lombarda": "Lombardy shore",
   "Sponda veneta": "Veneto shore",
   "Sponda trentina": "Trentino shore",
+  "Entroterra": "Hinterland",
 };
 
 export const TOWN_AREAS: Record<string, string> = {
@@ -57,9 +70,20 @@ export const TOWN_AREAS: Record<string, string> = {
   Bardolino: "Sponda veneta",
   Garda: "Sponda veneta",
   "Torri del Benaco": "Sponda veneta",
+  "Brenzone sul Garda": "Sponda veneta",
   Malcesine: "Sponda veneta",
   Riva: "Sponda trentina",
   Torbole: "Sponda trentina",
+  "Lonato del Garda": "Entroterra",
+  "Castelnuovo del Garda": "Entroterra",
+  "Polpenazze del Garda": "Entroterra",
+  Affi: "Entroterra",
+  "Cavaion Veronese": "Entroterra",
+  "Costermano sul Garda": "Entroterra",
+  "San Zeno di Montagna": "Entroterra",
+  Bussolengo: "Entroterra",
+  "Valeggio sul Mincio": "Entroterra",
+  Arco: "Entroterra",
 };
 
 export const CATEGORIES: Record<string, string> = {

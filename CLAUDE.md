@@ -36,14 +36,25 @@ a mano. Vedi anche README.md per l'architettura completa.
   comportarsi diversamente in base allo schermo: più semplice e senza rischi
   di hydration mismatch rispetto a `useState` + `matchMedia`.
 - **Zona geografica**: tutto il lago entro circa 50 km da Desenzano, sponda
-  lombarda, veneta e trentina. Sponda lombarda, da sud a nord: Peschiera,
-  Sirmione, Desenzano, Padenghe, Moniga, Manerba, San Felice, Salò, Gardone,
-  Toscolano, Gargnano, Tignale, Tremosine, Limone. Sponda veneta, da sud a
-  nord: Lazise, Bardolino, Garda, Torri del Benaco, Malcesine. Sponda
-  trentina, a nord: Riva del Garda, Torbole. Fuori scope: le città
-  dell'entroterra (Verona, Brescia, Mantova). Se si aggiungono città,
-  aggiornare `data/config.ts` (TOWN_COORDS, MARKET_DAYS, TOWN_AREAS, e
-  `AREA_LABELS_EN` se l'area è nuova) e `data/events.json`.
+  lombarda, veneta e trentina, più l'entroterra entro 10-15 km dalla costa
+  (soglia di distanza scelta esplicitamente, non un limite amministrativo).
+  Sponda lombarda, da sud a nord: Peschiera, Sirmione, Desenzano, Padenghe,
+  Moniga, Manerba, San Felice, Salò, Gardone, Toscolano, Gargnano, Tignale,
+  Tremosine, Limone. Sponda veneta, da sud a nord: Lazise, Bardolino, Garda,
+  Torri del Benaco, Brenzone sul Garda, Malcesine. Sponda trentina, a nord:
+  Riva del Garda, Torbole. Entroterra (gruppo "Entroterra" in `TOWN_AREAS`,
+  tutte entro 3.5-10.7 km dalla città costiera più vicina — distanze
+  verificate, non stimate): Lonato del Garda, Castelnuovo del Garda,
+  Polpenazze del Garda, Affi, Cavaion Veronese, Costermano sul Garda, San
+  Zeno di Montagna, Bussolengo, Valeggio sul Mincio (lato lombardo/veneto),
+  Arco (lato trentino). Fuori scope: Verona città, Brescia, Mantova, e le
+  fiere in quota a un polo espositivo lontano dal lago (Fiera di Verona,
+  Fiera di Montichiari — vedi `data/scrapers/gardaclick.ts`). Se si
+  aggiungono città, aggiornare `data/config.ts` (TOWN_COORDS, MARKET_DAYS,
+  TOWN_AREAS, e `AREA_LABELS_EN` se l'area è nuova) e `data/events.json`.
+  Verificare sempre le coordinate reali (es. da Wikipedia) invece di
+  stimarle a memoria — è una mappa, un pin nel posto sbagliato è un bug
+  visibile.
 - **Mappa**: Leaflet + tile CARTO Positron (nessuna API key). Il componente
   `EventMap.tsx` è client-only ed è importato con `dynamic(..., { ssr: false })`
   in `EventsApp.tsx` perché Leaflet richiede `window`. I bounds si calcolano
