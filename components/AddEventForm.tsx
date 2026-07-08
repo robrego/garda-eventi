@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { TOWNS, CATEGORIES, CATEGORIES_EN } from "@/data/config";
 import { useLang } from "@/components/LanguageProvider";
+import { uploadImage } from "@/lib/uploadImage";
 
 export default function AddEventForm({
   onClose,
@@ -23,6 +24,18 @@ export default function AddEventForm({
   const [url, setUrl] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [uploading, setUploading] = useState(false);
+
+  const handleFile = async (file: File) => {
+    setUploading(true);
+    setError(null);
+    try {
+      setImage(await uploadImage(file));
+    } catch {
+      setError(t("errorUpload"));
+    }
+    setUploading(false);
+  };
 
   const submit = async () => {
     setBusy(true);
@@ -107,6 +120,22 @@ export default function AddEventForm({
           />
         </label>
 
+        {image && <img src={image} alt="" className="cover-preview" />}
+
+        <label className="form-field">
+          {t("uploadImageLabel")}
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) handleFile(file);
+            }}
+          />
+        </label>
+
+        <p className="form-divider">{t("orDivider")}</p>
+
         <label className="form-field">
           {t("fieldImageUrlOptional")}
           <input
@@ -116,6 +145,8 @@ export default function AddEventForm({
             onChange={(e) => setImage(e.target.value)}
           />
         </label>
+
+        {uploading && <p className="modal-subtitle">{t("uploading")}</p>}
 
         <label className="form-field">
           {t("fieldEventUrlOptional")}
@@ -130,7 +161,7 @@ export default function AddEventForm({
         {error && <p className="form-error">{error}</p>}
 
         <div className="modal-actions">
-          <button type="button" className="modal-primary" onClick={submit} disabled={busy || !date || !title}>
+          <button type="button" className="modal-primary" onClick={submit} disabled={busy || uploading || !date || !title}>
             {t("saveEvent")}
           </button>
           <button type="button" className="modal-close" onClick={onClose}>

@@ -1,11 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { EventItem, CATEGORIES, CATEGORIES_EN, TOWN_CREST, translateTime } from "@/data/config";
-import AddCoverForm from "@/components/AddCoverForm";
 import EditDescForm from "@/components/EditDescForm";
 import { useLang } from "@/components/LanguageProvider";
 import { DOW_FULL, MONTHS, eventsCountLabel } from "@/lib/i18n";
+
+// Pulls in the Vercel Blob client-upload bundle, only needed once someone
+// actually opens the form — not worth it in every visitor's initial load.
+const AddCoverForm = dynamic(() => import("@/components/AddCoverForm"), { ssr: false });
 
 function LinkArrowIcon() {
   return (

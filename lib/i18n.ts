@@ -36,6 +36,10 @@ const STRINGS = {
   addCoverTitle: { it: "Aggiungi copertina", en: "Add cover" },
   fieldImageUrl: { it: "URL immagine", en: "Image URL" },
   saveCover: { it: "Salva copertina", en: "Save cover" },
+  uploadImageLabel: { it: "Carica un file", en: "Upload a file" },
+  orDivider: { it: "oppure", en: "or" },
+  uploading: { it: "Caricamento in corso…", en: "Uploading…" },
+  errorUpload: { it: "Caricamento non riuscito, riprova", en: "Upload failed, try again" },
 
   allTowns: { it: "Tutte le città", en: "All towns" },
   viewSplit: { it: "Mappa + lista", en: "Map + list" },

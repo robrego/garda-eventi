@@ -1,9 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import AddEventForm from "@/components/AddEventForm";
 import { useLang } from "@/components/LanguageProvider";
+
+// Pulls in the Vercel Blob client-upload bundle, only needed once someone
+// actually opens the form — not worth it in every visitor's initial load.
+const AddEventForm = dynamic(() => import("@/components/AddEventForm"), { ssr: false });
 
 export default function AuthWidget({
   email,

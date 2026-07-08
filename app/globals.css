@@ -412,6 +412,10 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   resize: vertical;
 }
 
+.form-field input[type="file"] { background: none; padding: 0; font-size: 14px; font-weight: 500; }
+.form-divider { text-align: center; font-size: 13px; font-weight: 600; color: var(--lake-mid); text-transform: uppercase; letter-spacing: 0.03em; margin: -4px 0; }
+.cover-preview { width: 100%; max-height: 220px; object-fit: cover; border-radius: 12px; background: var(--lake-glass); display: block; }
+
 .form-error { color: #b3261e; font-size: 14px; font-weight: 600; margin: 0; }
 
 .modal-actions { display: flex; gap: 10px; margin-top: 4px; }
