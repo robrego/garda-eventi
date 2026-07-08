@@ -36,6 +36,16 @@ export const TOWN_COORDS: Record<string, [number, number]> = {
   Bussolengo:              [45.4667, 10.8500],
   "Valeggio sul Mincio":   [45.3500, 10.7333],
   Arco:                    [45.9192, 10.8862],
+  "Soiano del Lago":       [45.5278, 10.5127],
+  "Puegnago del Garda":    [45.5667, 10.5100],
+  Muscoline:               [45.5667, 10.4667],
+  "Calvagese della Riviera": [45.5342, 10.4425],
+  Bedizzole:               [45.5167, 10.4167],
+  Gavardo:                 [45.5875, 10.4389],
+  Prevalle:                [45.5500, 10.4167],
+  Pastrengo:               [45.5000, 10.8000],
+  Tenno:                   [45.9194, 10.8322],
+  Dro:                     [45.9667, 10.9167],
 };
 
 export const TOWNS = Object.keys(TOWN_COORDS);
@@ -67,6 +77,13 @@ export const TOWN_AREAS: Record<string, string> = {
   Limone: "Lombardia",
   "Lonato del Garda": "Lombardia",
   "Polpenazze del Garda": "Lombardia",
+  "Soiano del Lago": "Lombardia",
+  "Puegnago del Garda": "Lombardia",
+  Muscoline: "Lombardia",
+  "Calvagese della Riviera": "Lombardia",
+  Bedizzole: "Lombardia",
+  Gavardo: "Lombardia",
+  Prevalle: "Lombardia",
   // Veneto (provincia di Verona)
   Peschiera: "Veneto",
   Lazise: "Veneto",
@@ -82,10 +99,13 @@ export const TOWN_AREAS: Record<string, string> = {
   "San Zeno di Montagna": "Veneto",
   Bussolengo: "Veneto",
   "Valeggio sul Mincio": "Veneto",
+  Pastrengo: "Veneto",
   // Trentino (provincia di Trento)
   Riva: "Trentino",
   Torbole: "Trentino",
   Arco: "Trentino",
+  Tenno: "Trentino",
+  Dro: "Trentino",
 };
 
 export const CATEGORIES: Record<string, string> = {
