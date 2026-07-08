@@ -60,7 +60,7 @@ function dedupe(events: RawEvent[]): RawEvent[] {
 }
 
 /**
- * Reads the weekly scraper's output from Vercel Blob. Isolated behind a
+ * Reads the fortnightly scraper's output from Vercel Blob. Isolated behind a
  * try/catch: if Blob isn't configured (no token) or the cron hasn't run
  * yet, we fall back to the static curated list rather than breaking the
  * page.
@@ -81,7 +81,7 @@ async function fetchScrapedEvents(): Promise<RawEvent[]> {
 /**
  * Returns the full event list: manually-submitted events (highest
  * priority — a person deliberately added or corrected these), then the
- * weekly scraper's output from Blob, then curated events.json, plus
+ * fortnightly scraper's output from Blob, then curated events.json, plus
  * generated weekly market entries. `hasLiveData` tells the UI whether
  * any automated source actually contributed events this run.
  */
