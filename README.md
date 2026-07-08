@@ -1,194 +1,198 @@
-# Lago di Garda e Dintorni – Eventi
+# Lago di Garda e Dintorni – Events
 
-Prototipo Next.js: mappa + lista + calendario per gli eventi sul Lago di
-Garda, sponda lombarda e veneta, entro circa 50 km da Desenzano del Garda.
+Next.js prototype: map + list + calendar for events on Lake Garda, Lombardy,
+Veneto and Trentino shores plus the hinterland, within about 50 km of
+Desenzano del Garda.
 
-## Avvio rapido
+## Quick start
 
 ```bash
 npm install
 npm run dev
 ```
 
-Apri http://localhost:3000
+Open http://localhost:3000
 
-Comandi utili:
+Useful commands:
 
 ```bash
-npm run build   # build di produzione
-npm run start   # avvia la build di produzione
+npm run build   # production build
+npm run start   # run the production build
 npm run lint    # eslint
-npx tsc --noEmit   # controllo tipi senza emettere file
+npx tsc --noEmit   # type-check without emitting files
 ```
 
-## Struttura
+## Structure
 
 ```
 app/
-  layout.tsx              # font, metadata
-  page.tsx                # entry point server: legge getAllEvents(), monta EventsApp
-  globals.css             # tutti gli stili
+  layout.tsx              # fonts, metadata
+  page.tsx                # server entry point: calls getAllEvents(), mounts EventsApp
+  globals.css             # all styles
   api/
-    auth/{login,register,logout,me}/route.ts   # sessione via cookie JWT
-    events/{manual,image,desc}/route.ts        # submission utenti autenticati
-    cron/scrape/route.ts                       # cron scraper (vedi sotto)
+    auth/{login,register,logout,me}/route.ts   # session via JWT cookie
+    events/{manual,image,desc}/route.ts        # submissions from authenticated users
+    cron/scrape/route.ts                       # scraper cron (see below)
 components/
-  EventsApp.tsx           # stato principale (data, filtri, vista, menu mobile)
-  DateRibbon.tsx          # nastro dei 7 giorni + navigazione settimana
-  Filters.tsx             # data picker + filtro città + selettore vista + IT/EN
-  EventList.tsx           # lista eventi del giorno
-  EventMap.tsx            # mappa Leaflet (client-only, dynamic import in EventsApp)
-  AuthWidget.tsx           # login/registrazione/logout, apre AddEventForm
-  AddEventForm.tsx         # submission manuale di un evento (utenti loggati)
-  EditDescForm.tsx         # override della descrizione di un evento esistente
-  AddCoverForm.tsx         # override dell'immagine di copertina di un evento
-  LanguageProvider.tsx     # contesto IT/EN, persistito in localStorage
+  EventsApp.tsx           # main state (date, filters, view, mobile menu)
+  DateRibbon.tsx          # 7-day ribbon + week navigation
+  Filters.tsx             # date picker + town filter + view selector + IT/EN
+  EventList.tsx           # the day's event list
+  EventMap.tsx            # Leaflet map (client-only, dynamic import in EventsApp)
+  AuthWidget.tsx           # login/register/logout, opens AddEventForm
+  AddEventForm.tsx         # manual event submission (logged-in users)
+  EditDescForm.tsx         # override an existing event's description
+  AddCoverForm.tsx         # override an existing event's cover image
+  LanguageProvider.tsx     # IT/EN context, persisted to localStorage
 data/
-  events.json             # eventi reali raccolti a mano da fonti ufficiali
-  config.ts               # coordinate città, categorie (IT/EN), giorni di mercato
-  getEvents.ts            # unisce curati + manuali + scraped + mercati ricorrenti
+  events.json             # real events collected by hand from official sources
+  config.ts               # town coordinates, categories (IT/EN), market days
+  getEvents.ts            # merges curated + manual + scraped + recurring markets
   scrapers/
-    index.ts              # elenco scraper attivi (SCRAPERS)
-    municipium.ts          # parser generico per comuni sul CMS Municipium
+    index.ts              # list of active scrapers (SCRAPERS)
+    municipium.ts          # generic parser for comuni on the Municipium CMS
 lib/
-  auth.ts, users.ts       # sessione JWT (cookie) + utenti su Vercel Blob
-  manualEvents.ts         # eventi inviati a mano dagli utenti loggati (Blob)
-  imageOverrides.ts       # override di copertina per evento esistente (Blob)
-  descOverrides.ts        # override di descrizione per evento esistente (Blob)
-  i18n.ts                 # dizionario stringhe IT/EN + nomi giorni/mesi
-vercel.json               # cron dello scraper
+  auth.ts, users.ts       # JWT session (cookie) + users on Vercel Blob
+  manualEvents.ts         # events submitted by logged-in users (Blob)
+  imageOverrides.ts       # cover-image override for an existing event (Blob)
+  descOverrides.ts        # description override for an existing event (Blob)
+  i18n.ts                 # IT/EN string dictionary + day/month names
+vercel.json               # scraper cron schedule
 ```
 
-## Architettura
+## Architecture
 
-- **Next.js App Router**: `app/page.tsx` è un server component che chiama
-  `getAllEvents()` e monta `EventsApp` (client component) dentro
-  `LanguageProvider`. Tutto lo stato di navigazione (data selezionata, filtro
-  città, vista mappa/lista, menu mobile) vive in `useState` in `EventsApp`.
-- **Sorgenti degli eventi**, unite da `getAllEvents()` in `data/getEvents.ts`,
-  in ordine di priorità: eventi inviati a mano dagli utenti loggati (Blob),
-  eventi scaricati dallo scraper automatico (Blob), eventi curati in
-  `data/events.json`, più le occorrenze generate dei mercati settimanali
-  ricorrenti. Gli override di immagine/descrizione (anch'essi su Blob) si
-  applicano sopra qualunque fonte, per evento.
-- **Autenticazione**: sessione via cookie JWT (`lib/auth.ts`), utenti salvati
-  su Vercel Blob (`lib/users.ts`). Serve solo a distinguere chi può inviare
-  eventi/correzioni — non c'è un ruolo admin, chiunque si registra può farlo.
-- **Scraper automatico**: `data/scrapers/` contiene i parser (uno per fonte
-  confermata funzionante — vedi sotto), eseguiti dalla cron
-  `app/api/cron/scrape/route.ts` e salvati su Vercel Blob. `vercel.json`
-  attiva la cron ogni settimana, ma la route esegue lo scraping vero solo una
-  settimana sì e una no (parità della settimana dall'epoch — la sintassi cron
-  standard non può esprimere "ogni 2 settimane" senza sfasarsi tra un mese e
-  l'altro). Per forzare un'esecuzione fuori programma: `GET
-  /api/cron/scrape?force=1` con header `Authorization: Bearer $CRON_SECRET`.
-- **i18n**: toggle IT/EN (`components/LanguageProvider.tsx` +
-  `lib/i18n.ts`), scelta persistita in `localStorage`. Le stringhe
-  dell'interfaccia sono tradotte; gli eventi curati in `events.json` hanno
-  anche `titleEn`/`descEn`. Gli eventi inviati a mano o scaricati dallo
-  scraper non hanno una versione inglese e restano nella lingua originale
-  anche col toggle su EN.
-- **Mappa client-only**: Leaflet richiede `window`, quindi `EventMap.tsx` è
-  importato con `dynamic(..., { ssr: false })` in `EventsApp.tsx`. Tile
-  leggeri CARTO Positron (nessuna API key richiesta) per uno stile minimale
-  che lascia risaltare i marker degli eventi.
-- **Nessun database relazionale**: tutto ciò che è dinamico (utenti, eventi
-  manuali, override, cache dello scraper) vive su Vercel Blob come JSON. Il
-  prossimo passo naturale resta sostituire `events.json` con Supabase (schema
-  suggerito più sotto) se la mole di dati/scritture dovesse crescere.
+- **Next.js App Router**: `app/page.tsx` is a server component that calls
+  `getAllEvents()` and mounts `EventsApp` (client component) inside
+  `LanguageProvider`. All navigation state (selected date, town filter,
+  map/list view, mobile menu) lives in `useState` in `EventsApp`.
+- **Event sources**, merged by `getAllEvents()` in `data/getEvents.ts`, in
+  priority order: events submitted by hand by logged-in users (Blob),
+  events downloaded by the automatic scraper (Blob), curated events in
+  `data/events.json`, plus the generated occurrences of recurring weekly
+  markets. Image/description overrides (also on Blob) apply on top of any
+  source, per event.
+- **Authentication**: session via JWT cookie (`lib/auth.ts`), users stored
+  on Vercel Blob (`lib/users.ts`). It only exists to tell who can submit
+  events/corrections — there's no admin role, anyone who registers can do it.
+- **Automatic scraper**: `data/scrapers/` contains the parsers (one per
+  confirmed-working source — see below), run by the
+  `app/api/cron/scrape/route.ts` cron and saved to Vercel Blob.
+  `vercel.json` triggers the cron weekly, but the route only actually
+  scrapes every other week (epoch-week parity — standard cron syntax can't
+  express "every 2 weeks" without drifting across month boundaries). To
+  force an out-of-schedule run: `GET /api/cron/scrape?force=1` with header
+  `Authorization: Bearer $CRON_SECRET`.
+- **i18n**: IT/EN toggle (`components/LanguageProvider.tsx` +
+  `lib/i18n.ts`), choice persisted in `localStorage`. UI strings are
+  translated; curated events in `events.json` also have
+  `titleEn`/`descEn`. Events submitted by hand or downloaded by the scraper
+  have no English version and stay in their original language even with
+  the toggle set to EN.
+- **Client-only map**: Leaflet requires `window`, so `EventMap.tsx` is
+  imported with `dynamic(..., { ssr: false })` in `EventsApp.tsx`.
+  Lightweight CARTO Positron tiles (no API key required) for a minimal
+  style that makes the event markers stand out.
+- **No relational database**: everything dynamic (users, manual events,
+  overrides, scraper cache) lives on Vercel Blob as JSON. The natural next
+  step remains replacing `events.json` with Supabase (suggested schema
+  below) if the volume of data/writes grows.
 
-### Fonti attive dello scraper
+### Active scraper sources
 
-- **Municipium** (`municipium.ts`): parser generico per comuni sul CMS
-  Municipium, che espone un feed RSS `/it/eventi/feed` — attivo per Peschiera
-  e Garda.
-- **GardaClick** (`gardaclick.ts`): non ha un feed, ma pubblica una singola
-  pagina HTML statica per stagione
-  (`gardaclick.com/eventi-fiere-mercati-lago-di-garda`) con una tabella
-  raggruppata per mese, eventi/fiere/mercati di tutta l'area del Garda —
-  molti fuori dal nostro scope (Verona città, Fiera di Verona/Montichiari,
-  comuni non coperti). Il parser filtra per sottostringa contro `TOWNS`
-  (`data/config.ts`, include anche il gruppo "Entroterra"), con un caso
-  speciale per "Garda": come sottostringa matcherebbe anche ogni comune
-  "X del/sul Garda" ancora fuori scope, quindi per quella città serve un
-  match esatto. Gli eventi taggati genericamente "Lago di Garda" (1000
-  Miglia, Lago di Garda in Love) vengono agganciati a Desenzano invece di
-  essere scartati. Niente descrizione o orario nella fonte, solo giorno/i,
-  città e nome — la description generata è quindi generica ("Evento a
-  {città}... consulta il sito dell'organizzatore").
+- **Municipium** (`municipium.ts`): generic parser for comuni on the
+  Municipium CMS, which exposes an `/it/eventi/feed` RSS feed — active for
+  Peschiera and Garda.
+- **GardaClick** (`gardaclick.ts`): no feed, but publishes a single static
+  HTML page per season (`gardaclick.com/eventi-fiere-mercati-lago-di-garda`)
+  with a table grouped by month, events/fairs/markets for the whole Garda
+  area — much of it outside our scope (Verona city, Fiera di
+  Verona/Montichiari, comuni we don't cover). The parser filters by
+  substring against `TOWNS` (`data/config.ts`, this includes the
+  hinterland towns too), with a special case for "Garda": as a substring it
+  would also match every still-out-of-scope "X del/sul Garda" comune, so
+  that town needs an exact match. Events generically tagged "Lago di
+  Garda" (1000 Miglia, Lago di Garda in Love) are attached to Desenzano
+  instead of being dropped. No description or time in the source, just
+  day(s), town and name — so the generated description is generic ("Evento
+  a {town}... consulta il sito dell'organizzatore").
 
-### Aggiungere una nuova fonte
+### Adding a new source
 
-`data/scrapers/index.ts` elenca solo fonti verificate — prima di aggiungerne
-una, controllare se espone un feed RSS/JSON stabile (pattern preferito, vedi
-Municipium). Se la fonte espone solo HTML statico con una struttura
-scrapabile (vedi GardaClick), scrivere un nuovo parser seguendo lo stesso
-pattern (try/catch che ritorna `[]` in caso di errore, mai un'eccezione che
-blocchi le altre fonti), poi aggiungerlo all'array `SCRAPERS`. Ricordarsi di
-filtrare per le sole città in scope (`TOWNS`/`TOWN_COORDS` in
-`data/config.ts`) se la fonte copre un'area più ampia del lago.
+`data/scrapers/index.ts` only lists verified sources — before adding one,
+check whether it exposes a stable RSS/JSON feed (preferred pattern, see
+Municipium). If the source is only scrapable static HTML (see GardaClick),
+write a new parser following the same pattern (try/catch that returns `[]`
+on error, never an exception that blocks the other sources), then add it to
+the `SCRAPERS` array. Remember to filter to in-scope towns only
+(`TOWNS`/`TOWN_COORDS` in `data/config.ts`) if the source covers a wider
+area than the lake.
 
-## Vincoli di design (vedi anche CLAUDE.md)
+## Design constraints (see also CLAUDE.md)
 
-- **Pubblico target**: generazione più anziana → testo grande, contrasto alto,
-  aree cliccabili larghe. Non ridurre i font senza motivo.
-- **Palette**: niente arancione/corallo. Verde (`--green`) per gli accenti,
-  teal (`--lake-deep`) per navigazione/stati attivi.
-- **Stroke minimali**: bordi a 1px in tutta l'interfaccia (chip, card, mappa),
-  coerenti con lo stile leggero della mappa CARTO.
-- **Font**: Bricolage Grotesque (titoli), Work Sans (corpo testo).
+- **Target audience**: older generation → large text, high contrast, wide
+  clickable areas. Don't shrink fonts without a reason.
+- **Palette**: no orange/coral. Green (`--green`) for accents, teal
+  (`--lake-deep`) for navigation/active states.
+- **Minimal strokes**: 1px borders throughout the UI (chips, cards, map),
+  consistent with the CARTO map's light style.
+- **Font**: Bricolage Grotesque (headings), Work Sans (body text).
 
-## Dati
+## Data
 
-Gli eventi in `data/events.json` coprono tutto il lago entro circa 50 km da
-Desenzano, sponda lombarda e veneta, raccolti manualmente da siti ufficiali di
-comuni, uffici turistici e organizzatori (non è un feed live — le date possono
-cambiare):
-- Comune di Desenzano del Garda / lagodigardaeventi.it
-- Visit Sirmione (visitsirmione.com)
-- Comune di Peschiera del Garda (comune.peschieradelgarda.vr.it)
-- Garda Festival, Garda Lombardia
-- Uffici turistici e comuni della sponda lombarda: Padenghe, Moniga, Manerba,
-  San Felice del Benaco, Salò, Gardone Riviera, Toscolano-Maderno, Gargnano,
-  Tignale, Tremosine, Limone sul Garda
-- Uffici turistici e comuni della sponda veneta: Lazise, Bardolino, Garda,
-  Torri del Benaco, Brenzone sul Garda, Malcesine
-- Sponda trentina, a nord del lago: Riva del Garda, Torbole (gardatrentino.it)
-- Entroterra, entro 10-15 km dalla costa (gruppo "Entroterra" nel filtro
-  città — distanze verificate su Wikipedia, non stimate): Lonato del Garda,
-  Castelnuovo del Garda, Polpenazze del Garda, Affi, Cavaion Veronese,
-  Costermano sul Garda, San Zeno di Montagna, Bussolengo, Valeggio sul
-  Mincio, Arco
+Events in `data/events.json` cover the whole lake within about 50 km of
+Desenzano — Lombardy, Veneto and Trentino shores, plus the hinterland —
+collected by hand from official sites of comuni, tourist offices and
+organizers (not a live feed — dates can change). 32 towns total
+(`data/config.ts` → `TOWN_COORDS`), grouped by region in the town filter
+(`TOWN_AREAS`/`AREA_ORDER` — region, not shore, since e.g. Peschiera is
+administratively Veneto despite sitting at the lake's southern tip):
 
-Fuori scope: Verona città, Brescia, Mantova, e le fiere ospitate in un polo
-espositivo lontano dal lago (Fiera di Verona, Fiera di Montichiari — escluse
-esplicitamente nello scraper GardaClick, vedi sopra). L'elenco aggiornato di
-città e coordinate è sempre in `data/config.ts` → `TOWN_COORDS`.
+- **Lombardia** (15): Sirmione, Desenzano (Comune di Desenzano del Garda /
+  lagodigardaeventi.it), Padenghe, Moniga, Manerba, San Felice del Benaco,
+  Salò, Gardone Riviera, Toscolano-Maderno, Gargnano, Tignale, Tremosine,
+  Limone sul Garda, plus the hinterland towns Lonato del Garda and
+  Polpenazze del Garda
+- **Veneto** (14): Peschiera del Garda (comune.peschieradelgarda.vr.it),
+  Lazise, Bardolino, Garda (Garda Festival, Garda Lombardia), Torri del
+  Benaco, Brenzone sul Garda, Malcesine, plus the hinterland towns
+  Castelnuovo del Garda, Affi, Cavaion Veronese, Costermano sul Garda, San
+  Zeno di Montagna, Bussolengo, Valeggio sul Mincio
+- **Trentino** (3): Riva del Garda, Torbole (gardatrentino.it), plus the
+  hinterland town Arco
 
-I link "Fonte" nelle card evento puntano al sito sorgente solo quando il campo
-`src` assomiglia a un dominio (es. `visitsirmione.com`); nomi descrittivi
-restano testo semplice, per non inventare URL che non abbiamo verificato.
+Hinterland towns are within 3.5-10.7 km of the nearest coastal town —
+verified distances (checked against Wikipedia), not estimates.
 
-### Aggiungere un evento o una città
+Out of scope: Verona city, Brescia, Mantova, and fairs hosted at an
+exhibition center far from the lake (Fiera di Verona, Fiera di Montichiari —
+explicitly excluded in the GardaClick scraper, see above). The up-to-date
+list of towns and coordinates is always in `data/config.ts` → `TOWN_COORDS`.
 
-- **Nuovo evento**: aggiungi una riga a `data/events.json` con lo stesso
-  formato delle altre (`date`, `town`, `title`, `cat`, `time`, `desc`, `src`).
-  `titleEn`/`descEn` sono opzionali — se mancano, la versione inglese del
-  sito mostra semplicemente il testo italiano.
-- **Nuova città**: aggiungi le coordinate a `TOWN_COORDS`, il giorno di mercato
-  a `MARKET_DAYS` (se noto) e l'area di appartenenza a `TOWN_AREAS` in
-  `data/config.ts` (più `AREA_LABELS_EN` se l'area è nuova). Il filtro a
-  tendina e la mappa la raccolgono automaticamente, non serve toccare i
-  componenti.
+"Fonte" (source) links on event cards point to the source site only when
+the `src` field looks like a domain (e.g. `visitsirmione.com`); descriptive
+names stay as plain text, so we never invent a URL we haven't verified.
 
-## Prossimi passi suggeriti
+### Adding an event or a town
 
-1. Sostituire `events.json` con una tabella Supabase (schema qui sotto) così
-   l'app può essere aggiornata senza un nuovo deploy — gli utenti loggati
-   possono già farlo parzialmente oggi tramite Blob (eventi manuali e
-   override), ma resta un JSON piatto senza query/indici.
+- **New event**: add a row to `data/events.json` in the same format as the
+  others (`date`, `town`, `title`, `cat`, `time`, `desc`, `src`).
+  `titleEn`/`descEn` are optional — if missing, the English version of the
+  site simply shows the Italian text.
+- **New town**: add its coordinates to `TOWN_COORDS`, its market day to
+  `MARKET_DAYS` (if known), and its region to `TOWN_AREAS` in
+  `data/config.ts` (plus `AREA_LABELS_EN` only if adding a 4th region). The
+  dropdown filter and the map pick it up automatically, no need to touch
+  the components.
 
-### Schema Supabase suggerito
+## Suggested next steps
+
+1. Replace `events.json` with a Supabase table (schema below) so the app
+   can be updated without a new deploy — logged-in users can already do
+   this partially today via Blob (manual events and overrides), but it
+   stays a flat JSON with no queries/indexes.
+
+### Suggested Supabase schema
 
 ```sql
 create table events (
