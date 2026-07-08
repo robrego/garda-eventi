@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { EventItem } from "@/data/config";
+import { useLang } from "@/components/LanguageProvider";
 
 export default function AddCoverForm({
   event,
@@ -12,6 +13,7 @@ export default function AddCoverForm({
   onClose: () => void;
   onSaved: () => void;
 }) {
+  const { t } = useLang();
   const [image, setImage] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -27,13 +29,13 @@ export default function AddCoverForm({
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Errore, riprova");
+        setError(data.error || t("errorRetry"));
         setBusy(false);
         return;
       }
       onSaved();
     } catch {
-      setError("Errore di connessione");
+      setError(t("errorConnection"));
       setBusy(false);
     }
   };
@@ -41,11 +43,11 @@ export default function AddCoverForm({
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-        <h2>Aggiungi copertina</h2>
+        <h2>{t("addCoverTitle")}</h2>
         <p className="modal-subtitle">{event.title}</p>
 
         <label className="form-field">
-          URL immagine
+          {t("fieldImageUrl")}
           <input
             type="url"
             placeholder="https://..."
@@ -59,10 +61,10 @@ export default function AddCoverForm({
 
         <div className="modal-actions">
           <button type="button" className="modal-primary" onClick={submit} disabled={busy || !image}>
-            Salva copertina
+            {t("saveCover")}
           </button>
           <button type="button" className="modal-close" onClick={onClose}>
-            Annulla
+            {t("authCancel")}
           </button>
         </div>
       </div>

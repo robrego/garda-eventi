@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { TOWNS, CATEGORIES } from "@/data/config";
+import { TOWNS, CATEGORIES, CATEGORIES_EN } from "@/data/config";
+import { useLang } from "@/components/LanguageProvider";
 
 export default function AddEventForm({
   onClose,
@@ -10,6 +11,7 @@ export default function AddEventForm({
   onClose: () => void;
   onSaved: () => void;
 }) {
+  const { lang, t } = useLang();
   const [date, setDate] = useState("");
   const [town, setTown] = useState(TOWNS[0]);
   const [title, setTitle] = useState("");
@@ -33,78 +35,80 @@ export default function AddEventForm({
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Errore, riprova");
+        setError(data.error || t("errorRetry"));
         setBusy(false);
         return;
       }
       onSaved();
     } catch {
-      setError("Errore di connessione");
+      setError(t("errorConnection"));
       setBusy(false);
     }
   };
 
+  const categories = lang === "en" ? CATEGORIES_EN : CATEGORIES;
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-        <h2>Aggiungi un evento</h2>
+        <h2>{t("addEventTitle")}</h2>
 
         <label className="form-field">
-          Data
+          {t("fieldDate")}
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
         </label>
 
         <label className="form-field">
-          Città
+          {t("fieldTown")}
           <select value={town} onChange={(e) => setTown(e.target.value)}>
-            {TOWNS.map((t) => (
-              <option key={t} value={t}>{t}</option>
+            {TOWNS.map((tn) => (
+              <option key={tn} value={tn}>{tn}</option>
             ))}
           </select>
         </label>
 
         <label className="form-field">
-          Titolo
+          {t("fieldTitle")}
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             maxLength={200}
-            placeholder="Nome dell'evento"
+            placeholder={t("placeholderEventName")}
           />
         </label>
 
         <label className="form-field">
-          Categoria
+          {t("fieldCategory")}
           <select value={cat} onChange={(e) => setCat(e.target.value)}>
-            {Object.entries(CATEGORIES).map(([k, v]) => (
+            {Object.entries(categories).map(([k, v]) => (
               <option key={k} value={k}>{v}</option>
             ))}
           </select>
         </label>
 
         <label className="form-field">
-          Orario
-          <input type="text" placeholder="es. 21:00" value={time} onChange={(e) => setTime(e.target.value)} />
+          {t("fieldTime")}
+          <input type="text" placeholder={t("placeholderTime")} value={time} onChange={(e) => setTime(e.target.value)} />
         </label>
 
         <label className="form-field">
-          Descrizione
+          {t("fieldDescription")}
           <textarea value={desc} onChange={(e) => setDesc(e.target.value)} maxLength={500} rows={4} />
         </label>
 
         <label className="form-field">
-          Fonte
+          {t("fieldSource")}
           <input
             type="text"
-            placeholder="es. sito del comune"
+            placeholder={t("placeholderSource")}
             value={src}
             onChange={(e) => setSrc(e.target.value)}
           />
         </label>
 
         <label className="form-field">
-          Immagine (URL, opzionale)
+          {t("fieldImageUrlOptional")}
           <input
             type="url"
             placeholder="https://..."
@@ -114,7 +118,7 @@ export default function AddEventForm({
         </label>
 
         <label className="form-field">
-          Link alla pagina dell&apos;evento (opzionale)
+          {t("fieldEventUrlOptional")}
           <input
             type="url"
             placeholder="https://..."
@@ -127,10 +131,10 @@ export default function AddEventForm({
 
         <div className="modal-actions">
           <button type="button" className="modal-primary" onClick={submit} disabled={busy || !date || !title}>
-            Salva evento
+            {t("saveEvent")}
           </button>
           <button type="button" className="modal-close" onClick={onClose}>
-            Annulla
+            {t("authCancel")}
           </button>
         </div>
       </div>

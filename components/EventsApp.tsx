@@ -8,6 +8,7 @@ import Filters, { ViewMode } from "@/components/Filters";
 import EventList from "@/components/EventList";
 import { EventItem } from "@/data/config";
 import AuthWidget from "@/components/AuthWidget";
+import { useLang } from "@/components/LanguageProvider";
 
 // Leaflet touches `window`, so the map must be client-only with SSR disabled.
 const EventMap = dynamic(() => import("@/components/EventMap"), {
@@ -29,6 +30,7 @@ function dateFromISO(s: string) {
 
 export default function EventsApp({ events: allEvents }: { events: EventItem[] }) {
   const router = useRouter();
+  const { lang, setLang, t } = useLang();
   const today = useMemo(() => {
     const d = new Date();
     d.setHours(0, 0, 0, 0);
@@ -54,10 +56,12 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
 
   const selectedDateLabel = useMemo(
     () =>
-      new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "short", year: "numeric" }).format(
-        dateFromISO(selectedDate)
-      ),
-    [selectedDate]
+      new Intl.DateTimeFormat(lang === "en" ? "en-GB" : "it-IT", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      }).format(dateFromISO(selectedDate)),
+    [selectedDate, lang]
   );
 
   const dayEvents = useMemo(() => {
@@ -90,6 +94,24 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           <h1>Lago di Garda</h1>
         </div>
         <div className="header-actions">
+          <div className="lang-toggle">
+            <button
+              type="button"
+              className={lang === "it" ? "active" : ""}
+              onClick={() => setLang("it")}
+              aria-label={t("ariaLangToggle")}
+            >
+              IT
+            </button>
+            <button
+              type="button"
+              className={lang === "en" ? "active" : ""}
+              onClick={() => setLang("en")}
+              aria-label={t("ariaLangToggle")}
+            >
+              EN
+            </button>
+          </div>
           <AuthWidget email={email} onEmailChange={setEmail} />
         </div>
       </header>

@@ -35,9 +35,11 @@ function marketEvents(): RawEvent[] {
         date: iso(d),
         town,
         title: "Mercato settimanale",
+        titleEn: "Weekly market",
         cat: "market",
         time: "08:00–13:00",
         desc: `Bancarelle di prodotti locali, frutta e verdura, formaggi e articoli vari nel centro di ${town}.`,
+        descEn: `Stalls of local produce, fruit and vegetables, cheeses and other goods in the center of ${town}.`,
         src: "Calendario mercati settimanali Lago di Garda",
       });
     });

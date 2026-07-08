@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from "react-leaflet";
 import type { LatLngBoundsLiteral } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { EventItem, TOWN_COORDS, CATEGORIES } from "@/data/config";
+import { EventItem, TOWN_COORDS, CATEGORIES, CATEGORIES_EN, translateTime } from "@/data/config";
+import { useLang } from "@/components/LanguageProvider";
 
 const ALL_TOWN_COORDS = Object.values(TOWN_COORDS) as LatLngBoundsLiteral;
 
@@ -16,6 +17,7 @@ function eventBounds(events: EventItem[]): LatLngBoundsLiteral {
 
 function MapControls({ events }: { events: EventItem[] }) {
   const map = useMap();
+  const { t } = useLang();
 
   useEffect(() => {
     map.fitBounds(eventBounds(events), { padding: [24, 24] });
@@ -26,10 +28,10 @@ function MapControls({ events }: { events: EventItem[] }) {
     <button
       type="button"
       className="map-refit"
-      aria-label="Centra la mappa sugli eventi del giorno"
+      aria-label={t("ariaCenterMap")}
       onClick={() => map.fitBounds(eventBounds(events), { padding: [24, 24] })}
     >
-      ⌖ Centra sugli eventi
+      ⌖ {t("centerMapButton")}
     </button>
   );
 }
@@ -43,6 +45,7 @@ export default function EventMap({
   selectedId: string | null;
   onSelect: (id: string) => void;
 }) {
+  const { lang } = useLang();
   return (
     <MapContainer
       center={[45.6, 10.65]}
@@ -71,11 +74,11 @@ export default function EventMap({
             eventHandlers={{ click: () => onSelect(e.id) }}
           >
             <Popup>
-              <strong>{e.title}</strong>
+              <strong>{lang === "en" ? e.titleEn ?? e.title : e.title}</strong>
               <br />
-              {e.town} · {e.time}
+              {e.town} · {translateTime(e.time, lang)}
               <br />
-              <span style={{ color: "#5c979a" }}>{CATEGORIES[e.cat]}</span>
+              <span style={{ color: "#5c979a" }}>{lang === "en" ? CATEGORIES_EN[e.cat] : CATEGORIES[e.cat]}</span>
             </Popup>
           </CircleMarker>
         );

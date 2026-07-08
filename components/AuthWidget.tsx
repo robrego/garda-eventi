@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import AddEventForm from "@/components/AddEventForm";
+import { useLang } from "@/components/LanguageProvider";
 
 export default function AuthWidget({
   email,
@@ -12,6 +13,7 @@ export default function AuthWidget({
   onEmailChange: (email: string | null) => void;
 }) {
   const router = useRouter();
+  const { t } = useLang();
   const [showAuth, setShowAuth] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -32,7 +34,7 @@ export default function AuthWidget({
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Errore");
+        setError(data.error || t("errorGeneric"));
         setBusy(false);
         return;
       }
@@ -46,7 +48,7 @@ export default function AuthWidget({
         setShowAdd(true);
       }
     } catch {
-      setError("Errore di connessione");
+      setError(t("errorConnection"));
     }
     setBusy(false);
   };
@@ -65,10 +67,10 @@ export default function AuthWidget({
         {email ? (
           <>
             <button type="button" className="add-event-btn" onClick={() => setShowAdd(true)}>
-              + Evento
+              {t("authAddEvent")}
             </button>
             <button type="button" className="auth-link" onClick={logout}>
-              Esci
+              {t("authLogout")}
             </button>
           </>
         ) : (
@@ -81,7 +83,7 @@ export default function AuthWidget({
               setShowAuth(true);
             }}
           >
-            Registrati
+            {t("authRegister")}
           </button>
         )}
       </div>
@@ -89,10 +91,10 @@ export default function AuthWidget({
       {showAuth && (
         <div className="modal-backdrop" onClick={() => setShowAuth(false)}>
           <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <h2>{mode === "login" ? "Accedi" : "Registrati"}</h2>
+            <h2>{mode === "login" ? t("authLogin") : t("authRegister")}</h2>
 
             <label className="form-field">
-              Email
+              {t("fieldEmail")}
               <input
                 type="email"
                 value={formEmail}
@@ -101,7 +103,7 @@ export default function AuthWidget({
               />
             </label>
             <label className="form-field">
-              Password
+              {t("fieldPassword")}
               <input
                 type="password"
                 value={formPassword}
@@ -114,10 +116,10 @@ export default function AuthWidget({
 
             <div className="modal-actions">
               <button type="button" className="modal-primary" onClick={submit} disabled={busy}>
-                {mode === "login" ? "Accedi" : "Crea account"}
+                {mode === "login" ? t("authLogin") : t("authCreateAccount")}
               </button>
               <button type="button" className="modal-close" onClick={() => setShowAuth(false)}>
-                Annulla
+                {t("authCancel")}
               </button>
             </div>
 
@@ -129,7 +131,7 @@ export default function AuthWidget({
                 setError(null);
               }}
             >
-              {mode === "login" ? "Non hai un account? Registrati" : "Hai già un account? Accedi"}
+              {mode === "login" ? t("authSwitchToRegister") : t("authSwitchToLogin")}
             </button>
           </div>
         </div>

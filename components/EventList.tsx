@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { EventItem, CATEGORIES, TOWN_CREST } from "@/data/config";
+import { EventItem, CATEGORIES, CATEGORIES_EN, TOWN_CREST, translateTime } from "@/data/config";
 import AddCoverForm from "@/components/AddCoverForm";
 import EditDescForm from "@/components/EditDescForm";
+import { useLang } from "@/components/LanguageProvider";
+import { DOW_FULL, MONTHS, eventsCountLabel } from "@/lib/i18n";
 
 function LinkArrowIcon() {
   return (
@@ -32,35 +34,32 @@ function CoverPlaceholder({ town }: { town: string }) {
   );
 }
 
-const DOW_FULL = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
-const MONTHS = [
-  "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
-  "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",
-];
-
 function dateFromISO(s: string) {
   const [y, m, d] = s.split("-").map(Number);
   return new Date(y, m - 1, d);
 }
-function formatItalianDate(d: Date) {
-  return `${DOW_FULL[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}`;
+function formatDate(d: Date, lang: "it" | "en") {
+  if (lang === "en") {
+    return `${DOW_FULL.en[d.getDay()]}, ${MONTHS.en[d.getMonth()]} ${d.getDate()}`;
+  }
+  return `${DOW_FULL.it[d.getDay()]} ${d.getDate()} ${MONTHS.it[d.getMonth()]}`;
 }
 
 const DOMAIN_RE = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$/;
 
-function SourceLine({ src }: { src: string }) {
+function SourceLine({ src, label }: { src: string; label: string }) {
   if (DOMAIN_RE.test(src.trim())) {
     const href = src.trim().startsWith("http") ? src.trim() : `https://${src.trim()}`;
     return (
       <>
-        Fonte:{" "}
+        {label}{" "}
         <a href={href} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
           {src}
         </a>
       </>
     );
   }
-  return <>Fonte: {src}</>;
+  return <>{label} {src}</>;
 }
 
 export default function EventList({
@@ -80,6 +79,7 @@ export default function EventList({
   onCoverSaved: () => void;
   onDescSaved: () => void;
 }) {
+  const { lang, t } = useLang();
   const [coverTarget, setCoverTarget] = useState<EventItem | null>(null);
   const [descTarget, setDescTarget] = useState<EventItem | null>(null);
   const [brokenImages, setBrokenImages] = useState<Set<string>>(new Set());
@@ -93,16 +93,16 @@ export default function EventList({
   return (
     <div className="list-col">
       <div className="date-heading">
-        {formatItalianDate(d)} · {sorted.length} event{sorted.length === 1 ? "o" : "i"}
+        {formatDate(d, lang)} · {eventsCountLabel(sorted.length, lang)}
       </div>
 
       {sorted.length === 0 && (
         <div className="empty-state">
           <div className="glyph">〜</div>
           <p>
-            Nessun evento registrato per questo giorno.
+            {t("emptyStateLine1")}
             <br />
-            Prova un&apos;altra data o rimuovi il filtro per città.
+            {t("emptyStateLine2")}
           </p>
         </div>
       )}
@@ -143,17 +143,19 @@ export default function EventList({
                     ev.stopPropagation();
                     setCoverTarget(e);
                   }}
-                  aria-label="Aggiungi una copertina per questo evento"
+                  aria-label={t("ariaAddCover")}
                 >
                   <CoverPlaceholder town={e.town} />
-                  <span className="event-cover-add-label">+ copertina</span>
+                  <span className="event-cover-add-label">{t("addCoverLabel")}</span>
                 </button>
               ) : (
                 <div className="event-cover-placeholder" aria-hidden="true">
                   <CoverPlaceholder town={e.town} />
                 </div>
               )}
-              <div className="event-cat event-cat-mobile">{CATEGORIES[e.cat]}</div>
+              <div className="event-cat event-cat-mobile">
+                {lang === "en" ? CATEGORIES_EN[e.cat] : CATEGORIES[e.cat]}
+              </div>
             </div>
             <div className="event-main">
               <div className="event-top">
@@ -166,19 +168,23 @@ export default function EventList({
                         rel="noopener noreferrer"
                         onClick={(ev) => ev.stopPropagation()}
                       >
-                        {e.title}
+                        {lang === "en" ? e.titleEn ?? e.title : e.title}
                         <LinkArrowIcon />
                       </a>
+                    ) : lang === "en" ? (
+                      e.titleEn ?? e.title
                     ) : (
                       e.title
                     )}
                   </p>
-                  <div className="event-meta">{e.town} · {e.time}</div>
+                  <div className="event-meta">{e.town} · {translateTime(e.time, lang)}</div>
                 </div>
-                <div className="event-cat event-cat-desktop">{CATEGORIES[e.cat]}</div>
+                <div className="event-cat event-cat-desktop">
+                  {lang === "en" ? CATEGORIES_EN[e.cat] : CATEGORIES[e.cat]}
+                </div>
               </div>
               <div className="event-desc">
-                {e.desc}
+                {lang === "en" ? e.descEn ?? e.desc : e.desc}
                 {canEdit && (
                   <button
                     type="button"
@@ -188,11 +194,11 @@ export default function EventList({
                       setDescTarget(e);
                     }}
                   >
-                    Modifica
+                    {t("editLink")}
                   </button>
                 )}
               </div>
-              {!e.url && <div className="event-src"><SourceLine src={e.src} /></div>}
+              {!e.url && <div className="event-src"><SourceLine src={e.src} label={t("sourceLabel")} /></div>}
             </div>
           </div>
         </div>

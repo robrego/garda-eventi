@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { EventItem } from "@/data/config";
+import { useLang } from "@/components/LanguageProvider";
 
 export default function EditDescForm({
   event,
@@ -12,6 +13,7 @@ export default function EditDescForm({
   onClose: () => void;
   onSaved: () => void;
 }) {
+  const { t } = useLang();
   const [desc, setDesc] = useState(event.desc);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -27,13 +29,13 @@ export default function EditDescForm({
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error || "Errore, riprova");
+        setError(data.error || t("errorRetry"));
         setBusy(false);
         return;
       }
       onSaved();
     } catch {
-      setError("Errore di connessione");
+      setError(t("errorConnection"));
       setBusy(false);
     }
   };
@@ -41,11 +43,11 @@ export default function EditDescForm({
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-        <h2>Modifica descrizione</h2>
+        <h2>{t("editDescTitle")}</h2>
         <p className="modal-subtitle">{event.title}</p>
 
         <label className="form-field">
-          Descrizione
+          {t("fieldDescription")}
           <textarea
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
@@ -59,10 +61,10 @@ export default function EditDescForm({
 
         <div className="modal-actions">
           <button type="button" className="modal-primary" onClick={submit} disabled={busy || !desc.trim()}>
-            Salva descrizione
+            {t("saveDesc")}
           </button>
           <button type="button" className="modal-close" onClick={onClose}>
-            Annulla
+            {t("authCancel")}
           </button>
         </div>
       </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-
-const DOW = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
+import { useLang } from "@/components/LanguageProvider";
+import { DOW_SHORT } from "@/lib/i18n";
 
 function iso(d: Date) {
   const y = d.getFullYear();
@@ -31,6 +31,7 @@ export default function DateRibbon({
   todayISO: string;
   datesWithEvents: Set<string>;
 }) {
+  const { lang, t } = useLang();
   const trackRef = useRef<HTMLDivElement>(null);
   const [numDays, setNumDays] = useState(7);
 
@@ -60,10 +61,10 @@ export default function DateRibbon({
   return (
     <div className="ribbon-wrap">
       <div className="ribbon-nav">
-        <button aria-label="Giorni precedenti" onClick={() => setWeekAnchor(addDays(weekAnchor, -numDays))}>
+        <button aria-label={t("ariaPrevDays")} onClick={() => setWeekAnchor(addDays(weekAnchor, -numDays))}>
           &larr;
         </button>
-        <button aria-label="Giorni successivi" onClick={() => setWeekAnchor(addDays(weekAnchor, numDays))}>
+        <button aria-label={t("ariaNextDays")} onClick={() => setWeekAnchor(addDays(weekAnchor, numDays))}>
           &rarr;
         </button>
       </div>
@@ -84,7 +85,7 @@ export default function DateRibbon({
               aria-pressed={dISO === selectedDate}
               onClick={() => setSelectedDate(dISO)}
             >
-              <div className="dow">{DOW[d.getDay()]}</div>
+              <div className="dow">{DOW_SHORT[lang][d.getDay()]}</div>
               <div className="num">{d.getDate()}</div>
               <div className="dot" />
             </button>

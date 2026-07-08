@@ -1,4 +1,5 @@
 import EventsApp from "@/components/EventsApp";
+import { LanguageProvider } from "@/components/LanguageProvider";
 import { getAllEvents } from "@/data/getEvents";
 
 // The @vercel/blob SDK wraps its own fetch, opaque to Next's fetch cache,
@@ -8,5 +9,9 @@ export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const { events } = await getAllEvents();
-  return <EventsApp events={events} />;
+  return (
+    <LanguageProvider>
+      <EventsApp events={events} />
+    </LanguageProvider>
+  );
 }

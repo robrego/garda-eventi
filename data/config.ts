@@ -31,6 +31,13 @@ export const TOWNS = Object.keys(TOWN_COORDS);
 // Raggruppamento delle città per il filtro a tendina
 export const AREA_ORDER = ["Basso Garda", "Sponda lombarda", "Sponda veneta", "Sponda trentina"];
 
+export const AREA_LABELS_EN: Record<string, string> = {
+  "Basso Garda": "Southern Garda",
+  "Sponda lombarda": "Lombardy shore",
+  "Sponda veneta": "Veneto shore",
+  "Sponda trentina": "Trentino shore",
+};
+
 export const TOWN_AREAS: Record<string, string> = {
   Peschiera: "Basso Garda",
   Sirmione: "Basso Garda",
@@ -64,6 +71,17 @@ export const CATEGORIES: Record<string, string> = {
   art:     "Arte e cultura",
   cultura: "Cultura",
   teatro:  "Teatro",
+};
+
+export const CATEGORIES_EN: Record<string, string> = {
+  market:  "Market",
+  festival: "Festival",
+  concert: "Concert",
+  sagra:   "Food festival",
+  sport:   "Sport",
+  art:     "Art & culture",
+  cultura: "Culture",
+  teatro:  "Theatre",
 };
 
 // Giorno della settimana (0 = domenica) -> città con mercato settimanale
@@ -107,11 +125,28 @@ export type EventItem = {
   date: string; // YYYY-MM-DD
   town: string;
   title: string;
+  titleEn?: string;
   cat: string;
   time: string;
   desc: string;
+  descEn?: string;
   src: string;
   image?: string;
   url?: string; // direct link to the event's own page, if known
   addedBy?: string; // email of the user who submitted it manually, if any
 };
+
+// A handful of curated events use a descriptive (non-clock) time instead of
+// an HH:MM range; those are the only "time" values that need translating.
+const TIME_LABELS_EN: Record<string, string> = {
+  "giornata intera": "all day",
+  "in giornata": "during the day",
+  "in serata": "in the evening",
+  "mattina": "morning",
+  "pomeriggio": "afternoon",
+};
+
+export function translateTime(time: string, lang: "it" | "en"): string {
+  if (lang !== "en") return time;
+  return TIME_LABELS_EN[time] ?? time;
+}

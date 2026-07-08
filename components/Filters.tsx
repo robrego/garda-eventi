@@ -1,6 +1,7 @@
 "use client";
 
-import { AREA_ORDER, TOWN_AREAS, TOWNS } from "@/data/config";
+import { AREA_ORDER, AREA_LABELS_EN, TOWN_AREAS, TOWNS } from "@/data/config";
+import { useLang } from "@/components/LanguageProvider";
 
 export type ViewMode = "split" | "list" | "map";
 
@@ -21,8 +22,9 @@ export default function Filters({
   selectedDate: string;
   onDatePick: (value: string) => void;
 }) {
+  const { lang, t } = useLang();
   const townsByArea = AREA_ORDER.map((area) => ({
-    area,
+    area: lang === "en" ? AREA_LABELS_EN[area] : area,
     towns: TOWNS.filter((town) => TOWN_AREAS[town] === area),
   }));
 
@@ -34,7 +36,7 @@ export default function Filters({
           className="date-picker-input"
           value={selectedDate}
           onChange={(e) => onDatePick(e.target.value)}
-          aria-label="Scegli una data"
+          aria-label={t("ariaChooseDate")}
         />
         <span className="date-picker-label" aria-hidden="true">
           {selectedDateLabel}
@@ -42,11 +44,11 @@ export default function Filters({
       </div>
       <select
         className="town-select"
-        aria-label="Filtra per città"
+        aria-label={t("ariaFilterTown")}
         value={townFilter}
         onChange={(e) => setTownFilter(e.target.value)}
       >
-        <option value="all">Tutte le città</option>
+        <option value="all">{t("allTowns")}</option>
         {townsByArea.map(({ area, towns }) => (
           <optgroup key={area} label={area}>
             {towns.map((town) => (
@@ -60,13 +62,13 @@ export default function Filters({
 
       <div className="view-toggle">
         <button className={view === "split" ? "active" : ""} onClick={() => setView("split")}>
-          Mappa + lista
+          {t("viewSplit")}
         </button>
         <button className={view === "list" ? "active" : ""} onClick={() => setView("list")}>
-          Lista
+          {t("viewList")}
         </button>
         <button className={view === "map" ? "active" : ""} onClick={() => setView("map")}>
-          Mappa
+          {t("viewMap")}
         </button>
       </div>
     </div>
