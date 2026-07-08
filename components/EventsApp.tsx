@@ -16,6 +16,14 @@ const EventMap = dynamic(() => import("@/components/EventMap"), {
   loading: () => <div className="map-loading">Caricamento mappa…</div>,
 });
 
+function BurgerIcon() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="20" height="20">
+      <path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function iso(d: Date) {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, "0");
@@ -44,6 +52,7 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
   const [view, setView] = useState<ViewMode>("split");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null | undefined>(undefined);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -94,25 +103,37 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           <h1>Lago di Garda</h1>
         </div>
         <div className="header-actions">
-          <div className="lang-toggle">
-            <button
-              type="button"
-              className={lang === "it" ? "active" : ""}
-              onClick={() => setLang("it")}
-              aria-label={t("ariaLangToggle")}
-            >
-              IT
-            </button>
-            <button
-              type="button"
-              className={lang === "en" ? "active" : ""}
-              onClick={() => setLang("en")}
-              aria-label={t("ariaLangToggle")}
-            >
-              EN
-            </button>
+          <button
+            type="button"
+            className="menu-toggle"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={t("ariaMenu")}
+            aria-expanded={menuOpen}
+          >
+            <BurgerIcon />
+          </button>
+          {menuOpen && <div className="menu-scrim" onClick={() => setMenuOpen(false)} />}
+          <div className={`header-menu${menuOpen ? " open" : ""}`}>
+            <div className="lang-toggle">
+              <button
+                type="button"
+                className={lang === "it" ? "active" : ""}
+                onClick={() => setLang("it")}
+                aria-label={t("ariaLangToggle")}
+              >
+                IT
+              </button>
+              <button
+                type="button"
+                className={lang === "en" ? "active" : ""}
+                onClick={() => setLang("en")}
+                aria-label={t("ariaLangToggle")}
+              >
+                EN
+              </button>
+            </div>
+            <AuthWidget email={email} onEmailChange={setEmail} />
           </div>
-          <AuthWidget email={email} onEmailChange={setEmail} />
         </div>
       </header>
 

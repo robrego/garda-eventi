@@ -44,6 +44,8 @@ const STRINGS = {
   ariaChooseDate: { it: "Scegli una data", en: "Choose a date" },
   ariaFilterTown: { it: "Filtra per città", en: "Filter by town" },
   ariaLangToggle: { it: "Cambia lingua", en: "Change language" },
+  ariaMenu: { it: "Menu", en: "Menu" },
+  ariaViewSelect: { it: "Cambia visualizzazione", en: "Change view" },
 
   ariaPrevDays: { it: "Giorni precedenti", en: "Previous days" },
   ariaNextDays: { it: "Giorni successivi", en: "Next days" },
