@@ -16,9 +16,17 @@ const MONTHS_IT = [
 // "Torbole sul Garda", "Bogliaco di Gargnano") — except for "Garda" itself,
 // which needs an exact match: as a substring it would wrongly match every
 // out-of-scope "X del/sul Garda" entry (Castelnuovo del Garda, Costermano
-// sul Garda, Lonato del Garda, "Lago di Garda", "Garda Trentino"...).
+// sul Garda, Lonato del Garda, "Garda Trentino"...).
+//
+// A couple of entries (the "1000 Miglia" rally, "Lago di Garda in Love")
+// are tagged with the whole lake rather than one town — genuinely
+// lake-wide events, not a scope technicality like the exhibition-center
+// fairs ("Fiera di Verona"/"Fiera di Montichiari", still excluded below).
+// We pin those at Desenzano, this app's reference town, rather than
+// inventing a new non-town map entry for two events a year.
 function matchTown(locationText: string): string | null {
   const normalized = locationText.trim().toLowerCase();
+  if (normalized === "lago di garda") return "Desenzano";
   for (const town of TOWNS) {
     if (town === "Garda") continue;
     if (normalized.includes(town.toLowerCase())) return town;
@@ -102,9 +110,11 @@ export async function scrapeGardaClick(): Promise<RawEvent[]> {
       if (!parsed || parsed.day < 1 || parsed.day > 31) continue;
 
       const date = `${year}-${String(monthIndex + 1).padStart(2, "0")}-${String(parsed.day).padStart(2, "0")}`;
+      const isLakeWide = locationText.trim().toLowerCase() === "lago di garda";
+      const intro = isLakeWide ? "Evento che coinvolge tutto il Lago di Garda" : `Evento a ${town}`;
       const desc = parsed.rangeLabel
-        ? `Evento a ${town} (${parsed.rangeLabel}). Consulta il sito dell'organizzatore per orari e dettagli.`
-        : `Evento a ${town}. Consulta il sito dell'organizzatore per orari e dettagli.`;
+        ? `${intro} (${parsed.rangeLabel}). Consulta il sito dell'organizzatore per orari e dettagli.`
+        : `${intro}. Consulta il sito dell'organizzatore per orari e dettagli.`;
 
       events.push({
         date,

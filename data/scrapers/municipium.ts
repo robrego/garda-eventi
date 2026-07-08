@@ -45,7 +45,8 @@ export function guessCategory(title: string): string {
   if (t.includes("cinema") || t.includes("film")) return "cultura";
   if (t.includes("mostra") || t.includes("arte")) return "art";
   if (t.includes("sagra")) return "sagra";
-  if (t.includes("sport") || t.includes("corsa") || t.includes("gara")) return "sport";
+  if (t.includes("sport") || t.includes("corsa") || t.includes("gara") || t.includes("miglia")
+    || t.includes("rally") || t.includes("regata") || t.includes("trofeo")) return "sport";
   if (t.includes("festa") || t.includes("festival")) return "festival";
   return "cultura";
 }
