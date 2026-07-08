@@ -38,19 +38,15 @@ README.md for the full architecture.
 - **Geographic area**: the whole lake within ~50 km of Desenzano — the
   Lombardy, Veneto and Trentino shores — plus the hinterland within 10-15 km
   of the coast (an explicitly chosen distance threshold, not an
-  administrative boundary). 32 towns total (`Object.keys(TOWN_COORDS).length`
-  in `data/config.ts`): Lombardy shore + hinterland (15): Sirmione,
-  Desenzano, Padenghe, Moniga, Manerba, San Felice, Salò, Gardone, Toscolano,
-  Gargnano, Tignale, Tremosine, Limone, Lonato del Garda, Polpenazze del
-  Garda. Veneto shore + hinterland (14): Peschiera, Lazise, Bardolino,
-  Garda, Torri del Benaco, Brenzone sul Garda, Malcesine, Castelnuovo del
-  Garda, Affi, Cavaion Veronese, Costermano sul Garda, San Zeno di Montagna,
-  Bussolengo, Valeggio sul Mincio. Trentino shore + hinterland (3): Riva del
-  Garda, Torbole, Arco. Hinterland towns are within 3.5-10.7 km of the
-  nearest coastal town — verified distances, not estimates. Out of scope:
-  Verona city, Brescia, Mantova, and fairs hosted at an exhibition center
-  far from the lake (Fiera di Verona, Fiera di Montichiari — see
-  `data/scrapers/gardaclick.ts`).
+  administrative boundary, checked town-by-town against Wikipedia's
+  bordering-comuni lists and haversine distance, never estimated from
+  memory). 42 towns total (`Object.keys(TOWN_COORDS).length` in
+  `data/config.ts`): Lombardia 22, Veneto 15, Trentino 5 — see
+  `TOWN_AREAS` for the full, current list; don't duplicate it here since
+  it grows over time. Hinterland towns are within ~1.6-10.7 km of the
+  nearest coastal town. Out of scope: Verona city, Brescia, Mantova, and
+  fairs hosted at an exhibition center far from the lake (Fiera di Verona,
+  Fiera di Montichiari).
 - **Town filter grouping**: `TOWN_AREAS`/`AREA_ORDER` in `data/config.ts`
   group towns by administrative region (Lombardia/Veneto/Trentino), mixing
   shore and hinterland towns together — not by shore-vs-hinterland. When
@@ -114,16 +110,20 @@ README.md for the full architecture.
   /api/cron/scrape?force=1` with `Authorization: Bearer $CRON_SECRET` forces
   an immediate run for testing/debugging.
 - Active sources: `municipium.ts` (RSS feed, comuni on the Municipium CMS:
-  Peschiera, Garda) and `gardaclick.ts` (static HTML, one table per season
-  grouped by month, covers the whole Garda area — the parser filters by
-  substring against `TOWNS`, with a special exact-match case for "Garda" so
-  it doesn't match the many out-of-scope "X del/sul Garda" entries).
+  Peschiera, Garda).
+- **Primary sources only.** A source must be the comune, the tourism board,
+  or the event's own organizer — never a secondary aggregator that just
+  republishes other people's listings (e.g. gardaclick.com,
+  panesalamina.com: tried and deliberately removed, see git history). We
+  have no accountability for an aggregator's accuracy, and it isn't our
+  data to re-scrape. When curating an event by hand, prefer the town's own
+  official site (e.g. visitsirmione.com, visitmanerba.it) over a generic
+  listing site for the `src` citation too.
 - Before adding a source, check whether it has a stable RSS/JSON feed
-  (preferred pattern, see `municipium.ts`). If the source is only scrapable
-  static HTML (see `gardaclick.ts`), it needs a dedicated parser that
-  filters to in-scope towns only (`TOWNS`/`TOWN_COORDS`), since these
-  sources often cover a much wider area than the lake (Verona, Brescia,
-  the hinterland). Every scraper needs its own try/catch and must never
+  (preferred pattern, see `municipium.ts`). If it's only scrapable static
+  HTML, it needs a dedicated parser that filters to in-scope towns only
+  (`TOWNS`/`TOWN_COORDS`), since these sources can cover a much wider area
+  than the lake. Every scraper needs its own try/catch and must never
   throw an exception that blocks the other sources.
 
 ## Typical tasks

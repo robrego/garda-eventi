@@ -103,30 +103,30 @@ vercel.json               # scraper cron schedule
 - **Municipium** (`municipium.ts`): generic parser for comuni on the
   Municipium CMS, which exposes an `/it/eventi/feed` RSS feed — active for
   Peschiera and Garda.
-- **GardaClick** (`gardaclick.ts`): no feed, but publishes a single static
-  HTML page per season (`gardaclick.com/eventi-fiere-mercati-lago-di-garda`)
-  with a table grouped by month, events/fairs/markets for the whole Garda
-  area — much of it outside our scope (Verona city, Fiera di
-  Verona/Montichiari, comuni we don't cover). The parser filters by
-  substring against `TOWNS` (`data/config.ts`, this includes the
-  hinterland towns too), with a special case for "Garda": as a substring it
-  would also match every still-out-of-scope "X del/sul Garda" comune, so
-  that town needs an exact match. Events generically tagged "Lago di
-  Garda" (1000 Miglia, Lago di Garda in Love) are attached to Desenzano
-  instead of being dropped. No description or time in the source, just
-  day(s), town and name — so the generated description is generic ("Evento
-  a {town}... consulta il sito dell'organizzatore").
+
+### Sourcing policy: primary sources only
+
+A scraper (or a manually curated event's `src` citation) must point to the
+comune, the tourism board, or the event's own organizer — never a secondary
+aggregator that just republishes other people's listings. We briefly had a
+GardaClick scraper (`gardaclick.com`, a static HTML table with no feed,
+covering the whole Garda area including plenty of out-of-scope towns) and
+deliberately removed it: no accountability for an aggregator's accuracy,
+and it isn't our data to re-scrape. `panesalamina.com` is excluded for the
+same reason. When curating an event by hand, prefer the town's own official
+site (e.g. `visitsirmione.com`, `visitmanerba.it`) over a generic listing
+site.
 
 ### Adding a new source
 
-`data/scrapers/index.ts` only lists verified sources — before adding one,
-check whether it exposes a stable RSS/JSON feed (preferred pattern, see
-Municipium). If the source is only scrapable static HTML (see GardaClick),
-write a new parser following the same pattern (try/catch that returns `[]`
-on error, never an exception that blocks the other sources), then add it to
-the `SCRAPERS` array. Remember to filter to in-scope towns only
-(`TOWNS`/`TOWN_COORDS` in `data/config.ts`) if the source covers a wider
-area than the lake.
+`data/scrapers/index.ts` only lists verified, primary sources — before
+adding one, check whether it exposes a stable RSS/JSON feed (preferred
+pattern, see Municipium) and that it's the comune/organizer's own site, not
+an aggregator. If it's only scrapable static HTML, write a new parser
+following the same pattern (try/catch that returns `[]` on error, never an
+exception that blocks the other sources), then add it to the `SCRAPERS`
+array. Remember to filter to in-scope towns only (`TOWNS`/`TOWN_COORDS` in
+`data/config.ts`) if the source covers a wider area than the lake.
 
 ## Design constraints (see also CLAUDE.md)
 
@@ -143,31 +143,21 @@ area than the lake.
 Events in `data/events.json` cover the whole lake within about 50 km of
 Desenzano — Lombardy, Veneto and Trentino shores, plus the hinterland —
 collected by hand from official sites of comuni, tourist offices and
-organizers (not a live feed — dates can change). 32 towns total
+organizers (not a live feed — dates can change). 42 towns total
 (`data/config.ts` → `TOWN_COORDS`), grouped by region in the town filter
 (`TOWN_AREAS`/`AREA_ORDER` — region, not shore, since e.g. Peschiera is
 administratively Veneto despite sitting at the lake's southern tip):
-
-- **Lombardia** (15): Sirmione, Desenzano (Comune di Desenzano del Garda /
-  lagodigardaeventi.it), Padenghe, Moniga, Manerba, San Felice del Benaco,
-  Salò, Gardone Riviera, Toscolano-Maderno, Gargnano, Tignale, Tremosine,
-  Limone sul Garda, plus the hinterland towns Lonato del Garda and
-  Polpenazze del Garda
-- **Veneto** (14): Peschiera del Garda (comune.peschieradelgarda.vr.it),
-  Lazise, Bardolino, Garda (Garda Festival, Garda Lombardia), Torri del
-  Benaco, Brenzone sul Garda, Malcesine, plus the hinterland towns
-  Castelnuovo del Garda, Affi, Cavaion Veronese, Costermano sul Garda, San
-  Zeno di Montagna, Bussolengo, Valeggio sul Mincio
-- **Trentino** (3): Riva del Garda, Torbole (gardatrentino.it), plus the
-  hinterland town Arco
-
-Hinterland towns are within 3.5-10.7 km of the nearest coastal town —
-verified distances (checked against Wikipedia), not estimates.
+Lombardia 22, Veneto 15, Trentino 5 towns — see `TOWN_AREAS` in
+`data/config.ts` for the full, current list rather than duplicating it
+here, since it grows over time. Hinterland towns are within ~1.6-10.7 km of
+the nearest coastal town, found by checking each existing town's bordering
+comuni on Wikipedia and verifying distance — never estimated from memory,
+since a wrong pin is a visible bug on a map.
 
 Out of scope: Verona city, Brescia, Mantova, and fairs hosted at an
-exhibition center far from the lake (Fiera di Verona, Fiera di Montichiari —
-explicitly excluded in the GardaClick scraper, see above). The up-to-date
-list of towns and coordinates is always in `data/config.ts` → `TOWN_COORDS`.
+exhibition center far from the lake (Fiera di Verona, Fiera di
+Montichiari). The up-to-date list of towns and coordinates is always in
+`data/config.ts` → `TOWN_COORDS`.
 
 "Fonte" (source) links on event cards point to the source site only when
 the `src` field looks like a domain (e.g. `visitsirmione.com`); descriptive
