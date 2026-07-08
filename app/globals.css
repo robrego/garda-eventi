@@ -239,7 +239,8 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   justify-content: center;
   width: 36px !important;
   height: 36px !important;
-  line-height: 36px !important;
+  line-height: 1 !important;
+  padding: 0 !important;
   border-radius: 999px !important;
   border: none !important;
   background: white !important;
