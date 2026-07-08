@@ -99,14 +99,18 @@ a mano. Vedi anche README.md per l'architettura completa.
   sintassi cron standard non può esprimere "ogni 2 settimane" senza
   sfasarsi). `GET /api/cron/scrape?force=1` con `Authorization: Bearer
   $CRON_SECRET` forza un'esecuzione immediata per test/debug.
+- Fonti attive: `municipium.ts` (feed RSS, comuni sul CMS Municipium:
+  Peschiera, Garda) e `gardaclick.ts` (HTML statico, una tabella per stagione
+  raggruppata per mese, copre tutta l'area del Garda — il parser filtra per
+  sottostringa contro `TOWNS`, con un caso speciale a match esatto per
+  "Garda" per non matchare i tanti "X del/sul Garda" fuori scope).
 - Prima di aggiungere una fonte, verificare che abbia un feed RSS/JSON
-  stabile (pattern preferito, vedi `municipium.ts` per i comuni sul CMS
-  Municipium). Se la fonte è solo HTML statico scrapabile (es.
-  gardaclick.com — tabella con intestazioni di mese, niente feed — vedi
-  README), serve un parser dedicato che filtri per le sole città in scope
-  (`TOWN_COORDS`) dato che queste fonti spesso coprono un'area più ampia del
-  lago (Verona, Brescia, entroterra). Ogni scraper deve avere il proprio
-  try/catch e non lanciare mai un'eccezione che blocchi le altre fonti.
+  stabile (pattern preferito, vedi `municipium.ts`). Se la fonte è solo HTML
+  statico scrapabile (vedi `gardaclick.ts`), serve un parser dedicato che
+  filtri per le sole città in scope (`TOWNS`/`TOWN_COORDS`) dato che queste
+  fonti spesso coprono un'area più ampia del lago (Verona, Brescia,
+  entroterra). Ogni scraper deve avere il proprio try/catch e non lanciare
+  mai un'eccezione che blocchi le altre fonti.
 
 ## Task tipici
 

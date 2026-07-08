@@ -37,7 +37,7 @@ function extractTime(text: string): string | null {
   return `${match[1].padStart(2, "0")}:${match[2]}`;
 }
 
-function guessCategory(title: string): string {
+export function guessCategory(title: string): string {
   const t = title.toLowerCase();
   if (t.includes("mercat")) return "market";
   if (t.includes("concerto") || t.includes("musica")) return "concert";

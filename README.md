@@ -97,18 +97,33 @@ vercel.json               # cron dello scraper
   prossimo passo naturale resta sostituire `events.json` con Supabase (schema
   suggerito più sotto) se la mole di dati/scritture dovesse crescere.
 
-### Aggiungere una nuova fonte allo scraper
+### Fonti attive dello scraper
+
+- **Municipium** (`municipium.ts`): parser generico per comuni sul CMS
+  Municipium, che espone un feed RSS `/it/eventi/feed` — attivo per Peschiera
+  e Garda.
+- **GardaClick** (`gardaclick.ts`): non ha un feed, ma pubblica una singola
+  pagina HTML statica per stagione
+  (`gardaclick.com/eventi-fiere-mercati-lago-di-garda`) con una tabella
+  raggruppata per mese, eventi/fiere/mercati di tutta l'area del Garda —
+  molti fuori dal nostro scope (Verona, entroterra, comuni non coperti). Il
+  parser filtra per sottostringa contro `TOWNS` (`data/config.ts`), con un
+  caso speciale per "Garda": come sottostringa matcherebbe anche ogni
+  "Castelnuovo/Costermano/Lonato del Garda" fuori scope, quindi per quella
+  città serve un match esatto. Niente descrizione o orario nella fonte, solo
+  giorno/i, città e nome — la description generata è quindi generica
+  ("Evento a {città}... consulta il sito dell'organizzatore").
+
+### Aggiungere una nuova fonte
 
 `data/scrapers/index.ts` elenca solo fonti verificate — prima di aggiungerne
-una, controllare se espone un feed RSS/JSON stabile (come i comuni sul CMS
-Municipium, es. Peschiera e Garda: `/it/eventi/feed`). Se la fonte espone
-solo HTML statico con una struttura scrapabile (es. una tabella con
-intestazioni di mese), scrivere un nuovo parser in `data/scrapers/` seguendo
-lo stesso pattern di `municipium.ts` (try/catch che ritorna `[]` in caso di
-errore, mai un'eccezione che blocchi le altre fonti), poi aggiungerlo
-all'array `SCRAPERS`. Ricordarsi di filtrare per le sole città in scope
-(vedi `TOWN_COORDS` in `data/config.ts`) se la fonte copre un'area più ampia
-del lago.
+una, controllare se espone un feed RSS/JSON stabile (pattern preferito, vedi
+Municipium). Se la fonte espone solo HTML statico con una struttura
+scrapabile (vedi GardaClick), scrivere un nuovo parser seguendo lo stesso
+pattern (try/catch che ritorna `[]` in caso di errore, mai un'eccezione che
+blocchi le altre fonti), poi aggiungerlo all'array `SCRAPERS`. Ricordarsi di
+filtrare per le sole città in scope (`TOWNS`/`TOWN_COORDS` in
+`data/config.ts`) se la fonte copre un'area più ampia del lago.
 
 ## Vincoli di design (vedi anche CLAUDE.md)
 
@@ -163,11 +178,6 @@ restano testo semplice, per non inventare URL che non abbiamo verificato.
    l'app può essere aggiornata senza un nuovo deploy — gli utenti loggati
    possono già farlo parzialmente oggi tramite Blob (eventi manuali e
    override), ma resta un JSON piatto senza query/indici.
-2. Verificare se gardaclick.com (tabella statica di eventi/fiere/mercati per
-   l'intera zona del Garda, non solo il nostro sottoinsieme di città) è una
-   fonte abbastanza stabile da aggiungere come nuovo scraper — richiede un
-   parser dedicato (formato a tabella con intestazioni di mese, non un feed)
-   e un filtro sulle sole città in scope.
 
 ### Schema Supabase suggerito
 
