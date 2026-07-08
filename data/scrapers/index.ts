@@ -19,4 +19,29 @@ export const SCRAPERS = [
     "https://www.comune.garda.vr.it/it/eventi/feed",
     "comune.garda.vr.it"
   ),
+  createMunicipiumScraper(
+    "Bussolengo",
+    "https://www.comune.bussolengo.vr.it/it/eventi/feed",
+    "comune.bussolengo.vr.it"
+  ),
+  createMunicipiumScraper(
+    "Calvagese della Riviera",
+    "https://www.comune.calvagesedellariviera.bs.it/it/eventi/feed",
+    "comune.calvagesedellariviera.bs.it"
+  ),
+  createMunicipiumScraper(
+    "Cavaion Veronese",
+    "https://www.comune.cavaionveronese.vr.it/it/eventi/feed",
+    "comune.cavaionveronese.vr.it"
+  ),
+  createMunicipiumScraper(
+    "Costermano sul Garda",
+    "https://www.comune.costermanosulgarda.vr.it/it/eventi/feed",
+    "comune.costermanosulgarda.vr.it"
+  ),
+  createMunicipiumScraper(
+    "Affi",
+    "https://www.comune.affi.vr.it/it/eventi/feed",
+    "comune.affi.vr.it"
+  ),
 ];

@@ -110,7 +110,11 @@ README.md for the full architecture.
   /api/cron/scrape?force=1` with `Authorization: Bearer $CRON_SECRET` forces
   an immediate run for testing/debugging.
 - Active sources: `municipium.ts` (RSS feed, comuni on the Municipium CMS:
-  Peschiera, Garda).
+  Peschiera, Garda, Bussolengo, Calvagese della Riviera, Cavaion Veronese,
+  Costermano sul Garda, Affi — check a comune's `/it/eventi/feed` before
+  assuming it's not on Municipium, and watch for a false positive: some
+  WordPress sites return 200 with a generic empty "Commenti a:" comments
+  feed at that same path, not real events).
 - **Primary sources only.** A source must be the comune, the tourism board,
   or the event's own organizer — never a secondary aggregator that just
   republishes other people's listings (e.g. gardaclick.com,

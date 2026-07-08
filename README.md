@@ -102,7 +102,13 @@ vercel.json               # scraper cron schedule
 
 - **Municipium** (`municipium.ts`): generic parser for comuni on the
   Municipium CMS, which exposes an `/it/eventi/feed` RSS feed — active for
-  Peschiera and Garda.
+  Peschiera, Garda, Bussolengo, Calvagese della Riviera, Cavaion Veronese,
+  Costermano sul Garda, and Affi. Checked but not on Municipium (feed
+  missing/empty or a different CMS): Lonato del Garda, Castelnuovo del
+  Garda, Polpenazze del Garda, Muscoline, Bedizzole, Prevalle, Puegnago del
+  Garda, Valeggio sul Mincio, Tignale, Brenzone sul Garda, San Zeno di
+  Montagna, Tenno, Dro, Arco — for these, curate events by hand from the
+  comune's own site until/unless a working feed turns up.
 
 ### Sourcing policy: primary sources only
 
