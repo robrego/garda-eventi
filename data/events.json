@@ -3520,5 +3520,16 @@
     "descEn": "Concert in Canale di Tenno, part of a touring series across Riva del Garda and the surrounding area.",
     "src": "gardatrentino.it",
     "url": "https://www.gardatrentino.it/it/localita/tenno"
+  },
+  {
+    "date": "2026-08-23",
+    "town": "Tignale",
+    "title": "Fantasy Time",
+    "cat": "festival",
+    "time": "giornata intera",
+    "desc": "Giornata a tema fantasy con animazione e spettacoli, parte del calendario eventi estivi di Tignale.",
+    "descEn": "A fantasy-themed day with entertainment and shows, part of Tignale's summer events calendar.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/programma-eventi.html"
   }
 ]
