@@ -3531,5 +3531,110 @@
     "descEn": "A fantasy-themed day with entertainment and shows, part of Tignale's summer events calendar.",
     "src": "tignale.org",
     "url": "https://www.tignale.org/lagodigarda/programma-eventi.html"
+  },
+  {
+    "date": "2026-09-26",
+    "town": "Pastrengo",
+    "title": "Serata di Teatro Dialettale",
+    "titleEn": "Dialect Theatre Evening",
+    "cat": "teatro",
+    "time": "20:30",
+    "desc": "Spettacolo comico-dialettale all'Auditorium di Pastrengo, appuntamento mensile della Pro Loco.",
+    "descEn": "A comic dialect-theatre performance at the Pastrengo Auditorium, a monthly Pro Loco date.",
+    "src": "prolocopastrengo.it",
+    "url": "https://www.prolocopastrengo.it/programmi.asp"
+  },
+  {
+    "date": "2026-10-02",
+    "town": "Pastrengo",
+    "title": "Festa dei Nonzi e Anziani",
+    "titleEn": "Seniors' Festival",
+    "cat": "festival",
+    "time": "18:00",
+    "desc": "Festa dedicata agli anziani del paese, con musica e rinfresco serale, organizzata dalla Pro Loco.",
+    "descEn": "A celebration for the town's senior residents, with music and an evening reception, organized by the Pro Loco.",
+    "src": "prolocopastrengo.it",
+    "url": "https://www.prolocopastrengo.it/programmi.asp"
+  },
+  {
+    "date": "2026-12-07",
+    "town": "Pastrengo",
+    "title": "Presepi all'Aperto",
+    "titleEn": "Outdoor Nativity Scenes",
+    "cat": "cultura",
+    "time": "giornata intera",
+    "desc": "Allestimento di presepi all'aperto per le vie del paese, a cura della Pro Loco.",
+    "descEn": "Outdoor nativity scenes displayed through the streets of town, curated by the Pro Loco.",
+    "src": "prolocopastrengo.it",
+    "url": "https://www.prolocopastrengo.it/programmi.asp"
+  },
+  {
+    "date": "2026-12-12",
+    "town": "Pastrengo",
+    "title": "Arriva Santa Lucia",
+    "titleEn": "Santa Lucia Arrives",
+    "cat": "festival",
+    "time": "15:00",
+    "desc": "9ª edizione della festa di Santa Lucia in Piazza del Municipio, con musica e merenda per i bambini.",
+    "descEn": "9th edition of the Santa Lucia festival in Piazza del Municipio, with music and a snack for children.",
+    "src": "prolocopastrengo.it",
+    "url": "https://www.prolocopastrengo.it/programmi.asp"
+  },
+  {
+    "date": "2026-07-17",
+    "town": "Dro",
+    "title": "Centrale Fies Festival",
+    "cat": "cultura",
+    "time": "in serata",
+    "desc": "Festival di arti performative contemporanee alla storica Centrale Fies di Dro, 17-19 luglio.",
+    "descEn": "Contemporary performing-arts festival at the historic Centrale Fies in Dro, July 17-19.",
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/en/towns-villages/dro-and-drena/events"
+  },
+  {
+    "date": "2026-08-21",
+    "town": "Dro",
+    "title": "Guerilla Live",
+    "cat": "concert",
+    "time": "20:45–23:45",
+    "desc": "Rassegna musicale del venerdì sera a Dro, ogni settimana dal 17 luglio al 28 agosto.",
+    "descEn": "Weekly Friday-evening music series in Dro, every week from July 17 to August 28.",
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/en/towns-villages/dro-and-drena/events"
+  },
+  {
+    "date": "2026-08-15",
+    "town": "Muscoline",
+    "title": "Festa Patronale di Maria Assunta",
+    "titleEn": "Patron Saint Festival of Maria Assunta",
+    "cat": "sagra",
+    "time": "giornata intera",
+    "desc": "Festa patronale di Ferragosto in onore di Maria Assunta.",
+    "descEn": "Ferragosto patron saint festival honoring Maria Assunta.",
+    "src": "comune.muscoline.bs.it",
+    "url": "https://www.comune.muscoline.bs.it/pagina133703_eventi.html"
+  },
+  {
+    "date": "2026-07-11",
+    "town": "Gavardo",
+    "title": "I Concerti dell'Isolo – Dog Day",
+    "cat": "concert",
+    "time": "20:45",
+    "desc": "Serata dedicata ai grandi classici del rock internazionale, all'Isolo di Gavardo, ingresso libero. Seconda delle quattro serate della rassegna \"I Concerti dell'Isolo\" (3-25 luglio).",
+    "descEn": "An evening of great international rock classics at the Isolo in Gavardo, free admission. Second of four evenings in the \"Concerti dell'Isolo\" series (July 3-25).",
+    "src": "comune.gavardo.bs.it",
+    "url": "https://www.comune.gavardo.bs.it/pagina133703_eventi.html"
+  },
+  {
+    "date": "2026-09-08",
+    "town": "Polpenazze del Garda",
+    "title": "Festa Patronale di Santa Maria Bambina",
+    "titleEn": "Patron Saint Festival of Santa Maria Bambina",
+    "cat": "sagra",
+    "time": "giornata intera",
+    "desc": "Festa patronale di Polpenazze del Garda in onore di Santa Maria Bambina.",
+    "descEn": "Polpenazze del Garda's patron saint festival honoring Santa Maria Bambina.",
+    "src": "comune.polpenazzedelgarda.bs.it",
+    "url": "https://www.comune.polpenazzedelgarda.bs.it/vivere_il_comune/eventi/"
   }
 ]
