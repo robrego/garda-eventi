@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useLang } from "@/components/LanguageProvider";
@@ -92,54 +93,56 @@ export default function AuthWidget({
         )}
       </div>
 
-      {showAuth && (
-        <div className="modal-backdrop" onClick={() => setShowAuth(false)}>
-          <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <h2>{mode === "login" ? t("authLogin") : t("authRegister")}</h2>
+      {showAuth &&
+        createPortal(
+          <div className="modal-backdrop" onClick={() => setShowAuth(false)}>
+            <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+              <h2>{mode === "login" ? t("authLogin") : t("authRegister")}</h2>
 
-            <label className="form-field">
-              {t("fieldEmail")}
-              <input
-                type="email"
-                value={formEmail}
-                onChange={(e) => setFormEmail(e.target.value)}
-                autoComplete="email"
-              />
-            </label>
-            <label className="form-field">
-              {t("fieldPassword")}
-              <input
-                type="password"
-                value={formPassword}
-                onChange={(e) => setFormPassword(e.target.value)}
-                autoComplete={mode === "login" ? "current-password" : "new-password"}
-              />
-            </label>
+              <label className="form-field">
+                {t("fieldEmail")}
+                <input
+                  type="email"
+                  value={formEmail}
+                  onChange={(e) => setFormEmail(e.target.value)}
+                  autoComplete="email"
+                />
+              </label>
+              <label className="form-field">
+                {t("fieldPassword")}
+                <input
+                  type="password"
+                  value={formPassword}
+                  onChange={(e) => setFormPassword(e.target.value)}
+                  autoComplete={mode === "login" ? "current-password" : "new-password"}
+                />
+              </label>
 
-            {error && <p className="form-error">{error}</p>}
+              {error && <p className="form-error">{error}</p>}
 
-            <div className="modal-actions">
-              <button type="button" className="modal-primary" onClick={submit} disabled={busy}>
-                {mode === "login" ? t("authLogin") : t("authCreateAccount")}
-              </button>
-              <button type="button" className="modal-close" onClick={() => setShowAuth(false)}>
-                {t("authCancel")}
+              <div className="modal-actions">
+                <button type="button" className="modal-primary" onClick={submit} disabled={busy}>
+                  {mode === "login" ? t("authLogin") : t("authCreateAccount")}
+                </button>
+                <button type="button" className="modal-close" onClick={() => setShowAuth(false)}>
+                  {t("authCancel")}
+                </button>
+              </div>
+
+              <button
+                type="button"
+                className="modal-switch"
+                onClick={() => {
+                  setMode(mode === "login" ? "register" : "login");
+                  setError(null);
+                }}
+              >
+                {mode === "login" ? t("authSwitchToRegister") : t("authSwitchToLogin")}
               </button>
             </div>
-
-            <button
-              type="button"
-              className="modal-switch"
-              onClick={() => {
-                setMode(mode === "login" ? "register" : "login");
-                setError(null);
-              }}
-            >
-              {mode === "login" ? t("authSwitchToRegister") : t("authSwitchToLogin")}
-            </button>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
       {showAdd && email && (
         <AddEventForm

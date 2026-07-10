@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
   if (!DATE_RE.test(date) || !town || !title) {
     return NextResponse.json({ error: "Evento non valido" }, { status: 400 });
   }
-  if (!/^https?:\/\//.test(image)) {
+  if (!/^(https?:\/\/|\/api\/cover\/)/.test(image)) {
     return NextResponse.json({ error: "L'immagine deve essere un URL http(s)" }, { status: 400 });
   }
 

@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
   if (!title || title.length > 200) {
     return NextResponse.json({ error: "Titolo mancante o troppo lungo" }, { status: 400 });
   }
-  if (image && !/^https?:\/\//.test(image)) {
+  if (image && !/^(https?:\/\/|\/api\/cover\/)/.test(image)) {
     return NextResponse.json({ error: "L'immagine deve essere un URL http(s)" }, { status: 400 });
   }
   if (url && !/^https?:\/\//.test(url)) {

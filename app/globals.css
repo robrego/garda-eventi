@@ -142,7 +142,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   top: calc(100% + 6px);
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 1050;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -247,6 +247,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   height: 36px !important;
   line-height: 1 !important;
   padding: 0 !important;
+  padding-bottom: 2px !important;
   border-radius: 999px !important;
   border: none !important;
   background: white !important;
@@ -331,14 +332,14 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   box-shadow: 0 4px 14px rgba(44, 106, 114, 0.1);
 }
 
-.menu-scrim { position: fixed; inset: 0; z-index: 40; background: transparent; }
+.menu-scrim { position: fixed; inset: 0; z-index: 1040; background: transparent; }
 
 .header-menu {
   display: none;
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  z-index: 50;
+  z-index: 1050;
   flex-direction: column;
   align-items: stretch;
   gap: 10px;

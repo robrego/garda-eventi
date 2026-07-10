@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { TOWNS, CATEGORIES, CATEGORIES_EN } from "@/data/config";
 import { useLang } from "@/components/LanguageProvider";
 import { uploadImage } from "@/lib/uploadImage";
@@ -61,7 +62,7 @@ export default function AddEventForm({
 
   const categories = lang === "en" ? CATEGORIES_EN : CATEGORIES;
 
-  return (
+  return createPortal(
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
         <h2>{t("addEventTitle")}</h2>
@@ -169,6 +170,7 @@ export default function AddEventForm({
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
