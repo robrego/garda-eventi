@@ -3856,5 +3856,306 @@
     "descEn": "Antiques and collectibles market in the historic centre.",
     "src": "lonatoturismo.it",
     "url": "https://www.lonatoturismo.it/it/tutti-gli-eventi"
+  },
+  {
+    "date": "2026-08-06",
+    "town": "San Felice",
+    "title": "Attraverso il Paese delle Meraviglie",
+    "titleEn": "Through the Land of Wonders",
+    "cat": "festival",
+    "time": "serale",
+    "desc": "Prima serata immersiva al Parco Donne della Costituente con luci, installazioni artistiche, performance itineranti, DJ set e food truck gourmet. Ingresso gratuito.",
+    "descEn": "First immersive evening at Parco Donne della Costituente with lights, art installations, roving performances, DJ sets and gourmet food trucks. Free entry.",
+    "src": "gardalombardia.com"
+  },
+  {
+    "date": "2026-08-07",
+    "town": "San Felice",
+    "title": "Attraverso il Paese delle Meraviglie",
+    "titleEn": "Through the Land of Wonders",
+    "cat": "festival",
+    "time": "serale",
+    "desc": "Secondo serata immersiva al Parco Donne della Costituente con luci, installazioni artistiche, performance itineranti, DJ set e food truck gourmet. Ingresso gratuito.",
+    "descEn": "Second immersive evening at Parco Donne della Costituente with lights, art installations, roving performances, DJ sets and gourmet food trucks. Free entry.",
+    "src": "gardalombardia.com"
+  },
+  {
+    "date": "2026-08-08",
+    "town": "San Felice",
+    "title": "Attraverso il Paese delle Meraviglie",
+    "titleEn": "Through the Land of Wonders",
+    "cat": "festival",
+    "time": "serale",
+    "desc": "Terza e ultima serata immersiva al Parco Donne della Costituente con luci, installazioni artistiche, performance itineranti, DJ set e food truck gourmet. Ingresso gratuito.",
+    "descEn": "Third and final immersive evening at Parco Donne della Costituente with lights, art installations, roving performances, DJ sets and gourmet food trucks. Free entry.",
+    "src": "gardalombardia.com"
+  },
+  {
+    "date": "2026-07-31",
+    "town": "Polpenazze del Garda",
+    "title": "Galà dell'Operetta",
+    "titleEn": "Operetta Gala",
+    "cat": "concert",
+    "time": "21:00",
+    "desc": "Serata di operetta con le arie più celebri, sotto le stelle di Piazzale Castello nel borgo medievale.",
+    "descEn": "An evening of operetta featuring the most famous arias, under the stars of Piazzale Castello in the medieval village.",
+    "src": "gardalombardia.com",
+    "url": "https://gardalombardia.com/it/eventi/gal-delloperetta_4736"
+  },
+  {
+    "date": "2026-07-10",
+    "town": "Muscoline",
+    "title": "Cinema all'aperto",
+    "titleEn": "Open-air cinema",
+    "cat": "festival",
+    "time": "21:15",
+    "desc": "Serata di cinema all'aperto all'Oratorio \"L. Pavanelli\".",
+    "descEn": "Open-air film screening at the Oratorio \"L. Pavanelli\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-07-16",
+    "town": "Muscoline",
+    "title": "Festa del patrono di San Quirico",
+    "cat": "sagra",
+    "time": "21:00",
+    "desc": "Festa patronale a San Quirico con esibizione della banda.",
+    "descEn": "Patron saint festival in San Quirico with a brass band performance.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-07-17",
+    "town": "Muscoline",
+    "title": "Festa conclusiva del GREST",
+    "cat": "festival",
+    "time": "20:30",
+    "desc": "Serata conclusiva del centro estivo per ragazzi all'Oratorio \"L. Pavanelli\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-07-24",
+    "town": "Muscoline",
+    "title": "Cinema all'aperto",
+    "titleEn": "Open-air cinema",
+    "cat": "festival",
+    "time": "21:15",
+    "desc": "Serata di cinema all'aperto all'Oratorio \"L. Pavanelli\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-07-25",
+    "town": "Muscoline",
+    "title": "Festa della frazione di Longavina – concerto",
+    "cat": "concert",
+    "time": "20:30",
+    "desc": "Festa della frazione di Longavina con il concerto \"Martone and his wagon wheels\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-07-31",
+    "town": "Muscoline",
+    "title": "Cinema all'aperto",
+    "titleEn": "Open-air cinema",
+    "cat": "festival",
+    "time": "21:15",
+    "desc": "Serata di cinema all'aperto al Castello.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-08-01",
+    "town": "Muscoline",
+    "title": "Frazioni spiedanti",
+    "cat": "sagra",
+    "time": "20:00",
+    "desc": "Gara degli spiedi tra le frazioni e serata musicale all'Oratorio \"L. Pavanelli\".",
+    "descEn": "Skewer-cooking contest between the hamlets, with a live music evening.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-08-08",
+    "town": "Muscoline",
+    "title": "Festa della frazione di Castrezzone – concerto",
+    "cat": "concert",
+    "time": "20:30",
+    "desc": "Festa della frazione di Castrezzone con concerto.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-08-16",
+    "town": "Muscoline",
+    "title": "Festa patronale di Moniga del Bosco",
+    "cat": "sagra",
+    "time": "20:00",
+    "desc": "Festa patronale nella frazione di Moniga del Bosco.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-08-28",
+    "town": "Muscoline",
+    "title": "Camminata con la luna piena",
+    "titleEn": "Full moon walk",
+    "cat": "sport",
+    "time": "21:00",
+    "desc": "Camminata serale con la luna piena, partenza dal Parco \"Polini\", con osservazione del cielo insieme a un astrofilo.",
+    "descEn": "Evening full-moon walk starting from Parco \"Polini\", with stargazing led by an amateur astronomer.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-08-29",
+    "town": "Muscoline",
+    "title": "\"Paese mio che stai sulla collina\" – spettacolo teatrale",
+    "cat": "teatro",
+    "time": "20:30",
+    "desc": "Spettacolo teatrale con Paola Rizzi all'Oratorio \"L. Pavanelli\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-05",
+    "town": "Muscoline",
+    "title": "Concerto al Santuario di San Quirico",
+    "cat": "concert",
+    "time": "20:30",
+    "desc": "Concerto al Santuario di San Quirico.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-06",
+    "town": "Muscoline",
+    "title": "Passeggiata a 6 zampe",
+    "titleEn": "Dog walk",
+    "cat": "sport",
+    "time": "14:00",
+    "desc": "Passeggiata con i cani, ritrovo al Parco \"Polini\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-08",
+    "town": "Muscoline",
+    "title": "Festa del patrono di Burago",
+    "cat": "sagra",
+    "time": "20:00",
+    "desc": "Festa patronale in Piazzetta di Burago, balli e canti con il Duo Mazzola.",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-11",
+    "town": "Muscoline",
+    "title": "Conferenza: arte e storia con Emilia Nicoli",
+    "cat": "cultura",
+    "time": "20:30",
+    "desc": "Conferenza di arte e storia alla Sala Civica \"Don Milani\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-12",
+    "town": "Muscoline",
+    "title": "\"Il ritorno di Bram\" – spettacolo teatrale",
+    "cat": "teatro",
+    "time": "20:30",
+    "desc": "Spettacolo teatrale al Teatro \"L. Pavanelli\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-18",
+    "town": "Muscoline",
+    "title": "Conferenza: arte e storia con Emilia Nicoli",
+    "cat": "cultura",
+    "time": "20:30",
+    "desc": "Secondo appuntamento della conferenza di arte e storia alla Sala Civica \"Don Milani\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-19",
+    "town": "Muscoline",
+    "title": "Palio dei campanili",
+    "cat": "festival",
+    "time": "17:30",
+    "desc": "Palio dei campanili all'Oratorio \"L. Pavanelli\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-09-27",
+    "town": "Muscoline",
+    "title": "Festa delle Associazioni",
+    "cat": "festival",
+    "time": "14:00",
+    "desc": "Festa delle associazioni locali al Parco \"Polini\".",
+    "src": "comune.muscoline.bs.it"
+  },
+  {
+    "date": "2026-07-23",
+    "town": "Tignale",
+    "title": "Giovedì Live – Youngtimers",
+    "titleEn": "Thursday Live – Youngtimers",
+    "cat": "concert",
+    "time": "20:30–21:00",
+    "desc": "Concerto gratuito a Gardola, Piazza Umberto I, parte della rassegna estiva Giovedì Live.",
+    "descEn": "Free concert in Gardola, Piazza Umberto I, part of the summer Giovedì Live series.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/musica-e-cultura.html"
+  },
+  {
+    "date": "2026-08-06",
+    "town": "Tignale",
+    "title": "Giovedì Live – Chicken Machine",
+    "titleEn": "Thursday Live – Chicken Machine",
+    "cat": "concert",
+    "time": "20:30–21:00",
+    "desc": "Concerto gratuito a Gardola, Piazza Umberto I, parte della rassegna estiva Giovedì Live.",
+    "descEn": "Free concert in Gardola, Piazza Umberto I, part of the summer Giovedì Live series.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/musica-e-cultura.html"
+  },
+  {
+    "date": "2026-08-12",
+    "town": "Tignale",
+    "title": "Giovedì Live – Camelia's Lords Violino Trio",
+    "cat": "concert",
+    "time": "20:30–21:00",
+    "desc": "Concerto gratuito a Gardola, Piazza Umberto I (eccezionalmente di mercoledì), parte della rassegna estiva Giovedì Live.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/musica-e-cultura.html"
+  },
+  {
+    "date": "2026-08-27",
+    "town": "Tignale",
+    "title": "Giovedì Live – Rimbambeatles Duo",
+    "cat": "concert",
+    "time": "20:30–21:00",
+    "desc": "Concerto gratuito a Gardola, Piazza Umberto I, parte della rassegna estiva Giovedì Live.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/musica-e-cultura.html"
+  },
+  {
+    "date": "2026-09-03",
+    "town": "Tignale",
+    "title": "Giovedì Live – Enrico & The Tramps",
+    "cat": "concert",
+    "time": "20:30–21:00",
+    "desc": "Concerto gratuito a Gardola, Piazza Umberto I, parte della rassegna estiva Giovedì Live.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/musica-e-cultura.html"
+  },
+  {
+    "date": "2026-09-05",
+    "town": "Tignale",
+    "title": "Sulle Orme di Zanzanù – camminata notturna",
+    "titleEn": "In Zanzanù's Footsteps – night hike",
+    "cat": "sport",
+    "time": "19:00 (ritrovo)",
+    "desc": "Camminata notturna di circa 12 km sulle tracce dell'ultimo cammino del bandito Zanzanù, ritrovo alla Chiesa di San Pietro, ristoro finale nel bosco. Prenotazione obbligatoria.",
+    "descEn": "About 12 km night hike retracing the bandit Zanzanù's final route, meeting at the Church of San Pietro, refreshments in the forest at the end. Booking required.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/zanzanu.html"
+  },
+  {
+    "date": "2026-09-17",
+    "town": "Tignale",
+    "title": "Giovedì Live – Rudi e Naty",
+    "cat": "concert",
+    "time": "20:30–21:00",
+    "desc": "Concerto gratuito a Gardola, Piazza Umberto I, chiusura della rassegna estiva Giovedì Live.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/musica-e-cultura.html"
   }
 ]

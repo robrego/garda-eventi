@@ -40,13 +40,17 @@ README.md for the full architecture.
   of the coast (an explicitly chosen distance threshold, not an
   administrative boundary, checked town-by-town against Wikipedia's
   bordering-comuni lists and haversine distance, never estimated from
-  memory). 42 towns total (`Object.keys(TOWN_COORDS).length` in
-  `data/config.ts`): Lombardia 22, Veneto 15, Trentino 5 — see
+  memory). 50 towns total (`Object.keys(TOWN_COORDS).length` in
+  `data/config.ts`): Lombardia 30, Veneto 15, Trentino 5 — see
   `TOWN_AREAS` for the full, current list; don't duplicate it here since
-  it grows over time. Hinterland towns are within ~1.6-10.7 km of the
-  nearest coastal town. Out of scope: Verona city, Brescia, Mantova, and
-  fairs hosted at an exhibition center far from the lake (Fiera di Verona,
-  Fiera di Montichiari).
+  it grows over time. Hinterland towns are within ~1.6-12.1 km of the
+  nearest coastal town. Out of scope: Verona city, Brescia city, and
+  Mantova city themselves (all far from the lake) — but Mantova-province
+  hinterland towns within the normal distance threshold are in scope, same
+  as Brescia/Verona-province ones (Castiglione delle Stiviere, Solferino,
+  Cavriana added 2026-07-09 at ~8-12 km from the coast). Also out of
+  scope: fairs hosted at an exhibition center far from the lake (Fiera di
+  Verona, Fiera di Montichiari).
 - **Town filter grouping**: `TOWN_AREAS`/`AREA_ORDER` in `data/config.ts`
   group towns by administrative region (Lombardia/Veneto/Trentino), mixing
   shore and hinterland towns together — not by shore-vs-hinterland. When

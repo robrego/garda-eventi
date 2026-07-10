@@ -46,6 +46,14 @@ export const TOWN_COORDS: Record<string, [number, number]> = {
   Pastrengo:               [45.5000, 10.8000],
   Tenno:                   [45.9194, 10.8322],
   Dro:                     [45.9667, 10.9167],
+  Nuvolera:                  [45.533333, 10.372222],
+  "Sabbio Chiese":            [45.65, 10.433333],
+  "Villanuova sul Clisi":     [45.6, 10.45],
+  Serle:                      [45.572222, 10.366667],
+  Calcinato:                  [45.4581, 10.4146],
+  "Castiglione delle Stiviere": [45.4, 10.5],
+  Solferino:                   [45.37236, 10.56648],
+  Cavriana:                    [45.35, 10.6],
 };
 
 export const TOWNS = Object.keys(TOWN_COORDS);
@@ -84,6 +92,14 @@ export const TOWN_AREAS: Record<string, string> = {
   Bedizzole: "Lombardia",
   Gavardo: "Lombardia",
   Prevalle: "Lombardia",
+  Nuvolera: "Lombardia",
+  "Sabbio Chiese": "Lombardia",
+  "Villanuova sul Clisi": "Lombardia",
+  Serle: "Lombardia",
+  Calcinato: "Lombardia",
+  "Castiglione delle Stiviere": "Lombardia",
+  Solferino: "Lombardia",
+  Cavriana: "Lombardia",
   // Veneto (provincia di Verona)
   Peschiera: "Veneto",
   Lazise: "Veneto",
@@ -136,8 +152,8 @@ export const MARKET_DAYS: Record<number, string[]> = {
   2: ["Desenzano", "Salò", "Manerba"],
   3: ["Gargnano", "San Felice", "Lazise", "Riva"],
   4: ["Limone", "Padenghe", "Bardolino"],
-  5: ["Moniga", "Garda"],
-  6: ["Malcesine"],
+  5: ["Moniga", "Garda", "Puegnago del Garda"],
+  6: ["Malcesine", "Polpenazze del Garda"],
 };
 
 // Comune crest (stemma) image, used as the cover placeholder for events
@@ -185,6 +201,14 @@ export const TOWN_CREST: Partial<Record<string, string>> = {
   Pastrengo: "https://upload.wikimedia.org/wikipedia/it/5/57/Pastrengo-Stemma.png",
   Tenno: "https://upload.wikimedia.org/wikipedia/it/8/8e/Tenno-Stemma.png",
   Dro: "https://upload.wikimedia.org/wikipedia/it/d/d4/Dro-Stemma.png",
+  Nuvolera: "https://upload.wikimedia.org/wikipedia/it/6/68/Nuvolera-Stemma.png",
+  "Sabbio Chiese": "https://upload.wikimedia.org/wikipedia/it/3/37/Sabbio_Chiese-Stemma.png",
+  "Villanuova sul Clisi": "https://upload.wikimedia.org/wikipedia/it/b/b6/Villanuova_sul_Clisi-Stemma.png",
+  Serle: "https://upload.wikimedia.org/wikipedia/it/f/fd/Serle-Stemma.png",
+  Calcinato: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Blason_ville_it_Calcinato_%28Italie%29.svg",
+  "Castiglione delle Stiviere": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Castiglione_delle_Stiviere-Stemma.svg",
+  Solferino: "https://upload.wikimedia.org/wikipedia/it/b/b1/Solferino-Stemma.png",
+  Cavriana: "https://upload.wikimedia.org/wikipedia/it/3/38/Cavriana-Stemma.png",
 };
 
 export type EventItem = {
