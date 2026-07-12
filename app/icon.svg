@@ -1,6 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+  <defs>
+    <clipPath id="icon-clip">
+      <circle cx="19" cy="19" r="19" />
+    </clipPath>
+  </defs>
   <circle cx="19" cy="19" r="19" fill="#2c6a72" />
-  <path d="M6 22c3-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0" stroke="#e2eeec" stroke-width="1.6" fill="none" />
-  <path d="M6 17c3-2 5.5-2 8 0s5.5 2 8 0 5.5-2 8 0" stroke="#3f9d5f" stroke-width="1.6" fill="none" opacity="0.9" />
-  <circle cx="14" cy="12" r="2.2" fill="#faf6ec" />
+  <g clip-path="url(#icon-clip)">
+    <circle cx="13.5" cy="10.5" r="4.4" fill="#faf6ec" />
+    <path d="M0 25 L7 14 L13 20 L21 9 L27 18 L34 14 L38 19 L38 38 L0 38 Z" fill="#5c979a" opacity="0.65" />
+    <path d="M0 30 L6 19 L12 25 L19 13 L26 23 L32 17 L38 27 L38 38 L0 38 Z" fill="#3f9d5f" />
+    <path d="M0 33c4-2 6-2 9 0s6 2 9 0 6-2 9 0 6-2 9 0" stroke="#e2eeec" stroke-width="1.6" fill="none" opacity="0.9" />
+  </g>
 </svg>

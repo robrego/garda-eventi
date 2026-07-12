@@ -75,7 +75,7 @@ export default function AddEventForm({
         <label className="form-field">
           {t("fieldTown")}
           <select value={town} onChange={(e) => setTown(e.target.value)}>
-            {TOWNS.map((tn) => (
+            {[...TOWNS].sort((a, b) => a.localeCompare(b, "it")).map((tn) => (
               <option key={tn} value={tn}>{tn}</option>
             ))}
           </select>

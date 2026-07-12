@@ -225,6 +225,7 @@ export type EventItem = {
   image?: string;
   url?: string; // direct link to the event's own page, if known
   addedBy?: string; // email of the user who submitted it manually, if any
+  createdAt?: string; // ISO timestamp, set server-side when submitted
 };
 
 // A handful of curated events use a descriptive (non-clock) time instead of

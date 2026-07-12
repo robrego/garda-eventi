@@ -72,27 +72,51 @@ export default function EventList({
   selectedId,
   onSelect,
   canEdit,
+  canDelete,
   onCoverSaved,
   onDescSaved,
+  onDeleted,
 }: {
   selectedDate: string;
   events: EventItem[];
   selectedId: string | null;
   onSelect: (id: string) => void;
   canEdit: boolean;
+  canDelete: boolean;
   onCoverSaved: () => void;
   onDescSaved: () => void;
+  onDeleted: () => void;
 }) {
   const { lang, t } = useLang();
   const [coverTarget, setCoverTarget] = useState<EventItem | null>(null);
   const [descTarget, setDescTarget] = useState<EventItem | null>(null);
   const [brokenImages, setBrokenImages] = useState<Set<string>>(new Set());
+  const [deleting, setDeleting] = useState<Set<string>>(new Set());
   const d = dateFromISO(selectedDate);
   const sorted = [...events].sort((a, b) => {
     if (a.cat === "market" && b.cat !== "market") return 1;
     if (a.cat !== "market" && b.cat === "market") return -1;
     return a.time.localeCompare(b.time);
   });
+
+  const handleDelete = async (e: EventItem) => {
+    if (!window.confirm(t("confirmDeleteEvent"))) return;
+    setDeleting((prev) => new Set(prev).add(e.id));
+    try {
+      const res = await fetch("/api/events/hide", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ date: e.date, town: e.town, title: e.title }),
+      });
+      if (res.ok) onDeleted();
+    } finally {
+      setDeleting((prev) => {
+        const next = new Set(prev);
+        next.delete(e.id);
+        return next;
+      });
+    }
+  };
 
   return (
     <div className="list-col">
@@ -130,15 +154,38 @@ export default function EventList({
           <div className="event-card-body">
             <div className="event-cover-col">
               {e.image && !brokenImages.has(e.id) ? (
-                <img
-                  src={e.image}
-                  alt=""
-                  className="event-cover"
-                  loading="lazy"
-                  onError={() => {
-                    setBrokenImages((prev) => new Set(prev).add(e.id));
-                  }}
-                />
+                canEdit ? (
+                  <button
+                    type="button"
+                    className="event-cover-btn"
+                    onClick={(ev) => {
+                      ev.stopPropagation();
+                      setCoverTarget(e);
+                    }}
+                    aria-label={t("ariaChangeCover")}
+                  >
+                    <img
+                      src={e.image}
+                      alt=""
+                      className="event-cover"
+                      loading="lazy"
+                      onError={() => {
+                        setBrokenImages((prev) => new Set(prev).add(e.id));
+                      }}
+                    />
+                    <span className="event-cover-edit-overlay">{t("editLink")}</span>
+                  </button>
+                ) : (
+                  <img
+                    src={e.image}
+                    alt=""
+                    className="event-cover"
+                    loading="lazy"
+                    onError={() => {
+                      setBrokenImages((prev) => new Set(prev).add(e.id));
+                    }}
+                  />
+                )
               ) : canEdit ? (
                 <button
                   type="button"
@@ -157,7 +204,7 @@ export default function EventList({
                   <CoverPlaceholder town={e.town} />
                 </div>
               )}
-              <div className="event-cat event-cat-mobile">
+              <div className={`event-cat event-cat-mobile cat-${e.cat}`}>
                 {lang === "en" ? CATEGORIES_EN[e.cat] : CATEGORIES[e.cat]}
               </div>
             </div>
@@ -183,23 +230,38 @@ export default function EventList({
                   </p>
                   <div className="event-meta">{e.town} · {translateTime(e.time, lang)}</div>
                 </div>
-                <div className="event-cat event-cat-desktop">
+                <div className={`event-cat event-cat-desktop cat-${e.cat}`}>
                   {lang === "en" ? CATEGORIES_EN[e.cat] : CATEGORIES[e.cat]}
                 </div>
               </div>
               <div className="event-desc">
                 {lang === "en" ? e.descEn ?? e.desc : e.desc}
                 {canEdit && (
-                  <button
-                    type="button"
-                    className="event-edit-link"
-                    onClick={(ev) => {
-                      ev.stopPropagation();
-                      setDescTarget(e);
-                    }}
-                  >
-                    {t("editLink")}
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      className="event-edit-link"
+                      onClick={(ev) => {
+                        ev.stopPropagation();
+                        setDescTarget(e);
+                      }}
+                    >
+                      {t("editLink")}
+                    </button>
+                    {canDelete && (
+                      <button
+                        type="button"
+                        className="event-edit-link event-delete-link"
+                        disabled={deleting.has(e.id)}
+                        onClick={(ev) => {
+                          ev.stopPropagation();
+                          handleDelete(e);
+                        }}
+                      >
+                        {t("deleteLink")}
+                      </button>
+                    )}
+                  </>
                 )}
               </div>
               {!e.url && <div className="event-src"><SourceLine src={e.src} label={t("sourceLabel")} /></div>}

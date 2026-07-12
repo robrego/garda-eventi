@@ -34,12 +34,20 @@ const STRINGS = {
   saveDesc: { it: "Salva descrizione", en: "Save description" },
 
   addCoverTitle: { it: "Aggiungi copertina", en: "Add cover" },
+  changeCoverTitle: { it: "Cambia copertina", en: "Change cover" },
   fieldImageUrl: { it: "URL immagine", en: "Image URL" },
   saveCover: { it: "Salva copertina", en: "Save cover" },
   uploadImageLabel: { it: "Carica un file", en: "Upload a file" },
   orDivider: { it: "oppure", en: "or" },
   uploading: { it: "Caricamento in corso…", en: "Uploading…" },
   errorUpload: { it: "Caricamento non riuscito, riprova", en: "Upload failed, try again" },
+
+  deleteLink: { it: "Elimina", en: "Delete" },
+  confirmDeleteEvent: {
+    it: "Eliminare questo evento? Non sarà più visibile a nessuno.",
+    en: "Delete this event? It will no longer be visible to anyone.",
+  },
+  ariaChangeCover: { it: "Cambia la copertina di questo evento", en: "Change this event's cover" },
 
   allTowns: { it: "Tutte le città", en: "All towns" },
   viewSplit: { it: "Mappa + lista", en: "Map + list" },
@@ -68,6 +76,8 @@ const STRINGS = {
 
   centerMapButton: { it: "Centra sugli eventi", en: "Center on events" },
   ariaCenterMap: { it: "Centra la mappa sugli eventi del giorno", en: "Center the map on today's events" },
+
+  doneButton: { it: "Fatto", en: "Done" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;
@@ -100,4 +110,9 @@ export const MONTHS: Record<Lang, string[]> = {
 export function eventsCountLabel(n: number, lang: Lang): string {
   const noun = n === 1 ? STRINGS.eventSingular[lang] : STRINGS.eventPlural[lang];
   return `${n} ${noun}`;
+}
+
+export function townsSelectedLabel(n: number, lang: Lang): string {
+  if (lang === "en") return `${n} town${n === 1 ? "" : "s"} selected`;
+  return `${n} città selezionat${n === 1 ? "a" : "e"}`;
 }

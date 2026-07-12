@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AREA_ORDER, AREA_LABELS_EN, TOWN_AREAS, TOWNS } from "@/data/config";
 import { useLang } from "@/components/LanguageProvider";
+import { townsSelectedLabel } from "@/lib/i18n";
 
 export type ViewMode = "split" | "list" | "map";
 
@@ -15,16 +16,16 @@ function ChevronDownIcon() {
 }
 
 export default function Filters({
-  townFilter,
-  setTownFilter,
+  selectedTowns,
+  setSelectedTowns,
   view,
   setView,
   selectedDateLabel,
   selectedDate,
   onDatePick,
 }: {
-  townFilter: string;
-  setTownFilter: (t: string) => void;
+  selectedTowns: string[];
+  setSelectedTowns: (towns: string[]) => void;
   view: ViewMode;
   setView: (v: ViewMode) => void;
   selectedDateLabel: string;
@@ -33,12 +34,25 @@ export default function Filters({
 }) {
   const { lang, t } = useLang();
   const [viewMenuOpen, setViewMenuOpen] = useState(false);
+  const [townMenuOpen, setTownMenuOpen] = useState(false);
   const townsByArea = AREA_ORDER.map((area) => ({
     area: lang === "en" ? AREA_LABELS_EN[area] : area,
-    towns: TOWNS.filter((town) => TOWN_AREAS[town] === area),
+    towns: TOWNS.filter((town) => TOWN_AREAS[town] === area).sort((a, b) => a.localeCompare(b, "it")),
   }));
 
   const viewLabel = view === "split" ? t("viewSplit") : view === "list" ? t("viewList") : t("viewMap");
+  const townLabel =
+    selectedTowns.length === 0
+      ? t("allTowns")
+      : selectedTowns.length === 1
+        ? selectedTowns[0]
+        : townsSelectedLabel(selectedTowns.length, lang);
+
+  const toggleTown = (town: string) => {
+    setSelectedTowns(
+      selectedTowns.includes(town) ? selectedTowns.filter((tn) => tn !== town) : [...selectedTowns, town]
+    );
+  };
 
   return (
     <div className="filters">
@@ -55,23 +69,53 @@ export default function Filters({
           <ChevronDownIcon />
         </span>
       </div>
-      <select
-        className="town-select"
-        aria-label={t("ariaFilterTown")}
-        value={townFilter}
-        onChange={(e) => setTownFilter(e.target.value)}
-      >
-        <option value="all">{t("allTowns")}</option>
-        {townsByArea.map(({ area, towns }) => (
-          <optgroup key={area} label={area}>
-            {towns.map((town) => (
-              <option key={town} value={town}>
-                {town}
-              </option>
-            ))}
-          </optgroup>
-        ))}
-      </select>
+      <div className="town-filter">
+        <button
+          type="button"
+          className="town-select"
+          onClick={() => setTownMenuOpen((o) => !o)}
+          aria-label={t("ariaFilterTown")}
+          aria-expanded={townMenuOpen}
+        >
+          <span>{townLabel}</span>
+          <ChevronDownIcon />
+        </button>
+        {townMenuOpen && (
+          <>
+            <div className="menu-scrim" onClick={() => setTownMenuOpen(false)} />
+            <div className="town-filter-menu">
+              <label className="town-filter-option town-filter-all">
+                <input
+                  type="checkbox"
+                  checked={selectedTowns.length === 0}
+                  onChange={() => setSelectedTowns([])}
+                />
+                {t("allTowns")}
+              </label>
+              <div className="town-filter-list">
+                {townsByArea.map(({ area, towns }) => (
+                  <div key={area} className="town-filter-group">
+                    <div className="town-filter-area">{area}</div>
+                    {towns.map((town) => (
+                      <label key={town} className="town-filter-option">
+                        <input
+                          type="checkbox"
+                          checked={selectedTowns.includes(town)}
+                          onChange={() => toggleTown(town)}
+                        />
+                        {town}
+                      </label>
+                    ))}
+                  </div>
+                ))}
+              </div>
+              <button type="button" className="town-filter-done" onClick={() => setTownMenuOpen(false)}>
+                {t("doneButton")}
+              </button>
+            </div>
+          </>
+        )}
+      </div>
 
       <div className="view-select">
         <button

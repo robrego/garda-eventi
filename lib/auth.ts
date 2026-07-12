@@ -53,3 +53,16 @@ export async function getSessionEmail(): Promise<string | null> {
 export function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
+// Gate for the /admin moderation dashboard and for deleting events.
+// Comma-separated allowlist in the ADMIN_EMAILS env var — not a "role"
+// stored per-user, since there's no admin role in the data model, just a
+// short trusted list.
+export function isAdminEmail(email: string | null): email is string {
+  if (!email) return false;
+  const allowlist = (process.env.ADMIN_EMAILS || "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+  return allowlist.includes(email.toLowerCase());
+}

@@ -15,7 +15,7 @@ export default function AddCoverForm({
   onSaved: () => void;
 }) {
   const { t } = useLang();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(event.image ?? "");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -56,7 +56,7 @@ export default function AddCoverForm({
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-        <h2>{t("addCoverTitle")}</h2>
+        <h2>{event.image ? t("changeCoverTitle") : t("addCoverTitle")}</h2>
         <p className="modal-subtitle">{event.title}</p>
 
         {image && <img src={image} alt="" className="cover-preview" />}

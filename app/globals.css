@@ -14,7 +14,12 @@
 
 html, body {
   margin: 0;
-  background: var(--sand);
+  background-color: var(--sand);
+  background-image:
+    radial-gradient(ellipse 900px 560px at 8% -8%, rgba(63, 157, 95, 0.10), transparent 60%),
+    radial-gradient(ellipse 800px 520px at 100% 0%, rgba(44, 106, 114, 0.09), transparent 55%),
+    radial-gradient(ellipse 1000px 700px at 50% 110%, rgba(44, 106, 114, 0.05), transparent 60%);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: "Work Sans", sans-serif;
   font-size: 18px;
@@ -95,10 +100,15 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .day-chip.is-today:not(.active) { background: rgba(63, 157, 95, 0.12); }
 
 .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; align-items: center; }
+
+.town-filter { position: relative; }
 .town-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 14px;
   font-family: "Work Sans", sans-serif;
-  padding: 10px 38px 10px 14px;
+  padding: 10px 14px;
   border-radius: 999px;
   border: none;
   background-color: white;
@@ -106,19 +116,67 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   cursor: pointer;
   font-weight: 600;
   max-width: 100%;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%232c6a72' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 13px center;
-  background-size: 11px 11px;
-  accent-color: var(--green);
 }
-.town-select option:checked, .town-select option:hover {
-  background-color: var(--green-soft);
-  color: var(--lake-deep);
+.town-select span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.town-filter-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  max-width: min(90vw, 340px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 10px 30px rgba(20, 66, 72, 0.18);
 }
+.town-filter-list { max-height: 320px; overflow-y: auto; }
+.town-filter-group { padding: 4px 0; }
+.town-filter-area {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--lake-mid);
+  padding: 8px 12px 4px;
+}
+.town-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 9px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.town-filter-option:hover { background: var(--green-soft); }
+.town-filter-option input { width: 18px; height: 18px; accent-color: var(--green); cursor: pointer; flex-shrink: 0; }
+.town-filter-all {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4px;
+  padding-bottom: 13px;
+}
+.town-filter-done {
+  border: none;
+  background: rgba(63, 157, 95, 0.92);
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+.town-filter-done:hover { background: rgba(54, 135, 82, 0.96); }
 
 .view-select { display: block; position: relative; width: 100%; margin-top: 4px; }
 .view-select-btn {
@@ -201,7 +259,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   flex-shrink: 0;
   box-shadow: 0 4px 14px rgba(44, 106, 114, 0.1);
 }
-.lang-toggle button { border: none; background: transparent; color: var(--lake-mid); font-size: 14px; padding: 9px 16px; cursor: pointer; font-weight: 700; }
+.lang-toggle button { border: none; background: transparent; color: var(--lake-mid); font-size: 14px; line-height: 1.2; padding: 9px 16px; cursor: pointer; font-weight: 700; }
 .lang-toggle button.active {
   background: rgba(63, 157, 95, 0.92);
   backdrop-filter: blur(6px);
@@ -279,8 +337,22 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .event-cat { font-size: 13px; text-transform: uppercase; letter-spacing: 0.02em; padding: 4px 10px; border-radius: 999px; background: var(--green-soft); color: var(--lake-deep); height: fit-content; white-space: nowrap; font-weight: 700; }
 .event-cat-desktop { display: none; }
 .event-cat-mobile { margin-top: 8px; text-align: center; white-space: normal; width: 100%; box-sizing: border-box; }
+
+/* Subtle per-category tint so the badges read as distinct event types at a
+   glance, not just decoration. Kept low-saturation/pastel to match the
+   rest of the palette (no orange/coral) and stay legible. */
+.event-cat.cat-market   { background: #e7f4ea; color: #2f7a4a; }
+.event-cat.cat-festival { background: #fdf1d7; color: #8a6a17; }
+.event-cat.cat-concert  { background: #f0e7f6; color: #6b3f95; }
+.event-cat.cat-sagra    { background: #f8e7ec; color: #9c3357; }
+.event-cat.cat-sport    { background: #e3edfb; color: #2f5fa3; }
+.event-cat.cat-art      { background: #e6eafc; color: #3d4f9e; }
+.event-cat.cat-cultura  { background: #e2eeec; color: #2c6a72; }
+.event-cat.cat-teatro   { background: #f5e7e7; color: #963f3f; }
 .event-desc { font-size: 15.5px; color: #46554f; margin-top: 8px; line-height: 1.5; }
 .event-edit-link { background: none; border: none; padding: 0; margin-left: 6px; font-family: "Work Sans", sans-serif; font-size: 14px; font-weight: 700; color: var(--lake-deep); text-decoration: underline; cursor: pointer; }
+.event-delete-link { color: #963f3f; }
+.event-delete-link:disabled { opacity: 0.5; cursor: default; }
 .event-src { font-size: 13.5px; color: var(--lake-mid); margin-top: 8px; }
 .event-src a { color: var(--lake-deep); text-decoration: underline; }
 
@@ -293,6 +365,21 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .event-main { flex: 1; min-width: 0; }
 
 .event-cover { width: 92px; height: 130px; object-fit: cover; border-radius: 12px; background: var(--lake-glass); display: block; }
+
+.event-cover-btn { position: relative; width: 92px; height: 130px; padding: 0; border: none; border-radius: 12px; overflow: hidden; cursor: pointer; display: block; }
+.event-cover-btn .event-cover { border-radius: 0; }
+.event-cover-edit-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  background: rgba(44, 106, 114, 0.72);
+}
 
 .event-cover-placeholder {
   width: 92px;
@@ -476,3 +563,30 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   .event-cat-desktop { display: block; }
   .event-cat-mobile { display: none; }
 }
+
+.admin-page { padding-top: 30px; }
+.admin-subtitle { color: var(--lake-mid); font-size: 15.5px; line-height: 1.5; max-width: 640px; margin-bottom: 30px; }
+.admin-section { margin-bottom: 34px; }
+.admin-section h2 { font-family: "Bricolage Grotesque", sans-serif; font-size: 19px; font-weight: 700; color: var(--lake-deep); margin: 0 0 10px; }
+.admin-empty { color: var(--lake-mid); font-size: 15px; }
+.admin-row { display: flex; align-items: center; gap: 14px; background: white; border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; }
+.admin-row-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.admin-row-main strong { font-size: 16px; color: var(--ink); }
+.admin-row-main span { font-size: 14px; color: var(--lake-mid); }
+.admin-meta { font-size: 13px; color: var(--lake-mid); margin-top: 2px; }
+.admin-desc-preview { font-size: 14.5px; color: var(--ink); margin: 2px 0; line-height: 1.4; }
+.admin-thumb { width: 52px; height: 70px; object-fit: cover; border-radius: 8px; flex-shrink: 0; background: var(--lake-glass); }
+.admin-undo {
+  border: none;
+  background: var(--green-soft);
+  color: var(--lake-deep);
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.admin-undo:hover { background: rgba(63, 157, 95, 0.22); }
+.admin-undo:disabled { opacity: 0.5; cursor: default; }
