@@ -111,18 +111,9 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
       <header className="top">
         <div className="brand-mark">
           <svg width="42" height="42" viewBox="0 0 38 38" fill="none">
-            <defs>
-              <clipPath id="brand-mark-clip">
-                <circle cx="19" cy="19" r="19" />
-              </clipPath>
-            </defs>
             <circle cx="19" cy="19" r="19" fill="#2c6a72" />
-            <g clipPath="url(#brand-mark-clip)">
-              <circle cx="13.5" cy="10.5" r="4.2" fill="#faf6ec" />
-              <path d="M0 25 L7 14 L13 20 L21 9 L27 18 L34 14 L38 19 L38 38 L0 38 Z" fill="#5c979a" opacity="0.65" />
-              <path d="M0 30 L6 19 L12 25 L19 13 L26 23 L32 17 L38 27 L38 38 L0 38 Z" fill="#3f9d5f" />
-              <path d="M0 33c4-2 6-2 9 0s6 2 9 0 6-2 9 0 6-2 9 0" stroke="#e2eeec" strokeWidth="1.3" fill="none" opacity="0.9" />
-            </g>
+            <path d="M4 16c3.5-2.5 6.5-2.5 10 0s6.5 2.5 10 0 6.5-2.5 10 0" stroke="#e2eeec" strokeWidth="2" strokeLinecap="round" fill="none" />
+            <path d="M4 23c3.5-2.5 6.5-2.5 10 0s6.5 2.5 10 0 6.5-2.5 10 0" stroke="#3f9d5f" strokeWidth="2" strokeLinecap="round" fill="none" />
           </svg>
           <h1>Lago di Garda</h1>
         </div>
