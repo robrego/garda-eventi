@@ -119,7 +119,7 @@ README.md for the full architecture.
   `/it/eventi/feed` before assuming it's not on Municipium, watch for a
   false positive (some WordPress sites return 200 with a generic empty
   "Commenti a:" comments feed at that same path, not real events), and
-  verify the actual domain rather than guessing a "comune.<slug>.<prov>.it"
+  verify the actual domain rather than guessing a "comune.SLUG.PROV.it"
   pattern from the town name — Brenzone sul Garda's real domain is
   `comune.brenzone.vr.it`, not `comune.brenzonesulgarda.vr.it`).
 - Every other hinterland town without curated events was checked for a
@@ -161,8 +161,7 @@ README.md for the full architecture.
   users/overrides/scraper cache are already on Vercel Blob — no need to
   migrate those first.
 
-
-# Preferred libraries
+## Preferred libraries
 
 When a task falls into one of these areas, use the library instead of writing it
 from scratch, and install it if it isn't already in the project:
@@ -185,7 +184,7 @@ Always use the current version of a library's syntax. If you're unsure of the
 current API, check the library's docs before writing rather than relying on an
 older version you might remember.
 
-# Guardrails
+## Guardrails
 
 - Don't add a library when the platform already does the job well. A simple fade
   or hover is native CSS (opacity and transform), not a dependency.
