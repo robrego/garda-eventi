@@ -636,8 +636,11 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .info-page-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: var(--lake-deep); margin: 0 0 6px; }
 .info-page-subtitle { color: var(--lake-mid); font-size: 15.5px; line-height: 1.5; max-width: 640px; margin: 0 0 28px; }
 .info-list { display: flex; flex-direction: column; gap: 14px; }
-.info-card { display: block; background: white; border-radius: 18px; padding: 20px 22px; text-decoration: none; color: inherit; transition: background-color 0.15s; }
+.info-card { display: flex; gap: 16px; align-items: flex-start; background: white; border-radius: 18px; padding: 20px 22px; text-decoration: none; color: inherit; transition: background-color 0.15s; }
 .info-card:hover { background: var(--lake-glass); }
+.info-card-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; background: var(--green-soft); border: 1px solid rgba(44, 106, 114, 0.15); color: var(--lake-deep); display: flex; align-items: center; justify-content: center; }
+.info-card-icon-svg { width: 24px; height: 24px; }
+.info-card-body { min-width: 0; }
 .info-card h3 { font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; font-weight: 700; color: var(--lake-deep); margin: 0 0 8px; }
 .info-card p { margin: 0 0 10px; font-size: 15.5px; line-height: 1.5; color: var(--ink); }
 .info-card-link { font-size: 13.5px; color: var(--lake-deep); text-decoration: underline; word-break: break-all; }

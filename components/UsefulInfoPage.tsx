@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import BrandMark from "@/components/BrandMark";
+import { BusIcon, FerryIcon } from "@/components/InfoIcons";
 import { useLang } from "@/components/LanguageProvider";
 import { USEFUL_LINKS } from "@/data/usefulLinks";
+
+const ICONS = { bus: BusIcon, ferry: FerryIcon };
 
 export default function UsefulInfoPage() {
   const { lang, setLang, t } = useLang();
@@ -40,13 +43,21 @@ export default function UsefulInfoPage() {
       <p className="info-page-subtitle">{t("usefulInfoSubtitle")}</p>
 
       <div className="info-list">
-        {USEFUL_LINKS.map((link) => (
-          <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="info-card">
-            <h3>{lang === "en" ? link.titleEn : link.title}</h3>
-            <p>{lang === "en" ? link.descEn : link.desc}</p>
-            <span className="info-card-link">{link.url.replace(/^https?:\/\//, "")}</span>
-          </a>
-        ))}
+        {USEFUL_LINKS.map((link) => {
+          const Icon = ICONS[link.icon];
+          return (
+            <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="info-card">
+              <div className="info-card-icon" aria-hidden="true">
+                <Icon />
+              </div>
+              <div className="info-card-body">
+                <h3>{lang === "en" ? link.titleEn : link.title}</h3>
+                <p>{lang === "en" ? link.descEn : link.desc}</p>
+                <span className="info-card-link">{link.url.replace(/^https?:\/\//, "")}</span>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   );
