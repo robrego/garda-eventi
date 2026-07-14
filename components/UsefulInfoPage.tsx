@@ -1,12 +1,12 @@
 "use client";
 
+import { Bus, Ship } from "lucide-react";
 import Link from "next/link";
 import BrandMark from "@/components/BrandMark";
-import { BusIcon, FerryIcon } from "@/components/InfoIcons";
 import { useLang } from "@/components/LanguageProvider";
 import { USEFUL_LINKS } from "@/data/usefulLinks";
 
-const ICONS = { bus: BusIcon, ferry: FerryIcon };
+const ICONS = { bus: Bus, ferry: Ship };
 
 export default function UsefulInfoPage() {
   const { lang, setLang, t } = useLang();
@@ -48,7 +48,7 @@ export default function UsefulInfoPage() {
           return (
             <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="info-card">
               <div className="info-card-icon" aria-hidden="true">
-                <Icon />
+                <Icon size={24} strokeWidth={1.75} />
               </div>
               <div className="info-card-body">
                 <h3>{lang === "en" ? link.titleEn : link.title}</h3>
