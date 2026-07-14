@@ -71,7 +71,7 @@ export default function AuthWidget({
       <div className="auth-widget">
         {email ? (
           <>
-            <button type="button" className="add-event-btn" onClick={() => setShowAdd(true)}>
+            <button type="button" className="add-event-btn add-event-btn-secondary" onClick={() => setShowAdd(true)}>
               {t("authAddEvent")}
             </button>
             <button type="button" className="auth-link" onClick={logout}>

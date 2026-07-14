@@ -4,16 +4,9 @@ import { useState } from "react";
 import { AREA_ORDER, AREA_LABELS_EN, TOWN_AREAS, TOWNS } from "@/data/config";
 import { useLang } from "@/components/LanguageProvider";
 import { townsSelectedLabel } from "@/lib/i18n";
+import ChevronDownIcon from "@/components/ChevronDownIcon";
 
 export type ViewMode = "split" | "list" | "map";
-
-function ChevronDownIcon() {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="chevron-icon">
-      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export default function Filters({
   selectedTowns,
@@ -165,18 +158,6 @@ export default function Filters({
             </div>
           </>
         )}
-      </div>
-
-      <div className="view-toggle">
-        <button className={view === "split" ? "active" : ""} onClick={() => setView("split")}>
-          {t("viewSplit")}
-        </button>
-        <button className={view === "list" ? "active" : ""} onClick={() => setView("list")}>
-          {t("viewList")}
-        </button>
-        <button className={view === "map" ? "active" : ""} onClick={() => setView("map")}>
-          {t("viewMap")}
-        </button>
       </div>
     </div>
   );

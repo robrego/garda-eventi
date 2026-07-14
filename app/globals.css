@@ -16,9 +16,9 @@ html, body {
   margin: 0;
   background-color: var(--sand);
   background-image:
-    radial-gradient(ellipse 900px 560px at 8% -8%, rgba(63, 157, 95, 0.10), transparent 60%),
-    radial-gradient(ellipse 800px 520px at 100% 0%, rgba(44, 106, 114, 0.09), transparent 55%),
-    radial-gradient(ellipse 1000px 700px at 50% 110%, rgba(44, 106, 114, 0.05), transparent 60%);
+    radial-gradient(ellipse 950px 640px at 96% -10%, rgba(41, 121, 189, 0.34), transparent 60%),
+    radial-gradient(ellipse 820px 560px at 100% 32%, rgba(28, 84, 140, 0.22), transparent 55%),
+    radial-gradient(ellipse 1100px 760px at 50% 110%, rgba(41, 121, 189, 0.14), transparent 62%);
   background-attachment: fixed;
   color: var(--ink);
   font-family: "Work Sans", sans-serif;
@@ -97,7 +97,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .day-chip.active .dow { color: #cfe6df; }
 .day-chip.active .num { color: white; }
 .day-chip.active .dot { background: #a6e8bb; }
-.day-chip.is-today:not(.active) { background: rgba(63, 157, 95, 0.12); }
+.day-chip.is-today:not(.active) { background: rgba(63, 157, 95, 0.16); }
 
 .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; align-items: center; }
 
@@ -178,13 +178,12 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 }
 .town-filter-done:hover { background: rgba(54, 135, 82, 0.96); }
 
-.view-select { display: block; position: relative; width: 100%; margin-top: 4px; }
+.view-select { display: block; position: relative; margin-top: 4px; }
 .view-select-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  width: 100%;
   border: none;
   background: white;
   color: var(--lake-deep);
@@ -194,6 +193,10 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   padding: 10px 14px;
   border-radius: 999px;
   cursor: pointer;
+}
+@media (max-width: 767px) {
+  .view-select { width: 100%; }
+  .view-select-btn { width: 100%; }
 }
 .view-select-menu {
   position: absolute;
@@ -227,31 +230,10 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .view-select-menu button:hover { background: var(--green-soft); }
 .view-select-menu button.active { background: var(--green-soft); color: var(--lake-deep); font-weight: 700; }
 
-.view-toggle {
-  display: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(226, 238, 236, 0.55);
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
-  border-radius: 999px;
-  overflow: hidden;
-  width: 100%;
-  margin-top: 4px;
-  box-shadow: 0 4px 14px rgba(44, 106, 114, 0.1);
-}
-.view-toggle button { flex: 1; border: none; background: transparent; color: var(--lake-mid); font-size: 14px; padding: 10px 16px; cursor: pointer; font-weight: 600; white-space: nowrap; }
-.view-toggle button.active {
-  background: rgba(63, 157, 95, 0.92);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: white;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-}
-
 .lang-toggle {
   display: flex;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(226, 238, 236, 0.55);
+  background: rgba(226, 238, 236, 0.7);
   backdrop-filter: blur(10px) saturate(160%);
   -webkit-backdrop-filter: blur(10px) saturate(160%);
   border-radius: 999px;
@@ -267,6 +249,62 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   color: white;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
+
+/* Desktop-only dropdown replacement for .lang-toggle — swapped in via
+   media query below, same pattern as .view-select/.town-select. */
+.lang-select { display: none; position: relative; }
+.lang-select-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: var(--lake-deep);
+  font-family: "Work Sans", sans-serif;
+  font-size: 15.5px;
+  font-weight: 600;
+  padding: 9px 4px;
+  cursor: pointer;
+}
+.lang-select-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 140px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 10px 30px rgba(20, 66, 72, 0.18);
+}
+.lang-select-menu button {
+  border: none;
+  background: transparent;
+  color: var(--lake-mid);
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.lang-select-menu button:hover { background: var(--green-soft); }
+.lang-select-menu button.active { background: var(--green-soft); color: var(--lake-deep); font-weight: 700; }
+
+.add-event-btn-secondary {
+  background: white;
+  color: var(--lake-deep);
+  border: none;
+  box-shadow: 0 2px 8px rgba(44, 106, 114, 0.12);
+}
+.add-event-btn-secondary:hover { background: var(--lake-glass); }
 
 .layout { display: flex; flex-direction: column; gap: 22px; }
 .layout.list-only .map-pane, .layout.map-only .list-col { display: none; }
@@ -411,7 +449,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   height: 40px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
-  background: rgba(226, 238, 236, 0.55);
+  background: rgba(226, 238, 236, 0.7);
   backdrop-filter: blur(10px) saturate(160%);
   -webkit-backdrop-filter: blur(10px) saturate(160%);
   color: var(--lake-deep);
@@ -443,7 +481,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .header-menu .lang-toggle { align-self: flex-start; }
 
 .auth-widget { display: flex; align-items: center; gap: 8px; }
-.auth-link { background: none; border: none; font-family: "Work Sans", sans-serif; color: var(--lake-deep); font-size: 14px; font-weight: 600; cursor: pointer; padding: 9px 4px; }
+.auth-link { background: none; border: none; font-family: "Work Sans", sans-serif; color: var(--lake-deep); font-size: 15.5px; font-weight: 600; text-decoration: none; cursor: pointer; padding: 9px 4px; }
 .auth-link:hover { text-decoration: underline; }
 .add-event-btn {
   background: rgba(63, 157, 95, 0.92);
@@ -525,12 +563,13 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   .app { padding: 30px 22px 70px; }
   .menu-toggle { display: none; }
   .menu-scrim { display: none; }
+  header.top { margin-bottom: 32px; }
   .header-menu {
     display: flex;
     position: static;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 26px;
     min-width: 0;
     background: none;
     backdrop-filter: none;
@@ -540,17 +579,18 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
     padding: 0;
     box-shadow: none;
   }
+  .lang-toggle { display: none; }
+  .lang-select { display: block; }
   h1 { font-size: 40px; }
   .date-picker-label { padding: 11px 18px; }
   .add-event-btn { padding: 11px 20px; }
-  .ribbon-wrap { padding: 18px 18px 14px; margin-bottom: 20px; }
-  .ribbon-nav { top: 44px; right: 18px; }
+  .ribbon-wrap { padding: 22px 24px 18px; margin-bottom: 28px; }
+  .ribbon-nav { top: 48px; right: 24px; }
   .ribbon-nav button { width: 32px; height: 32px; font-size: 15px; }
   .day-chip { width: 68px; padding: 10px 0 12px; }
   .day-chip .num { font-size: 23px; }
   .filters { margin-bottom: 18px; }
-  .view-select { display: none; }
-  .view-toggle { display: flex; width: auto; margin-left: auto; margin-top: 0; flex-shrink: 0; }
+  .view-select { margin-left: auto; margin-top: 0; flex-shrink: 0; }
   .layout { flex-direction: row; align-items: stretch; }
   .layout.list-only, .layout.map-only { flex-direction: column; }
   .layout .map-pane, .layout .list-col { order: 0; }
@@ -590,3 +630,14 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 }
 .admin-undo:hover { background: rgba(63, 157, 95, 0.22); }
 .admin-undo:disabled { opacity: 0.5; cursor: default; }
+
+.info-back-link { display: inline-block; color: var(--lake-deep); font-weight: 600; text-decoration: none; margin-bottom: 20px; }
+.info-back-link:hover { text-decoration: underline; }
+.info-page-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: var(--lake-deep); margin: 0 0 6px; }
+.info-page-subtitle { color: var(--lake-mid); font-size: 15.5px; line-height: 1.5; max-width: 640px; margin: 0 0 28px; }
+.info-list { display: flex; flex-direction: column; gap: 14px; }
+.info-card { display: block; background: white; border-radius: 18px; padding: 20px 22px; text-decoration: none; color: inherit; transition: background-color 0.15s; }
+.info-card:hover { background: var(--lake-glass); }
+.info-card h3 { font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; font-weight: 700; color: var(--lake-deep); margin: 0 0 8px; }
+.info-card p { margin: 0 0 10px; font-size: 15.5px; line-height: 1.5; color: var(--ink); }
+.info-card-link { font-size: 13.5px; color: var(--lake-deep); text-decoration: underline; word-break: break-all; }

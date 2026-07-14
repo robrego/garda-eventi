@@ -8,7 +8,10 @@ import Filters, { ViewMode } from "@/components/Filters";
 import EventList from "@/components/EventList";
 import { EventItem } from "@/data/config";
 import AuthWidget from "@/components/AuthWidget";
+import BrandMark from "@/components/BrandMark";
+import ChevronDownIcon from "@/components/ChevronDownIcon";
 import { useLang } from "@/components/LanguageProvider";
+import Link from "next/link";
 
 // Leaflet touches `window`, so the map must be client-only with SSR disabled.
 const EventMap = dynamic(() => import("@/components/EventMap"), {
@@ -54,6 +57,7 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
   const [email, setEmail] = useState<string | null | undefined>(undefined);
   const [isAdmin, setIsAdmin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -109,14 +113,7 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
   return (
     <div className="app">
       <header className="top">
-        <div className="brand-mark">
-          <svg width="42" height="42" viewBox="0 0 38 38" fill="none">
-            <circle cx="19" cy="19" r="19" fill="#2c6a72" />
-            <path d="M4 16c3.5-2.5 6.5-2.5 10 0s6.5 2.5 10 0 6.5-2.5 10 0" stroke="#e2eeec" strokeWidth="2" strokeLinecap="round" fill="none" />
-            <path d="M4 23c3.5-2.5 6.5-2.5 10 0s6.5 2.5 10 0 6.5-2.5 10 0" stroke="#3f9d5f" strokeWidth="2" strokeLinecap="round" fill="none" />
-          </svg>
-          <h1>Lago di Garda</h1>
-        </div>
+        <BrandMark />
         <div className="header-actions">
           <button
             type="button"
@@ -129,6 +126,10 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           </button>
           {menuOpen && <div className="menu-scrim" onClick={() => setMenuOpen(false)} />}
           <div className={`header-menu${menuOpen ? " open" : ""}`}>
+            <Link href="/info" className="auth-link">
+              {t("usefulInfoNav")}
+            </Link>
+
             <div className="lang-toggle">
               <button
                 type="button"
@@ -147,6 +148,46 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
                 EN
               </button>
             </div>
+            <div className="lang-select">
+              <button
+                type="button"
+                className="lang-select-btn"
+                onClick={() => setLangMenuOpen((o) => !o)}
+                aria-label={t("ariaLangToggle")}
+                aria-expanded={langMenuOpen}
+              >
+                <span>{lang.toUpperCase()}</span>
+                <ChevronDownIcon />
+              </button>
+              {langMenuOpen && (
+                <>
+                  <div className="menu-scrim" onClick={() => setLangMenuOpen(false)} />
+                  <div className="lang-select-menu">
+                    <button
+                      type="button"
+                      className={lang === "it" ? "active" : ""}
+                      onClick={() => {
+                        setLang("it");
+                        setLangMenuOpen(false);
+                      }}
+                    >
+                      Italiano
+                    </button>
+                    <button
+                      type="button"
+                      className={lang === "en" ? "active" : ""}
+                      onClick={() => {
+                        setLang("en");
+                        setLangMenuOpen(false);
+                      }}
+                    >
+                      English
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+
             <AuthWidget email={email} onEmailChange={handleEmailChange} />
           </div>
         </div>

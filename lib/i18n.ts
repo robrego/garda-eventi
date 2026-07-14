@@ -78,6 +78,14 @@ const STRINGS = {
   ariaCenterMap: { it: "Centra la mappa sugli eventi del giorno", en: "Center the map on today's events" },
 
   doneButton: { it: "Fatto", en: "Done" },
+
+  usefulInfoNav: { it: "Info utili", en: "Useful info" },
+  usefulInfoTitle: { it: "Info utili", en: "Useful info" },
+  usefulInfoSubtitle: {
+    it: "Notizie e servizi pratici per chi vive o visita il lago.",
+    en: "Practical news and services for locals and visitors.",
+  },
+  backToMap: { it: "← Torna alla mappa", en: "← Back to the map" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;
