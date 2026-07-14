@@ -221,7 +221,7 @@ export type EventItem = {
   time: string;
   desc: string;
   descEn?: string;
-  src: string;
+  src?: string; // omitted for manual events with no source, so nothing is shown publicly
   image?: string;
   url?: string; // direct link to the event's own page, if known
   addedBy?: string; // email of the user who submitted it manually, if any

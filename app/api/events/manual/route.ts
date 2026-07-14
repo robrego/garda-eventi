@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     cat,
     time: time || "Vedi descrizione",
     desc: desc.slice(0, 500),
-    src: src || `Aggiunto da ${email}`,
+    ...(src ? { src } : {}),
     ...(image ? { image } : {}),
     ...(url ? { url } : {}),
     addedBy: email,

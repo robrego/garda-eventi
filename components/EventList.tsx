@@ -264,7 +264,7 @@ export default function EventList({
                   </>
                 )}
               </div>
-              {!e.url && <div className="event-src"><SourceLine src={e.src} label={t("sourceLabel")} /></div>}
+              {!e.url && e.src && <div className="event-src"><SourceLine src={e.src} label={t("sourceLabel")} /></div>}
             </div>
           </div>
         </div>
