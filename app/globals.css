@@ -29,9 +29,11 @@ html, body {
 .app { max-width: 1220px; margin: 0 auto; padding: 16px 14px 50px; }
 
 header.top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 22px; flex-wrap: nowrap; }
-.brand-mark { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1 1 auto; overflow: hidden; }
+.brand-mark { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1 1 auto; overflow: hidden; }
+.brand-mark svg { flex-shrink: 0; width: 36px; height: 22px; }
 
 h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; margin: 0; color: var(--lake-deep); line-height: 1.05; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand-mark h1 { font-size: 17px; }
 
 .date-picker-wrap { position: relative; display: inline-flex; flex-shrink: 0; cursor: pointer; }
 .date-picker-label {
@@ -582,6 +584,8 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   .lang-toggle { display: none; }
   .lang-select { display: block; }
   h1 { font-size: 40px; }
+  .brand-mark h1 { font-size: 20px; }
+  .brand-mark svg { width: 42px; height: 26px; }
   .date-picker-label { padding: 11px 18px; }
   .add-event-btn { padding: 11px 20px; }
   .ribbon-wrap { padding: 22px 24px 18px; margin-bottom: 28px; }
@@ -631,8 +635,21 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .admin-undo:hover { background: rgba(63, 157, 95, 0.22); }
 .admin-undo:disabled { opacity: 0.5; cursor: default; }
 
-.info-back-link { display: inline-block; color: var(--lake-deep); font-weight: 600; text-decoration: none; margin-bottom: 20px; }
-.info-back-link:hover { text-decoration: underline; }
+.info-back-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--lake-deep);
+  font-weight: 700;
+  font-size: 14.5px;
+  text-decoration: none;
+  background: white;
+  border: 1px solid rgba(44, 106, 114, 0.12);
+  border-radius: 999px;
+  padding: 10px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(44, 106, 114, 0.1);
+}
+.info-back-link:hover { background: var(--lake-glass); }
 .info-page-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; font-weight: 700; color: var(--lake-deep); margin: 0 0 6px; }
 .info-page-subtitle { color: var(--lake-mid); font-size: 15.5px; line-height: 1.5; max-width: 640px; margin: 0 0 28px; }
 .info-list { display: flex; flex-direction: column; gap: 14px; }
