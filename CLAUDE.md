@@ -18,13 +18,16 @@ README.md for the full architecture.
   background that makes the markers stand out.
 - **Font**: Bricolage Grotesque for headings, Work Sans for body text.
 - **Glass effect on pill controls**: the main toggles/buttons (IT/EN,
-  Registrati/+Evento, Mappa+lista, active day-chip) use a glassmorphism
-  look — semi-transparent background + `backdrop-filter: blur(...)` + thin
-  light border + soft shadow. "Active/selected" states deliberately use a
-  darker, more opaque (~0.9) green/teal, not the same light transparent
-  green used elsewhere — at low opacity the white text on top isn't legible.
-  Don't "simplify" these styles by stripping the blur/border thinking
-  they're redundant: it's a deliberate aesthetic choice.
+  Registrati/+Evento, Mappa+lista) use a glassmorphism look —
+  semi-transparent background + `backdrop-filter: blur(...)` + thin light
+  border + soft shadow. "Active/selected" states deliberately use a darker,
+  more opaque (~0.9) green/teal, not the same light transparent green used
+  elsewhere — at low opacity the white text on top isn't legible. Don't
+  "simplify" these styles by stripping the blur/border thinking they're
+  redundant: it's a deliberate aesthetic choice. Exception: the selected
+  day-chip (`.day-chip.active`) intentionally uses a flat, opaque
+  `--lake-deep` fill with no blur — removed on request since the glass
+  look didn't read well against the current background.
 - **Mobile/desktop pattern**: several components render TWO versions of the
   same element (one mobile, one desktop) and use `display:none` in media
   queries to switch between them, instead of JS/matchMedia logic — e.g. the
