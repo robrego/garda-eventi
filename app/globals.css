@@ -363,7 +363,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 
 .list-col { display: flex; flex-direction: column; gap: 20px; }
 
-.date-heading { font-family: "Bricolage Grotesque", sans-serif; font-size: 19px; font-weight: 700; color: var(--lake-deep); margin: 2px 0 4px; text-transform: capitalize; }
+.date-heading { font-family: "Bricolage Grotesque", sans-serif; font-size: 19px; font-weight: 700; color: var(--lake-deep); margin: 14px 0 -8px; text-transform: capitalize; }
 
 .event-card { background: white; border: none; border-radius: 18px; padding: 20px 22px; cursor: pointer; transition: background-color 0.15s; }
 .event-card:hover { background: var(--lake-glass); }

@@ -80,11 +80,11 @@ const STRINGS = {
   doneButton: { it: "Fatto", en: "Done" },
 
   eventsNav: { it: "Eventi", en: "Events" },
-  usefulInfoNav: { it: "Info utili", en: "Useful info" },
-  usefulInfoTitle: { it: "Info utili", en: "Useful info" },
+  usefulInfoNav: { it: "Trasporti", en: "Transport" },
+  usefulInfoTitle: { it: "Trasporti", en: "Transport" },
   usefulInfoSubtitle: {
-    it: "Notizie e servizi pratici per chi vive o visita il lago.",
-    en: "Practical news and services for locals and visitors.",
+    it: "Bus, traghetti, funivie e bici per muoverti intorno al lago.",
+    en: "Buses, ferries, cable cars and bikes to get around the lake.",
   },
   backToMap: { it: "← Torna alla mappa", en: "← Back to the map" },
 } satisfies Record<string, Record<Lang, string>>;
