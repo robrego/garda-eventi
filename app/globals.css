@@ -26,7 +26,16 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-.app { max-width: 1220px; margin: 0 auto; padding: 16px 14px 50px; }
+.app { max-width: 1220px; margin: 0 auto; padding: 16px 14px 50px; animation: app-fade-in 0.32s ease both; }
+
+@keyframes app-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app { animation: none; }
+}
 
 header.top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 22px; flex-wrap: nowrap; }
 .brand-mark { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1 1 auto; overflow: hidden; }
@@ -83,7 +92,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 
 .ribbon-track { position: relative; display: flex; gap: 8px; overflow-x: hidden; padding-bottom: 6px; padding-right: 74px; }
 
-.day-chip { position: relative; z-index: 1; flex: 0 0 auto; width: 58px; text-align: center; padding: 8px 0 10px; border-radius: 12px; cursor: pointer; border: none; background: transparent; }
+.day-chip { position: relative; z-index: 1; flex: 0 0 auto; width: 58px; text-align: center; padding: 8px 0; border-radius: 12px; cursor: pointer; border: none; background: transparent; }
 .day-chip .dow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--lake-mid); font-weight: 700; }
 .day-chip .num { font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-top: 2px; }
 .day-chip .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); margin: 4px auto 0; opacity: 0; }
@@ -456,27 +465,30 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .header-menu {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 12px);
   right: 0;
   z-index: 1050;
   flex-direction: column;
   align-items: stretch;
-  gap: 10px;
+  gap: 16px;
   min-width: 220px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px) saturate(160%);
   -webkit-backdrop-filter: blur(16px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 18px;
-  padding: 14px;
+  padding: 18px;
   box-shadow: 0 10px 30px rgba(20, 66, 72, 0.18);
 }
 .header-menu.open { display: flex; }
 .header-menu .lang-toggle { align-self: flex-start; }
 
 .auth-widget { display: flex; align-items: center; gap: 8px; }
-.auth-link { background: none; border: none; font-family: "Work Sans", sans-serif; color: var(--lake-deep); font-size: 15.5px; font-weight: 600; text-decoration: none; cursor: pointer; padding: 9px 4px; }
+.auth-link { background: none; border: none; font-family: "Work Sans", sans-serif; color: var(--lake-deep); font-size: 15.5px; font-weight: 600; text-decoration: none; cursor: pointer; padding: 9px 4px; border-radius: 999px; }
 .auth-link:hover { text-decoration: underline; }
+.auth-link.active { color: var(--green); }
+
+.menu-divider { background: rgba(44, 106, 114, 0.18); align-self: stretch; width: 100%; height: 1px; }
 .add-event-btn {
   background: rgba(63, 157, 95, 0.92);
   backdrop-filter: blur(8px) saturate(160%);
@@ -494,14 +506,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 }
 .add-event-btn:hover { background: rgba(54, 135, 82, 0.96); }
 
-.add-event-btn-secondary {
-  background: white;
-  color: var(--lake-deep);
-  border: none;
-  box-shadow: 0 2px 8px rgba(44, 106, 114, 0.12);
-}
-.add-event-btn-secondary:hover { background: var(--lake-glass); }
-
+.add-event-btn-secondary,
 .add-event-btn-outline {
   background: none;
   backdrop-filter: none;
@@ -512,6 +517,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   font-weight: 600;
   font-size: 15.5px;
 }
+.add-event-btn-secondary:hover,
 .add-event-btn-outline:hover { background: var(--lake-glass); }
 
 .modal-backdrop {
@@ -595,6 +601,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   }
   .lang-toggle { display: none; }
   .lang-select { display: block; }
+  .menu-divider { width: 1px; height: 20px; align-self: center; }
   h1 { font-size: 40px; }
   .brand-mark h1 { font-size: 20px; }
   .brand-mark svg { width: 42px; height: 26px; }
@@ -603,7 +610,7 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   .ribbon-wrap { padding: 22px 24px 18px; margin-bottom: 28px; }
   .ribbon-nav { top: 48px; right: 24px; }
   .ribbon-nav button { width: 32px; height: 32px; font-size: 15px; }
-  .day-chip { width: 68px; padding: 10px 0 12px; }
+  .day-chip { width: 68px; padding: 10px 0; }
   .day-chip .num { font-size: 23px; }
   .filters { margin-bottom: 18px; }
   .view-select { margin-left: auto; margin-top: 0; flex-shrink: 0; }

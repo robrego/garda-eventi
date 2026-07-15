@@ -2,38 +2,20 @@
 
 import { Bike, Bus, CableCar, Ship } from "lucide-react";
 import Link from "next/link";
-import BrandMark from "@/components/BrandMark";
+import AppHeader from "@/components/AppHeader";
 import { useLang } from "@/components/LanguageProvider";
 import { USEFUL_LINKS } from "@/data/usefulLinks";
+import { useAuthUser } from "@/lib/useAuthUser";
 
 const ICONS = { bus: Bus, ferry: Ship, cablecar: CableCar, bike: Bike };
 
 export default function UsefulInfoPage() {
-  const { lang, setLang, t } = useLang();
+  const { lang, t } = useLang();
+  const { email, handleEmailChange } = useAuthUser();
 
   return (
     <div className="app">
-      <header className="top">
-        <BrandMark />
-        <div className="lang-toggle">
-          <button
-            type="button"
-            className={lang === "it" ? "active" : ""}
-            onClick={() => setLang("it")}
-            aria-label={t("ariaLangToggle")}
-          >
-            IT
-          </button>
-          <button
-            type="button"
-            className={lang === "en" ? "active" : ""}
-            onClick={() => setLang("en")}
-            aria-label={t("ariaLangToggle")}
-          >
-            EN
-          </button>
-        </div>
-      </header>
+      <AppHeader email={email} onEmailChange={handleEmailChange} />
 
       <Link href="/" className="info-back-link">
         {t("backToMap")}

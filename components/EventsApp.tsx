@@ -1,31 +1,21 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import AppHeader from "@/components/AppHeader";
 import DateRibbon from "@/components/DateRibbon";
 import Filters, { ViewMode } from "@/components/Filters";
 import EventList from "@/components/EventList";
 import { EventItem } from "@/data/config";
-import AuthWidget from "@/components/AuthWidget";
-import BrandMark from "@/components/BrandMark";
-import ChevronDownIcon from "@/components/ChevronDownIcon";
 import { useLang } from "@/components/LanguageProvider";
-import Link from "next/link";
+import { useAuthUser } from "@/lib/useAuthUser";
 
 // Leaflet touches `window`, so the map must be client-only with SSR disabled.
 const EventMap = dynamic(() => import("@/components/EventMap"), {
   ssr: false,
   loading: () => <div className="map-loading">Caricamento mappa…</div>,
 });
-
-function BurgerIcon() {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="20" height="20">
-      <path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 function iso(d: Date) {
   const y = d.getFullYear();
@@ -41,7 +31,8 @@ function dateFromISO(s: string) {
 
 export default function EventsApp({ events: allEvents }: { events: EventItem[] }) {
   const router = useRouter();
-  const { lang, setLang, t } = useLang();
+  const { lang } = useLang();
+  const { email, isAdmin, handleEmailChange } = useAuthUser();
   const today = useMemo(() => {
     const d = new Date();
     d.setHours(0, 0, 0, 0);
@@ -54,20 +45,6 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
   const [selectedTowns, setSelectedTowns] = useState<string[]>([]);
   const [view, setView] = useState<ViewMode>("split");
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [email, setEmail] = useState<string | null | undefined>(undefined);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [langMenuOpen, setLangMenuOpen] = useState(false);
-
-  useEffect(() => {
-    fetch("/api/auth/me")
-      .then((r) => r.json())
-      .then((d) => {
-        setEmail(d.email);
-        setIsAdmin(!!d.isAdmin);
-      })
-      .catch(() => setEmail(null));
-  }, []);
 
   const datesWithEvents = useMemo(() => new Set(allEvents.map((e) => e.date)), [allEvents]);
 
@@ -91,18 +68,6 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
     .filter(Boolean)
     .join(" ");
 
-  const handleEmailChange = (newEmail: string | null) => {
-    setEmail(newEmail);
-    if (!newEmail) {
-      setIsAdmin(false);
-      return;
-    }
-    fetch("/api/auth/me")
-      .then((r) => r.json())
-      .then((d) => setIsAdmin(!!d.isAdmin))
-      .catch(() => setIsAdmin(false));
-  };
-
   const handleDatePick = (value: string) => {
     if (!value) return;
     setSelectedDate(value);
@@ -112,86 +77,7 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
 
   return (
     <div className="app">
-      <header className="top">
-        <BrandMark />
-        <div className="header-actions">
-          <button
-            type="button"
-            className="menu-toggle"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label={t("ariaMenu")}
-            aria-expanded={menuOpen}
-          >
-            <BurgerIcon />
-          </button>
-          {menuOpen && <div className="menu-scrim" onClick={() => setMenuOpen(false)} />}
-          <div className={`header-menu${menuOpen ? " open" : ""}`}>
-            <Link href="/info" className="auth-link">
-              {t("usefulInfoNav")}
-            </Link>
-
-            <div className="lang-toggle">
-              <button
-                type="button"
-                className={lang === "it" ? "active" : ""}
-                onClick={() => setLang("it")}
-                aria-label={t("ariaLangToggle")}
-              >
-                IT
-              </button>
-              <button
-                type="button"
-                className={lang === "en" ? "active" : ""}
-                onClick={() => setLang("en")}
-                aria-label={t("ariaLangToggle")}
-              >
-                EN
-              </button>
-            </div>
-            <div className="lang-select">
-              <button
-                type="button"
-                className="lang-select-btn"
-                onClick={() => setLangMenuOpen((o) => !o)}
-                aria-label={t("ariaLangToggle")}
-                aria-expanded={langMenuOpen}
-              >
-                <span>{lang.toUpperCase()}</span>
-                <ChevronDownIcon />
-              </button>
-              {langMenuOpen && (
-                <>
-                  <div className="menu-scrim" onClick={() => setLangMenuOpen(false)} />
-                  <div className="lang-select-menu">
-                    <button
-                      type="button"
-                      className={lang === "it" ? "active" : ""}
-                      onClick={() => {
-                        setLang("it");
-                        setLangMenuOpen(false);
-                      }}
-                    >
-                      Italiano
-                    </button>
-                    <button
-                      type="button"
-                      className={lang === "en" ? "active" : ""}
-                      onClick={() => {
-                        setLang("en");
-                        setLangMenuOpen(false);
-                      }}
-                    >
-                      English
-                    </button>
-                  </div>
-                </>
-              )}
-            </div>
-
-            <AuthWidget email={email} onEmailChange={handleEmailChange} />
-          </div>
-        </div>
-      </header>
+      <AppHeader email={email} onEmailChange={handleEmailChange} />
 
       <DateRibbon
         weekAnchor={weekAnchor}

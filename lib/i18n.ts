@@ -79,6 +79,7 @@ const STRINGS = {
 
   doneButton: { it: "Fatto", en: "Done" },
 
+  eventsNav: { it: "Eventi", en: "Events" },
   usefulInfoNav: { it: "Info utili", en: "Useful info" },
   usefulInfoTitle: { it: "Info utili", en: "Useful info" },
   usefulInfoSubtitle: {
