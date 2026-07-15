@@ -2,7 +2,7 @@
   --lake-deep: #2c6a72;
   --lake-mid: #5c979a;
   --lake-glass: #e2eeec;
-  --sand: #faf6ec;
+  --sky-light: #eef4fa;
   --green: #3f9d5f;
   --green-soft: #e6f4ea;
   --ink: #24312f;
@@ -14,11 +14,14 @@
 
 html, body {
   margin: 0;
-  background-color: var(--sand);
+  background-color: var(--sky-light);
   background-image:
     radial-gradient(ellipse 950px 640px at 96% -10%, rgba(41, 121, 189, 0.34), transparent 60%),
     radial-gradient(ellipse 820px 560px at 100% 32%, rgba(28, 84, 140, 0.22), transparent 55%),
-    radial-gradient(ellipse 1100px 760px at 50% 110%, rgba(41, 121, 189, 0.14), transparent 62%);
+    radial-gradient(ellipse 1100px 760px at 50% 110%, rgba(41, 121, 189, 0.14), transparent 62%),
+    radial-gradient(ellipse 780px 620px at -8% 6%, rgba(41, 121, 189, 0.26), transparent 58%),
+    radial-gradient(ellipse 700px 520px at 0% 68%, rgba(28, 84, 140, 0.18), transparent 55%),
+    radial-gradient(ellipse 900px 640px at 108% 104%, rgba(63, 145, 210, 0.2), transparent 60%);
   background-attachment: fixed;
   color: var(--ink);
   font-family: "Work Sans", sans-serif;
