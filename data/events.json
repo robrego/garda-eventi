@@ -318,16 +318,16 @@
     "url": "https://www.gardafestival.com/evento/vittorio-benaglia/"
   },
   {
-    "date": "2026-07-03",
+    "date": "2026-07-05",
     "town": "Padenghe",
-    "title": "Cinema sotto le Stelle",
-    "titleEn": "Cinema Under the Stars",
+    "title": "Cinema sotto le Stelle – La vita va così",
+    "titleEn": "Cinema Under the Stars – La vita va così",
     "cat": "cultura",
     "time": "21:30",
-    "desc": "Proiezione all'aperto al Teatro del Castello, ingresso €5.",
-    "descEn": "Outdoor screening at the Castle Theatre, €5 admission.",
-    "src": "gardanotizie.it",
-    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
+    "desc": "Proiezione del film \"La vita va così\" all'aperto al Teatro del Castello, ingresso €5.",
+    "descEn": "Outdoor screening of \"La vita va così\" at the Castle Theatre, €5 admission.",
+    "src": "gardatoday.it",
+    "url": "https://gardatoday.it/eventi/padenghe-cinema-sotto-le-stelle"
   },
   {
     "date": "2026-07-10",
@@ -357,14 +357,14 @@
   {
     "date": "2026-07-19",
     "town": "Padenghe",
-    "title": "Cinema sotto le Stelle",
-    "titleEn": "Cinema Under the Stars",
+    "title": "Cinema sotto le Stelle – Zootropolis 2",
+    "titleEn": "Cinema Under the Stars – Zootopia 2",
     "cat": "cultura",
     "time": "21:30",
-    "desc": "Proiezione all'aperto al Teatro del Castello, ingresso €5.",
-    "descEn": "Outdoor screening at the Castle Theatre, €5 admission.",
-    "src": "gardanotizie.it",
-    "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
+    "desc": "Proiezione del film \"Zootropolis 2\" all'aperto al Teatro del Castello, ingresso €5.",
+    "descEn": "Outdoor screening of \"Zootopia 2\" at the Castle Theatre, €5 admission.",
+    "src": "turismo.comune.padenghesulgarda.bs.it",
+    "url": "https://turismo.comune.padenghesulgarda.bs.it/eventi/3612563/zootropolis-2"
   },
   {
     "date": "2026-07-22",
@@ -401,6 +401,30 @@
     "descEn": "Evening festival of the Padenghe Alpini group at Parco Alpini.",
     "src": "gardanotizie.it",
     "url": "https://www.gardapost.it/2026/06/18/padenghe-estate-musica-teatro-e-laboratori-circensi/"
+  },
+  {
+    "date": "2026-08-02",
+    "town": "Padenghe",
+    "title": "Cinema sotto le Stelle – Buen Camino",
+    "titleEn": "Cinema Under the Stars – Buen Camino",
+    "cat": "cultura",
+    "time": "21:30",
+    "desc": "Proiezione del film \"Buen Camino\" all'aperto al Teatro del Castello, ingresso €5.",
+    "descEn": "Outdoor screening of \"Buen Camino\" at the Castle Theatre, €5 admission.",
+    "src": "terrazzesullago.com",
+    "url": "https://terrazzesullago.com/en/cinema-under-the-stars-padenghe/"
+  },
+  {
+    "date": "2026-08-23",
+    "town": "Padenghe",
+    "title": "Cinema sotto le Stelle – La Grazia",
+    "titleEn": "Cinema Under the Stars – La Grazia",
+    "cat": "cultura",
+    "time": "21:30",
+    "desc": "Proiezione del film \"La Grazia\" di Paolo Sorrentino all'aperto al Teatro del Castello, ingresso €5.",
+    "descEn": "Outdoor screening of Paolo Sorrentino's \"La Grazia\" at the Castle Theatre, €5 admission.",
+    "src": "terrazzesullago.com",
+    "url": "https://terrazzesullago.com/en/cinema-under-the-stars-padenghe/"
   },
   {
     "date": "2026-07-01",
