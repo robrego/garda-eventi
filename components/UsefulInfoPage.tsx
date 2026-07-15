@@ -1,12 +1,12 @@
 "use client";
 
-import { Bus, Ship } from "lucide-react";
+import { Bike, Bus, CableCar, Ship } from "lucide-react";
 import Link from "next/link";
 import BrandMark from "@/components/BrandMark";
 import { useLang } from "@/components/LanguageProvider";
 import { USEFUL_LINKS } from "@/data/usefulLinks";
 
-const ICONS = { bus: Bus, ferry: Ship };
+const ICONS = { bus: Bus, ferry: Ship, cablecar: CableCar, bike: Bike };
 
 export default function UsefulInfoPage() {
   const { lang, setLang, t } = useLang();
@@ -47,10 +47,11 @@ export default function UsefulInfoPage() {
           const Icon = ICONS[link.icon];
           return (
             <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="info-card">
-              <div className="info-card-icon" aria-hidden="true">
+              <div className={`info-card-icon icon-${link.icon}`} aria-hidden="true">
                 <Icon size={24} strokeWidth={1.75} />
               </div>
               <div className="info-card-body">
+                <span className="info-card-area">{lang === "en" ? link.areaEn : link.area}</span>
                 <h3>{lang === "en" ? link.titleEn : link.title}</h3>
                 <p>{lang === "en" ? link.descEn : link.desc}</p>
                 <span className="info-card-link">{link.url.replace(/^https?:\/\//, "")}</span>

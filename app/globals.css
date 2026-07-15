@@ -75,9 +75,9 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
   cursor: pointer;
 }
 
-.ribbon-wrap { position: relative; margin: 0 0 22px; background: white; border-radius: var(--radius); padding: 14px 14px 10px; }
+.ribbon-wrap { position: relative; margin: 0 0 18px; background: white; border-radius: 22px; padding: 10px 10px 8px; }
 
-.ribbon-nav { position: absolute; top: 38px; right: 14px; z-index: 2; display: flex; gap: 4px; }
+.ribbon-nav { position: absolute; top: 32px; right: 10px; z-index: 2; display: flex; gap: 4px; }
 .ribbon-nav button { border: none; background: rgba(44, 106, 114, 0.08); color: var(--lake-deep); width: 30px; height: 30px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .ribbon-nav button:hover { background: rgba(44, 106, 114, 0.14); }
 
@@ -300,14 +300,6 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .lang-select-menu button:hover { background: var(--green-soft); }
 .lang-select-menu button.active { background: var(--green-soft); color: var(--lake-deep); font-weight: 700; }
 
-.add-event-btn-secondary {
-  background: white;
-  color: var(--lake-deep);
-  border: none;
-  box-shadow: 0 2px 8px rgba(44, 106, 114, 0.12);
-}
-.add-event-btn-secondary:hover { background: var(--lake-glass); }
-
 .layout { display: flex; flex-direction: column; gap: 22px; }
 .layout.list-only .map-pane, .layout.map-only .list-col { display: none; }
 .layout .map-pane { order: 2; }
@@ -502,6 +494,26 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 }
 .add-event-btn:hover { background: rgba(54, 135, 82, 0.96); }
 
+.add-event-btn-secondary {
+  background: white;
+  color: var(--lake-deep);
+  border: none;
+  box-shadow: 0 2px 8px rgba(44, 106, 114, 0.12);
+}
+.add-event-btn-secondary:hover { background: var(--lake-glass); }
+
+.add-event-btn-outline {
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--lake-deep);
+  border: 1px solid var(--lake-deep);
+  box-shadow: none;
+  font-weight: 600;
+  font-size: 15.5px;
+}
+.add-event-btn-outline:hover { background: var(--lake-glass); }
+
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -656,7 +668,24 @@ h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size
 .info-card { display: flex; gap: 16px; align-items: flex-start; background: white; border-radius: 18px; padding: 20px 22px; text-decoration: none; color: inherit; transition: background-color 0.15s; }
 .info-card:hover { background: var(--lake-glass); }
 .info-card-icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px; background: var(--green-soft); border: 1px solid rgba(44, 106, 114, 0.15); color: var(--lake-deep); display: flex; align-items: center; justify-content: center; }
+.info-card-icon.icon-bus      { background: #e3edfb; border-color: rgba(47, 95, 163, 0.18); color: #2f5fa3; }
+.info-card-icon.icon-ferry    { background: #e2eeec; border-color: rgba(44, 106, 114, 0.18); color: #2c6a72; }
+.info-card-icon.icon-cablecar { background: #f0e7f6; border-color: rgba(107, 63, 149, 0.18); color: #6b3f95; }
+.info-card-icon.icon-bike     { background: #e7f4ea; border-color: rgba(47, 122, 74, 0.18); color: #2f7a4a; }
 .info-card-body { min-width: 0; }
+.info-card-area {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--lake-deep);
+  background: var(--green-soft);
+  border: 1px solid rgba(44, 106, 114, 0.15);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin: 0 0 8px;
+}
 .info-card h3 { font-family: "Bricolage Grotesque", sans-serif; font-size: 18px; font-weight: 700; color: var(--lake-deep); margin: 0 0 8px; }
 .info-card p { margin: 0 0 10px; font-size: 15.5px; line-height: 1.5; color: var(--ink); }
 .info-card-link { font-size: 13.5px; color: var(--lake-deep); text-decoration: underline; word-break: break-all; }

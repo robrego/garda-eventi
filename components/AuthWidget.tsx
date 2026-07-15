@@ -81,7 +81,7 @@ export default function AuthWidget({
         ) : (
           <button
             type="button"
-            className="add-event-btn"
+            className="add-event-btn add-event-btn-outline"
             onClick={() => {
               setPendingAdd(true);
               setMode("register");
