@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AREA_ORDER, AREA_LABELS_EN, TOWN_AREAS, TOWNS } from "@/data/config";
+import { groupTownsByArea } from "@/data/config";
 import { useLang } from "@/components/LanguageProvider";
 import { townsSelectedLabel } from "@/lib/i18n";
 import ChevronDownIcon from "@/components/ChevronDownIcon";
@@ -28,10 +28,7 @@ export default function Filters({
   const { lang, t } = useLang();
   const [viewMenuOpen, setViewMenuOpen] = useState(false);
   const [townMenuOpen, setTownMenuOpen] = useState(false);
-  const townsByArea = AREA_ORDER.map((area) => ({
-    area: lang === "en" ? AREA_LABELS_EN[area] : area,
-    towns: TOWNS.filter((town) => TOWN_AREAS[town] === area).sort((a, b) => a.localeCompare(b, "it")),
-  }));
+  const townsByArea = groupTownsByArea(lang);
 
   const viewLabel = view === "split" ? t("viewSplit") : view === "list" ? t("viewList") : t("viewMap");
   const townLabel =

@@ -87,6 +87,15 @@ const STRINGS = {
     en: "Buses, ferries, cable cars and bikes to get around the lake.",
   },
   backToMap: { it: "← Torna alla mappa", en: "← Back to the map" },
+
+  citiesNav: { it: "Città", en: "Towns" },
+  townsIndexTitle: { it: "Eventi sul Lago di Garda, città per città", en: "Lake Garda events, town by town" },
+  townsIndexSubtitle: {
+    it: "Scegli una città per vedere tutti i prossimi eventi in programma.",
+    en: "Choose a town to see all upcoming events.",
+  },
+  backToTowns: { it: "← Tutte le città", en: "← All towns" },
+  viewInteractiveMap: { it: "Vedi sulla mappa interattiva", en: "View on the interactive map" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;
@@ -124,4 +133,16 @@ export function eventsCountLabel(n: number, lang: Lang): string {
 export function townsSelectedLabel(n: number, lang: Lang): string {
   if (lang === "en") return `${n} town${n === 1 ? "" : "s"} selected`;
   return `${n} città selezionat${n === 1 ? "a" : "e"}`;
+}
+
+export function townMetaTitle(town: string, lang: Lang): string {
+  if (lang === "en") return `Events in ${town} – Lake Garda`;
+  return `Eventi a ${town} – Lago di Garda`;
+}
+
+export function townMetaDescription(town: string, lang: Lang): string {
+  if (lang === "en") {
+    return `All upcoming events, markets, festivals and concerts in ${town}, on Lake Garda: dates, times and where they take place.`;
+  }
+  return `Tutti i prossimi eventi, mercati, sagre e concerti a ${town}, sul Lago di Garda: date, orari e dove si svolgono.`;
 }

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import EventsApp from "@/components/EventsApp";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { getAllEvents } from "@/data/getEvents";
@@ -6,6 +7,10 @@ import { getAllEvents } from "@/data/getEvents";
 // so a plain `revalidate` here wouldn't reliably pick up a fresh scrape.
 // Traffic is low enough that rendering fresh every request is fine.
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default async function Home() {
   const { events } = await getAllEvents();

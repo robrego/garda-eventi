@@ -211,6 +211,13 @@ export const TOWN_CREST: Partial<Record<string, string>> = {
   Cavriana: "https://upload.wikimedia.org/wikipedia/it/3/38/Cavriana-Stemma.png",
 };
 
+export function groupTownsByArea(lang: "it" | "en") {
+  return AREA_ORDER.map((area) => ({
+    area: lang === "en" ? AREA_LABELS_EN[area] : area,
+    towns: TOWNS.filter((town) => TOWN_AREAS[town] === area).sort((a, b) => a.localeCompare(b, "it")),
+  }));
+}
+
 export type EventItem = {
   id: string;
   date: string; // YYYY-MM-DD

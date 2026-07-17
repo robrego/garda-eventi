@@ -49,6 +49,12 @@ export default function AppHeader({
           <Link href="/info" className={`auth-link${pathname === "/info" ? " active" : ""}`}>
             {t("usefulInfoNav")}
           </Link>
+          <Link
+            href={lang === "en" ? "/en/events" : "/eventi"}
+            className={`auth-link${pathname.startsWith("/eventi") || pathname.startsWith("/en/events") ? " active" : ""}`}
+          >
+            {t("citiesNav")}
+          </Link>
 
           <span className="menu-divider" aria-hidden="true" />
 

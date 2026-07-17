@@ -2,9 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const title = "Lago di Garda e Dintorni – Eventi";
+const description = "Eventi sul Lago di Garda, sponda lombarda e veneta, giorno per giorno.";
+
 export const metadata: Metadata = {
-  title: "Lago di Garda e Dintorni – Eventi",
-  description: "Eventi sul Lago di Garda, sponda lombarda e veneta, giorno per giorno.",
+  metadataBase: new URL(SITE_URL),
+  title,
+  description,
+  openGraph: { title, description, url: "/", siteName: title, locale: "it_IT", type: "website" },
+  twitter: { card: "summary", title, description },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

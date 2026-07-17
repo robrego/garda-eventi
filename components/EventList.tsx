@@ -2,69 +2,15 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
-import { EventItem, CATEGORIES, CATEGORIES_EN, TOWN_CREST, translateTime } from "@/data/config";
+import { EventItem, CATEGORIES, CATEGORIES_EN, translateTime } from "@/data/config";
 import EditDescForm from "@/components/EditDescForm";
+import { LinkArrowIcon, CoverPlaceholder, dateFromISO, formatDate, SourceLine } from "@/components/EventDisplay";
 import { useLang } from "@/components/LanguageProvider";
-import { DOW_FULL, MONTHS, eventsCountLabel } from "@/lib/i18n";
+import { eventsCountLabel } from "@/lib/i18n";
 
 // Pulls in the Vercel Blob client-upload bundle, only needed once someone
 // actually opens the form — not worth it in every visitor's initial load.
 const AddCoverForm = dynamic(() => import("@/components/AddCoverForm"), { ssr: false });
-
-function LinkArrowIcon() {
-  return (
-    <svg
-      viewBox="0 0 12 12"
-      fill="none"
-      aria-hidden="true"
-      className="event-name-link-icon"
-    >
-      <path d="M3.5 8.5L8.5 3.5M8.5 3.5H4.5M8.5 3.5V7.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function CoverPlaceholder({ town }: { town: string }) {
-  const crest = TOWN_CREST[town];
-  if (crest) {
-    return <img src={crest} alt="" className="event-cover-crest" loading="lazy" />;
-  }
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="event-cover-icon">
-      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="8" cy="9.5" r="1.6" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function dateFromISO(s: string) {
-  const [y, m, d] = s.split("-").map(Number);
-  return new Date(y, m - 1, d);
-}
-function formatDate(d: Date, lang: "it" | "en") {
-  if (lang === "en") {
-    return `${DOW_FULL.en[d.getDay()]}, ${MONTHS.en[d.getMonth()]} ${d.getDate()}`;
-  }
-  return `${DOW_FULL.it[d.getDay()]} ${d.getDate()} ${MONTHS.it[d.getMonth()]}`;
-}
-
-const DOMAIN_RE = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$/;
-
-function SourceLine({ src, label }: { src: string; label: string }) {
-  if (DOMAIN_RE.test(src.trim())) {
-    const href = src.trim().startsWith("http") ? src.trim() : `https://${src.trim()}`;
-    return (
-      <>
-        {label}{" "}
-        <a href={href} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-          {src}
-        </a>
-      </>
-    );
-  }
-  return <>{label} {src}</>;
-}
 
 export default function EventList({
   selectedDate,
@@ -264,7 +210,11 @@ export default function EventList({
                   </>
                 )}
               </div>
-              {!e.url && e.src && <div className="event-src"><SourceLine src={e.src} label={t("sourceLabel")} /></div>}
+              {!e.url && e.src && (
+                <div className="event-src">
+                  <SourceLine src={e.src} label={t("sourceLabel")} onLinkClick={(ev) => ev.stopPropagation()} />
+                </div>
+              )}
             </div>
           </div>
         </div>
