@@ -214,6 +214,18 @@
     "image": "https://visitsirmione.com/wp-content/uploads/2026/06/locandina-2026-4_page-0001-826x1162.jpg"
   },
   {
+    "date": "2026-10-11",
+    "town": "Sirmione",
+    "title": "Sirmione Award for Photography – Photo Marathon",
+    "titleEn": "Sirmione Award for Photography – Photo Marathon",
+    "cat": "cultura",
+    "time": "giornata intera",
+    "desc": "Nell'ambito della XVII edizione del Premio Sirmione per la Fotografia: otto ore per interpretare quattro temi nel centro storico. Il concorso collegato \"Lake Garda Photo Challenge\", dedicato al lago, resta aperto fino al 31 ottobre.",
+    "descEn": "Part of the 17th Sirmione Award for Photography: eight hours to interpret four themes around the old town. The linked \"Lake Garda Photo Challenge\", dedicated to the lake, stays open until October 31.",
+    "src": "visitsirmione.com",
+    "url": "https://visitsirmione.com/en/what-to-do/annual-events/sirmione-award-for-photography/"
+  },
+  {
     "date": "2026-07-04",
     "town": "Peschiera",
     "title": "Teatro Estivo",
@@ -316,6 +328,39 @@
     "descEn": "Vittorio Benaglia on a twilight musical journey on viola, at the Church of San Martino.",
     "src": "Garda Festival 2026",
     "url": "https://www.gardafestival.com/evento/vittorio-benaglia/"
+  },
+  {
+    "date": "2026-08-21",
+    "town": "Peschiera",
+    "title": "Palio delle Mura",
+    "cat": "sport",
+    "time": "giornata intera",
+    "desc": "Storica regata di gondolini gardesani intorno alle mura, a Porto Bergamini (San Benedetto di Lugana), con fontane danzanti, musica e stand gastronomici. Cinque giorni di festa, fino al 25 agosto.",
+    "descEn": "Historic race of traditional Lake Garda rowing boats around the town walls, at Porto Bergamini (San Benedetto di Lugana), with dancing fountains, music and food stalls. Five days of festivities, running until August 25.",
+    "src": "comune.peschieradelgarda.vr.it",
+    "url": "https://www.comune.peschieradelgarda.vr.it/it/eventi/palio-delle-mura"
+  },
+  {
+    "date": "2026-10-03",
+    "town": "Peschiera",
+    "title": "PeschieraTri",
+    "cat": "sport",
+    "time": "08:00",
+    "desc": "Triathlon internazionale con percorso lungo le mura di Peschiera (patrimonio UNESCO): distanze Sprint, Olimpico e Medio distribuite tra sabato 3 e domenica 4 ottobre.",
+    "descEn": "International triathlon along the walls of Peschiera (a UNESCO World Heritage site): Sprint, Olympic and Medium distances spread across Saturday October 3 and Sunday October 4.",
+    "src": "followyourpassion.it",
+    "url": "https://followyourpassion.it/en/peschieratri/"
+  },
+  {
+    "date": "2026-10-10",
+    "town": "Peschiera",
+    "title": "Dorelan Lake Garda Outdoor Festival",
+    "cat": "sport",
+    "time": "giornata intera",
+    "desc": "Due giorni dedicati a corsa e ciclismo: la Dorelan Reactive Run (5 e 10 km) il 10 ottobre e la Granfondo Dorelan Reactive il giorno successivo, con musica e area expo a Peschiera del Garda.",
+    "descEn": "Two days devoted to running and cycling: the Dorelan Reactive Run (5 and 10 km) on October 10 and the Granfondo Dorelan Reactive the following day, with music and an expo area in Peschiera del Garda.",
+    "src": "dorelanreactivecycling.com",
+    "url": "https://www.dorelanreactivecycling.com/programma/"
   },
   {
     "date": "2026-07-05",
@@ -2961,6 +3006,41 @@
     "url": "https://www.veronasera.it/eventi/notte-gialla-festa-bardolino-4-luglio-2026.html"
   },
   {
+    "date": "2026-08-06",
+    "town": "Bardolino",
+    "title": "Aperitivo Sotto le Stelle",
+    "titleEn": "Aperitif Under the Stars",
+    "cat": "festival",
+    "time": "19:30",
+    "desc": "Aperitivo con musica e artisti di strada sul Lungolago Mirabello, a cura dell'associazione ristoratori De Gustibus con Fondazione Bardolino Top. Degustazioni di vini veronesi e piatti tipici, spettacolo pirotecnico sul lago alle 23:00.",
+    "descEn": "An aperitif evening with music and street performers on the Lungolago Mirabello, organized by the De Gustibus restaurateurs' association with Fondazione Bardolino Top. Tastings of Verona wines and local dishes, fireworks over the lake at 11pm.",
+    "src": "bardolinotop.it",
+    "url": "https://comune.bardolino.vr.it/ufficio-stampa/aperitivo-sotto-le-stelle-2/"
+  },
+  {
+    "date": "2026-08-28",
+    "town": "Bardolino",
+    "title": "Il Bardolino Freddo",
+    "titleEn": "Il Bardolino Freddo (Chilled Bardolino Wine Festival)",
+    "cat": "sagra",
+    "time": "18:00",
+    "desc": "Festa estiva dedicata al Bardolino servito fresco, tra porto, lungolago e centro storico: degustazioni, musica, stand gastronomici e artigianali. Tre giorni di festa, fino al 30 agosto, in contemporanea con Lazise.",
+    "descEn": "Summer festival dedicated to chilled Bardolino wine, across the harbour, lakefront and old town: tastings, music, food and craft stalls. Three days of festivities, until August 30, held alongside a parallel event in Lazise.",
+    "src": "bardolinotop.it",
+    "url": "https://bardolinotop.it/wp-content/uploads/2025/08/LAZISEprogramma-bfreddo2025-DIGITALE.pdf"
+  },
+  {
+    "date": "2026-09-05",
+    "town": "Bardolino",
+    "title": "Garda Classic Car Show",
+    "cat": "cultura",
+    "time": "giornata intera",
+    "desc": "Sesta edizione della rassegna di auto e imbarcazioni d'epoca sul lungolago, organizzata da Benaco Auto Classiche: 22 auto storiche e 10 barche d'epoca, sfilata e premiazioni al Preonda, proiezioni serali su Villa Carrara Bottagisio. Prosegue il 6 settembre.",
+    "descEn": "Sixth edition of the vintage car and boat show on the lakefront, organized by Benaco Auto Classiche: 22 historic cars and 10 vintage boats, a parade and awards at the Preonda, evening projections on Villa Carrara Bottagisio. Continues on September 6.",
+    "src": "comune.bardolino.vr.it",
+    "url": "https://www.comune.bardolino.vr.it/it/news/le-piu-belle-auto-classiche-dei-film-sfilano-al-6-garda-classic-car-show"
+  },
+  {
     "date": "2026-10-01",
     "town": "Bardolino",
     "title": "Festa dell'Uva e del Vino",
@@ -3007,6 +3087,41 @@
     "descEn": "Patron saint's Mass at the Madonna della Neve church in Colà, followed by refreshments hosted by the local sports club.",
     "src": "comune.lazise.vr.it",
     "url": "https://www.comune.lazise.vr.it/vivere-il-comune/eventi/antica-sagra-della-madonna-della-neve-2/"
+  },
+  {
+    "date": "2026-07-24",
+    "town": "Lazise",
+    "title": "Pacengo Inn Fest",
+    "cat": "festival",
+    "time": "19:00",
+    "desc": "Tre serate al Campo/Parco San Daniele di Pacengo, tra musica dal vivo e stand gastronomici con i sapori del territorio. Prosegue fino al 26 luglio.",
+    "descEn": "Three evenings at the Campo/Parco San Daniele in Pacengo, with live music and food stalls featuring local flavors. Continues until July 26.",
+    "src": "comune.lazise.vr.it",
+    "url": "https://www.comune.lazise.vr.it/vivere-il-comune/eventi/pacengo-inn-fest/"
+  },
+  {
+    "date": "2026-08-21",
+    "town": "Lazise",
+    "title": "Festa dell'Ospite",
+    "titleEn": "Festa dell'Ospite (Guest Festival)",
+    "cat": "festival",
+    "time": "18:00",
+    "desc": "Il centro storico e il Lungolago Marconi diventano una grande festa a cielo aperto: stand gastronomici, musica dal vivo dalle 21:00 e spettacolo pirotecnico musicale il 23 agosto a chiusura delle tre serate.",
+    "descEn": "The old town and Lungolago Marconi turn into one big open-air festival: food stalls, live music from 9pm, and a musical fireworks display on August 23 to close the three evenings.",
+    "src": "comune.lazise.vr.it",
+    "url": "https://www.comune.lazise.vr.it/vivere-il-comune/eventi/programma-festa-dellospite/"
+  },
+  {
+    "date": "2026-08-01",
+    "town": "Lazise",
+    "title": "Regata delle Bisse – Bandiera del Lago",
+    "titleEn": "Bisse Regatta – Flag of the Lake",
+    "cat": "sport",
+    "time": "18:00",
+    "desc": "Tappa di Lazise del campionato \"Bandiera del Lago\", regate di bisse (voga alla veneta in piedi) organizzate dalla Lega Bisse del Garda.",
+    "descEn": "Lazise leg of the \"Bandiera del Lago\" championship, bisse-rowing races (traditional standing Venetian rowing) organized by Lega Bisse del Garda.",
+    "src": "legabissedelgarda.com",
+    "url": "https://legabissedelgarda.com/programma/"
   },
   {
     "date": "2026-07-05",
@@ -3109,6 +3224,51 @@
     "url": "https://www.garda-outdoors.com/festa-dei-ciclamini-a-cassone-di-malcesine-un-evento-imperdibile/"
   },
   {
+    "date": "2026-10-15",
+    "town": "Malcesine",
+    "title": "Italian Foiling Championship",
+    "cat": "sport",
+    "time": "10:00",
+    "desc": "Campionato italiano delle barche a foil, organizzato dalla Fraglia Vela Malcesine: quattro giorni di regate (15-18 ottobre) tra i più spettacolari del panorama velico nazionale.",
+    "descEn": "Italian championship for foiling boats, organized by Fraglia Vela Malcesine: four days of racing (October 15-18), among the most spectacular events on the national sailing calendar.",
+    "src": "fragliavela.org",
+    "url": "https://www.fragliavela.org/en/regatta/italian-foiling-championship-2026/"
+  },
+  {
+    "date": "2026-10-17",
+    "town": "Malcesine",
+    "title": "Panoramic Trail",
+    "cat": "sport",
+    "time": "09:00",
+    "desc": "Gara di trail running con partenza e arrivo nel centro di Malcesine, tra lago e Monte Baldo: 10 km il sabato, e domenica tre percorsi tecnici da 17, 30 e 46 km.",
+    "descEn": "Trail-running race starting and finishing in central Malcesine, between the lake and Monte Baldo: a 10k on Saturday, and on Sunday three technical routes of 17, 30 and 46 km.",
+    "src": "usmontebaldo.it",
+    "url": "https://www.usmontebaldo.it/panoramic-trail-2026"
+  },
+  {
+    "date": "2026-09-26",
+    "town": "Malcesine",
+    "title": "Ciottolando con Gusto",
+    "cat": "sagra",
+    "time": "giornata intera",
+    "desc": "Passeggiata enogastronomica tra i vicoli del centro storico, con 19 tappe tra locande e locali per assaggiare pesce di lago, olio, formaggi, tartufo del Monte Baldo e vini del Consorzio Bardolino. Include l'ingresso al Castello Scaligero. Prosegue il 27 settembre.",
+    "descEn": "A food-and-wine walk through the alleys of the old town, with 19 stops at inns and venues to taste lake fish, oil, cheeses, Monte Baldo truffles and Bardolino Consortium wines. Includes entry to the Scaligero Castle. Continues on September 27.",
+    "src": "ciottolando.it",
+    "url": "https://ciottolando.it/"
+  },
+  {
+    "date": "2026-07-17",
+    "town": "Malcesine",
+    "title": "RS21 Cup – Act Malcesine",
+    "titleEn": "RS21 Cup – Malcesine Act",
+    "cat": "sport",
+    "time": "10:00",
+    "desc": "Quarto atto della RS21 Cup, circuito velico monotipo FIV: tre giorni di regate (17-19 luglio) davanti a Malcesine, organizzati dalla Fraglia Vela Malcesine, con equipaggi da undici nazioni.",
+    "descEn": "Fourth act of the RS21 Cup, the FIV one-design sailing circuit: three days of racing (July 17-19) off Malcesine, organized by Fraglia Vela Malcesine, with crews from eleven nations.",
+    "src": "fragliavela.org",
+    "url": "https://www.fragliavela.org/en/regatta/rs21-cup-2026/"
+  },
+  {
     "date": "2026-07-04",
     "town": "Torbole",
     "title": "Club Europe in concerto (tributo U2)",
@@ -3147,6 +3307,18 @@
     "url": "https://www.gardatrentino.it/it/eventi/riva-in-musica_9219"
   },
   {
+    "date": "2026-07-18",
+    "town": "Riva",
+    "title": "MusicaRiva Festival – Concerto inaugurale",
+    "titleEn": "MusicaRiva Festival – Opening Concert",
+    "cat": "concert",
+    "time": "21:00",
+    "desc": "Concerto d'apertura della 42ª edizione del MusicaRiva Festival, all'Auditorium San Giuseppe: l'Alpine Symphony Orchestra diretta da Markus Stenz con il soprano Marily Santoro. Il festival prosegue fino al 1° agosto tra Riva del Garda, Arco, Tenno, Nago-Torbole e altri comuni dell'Alto Garda.",
+    "descEn": "Opening concert of the 42nd MusicaRiva Festival, at the Auditorium San Giuseppe: the Alpine Symphony Orchestra conducted by Markus Stenz with soprano Marily Santoro. The festival continues until August 1 across Riva del Garda, Arco, Tenno, Nago-Torbole and other towns in the Alto Garda area.",
+    "src": "musicariva.org",
+    "url": "https://www.musicariva.org/musicarivafestival"
+  },
+  {
     "date": "2026-07-11",
     "town": "Riva",
     "title": "Sardelada",
@@ -3156,6 +3328,17 @@
     "descEn": "Traditional lake-sardine festival, with fish tastings on the shore of Lake Garda.",
     "src": "gardatrentino.it",
     "url": "https://www.gardatrentino.it/it/eventi/sardelada_38783"
+  },
+  {
+    "date": "2026-08-26",
+    "town": "Riva",
+    "title": "Notte di Fiaba – Tarzan",
+    "cat": "festival",
+    "time": "in serata",
+    "desc": "Il centro storico di Riva del Garda si trasforma nella giungla di Tarzan: spettacoli, musica dal vivo, giochi e narrazioni per grandi e piccoli. Prosegue fino al 30 agosto.",
+    "descEn": "Riva del Garda's historic centre turns into Tarzan's jungle: shows, live music, games and storytelling for all ages. Continues until August 30.",
+    "src": "nottedifiaba.it",
+    "url": "https://www.nottedifiaba.it/programma/"
   },
   {
     "date": "2026-07-18",
@@ -3194,6 +3377,18 @@
     "url": "https://www.gardatrentino.it/it/eventi/fiera-di-s-maddalena-a-torbole_10532"
   },
   {
+    "date": "2026-07-27",
+    "town": "Torbole",
+    "title": "Garda Jazz Festival – Greg & Zooma Zooma Jive Band",
+    "titleEn": "Garda Jazz Festival – Greg & Zooma Zooma Jive Band",
+    "cat": "concert",
+    "time": "21:00",
+    "desc": "Serata di apertura della 27ª edizione del Garda Jazz Festival, al Parco della Colonia Pavese. Il festival prosegue fino al 9 agosto tra Torbole, Riva del Garda, Arco, Tenno e Dro.",
+    "descEn": "Opening night of the 27th Garda Jazz Festival, at Parco della Colonia Pavese. The festival continues until August 9 across Torbole, Riva del Garda, Arco, Tenno and Dro.",
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/it/garda-jazz-festival"
+  },
+  {
     "date": "2026-07-30",
     "town": "Torbole",
     "title": "Cadet World Championship",
@@ -3216,6 +3411,54 @@
     "descEn": "Concert by Gianni Morandi in Torbole, at Foce Sarca.",
     "src": "gardatrentino.it",
     "url": "https://www.gardatrentino.it/it/eventi/gianni-morandi-in-concerto_93812"
+  },
+  {
+    "date": "2026-10-04",
+    "town": "Riva",
+    "title": "Festival del Pesce d'Acqua Dolce",
+    "titleEn": "Freshwater Fish Festival",
+    "cat": "sagra",
+    "time": "11:30",
+    "desc": "Tre giorni dedicati al pesce di lago tra Riva del Garda, Torbole e Arco, nell'ambito del Mese del Gusto: aperitivi gourmet, pranzi in piazza e cene a tema nei ristoranti del territorio.",
+    "descEn": "Three days celebrating lake fish across Riva del Garda, Torbole and Arco, part of the Mese del Gusto: gourmet aperitifs, lunches in the square and themed dinners at local restaurants.",
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/en/events/festival-del-pesce-dacqua-dolce_26524"
+  },
+  {
+    "date": "2026-10-15",
+    "town": "Riva",
+    "title": "Festival Internazionale Cori e Orchestre",
+    "titleEn": "International Choir and Orchestra Festival",
+    "cat": "concert",
+    "time": "giornata intera",
+    "desc": "19ª edizione del festival internazionale di cori e orchestre amatoriali sul Lago di Garda, con concerti ed esibizioni tra Riva del Garda e altre località dell'Alto Garda. Prosegue fino al 18 ottobre.",
+    "descEn": "19th edition of the international festival of amateur choirs and orchestras on Lake Garda, with concerts and performances in Riva del Garda and other Alto Garda towns. Continues until October 18.",
+    "src": "mrf-musicfestivals.com",
+    "url": "https://www.mrf-musicfestivals.com/it/festival-dei-cori-e-delle-orchestre-sul-lago-di-garda-italia/"
+  },
+  {
+    "date": "2026-11-08",
+    "town": "Riva",
+    "title": "24ª Garda Trentino Half Marathon",
+    "titleEn": "24th Garda Trentino Half Marathon",
+    "cat": "sport",
+    "time": "10:15",
+    "desc": "Mezza maratona internazionale (21,097 km) con partenza dal PalaFiere di Riva del Garda, attraverso Torbole-Nago e lungo il fiume Sarca. In programma anche una 10K e la Run4Fun non competitiva.",
+    "descEn": "International half marathon (21.097 km) starting from the PalaFiere in Riva del Garda, through Torbole-Nago and along the Sarca river. A 10K and the non-competitive Run4Fun are also on the program.",
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/en/events/garda-trentino-half-marathon_8995"
+  },
+  {
+    "date": "2026-11-13",
+    "town": "Riva",
+    "title": "Mercatino di Natale – Di Gusto in Gusto",
+    "titleEn": "Christmas Market – Di Gusto in Gusto",
+    "cat": "market",
+    "time": "10:30–21:00",
+    "desc": "Mercatino natalizio dedicato ai sapori trentini in Piazza Cesare Battisti e Piazza Garibaldi, con casette in legno, pista di pattinaggio e la Casa di Babbo Natale al Castello. Prosegue fino al 6 gennaio 2027.",
+    "descEn": "A Christmas market celebrating Trentino flavors in Piazza Cesare Battisti and Piazza Garibaldi, with wooden stalls, an ice rink and Santa's House at the castle. Continues until January 6, 2027.",
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/en/events/from-taste-to-taste_9213"
   },
   {
     "date": "2026-12-19",
@@ -3273,6 +3516,54 @@
     "descEn": "Exhibition of aviation-themed art and culture, open from May 31 to December 23, 2026, at Via Segantini 9.",
     "src": "gardatrentino.it",
     "url": "https://www.gardatrentino.it/it/eventi"
+  },
+  {
+    "date": "2026-10-02",
+    "town": "Arco",
+    "title": "Rock Master – 40° Anniversario",
+    "titleEn": "Rock Master – 40th Anniversary",
+    "cat": "sport",
+    "time": "giornata intera",
+    "desc": "Quarant'anni di Rock Master: tre giorni di arrampicata sportiva ad Arco con le sfide Duel Lead e KO Boulder tra i migliori atleti al mondo (Adam Ondra, Stefano Ghisolfi, Jessica Pilz e altri), talk, eventi collaterali e area expo. Prosegue fino al 4 ottobre.",
+    "descEn": "Forty years of Rock Master: three days of sport climbing in Arco with the Duel Lead and KO Boulder challenges among the world's best athletes (Adam Ondra, Stefano Ghisolfi, Jessica Pilz and others), talks, side events and an expo area. Continues until October 4.",
+    "src": "rockmaster.com",
+    "url": "https://rockmaster.com/en"
+  },
+  {
+    "date": "2026-11-01",
+    "town": "Arco",
+    "title": "Frantoi Aperti",
+    "titleEn": "Frantoi Aperti (Open Olive Mills)",
+    "cat": "cultura",
+    "time": "giornata intera",
+    "desc": "Visite guidate e degustazioni in sette frantoi del Garda Trentino tra Arco, Nago-Torbole, Tenno e Riva del Garda, alla scoperta dell'olio extravergine d'oliva locale. Evento del Mese del Gusto, prosegue il 2 novembre.",
+    "descEn": "Guided tours and tastings at seven olive mills across Garda Trentino — Arco, Nago-Torbole, Tenno and Riva del Garda — discovering the local extra-virgin olive oil. Part of the Mese del Gusto, continuing on November 2.",
+    "src": "gardatrentino.it",
+    "url": "https://www.gardatrentino.it/en/events/frantoi-aperti_11319"
+  },
+  {
+    "date": "2026-11-13",
+    "town": "Arco",
+    "title": "Mercatini di Natale di Arco",
+    "titleEn": "Arco Christmas Markets",
+    "cat": "market",
+    "time": "10:00–19:00",
+    "desc": "Una quarantina di casette in legno nel centro storico, tra artigianato, souvenir e idee regalo, con spettacoli di fuoco, artisti di strada e un treno di Natale. Aperto nei weekend e nei giorni festivi fino al 6 gennaio 2027.",
+    "descEn": "About forty wooden huts in the old town, with crafts, souvenirs and gift ideas, plus fire shows, street artists and a Christmas train. Open on weekends and holidays until January 6, 2027.",
+    "src": "mercatininatalearco.com",
+    "url": "https://www.mercatininatalearco.com/"
+  },
+  {
+    "date": "2026-07-18",
+    "town": "Arco",
+    "title": "IFSC Climbing Youth World Championships",
+    "titleEn": "IFSC Climbing Youth World Championships",
+    "cat": "sport",
+    "time": "09:00",
+    "desc": "35ª edizione dei Mondiali Giovanili di arrampicata sportiva, allo Stadio del Climbing di Arco: boulder, lead e speed, categorie Under 17 e Under 19, circa 650 atleti da 60 nazioni. In programma dal 18 al 25 luglio.",
+    "descEn": "35th edition of the Youth World Championships in sport climbing, at the Arco Climbing Stadium: boulder, lead and speed, Under-17 and Under-19 categories, around 650 athletes from 60 countries. Running July 18-25.",
+    "src": "ifsc-climbing.org",
+    "url": "https://www.ifsc-climbing.org/events/ifsc-climbing-youth-world-championships-arco-2026"
   },
   {
     "date": "2026-07-26",
@@ -3648,6 +3939,18 @@
     "descEn": "An evening of great international rock classics at the Isolo in Gavardo, free admission. Second of four evenings in the \"Concerti dell'Isolo\" series (July 3-25).",
     "src": "comune.gavardo.bs.it",
     "url": "https://www.comune.gavardo.bs.it/pagina133703_eventi.html"
+  },
+  {
+    "date": "2026-07-18",
+    "town": "Gavardo",
+    "title": "Serata di beneficenza per Il Faro",
+    "titleEn": "Charity evening for Il Faro",
+    "cat": "concert",
+    "time": "19:00",
+    "desc": "Serata di raccolta fondi a sostegno delle famiglie de Il Faro Bedizzole, con cibo, bevande e musica dal vivo (Joe Band Zampiceni, Jury Magliolo, W.A.Y. Lo Z) a partire dalle 21:00, all'Agriturismo Morso46.",
+    "descEn": "Fundraising evening supporting Il Faro Bedizzole families, with food, drinks and live music (Joe Band Zampiceni, Jury Magliolo, W.A.Y. Lo Z) from 9pm, at Agriturismo Morso46.",
+    "src": "instagram.com/ilfarobedizzole",
+    "url": "https://www.instagram.com/p/Daw4ca-CoCs/"
   },
   {
     "date": "2026-09-08",
@@ -4171,6 +4474,18 @@
     "descEn": "About 12 km night hike retracing the bandit Zanzanù's final route, meeting at the Church of San Pietro, refreshments in the forest at the end. Booking required.",
     "src": "tignale.org",
     "url": "https://www.tignale.org/lagodigarda/zanzanu.html"
+  },
+  {
+    "date": "2026-09-26",
+    "town": "Tignale",
+    "title": "27ª Sagra del Tartufo",
+    "titleEn": "27th Truffle Festival",
+    "cat": "sagra",
+    "time": "giornata intera",
+    "desc": "Sagra gastronomica dedicata al tartufo a Gardola: stand, show cooking, cani da tartufo, musica itinerante e visite alla Limonaia Pra dela Fam. Prosegue fino al 4 ottobre.",
+    "descEn": "A food festival dedicated to truffles in Gardola: stalls, cooking shows, truffle-hunting dogs, wandering music and visits to the Limonaia Pra dela Fam. Continues until October 4.",
+    "src": "tignale.org",
+    "url": "https://www.tignale.org/lagodigarda/sagratartufotignale.html"
   },
   {
     "date": "2026-09-17",
