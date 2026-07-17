@@ -11,16 +11,27 @@ export const dynamic = "force-dynamic";
 // on the page.
 export async function GET(_req: NextRequest, { params }: { params: { path: string[] } }) {
   const pathname = params.path.join("/");
-  try {
-    const result = await get(pathname, { access: "private" });
-    if (!result?.stream) return new NextResponse(null, { status: 404 });
-    return new NextResponse(result.stream, {
-      headers: {
-        "Content-Type": result.blob.contentType,
-        "Cache-Control": "public, max-age=31536000, immutable",
-      },
-    });
-  } catch {
-    return new NextResponse(null, { status: 404 });
+  // The cover preview in AddCoverForm requests this same URL immediately
+  // after the client-side upload() promise resolves — right at the edge of
+  // Vercel Blob's read-after-write window, where `get()` can still 404 for
+  // a moment. A few short retries absorb that instead of showing a broken
+  // image (which just reveals .cover-preview's empty background, looking
+  // like the app "broke").
+  for (let attempt = 0; attempt < 4; attempt++) {
+    try {
+      const result = await get(pathname, { access: "private" });
+      if (result?.stream) {
+        return new NextResponse(result.stream, {
+          headers: {
+            "Content-Type": result.blob.contentType,
+            "Cache-Control": "public, max-age=31536000, immutable",
+          },
+        });
+      }
+    } catch {
+      // fall through to retry/404 below
+    }
+    if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, 250 * (attempt + 1)));
   }
+  return new NextResponse(null, { status: 404 });
 }

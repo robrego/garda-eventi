@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bus, CalendarDays, MapPin } from "lucide-react";
+import { Bus, CalendarDays } from "lucide-react";
 import AuthWidget from "@/components/AuthWidget";
 import BrandMark from "@/components/BrandMark";
 import BurgerIcon from "@/components/BurgerIcon";
@@ -51,13 +51,6 @@ export default function AppHeader({
           <Link href="/info" className={`auth-link header-menu-link${pathname === "/info" ? " active" : ""}`}>
             <Bus size={18} strokeWidth={1.75} />
             {t("usefulInfoNav")}
-          </Link>
-          <Link
-            href={lang === "en" ? "/en/events" : "/eventi"}
-            className={`auth-link header-menu-link${pathname.startsWith("/eventi") || pathname.startsWith("/en/events") ? " active" : ""}`}
-          >
-            <MapPin size={18} strokeWidth={1.75} />
-            {t("citiesNav")}
           </Link>
 
           <span className="menu-divider" aria-hidden="true" />

@@ -268,8 +268,22 @@ header.top { display: flex; align-items: center; justify-content: space-between;
   flex-shrink: 0;
   box-shadow: 0 4px 14px rgba(44, 106, 114, 0.1);
 }
-.lang-toggle button { border: none; background: transparent; color: var(--lake-deeper); font-size: 15px; line-height: 1.2; padding: 9px 16px; cursor: pointer; font-weight: 700; }
-.lang-toggle button.active {
+.lang-toggle button,
+.lang-toggle a,
+.lang-toggle span {
+  display: inline-block;
+  border: none;
+  background: transparent;
+  color: var(--lake-deeper);
+  font-size: 15px;
+  line-height: 1.2;
+  padding: 9px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+}
+.lang-toggle button.active,
+.lang-toggle span.active {
   background: rgba(63, 157, 95, 0.92);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -310,7 +324,9 @@ header.top { display: flex; align-items: center; justify-content: space-between;
   padding: 6px;
   box-shadow: 0 10px 30px rgba(20, 66, 72, 0.18);
 }
-.lang-select-menu button {
+.lang-select-menu button,
+.lang-select-menu a {
+  display: block;
   border: none;
   background: transparent;
   color: var(--lake-mid);
@@ -318,11 +334,13 @@ header.top { display: flex; align-items: center; justify-content: space-between;
   font-size: 16px;
   font-weight: 600;
   text-align: left;
+  text-decoration: none;
   padding: 10px 12px;
   border-radius: 10px;
   cursor: pointer;
 }
-.lang-select-menu button:hover { background: var(--green-soft); }
+.lang-select-menu button:hover,
+.lang-select-menu a:hover { background: var(--green-soft); }
 .lang-select-menu button.active { background: var(--green-soft); color: var(--lake-deep); font-weight: 700; }
 
 .layout { display: flex; flex-direction: column; gap: 22px; }
@@ -735,34 +753,6 @@ header.top { display: flex; align-items: center; justify-content: space-between;
    header as the rest of the app (see SeoPageHeader.tsx), read-only event
    cards, and a simple grouped link directory. */
 .seo-brand-link { display: inline-flex; text-decoration: none; color: inherit; }
-
-.seo-lang-toggle {
-  display: flex;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(226, 238, 236, 0.7);
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
-  border-radius: 999px;
-  overflow: hidden;
-  flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(44, 106, 114, 0.1);
-}
-.seo-lang-toggle a,
-.seo-lang-toggle span {
-  display: inline-block;
-  color: var(--lake-mid);
-  font-size: 15px;
-  line-height: 1.2;
-  padding: 9px 16px;
-  font-weight: 700;
-  text-decoration: none;
-}
-.seo-lang-toggle a:hover { background: rgba(255, 255, 255, 0.5); }
-.seo-lang-toggle span.active {
-  background: rgba(63, 157, 95, 0.92);
-  color: white;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-}
 
 .seo-map-cta { display: inline-block; text-decoration: none; margin: 4px 0 26px; }
 

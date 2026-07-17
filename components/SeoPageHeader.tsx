@@ -2,33 +2,39 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Bus, CalendarDays, MapPin } from "lucide-react";
+import { Bus, CalendarDays } from "lucide-react";
+import AuthWidget from "@/components/AuthWidget";
 import BrandMark from "@/components/BrandMark";
 import BurgerIcon from "@/components/BurgerIcon";
+import ChevronDownIcon from "@/components/ChevronDownIcon";
 import { translate, type Lang } from "@/lib/i18n";
+import { useAuthUser } from "@/lib/useAuthUser";
 
 // Same interactive header as AppHeader (3-line burger + dropdown on mobile,
 // inline nav row on desktop, via the shared .header-actions/.menu-toggle/
 // .header-menu CSS) so the static/SEO town pages look identical to the rest
-// of the app. This is the only client-side piece of these otherwise static
-// pages — the event list and JSON-LD below it stay server-rendered.
+// of the app, including the IT/EN switcher and the login/+Evento widget.
+// This is the only client-side piece of these otherwise static pages — the
+// event list and JSON-LD below it stay server-rendered.
 // `siblingHref` is this same page's URL in the other language — the
 // language links are real navigations (server-rendered, fixed-locale
 // routes), not the interactive app's localStorage-driven client toggle
-// (see components/LanguageProvider.tsx). These pages are always "città"
-// pages, so that nav link is always the active one.
+// (see components/LanguageProvider.tsx), so IT/EN render as <Link>s here
+// instead of state-setting buttons, just styled identically. No "Città"
+// nav link here (or in AppHeader) — these town pages exist for SEO, not
+// as a user-facing nav destination; in-page back-links handle navigation.
 export default function SeoPageHeader({
   lang,
   siblingHref,
   mapHref,
-  townsIndexHref,
 }: {
   lang: Lang;
   siblingHref: string;
   mapHref: string;
-  townsIndexHref: string;
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const { email, handleEmailChange } = useAuthUser();
 
   return (
     <header className="top">
@@ -58,17 +64,56 @@ export default function SeoPageHeader({
             <Bus size={18} strokeWidth={1.75} />
             {translate("usefulInfoNav", lang)}
           </Link>
-          <Link href={townsIndexHref} className="auth-link header-menu-link active">
-            <MapPin size={18} strokeWidth={1.75} />
-            {translate("citiesNav", lang)}
-          </Link>
 
           <span className="menu-divider" aria-hidden="true" />
 
-          <div className="seo-lang-toggle">
-            {lang === "it" ? <span className="active">IT</span> : <Link href={siblingHref}>IT</Link>}
-            {lang === "en" ? <span className="active">EN</span> : <Link href={siblingHref}>EN</Link>}
+          <div className="lang-toggle">
+            {lang === "it" ? (
+              <span className="active">IT</span>
+            ) : (
+              <Link href={siblingHref}>IT</Link>
+            )}
+            {lang === "en" ? (
+              <span className="active">EN</span>
+            ) : (
+              <Link href={siblingHref}>EN</Link>
+            )}
           </div>
+          <div className="lang-select">
+            <button
+              type="button"
+              className="lang-select-btn"
+              onClick={() => setLangMenuOpen((o) => !o)}
+              aria-label={translate("ariaLangToggle", lang)}
+              aria-expanded={langMenuOpen}
+            >
+              <span>{lang.toUpperCase()}</span>
+              <ChevronDownIcon />
+            </button>
+            {langMenuOpen && (
+              <>
+                <div className="menu-scrim" onClick={() => setLangMenuOpen(false)} />
+                <div className="lang-select-menu">
+                  {lang === "it" ? (
+                    <button type="button" className="active">
+                      Italiano
+                    </button>
+                  ) : (
+                    <Link href={siblingHref}>Italiano</Link>
+                  )}
+                  {lang === "en" ? (
+                    <button type="button" className="active">
+                      English
+                    </button>
+                  ) : (
+                    <Link href={siblingHref}>English</Link>
+                  )}
+                </div>
+              </>
+            )}
+          </div>
+
+          <AuthWidget email={email} onEmailChange={handleEmailChange} />
         </div>
       </div>
     </header>

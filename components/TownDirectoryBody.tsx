@@ -20,7 +20,7 @@ export default function TownDirectoryBody({
 
   return (
     <div className="app">
-      <SeoPageHeader lang={lang} siblingHref={siblingHref} mapHref={mapHref} townsIndexHref={townHrefBase} />
+      <SeoPageHeader lang={lang} siblingHref={siblingHref} mapHref={mapHref} />
 
       <Link href={mapHref} className="info-back-link">
         {translate("backToMap", lang)}

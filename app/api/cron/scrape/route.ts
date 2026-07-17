@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 import { SCRAPERS } from "@/data/scrapers";
 import { SCRAPED_BLOB_PATHNAME } from "@/data/getEvents";
+import { cleanupPastCovers } from "@/lib/coverCleanup";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -23,9 +24,14 @@ export async function GET(req: NextRequest) {
     }
   }
 
+  // Unrelated to the scrape cadence below (Vercel still triggers this route
+  // weekly per vercel.json even on the scrape's "off" week), so it runs on
+  // every invocation rather than being gated by isScheduledFortnight.
+  const coverCleanup = await cleanupPastCovers();
+
   const force = req.nextUrl.searchParams.get("force") === "1";
   if (!force && !isScheduledFortnight(new Date())) {
-    return NextResponse.json({ ok: true, skipped: true, reason: "off week (runs every 2 weeks)" });
+    return NextResponse.json({ ok: true, skipped: true, reason: "off week (runs every 2 weeks)", coverCleanup });
   }
 
   // One failing scraper must never take down the others.
@@ -39,5 +45,5 @@ export async function GET(req: NextRequest) {
     allowOverwrite: true,
   });
 
-  return NextResponse.json({ ok: true, count: events.length, scrapers: SCRAPERS.length });
+  return NextResponse.json({ ok: true, count: events.length, scrapers: SCRAPERS.length, coverCleanup });
 }

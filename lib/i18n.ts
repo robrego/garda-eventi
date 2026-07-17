@@ -87,7 +87,6 @@ const STRINGS = {
   },
   backToMap: { it: "← Torna alla mappa", en: "← Back to the map" },
 
-  citiesNav: { it: "Città", en: "Towns" },
   townsIndexTitle: { it: "Eventi sul Lago di Garda, città per città", en: "Lake Garda events, town by town" },
   townsIndexSubtitle: {
     it: "Scegli una città per vedere tutti i prossimi eventi in programma.",
