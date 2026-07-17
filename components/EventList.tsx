@@ -4,7 +4,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { EventItem, CATEGORIES, CATEGORIES_EN, translateTime } from "@/data/config";
 import EditDescForm from "@/components/EditDescForm";
-import { LinkArrowIcon, CoverPlaceholder, dateFromISO, formatDate, SourceLine } from "@/components/EventDisplay";
+import { LinkArrowIcon, CoverPlaceholder, dateFromISO, formatDate } from "@/components/EventDisplay";
 import { useLang } from "@/components/LanguageProvider";
 import { eventsCountLabel } from "@/lib/i18n";
 
@@ -42,6 +42,7 @@ export default function EventList({
   const sorted = [...events].sort((a, b) => {
     if (a.cat === "market" && b.cat !== "market") return 1;
     if (a.cat !== "market" && b.cat === "market") return -1;
+    if (!!a.url !== !!b.url) return a.url ? -1 : 1;
     return a.time.localeCompare(b.time);
   });
 
@@ -210,11 +211,6 @@ export default function EventList({
                   </>
                 )}
               </div>
-              {!e.url && e.src && (
-                <div className="event-src">
-                  <SourceLine src={e.src} label={t("sourceLabel")} onLinkClick={(ev) => ev.stopPropagation()} />
-                </div>
-              )}
             </div>
           </div>
         </div>

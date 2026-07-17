@@ -14,7 +14,11 @@ export async function getUpcomingTownEvents(town: string): Promise<EventItem[]> 
   const today = todayISO();
   return events
     .filter((e) => e.town === town && e.date >= today)
-    .sort((a, b) => (a.date === b.date ? a.time.localeCompare(b.time) : a.date.localeCompare(b.date)));
+    .sort((a, b) => {
+      if (a.date !== b.date) return a.date.localeCompare(b.date);
+      if (!!a.url !== !!b.url) return a.url ? -1 : 1;
+      return a.time.localeCompare(b.time);
+    });
 }
 
 export function groupEventsByDate(events: EventItem[]): { date: string; events: EventItem[] }[] {

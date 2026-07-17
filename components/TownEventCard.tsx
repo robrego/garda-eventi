@@ -1,5 +1,5 @@
 import { EventItem, CATEGORIES, CATEGORIES_EN, translateTime } from "@/data/config";
-import { LinkArrowIcon, CoverPlaceholder, SourceLine } from "@/components/EventDisplay";
+import { LinkArrowIcon, CoverPlaceholder } from "@/components/EventDisplay";
 import { translate, type Lang } from "@/lib/i18n";
 
 // Read-only counterpart to EventList's event card, for the static/SEO town
@@ -50,11 +50,6 @@ export default function TownEventCard({ event: e, lang }: { event: EventItem; la
             </div>
           </div>
           <div className="event-desc">{lang === "en" ? e.descEn ?? e.desc : e.desc}</div>
-          {!e.url && e.src && (
-            <div className="event-src">
-              <SourceLine src={e.src} label={translate("sourceLabel", lang)} />
-            </div>
-          )}
         </div>
       </div>
     </div>

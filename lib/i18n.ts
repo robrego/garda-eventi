@@ -72,7 +72,6 @@ const STRINGS = {
   addCoverLabel: { it: "+ copertina", en: "+ cover" },
   ariaAddCover: { it: "Aggiungi una copertina per questo evento", en: "Add a cover for this event" },
   editLink: { it: "Modifica", en: "Edit" },
-  sourceLabel: { it: "Fonte:", en: "Source:" },
 
   centerMapButton: { it: "Centra sugli eventi", en: "Center on events" },
   ariaCenterMap: { it: "Centra la mappa sugli eventi del giorno", en: "Center the map on today's events" },

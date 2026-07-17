@@ -1,4 +1,3 @@
-import type { MouseEvent } from "react";
 import { TOWN_CREST } from "@/data/config";
 import { DOW_FULL, MONTHS } from "@/lib/i18n";
 
@@ -41,31 +40,3 @@ export function formatDate(d: Date, lang: "it" | "en") {
   return `${DOW_FULL.it[d.getDay()]} ${d.getDate()} ${MONTHS.it[d.getMonth()]}`;
 }
 
-export const DOMAIN_RE = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$/;
-
-// `onLinkClick` is optional so this also works from a Server Component
-// (e.g. the static town pages) — a Server Component can't hand a plain
-// function down as a prop across the client boundary, but `undefined` is
-// fine since no `onClick` attribute ends up on the element at all.
-export function SourceLine({
-  src,
-  label,
-  onLinkClick,
-}: {
-  src: string;
-  label: string;
-  onLinkClick?: (e: MouseEvent) => void;
-}) {
-  if (DOMAIN_RE.test(src.trim())) {
-    const href = src.trim().startsWith("http") ? src.trim() : `https://${src.trim()}`;
-    return (
-      <>
-        {label}{" "}
-        <a href={href} target="_blank" rel="noopener noreferrer" onClick={onLinkClick}>
-          {src}
-        </a>
-      </>
-    );
-  }
-  return <>{label} {src}</>;
-}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Bus, CalendarDays, MapPin } from "lucide-react";
 import AuthWidget from "@/components/AuthWidget";
 import BrandMark from "@/components/BrandMark";
 import ChevronDownIcon from "@/components/ChevronDownIcon";
@@ -32,27 +33,37 @@ export default function AppHeader({
     <header className="top">
       <BrandMark />
       <div className="header-actions">
+        <Link
+          href="/info"
+          className={`transport-shortcut${pathname === "/info" ? " active" : ""}`}
+          aria-label={t("usefulInfoNav")}
+        >
+          <Bus size={20} strokeWidth={1.75} />
+        </Link>
         <button
           type="button"
           className="menu-toggle"
           onClick={() => setMenuOpen((o) => !o)}
           aria-expanded={menuOpen}
+          aria-label={t("ariaMenu")}
         >
           <BurgerIcon />
-          <span>{t("ariaMenu")}</span>
         </button>
         {menuOpen && <div className="menu-scrim" onClick={() => setMenuOpen(false)} />}
         <div className={`header-menu${menuOpen ? " open" : ""}`}>
-          <Link href="/" className={`auth-link${pathname === "/" ? " active" : ""}`}>
+          <Link href="/" className={`auth-link header-menu-link${pathname === "/" ? " active" : ""}`}>
+            <CalendarDays size={18} strokeWidth={1.75} />
             {t("eventsNav")}
           </Link>
-          <Link href="/info" className={`auth-link${pathname === "/info" ? " active" : ""}`}>
+          <Link href="/info" className={`auth-link header-menu-link${pathname === "/info" ? " active" : ""}`}>
+            <Bus size={18} strokeWidth={1.75} />
             {t("usefulInfoNav")}
           </Link>
           <Link
             href={lang === "en" ? "/en/events" : "/eventi"}
-            className={`auth-link${pathname.startsWith("/eventi") || pathname.startsWith("/en/events") ? " active" : ""}`}
+            className={`auth-link header-menu-link${pathname.startsWith("/eventi") || pathname.startsWith("/en/events") ? " active" : ""}`}
           >
+            <MapPin size={18} strokeWidth={1.75} />
             {t("citiesNav")}
           </Link>
 

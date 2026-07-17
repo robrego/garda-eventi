@@ -34,7 +34,7 @@ export default function TownPageBody({
 
   return (
     <div className="app">
-      <SeoPageHeader lang={lang} siblingHref={siblingHref} />
+      <SeoPageHeader lang={lang} siblingHref={siblingHref} mapHref={mapHref} townsIndexHref={indexHref} />
 
       <Link href={indexHref} className="info-back-link">
         {translate("backToTowns", lang)}
