@@ -462,15 +462,17 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 .menu-toggle {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
+  gap: 7px;
+  padding: 9px 16px 9px 14px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 999px;
   background: rgba(226, 238, 236, 0.7);
   backdrop-filter: blur(10px) saturate(160%);
   -webkit-backdrop-filter: blur(10px) saturate(160%);
   color: var(--lake-deep);
+  font-family: "Work Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(44, 106, 114, 0.1);
 }

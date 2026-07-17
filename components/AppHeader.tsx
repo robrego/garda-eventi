@@ -36,10 +36,10 @@ export default function AppHeader({
           type="button"
           className="menu-toggle"
           onClick={() => setMenuOpen((o) => !o)}
-          aria-label={t("ariaMenu")}
           aria-expanded={menuOpen}
         >
           <BurgerIcon />
+          <span>{t("ariaMenu")}</span>
         </button>
         {menuOpen && <div className="menu-scrim" onClick={() => setMenuOpen(false)} />}
         <div className={`header-menu${menuOpen ? " open" : ""}`}>
