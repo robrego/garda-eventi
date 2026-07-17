@@ -6,16 +6,9 @@ import { usePathname } from "next/navigation";
 import { Bus, CalendarDays, MapPin } from "lucide-react";
 import AuthWidget from "@/components/AuthWidget";
 import BrandMark from "@/components/BrandMark";
+import BurgerIcon from "@/components/BurgerIcon";
 import ChevronDownIcon from "@/components/ChevronDownIcon";
 import { useLang } from "@/components/LanguageProvider";
-
-function BurgerIcon() {
-  return (
-    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="20" height="20">
-      <path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 export default function AppHeader({
   email,

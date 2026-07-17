@@ -105,11 +105,11 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 
 .ribbon-wrap { position: relative; margin: 0 0 18px; background: white; border-radius: 22px; padding: 10px 10px 8px; }
 
-.ribbon-nav { position: absolute; top: 32px; right: 10px; z-index: 2; display: flex; gap: 6px; }
+.ribbon-nav { position: absolute; top: 32px; right: 10px; z-index: 2; display: flex; flex-direction: column; gap: 4px; }
 .ribbon-nav button { border: none; background: rgba(44, 106, 114, 0.08); color: var(--lake-deep); width: 42px; height: 42px; border-radius: 11px; cursor: pointer; font-size: 17px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
 .ribbon-nav button:hover { background: rgba(44, 106, 114, 0.14); }
 
-.ribbon-track { position: relative; display: flex; gap: 8px; overflow-x: hidden; padding-bottom: 6px; padding-right: 100px; }
+.ribbon-track { position: relative; display: flex; gap: 8px; overflow-x: hidden; padding-bottom: 6px; padding-right: 58px; }
 
 .day-chip { position: relative; z-index: 1; flex: 0 0 auto; width: 60px; text-align: center; padding: 8px 0; border-radius: 12px; cursor: pointer; border: none; background: transparent; }
 .day-chip .dow { font-size: 13px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--lake-mid); font-weight: 700; }
@@ -641,8 +641,9 @@ header.top { display: flex; align-items: center; justify-content: space-between;
   .date-picker-label { padding: 11px 18px; }
   .add-event-btn { padding: 11px 20px; }
   .ribbon-wrap { padding: 22px 24px 18px; margin-bottom: 28px; }
-  .ribbon-nav { top: 48px; right: 24px; }
+  .ribbon-nav { top: 48px; right: 24px; flex-direction: row; gap: 6px; }
   .ribbon-nav button { width: 36px; height: 36px; font-size: 15px; }
+  .ribbon-track { padding-right: 100px; }
   .day-chip { width: 68px; padding: 10px 0; }
   .day-chip .num { font-size: 23px; }
   .filters { margin-bottom: 18px; }
@@ -730,13 +731,10 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 .info-card p { margin: 0 0 10px; font-size: 17px; line-height: 1.5; color: var(--ink); }
 .info-card-link { font-size: 14.5px; color: var(--lake-deep); text-decoration: underline; word-break: break-all; }
 
-/* Static SEO pages (town directory + town landing pages): minimal header,
-   read-only event cards, and a simple grouped link directory. */
+/* Static SEO pages (town directory + town landing pages): same interactive
+   header as the rest of the app (see SeoPageHeader.tsx), read-only event
+   cards, and a simple grouped link directory. */
 .seo-brand-link { display: inline-flex; text-decoration: none; color: inherit; }
-
-.seo-header-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
-.seo-nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.seo-nav .header-menu-link.active { color: var(--green); }
 
 .seo-lang-toggle {
   display: flex;
