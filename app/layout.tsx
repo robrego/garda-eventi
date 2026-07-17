@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL } from "@/lib/siteUrl";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const title = "Lago di Garda e Dintorni – Eventi";
 const description = "Eventi sul Lago di Garda, sponda lombarda e veneta, giorno per giorno.";
 

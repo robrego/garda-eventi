@@ -4,12 +4,11 @@ import { townFromSlug } from "@/lib/townSlugs";
 import { getUpcomingTownEvents } from "@/lib/townPageData";
 import { townMetaTitle, townMetaDescription } from "@/lib/i18n";
 import TownPageBody from "@/components/TownPageBody";
+import { SITE_URL } from "@/lib/siteUrl";
 
 // Blob-backed manual/scraped events bypass Next's fetch cache — same
 // rationale as app/page.tsx, so this can't be safely statically generated.
 export const dynamic = "force-dynamic";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export async function generateMetadata({ params }: { params: { town: string } }): Promise<Metadata> {
   const town = townFromSlug(params.town);

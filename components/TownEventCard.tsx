@@ -11,7 +11,12 @@ export default function TownEventCard({ event: e, lang }: { event: EventItem; la
       <div className="event-card-body">
         <div className="event-cover-col">
           {e.image ? (
-            <img src={e.image} alt="" className="event-cover" loading="lazy" />
+            <img
+              src={e.image}
+              alt={lang === "en" ? e.titleEn ?? e.title : e.title}
+              className="event-cover"
+              loading="lazy"
+            />
           ) : (
             <div className="event-cover-placeholder" aria-hidden="true">
               <CoverPlaceholder town={e.town} />

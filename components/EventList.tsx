@@ -112,7 +112,7 @@ export default function EventList({
                   >
                     <img
                       src={e.image}
-                      alt=""
+                      alt={lang === "en" ? e.titleEn ?? e.title : e.title}
                       className="event-cover"
                       loading="lazy"
                       onError={() => {
@@ -124,7 +124,7 @@ export default function EventList({
                 ) : (
                   <img
                     src={e.image}
-                    alt=""
+                    alt={lang === "en" ? e.titleEn ?? e.title : e.title}
                     className="event-cover"
                     loading="lazy"
                     onError={() => {

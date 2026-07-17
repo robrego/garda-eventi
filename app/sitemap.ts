@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { TOWNS } from "@/data/config";
 import { slugifyTown } from "@/lib/townSlugs";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

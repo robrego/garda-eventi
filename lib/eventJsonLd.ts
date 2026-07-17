@@ -3,13 +3,36 @@ import type { Lang } from "@/lib/i18n";
 
 const TIME_PREFIX_RE = /^(\d{2}):(\d{2})/;
 
-// Most curated events have an "HH:MM–HH:MM" time; a handful use a
-// descriptive label instead (see translateTime in data/config.ts) — those
-// fall back to a date-only startDate, which schema.org's Event also allows.
+// A handful of curated events use a descriptive time (see TIME_LABELS_EN in
+// data/config.ts) instead of an "HH:MM–HH:MM" range. Google's Event
+// rich-result eligibility wants a real startDate with a time, so these get
+// a reasonable default clock time rather than a date-only value.
+const DEFAULT_TIME_FOR_LABEL: Record<string, string> = {
+  "giornata intera": "09:00",
+  "in giornata": "09:00",
+  "in serata": "20:00",
+  "mattina": "09:00",
+  "pomeriggio": "15:00",
+};
+const DEFAULT_TIME_FALLBACK = "09:00";
+
+// EU DST (last Sunday of March to last Sunday of October) via Intl's own
+// Europe/Rome data, so this stays correct without a hand-maintained table.
+function utcOffsetFor(date: Date): string {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Europe/Rome",
+    timeZoneName: "shortOffset",
+  }).formatToParts(date);
+  const tzName = parts.find((p) => p.type === "timeZoneName")?.value ?? "GMT+1";
+  const hours = parseInt(tzName.replace("GMT", ""), 10) || 0;
+  return `${hours >= 0 ? "+" : "-"}${String(Math.abs(hours)).padStart(2, "0")}:00`;
+}
+
 function startDateFor(e: EventItem): string {
   const m = e.time.match(TIME_PREFIX_RE);
-  if (!m) return e.date;
-  return `${e.date}T${m[1]}:${m[2]}:00`;
+  const hm = m ? `${m[1]}:${m[2]}` : DEFAULT_TIME_FOR_LABEL[e.time] ?? DEFAULT_TIME_FALLBACK;
+  const offset = utcOffsetFor(new Date(`${e.date}T00:00:00Z`));
+  return `${e.date}T${hm}:00${offset}`;
 }
 
 export function buildEventJsonLd(events: EventItem[], town: string, lang: Lang, pageUrl: string) {

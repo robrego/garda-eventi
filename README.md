@@ -13,6 +13,14 @@ npm run dev
 
 Open http://localhost:3000
 
+Canonical URLs, `sitemap.xml`, `robots.txt`, and Open Graph tags (see "SEO
+town pages" below) are built from `lib/siteUrl.ts`, which tries
+`NEXT_PUBLIC_SITE_URL` first, then Vercel's own
+`VERCEL_PROJECT_PRODUCTION_URL` (set automatically on every deployment —
+e.g. `garda-app.vercel.app`), then falls back to `http://localhost:3000`
+for local dev. Set `NEXT_PUBLIC_SITE_URL` once a real custom domain is
+live; until then it works correctly with no configuration.
+
 Useful commands:
 
 ```bash
@@ -26,9 +34,16 @@ npx tsc --noEmit   # type-check without emitting files
 
 ```
 app/
-  layout.tsx              # fonts, metadata
+  layout.tsx              # fonts, metadata (metadataBase, default OG/Twitter)
   page.tsx                # server entry point: calls getAllEvents(), mounts EventsApp
   globals.css             # all styles
+  sitemap.ts              # MetadataRoute.Sitemap: homepage, /info, town directories + pages
+  robots.ts               # MetadataRoute.Robots, points at sitemap.ts
+  info/page.tsx            # "Trasporti" useful-info page
+  eventi/                 # IT SEO town pages (see "SEO town pages" below)
+    page.tsx               # town directory, grouped by region
+    [town]/page.tsx         # one town's upcoming events + Event JSON-LD
+  en/events/               # English mirror of app/eventi/, same structure
   api/
     auth/{login,register,logout,me}/route.ts   # session via JWT cookie
     events/{manual,image,desc}/route.ts        # submissions from authenticated users
@@ -37,16 +52,24 @@ components/
   EventsApp.tsx           # main state (date, filters, view, mobile menu)
   DateRibbon.tsx          # 7-day ribbon + week navigation
   Filters.tsx             # date picker + town filter + view selector + IT/EN
-  EventList.tsx           # the day's event list
+  EventList.tsx           # the day's event list (interactive: select/edit/delete)
+  EventDisplay.tsx        # presentational pieces shared by EventList and the
+                            # static SEO cards: icons, cover placeholder,
+                            # source-link detection, date formatting
   EventMap.tsx            # Leaflet map (client-only, dynamic import in EventsApp)
   AuthWidget.tsx           # login/register/logout, opens AddEventForm
   AddEventForm.tsx         # manual event submission (logged-in users)
   EditDescForm.tsx         # override an existing event's description
   AddCoverForm.tsx         # override an existing event's cover image
-  LanguageProvider.tsx     # IT/EN context, persisted to localStorage
+  LanguageProvider.tsx     # IT/EN context, persisted to localStorage (interactive app only)
+  AppHeader.tsx            # header for the interactive app: nav, IT/EN toggle, auth
+  SeoPageHeader.tsx        # minimal header for the SEO pages: fixed-locale, no client state
+  TownDirectoryBody.tsx    # town-directory page body, reused by app/eventi and app/en/events
+  TownPageBody.tsx         # town landing-page body: date-grouped events + JSON-LD script tag
+  TownEventCard.tsx        # read-only event card for the SEO pages (no edit/delete/select)
 data/
   events.json             # real events collected by hand from official sources
-  config.ts               # town coordinates, categories (IT/EN), market days
+  config.ts               # town coordinates, categories (IT/EN), market days, area grouping
   getEvents.ts            # merges curated + manual + scraped + recurring markets
   scrapers/
     index.ts              # list of active scrapers (SCRAPERS)
@@ -57,6 +80,10 @@ lib/
   imageOverrides.ts       # cover-image override for an existing event (Blob)
   descOverrides.ts        # description override for an existing event (Blob)
   i18n.ts                 # IT/EN string dictionary + day/month names
+  townSlugs.ts            # town name <-> URL slug (accent-stripped), for the SEO pages
+  townPageData.ts         # fetches + filters + groups a town's upcoming events by date
+  eventJsonLd.ts           # builds the schema.org Event JSON-LD for a town page
+  siteUrl.ts               # resolves the absolute site origin (see "Quick start" above)
 vercel.json               # scraper cron schedule
 ```
 
@@ -97,6 +124,36 @@ vercel.json               # scraper cron schedule
   overrides, scraper cache) lives on Vercel Blob as JSON. The natural next
   step remains replacing `events.json` with Supabase (suggested schema
   below) if the volume of data/writes grows.
+
+### SEO town pages
+
+The interactive app (`app/page.tsx`) is a single client-rendered page with
+no URL-driven state, so it's effectively one page for Google to index. To
+give town-specific searches ("eventi Salò") something to rank,
+`app/eventi/[town]/page.tsx` and its English mirror
+`app/en/events/[town]/page.tsx` are separate, statically-linked server
+pages — one per town, in both languages (`lib/townSlugs.ts` derives the
+URL slug from the town name, so a new town added to `TOWN_COORDS` gets a
+page automatically, no separate slug list to maintain).
+
+Each town page (`components/TownPageBody.tsx`) fetches that town's
+upcoming events via `lib/townPageData.ts` (same `getAllEvents()` used by
+the interactive app), renders them read-only
+(`components/TownEventCard.tsx` — no select/edit/delete, so no client JS
+ships for that), and exports `generateMetadata` with a canonical URL,
+`hreflang` alternates linking the IT/EN twin, Open Graph/Twitter tags, and
+an embedded `Event` JSON-LD script (`lib/eventJsonLd.ts`). Language on
+these pages is fixed by the route, not the interactive app's
+`localStorage`-driven toggle (see `SeoPageHeader.tsx` — its language
+switch is a real link to the sibling URL). `app/eventi/page.tsx` /
+`app/en/events/page.tsx` are directory pages linking every town, grouped by
+region (`groupTownsByArea` in `data/config.ts`). `app/sitemap.ts` lists all
+of it; `app/robots.ts` points at the sitemap and blocks `/api/` and
+`/admin`.
+
+These pages read live Blob-backed data (manual submissions, scraper
+output) like the homepage, so they're `force-dynamic` rather than
+statically generated at build time — same rationale as `app/page.tsx`.
 
 ### Active scraper sources
 
@@ -163,13 +220,13 @@ array. Remember to filter to in-scope towns only (`TOWNS`/`TOWN_COORDS` in
 Events in `data/events.json` cover the whole lake within about 50 km of
 Desenzano — Lombardy, Veneto and Trentino shores, plus the hinterland —
 collected by hand from official sites of comuni, tourist offices and
-organizers (not a live feed — dates can change). 42 towns total
+organizers (not a live feed — dates can change). 50 towns total
 (`data/config.ts` → `TOWN_COORDS`), grouped by region in the town filter
 (`TOWN_AREAS`/`AREA_ORDER` — region, not shore, since e.g. Peschiera is
 administratively Veneto despite sitting at the lake's southern tip):
-Lombardia 22, Veneto 15, Trentino 5 towns — see `TOWN_AREAS` in
+Lombardia 30, Veneto 15, Trentino 5 towns — see `TOWN_AREAS` in
 `data/config.ts` for the full, current list rather than duplicating it
-here, since it grows over time. Hinterland towns are within ~1.6-10.7 km of
+here, since it grows over time. Hinterland towns are within ~1.6-12.1 km of
 the nearest coastal town, found by checking each existing town's bordering
 comuni on Wikipedia and verifying distance — never estimated from memory,
 since a wrong pin is a visible bug on a map.
@@ -192,8 +249,8 @@ names stay as plain text, so we never invent a URL we haven't verified.
 - **New town**: add its coordinates to `TOWN_COORDS`, its market day to
   `MARKET_DAYS` (if known), and its region to `TOWN_AREAS` in
   `data/config.ts` (plus `AREA_LABELS_EN` only if adding a 4th region). The
-  dropdown filter and the map pick it up automatically, no need to touch
-  the components.
+  dropdown filter, the map, and the SEO town directory/pages (see above)
+  all pick it up automatically, no need to touch the components.
 
 ## Suggested next steps
 
