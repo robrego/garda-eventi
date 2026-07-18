@@ -11,26 +11,22 @@ export type ViewMode = "split" | "list" | "map";
 export default function Filters({
   selectedTowns,
   setSelectedTowns,
-  view,
-  setView,
   selectedDateLabel,
   selectedDate,
   onDatePick,
+  dateHeading,
 }: {
   selectedTowns: string[];
   setSelectedTowns: (towns: string[]) => void;
-  view: ViewMode;
-  setView: (v: ViewMode) => void;
   selectedDateLabel: string;
   selectedDate: string;
   onDatePick: (value: string) => void;
+  dateHeading: string;
 }) {
   const { lang, t } = useLang();
-  const [viewMenuOpen, setViewMenuOpen] = useState(false);
   const [townMenuOpen, setTownMenuOpen] = useState(false);
   const townsByArea = groupTownsByArea(lang);
 
-  const viewLabel = view === "split" ? t("viewSplit") : view === "list" ? t("viewList") : t("viewMap");
   const townLabel =
     selectedTowns.length === 0
       ? t("allTowns")
@@ -107,55 +103,7 @@ export default function Filters({
         )}
       </div>
 
-      <div className="view-select">
-        <button
-          type="button"
-          className="view-select-btn"
-          onClick={() => setViewMenuOpen((o) => !o)}
-          aria-label={t("ariaViewSelect")}
-          aria-expanded={viewMenuOpen}
-        >
-          <span>{viewLabel}</span>
-          <ChevronDownIcon />
-        </button>
-        {viewMenuOpen && (
-          <>
-            <div className="menu-scrim" onClick={() => setViewMenuOpen(false)} />
-            <div className="view-select-menu">
-              <button
-                type="button"
-                className={view === "split" ? "active" : ""}
-                onClick={() => {
-                  setView("split");
-                  setViewMenuOpen(false);
-                }}
-              >
-                {t("viewSplit")}
-              </button>
-              <button
-                type="button"
-                className={view === "list" ? "active" : ""}
-                onClick={() => {
-                  setView("list");
-                  setViewMenuOpen(false);
-                }}
-              >
-                {t("viewList")}
-              </button>
-              <button
-                type="button"
-                className={view === "map" ? "active" : ""}
-                onClick={() => {
-                  setView("map");
-                  setViewMenuOpen(false);
-                }}
-              >
-                {t("viewMap")}
-              </button>
-            </div>
-          </>
-        )}
-      </div>
+      <div className="filters-date-heading">{dateHeading}</div>
     </div>
   );
 }

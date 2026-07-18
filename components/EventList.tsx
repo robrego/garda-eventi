@@ -4,16 +4,14 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { EventItem, CATEGORIES, CATEGORIES_EN, translateTime } from "@/data/config";
 import EditDescForm from "@/components/EditDescForm";
-import { LinkArrowIcon, CoverPlaceholder, dateFromISO, formatDate } from "@/components/EventDisplay";
+import { LinkArrowIcon, CoverPlaceholder } from "@/components/EventDisplay";
 import { useLang } from "@/components/LanguageProvider";
-import { eventsCountLabel } from "@/lib/i18n";
 
 // Pulls in the Vercel Blob client-upload bundle, only needed once someone
 // actually opens the form — not worth it in every visitor's initial load.
 const AddCoverForm = dynamic(() => import("@/components/AddCoverForm"), { ssr: false });
 
 export default function EventList({
-  selectedDate,
   events,
   selectedId,
   onSelect,
@@ -23,7 +21,6 @@ export default function EventList({
   onDescSaved,
   onDeleted,
 }: {
-  selectedDate: string;
   events: EventItem[];
   selectedId: string | null;
   onSelect: (id: string) => void;
@@ -38,7 +35,6 @@ export default function EventList({
   const [descTarget, setDescTarget] = useState<EventItem | null>(null);
   const [brokenImages, setBrokenImages] = useState<Set<string>>(new Set());
   const [deleting, setDeleting] = useState<Set<string>>(new Set());
-  const d = dateFromISO(selectedDate);
   const sorted = [...events].sort((a, b) => {
     if (a.cat === "market" && b.cat !== "market") return 1;
     if (a.cat !== "market" && b.cat === "market") return -1;
@@ -67,10 +63,6 @@ export default function EventList({
 
   return (
     <div className="list-col">
-      <div className="date-heading">
-        {formatDate(d, lang)} · {eventsCountLabel(sorted.length, lang)}
-      </div>
-
       {sorted.length === 0 && (
         <div className="empty-state">
           <div className="glyph">〜</div>

@@ -10,6 +10,8 @@ import EventList from "@/components/EventList";
 import { EventItem } from "@/data/config";
 import { useLang } from "@/components/LanguageProvider";
 import { useAuthUser } from "@/lib/useAuthUser";
+import { formatDate } from "@/components/EventDisplay";
+import { eventsCountLabel } from "@/lib/i18n";
 
 // Leaflet touches `window`, so the map must be client-only with SSR disabled.
 const EventMap = dynamic(() => import("@/components/EventMap"), {
@@ -68,6 +70,8 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
     .filter(Boolean)
     .join(" ");
 
+  const dateHeading = `${formatDate(dateFromISO(selectedDate), lang)} · ${eventsCountLabel(dayEvents.length, lang)}`;
+
   const handleDatePick = (value: string) => {
     if (!value) return;
     setSelectedDate(value);
@@ -91,11 +95,10 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
       <Filters
         selectedTowns={selectedTowns}
         setSelectedTowns={setSelectedTowns}
-        view={view}
-        setView={setView}
         selectedDateLabel={selectedDateLabel}
         selectedDate={selectedDate}
         onDatePick={handleDatePick}
+        dateHeading={dateHeading}
       />
 
       <div className={layoutClass}>
@@ -105,7 +108,6 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
           </div>
         </div>
         <EventList
-          selectedDate={selectedDate}
           events={dayEvents}
           selectedId={selectedId}
           onSelect={setSelectedId}
