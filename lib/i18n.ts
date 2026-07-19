@@ -94,6 +94,7 @@ const STRINGS = {
   },
   backToTowns: { it: "← Tutte le città", en: "← All towns" },
   viewInteractiveMap: { it: "Vedi sulla mappa interattiva", en: "View on the interactive map" },
+  whereToStay: { it: "Dove dormire", en: "Where to stay" },
 } satisfies Record<string, Record<Lang, string>>;
 
 export type StringKey = keyof typeof STRINGS;

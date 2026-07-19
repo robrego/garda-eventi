@@ -706,6 +706,8 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 .info-card-icon.icon-ferry    { background: #e2eeec; border-color: rgba(44, 106, 114, 0.18); color: #2c6a72; }
 .info-card-icon.icon-cablecar { background: #f0e7f6; border-color: rgba(107, 63, 149, 0.18); color: #6b3f95; }
 .info-card-icon.icon-bike     { background: #e7f4ea; border-color: rgba(47, 122, 74, 0.18); color: #2f7a4a; }
+.info-card-icon.icon-stay     { background: var(--green-soft); border-color: rgba(47, 122, 74, 0.18); color: #2f7a4a; }
+.town-partner { margin-top: 32px; }
 .info-card-body { min-width: 0; }
 .info-card-area {
   display: inline-block;
