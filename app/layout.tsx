@@ -13,6 +13,20 @@ export const metadata: Metadata = {
   description,
   openGraph: { title, description, url: "/", siteName: title, locale: "it_IT", type: "website" },
   twitter: { card: "summary_large_image", title, description },
+  icons: {
+    // Explicit list, not the app/icon.* file convention: Next only emits one
+    // <link rel="icon"> when multiple same-named files exist (it picked PNG
+    // over SVG silently), so both are named as static /public assets and
+    // declared here instead to get both tags — Google's search-result
+    // favicon crawler has documented inconsistent SVG-only support, so a
+    // PNG fallback needs to actually be present in the HTML, not just exist
+    // as an unreferenced file.
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
