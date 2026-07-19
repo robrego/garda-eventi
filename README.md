@@ -18,8 +18,10 @@ town pages" below) are built from `lib/siteUrl.ts`, which tries
 `NEXT_PUBLIC_SITE_URL` first, then Vercel's own
 `VERCEL_PROJECT_PRODUCTION_URL` (set automatically on every deployment —
 e.g. `garda-app.vercel.app`), then falls back to `http://localhost:3000`
-for local dev. Set `NEXT_PUBLIC_SITE_URL` once a real custom domain is
-live; until then it works correctly with no configuration.
+for local dev. Production domain is `https://www.gardaday.com` — set
+`NEXT_PUBLIC_SITE_URL=https://www.gardaday.com` in the Vercel project's
+environment variables (Production) so canonical/OG/sitemap URLs resolve to
+it instead of the `.vercel.app` alias.
 
 Useful commands:
 
@@ -39,6 +41,8 @@ app/
   globals.css             # all styles
   sitemap.ts              # MetadataRoute.Sitemap: homepage, /info, town directories + pages
   robots.ts               # MetadataRoute.Robots, points at sitemap.ts
+  manifest.ts              # MetadataRoute.Manifest, add-to-home-screen metadata
+  opengraph-image.tsx      # default OG/Twitter share image (next/og), inherited by all routes
   info/page.tsx            # "Trasporti" useful-info page
   eventi/                 # IT SEO town pages (see "SEO town pages" below)
     page.tsx               # town directory, grouped by region
@@ -160,10 +164,17 @@ statically generated at build time — same rationale as `app/page.tsx`.
 - **Municipium** (`municipium.ts`): generic parser for comuni on the
   Municipium CMS, which exposes an `/it/eventi/feed` RSS feed — active for
   Peschiera, Garda, Bussolengo, Calvagese della Riviera, Cavaion Veronese,
-  Costermano sul Garda, Affi, and Brenzone sul Garda (its real domain is
+  Costermano sul Garda, Affi, Brenzone sul Garda (its real domain is
   `comune.brenzone.vr.it`, not the more obvious
   `comune.brenzonesulgarda.vr.it` — always verify the actual domain, don't
-  assume the "sul/del Garda" pattern holds).
+  assume the "sul/del Garda" pattern holds), Montichiari, Carpenedolo,
+  Brentino Belluno, and Dolcè (the last two confirmed via their
+  `*-api.municipiumapp.it` image CDN domain and a structurally valid, if
+  currently empty, RSS feed — both feeds and Montichiari/Carpenedolo's
+  return HTTP 403 to requests from this dev sandbox, almost certainly a
+  Cloudflare/WAF block on the sandbox's IP rather than the towns not
+  actually running Municipium; verify the feed is populating from the
+  production cron before trusting it fully).
 
 Checked every other town without curated events for a scrapable source on
 its own site — none of these have a feed/API, only a real events page as
@@ -180,6 +191,26 @@ site), so they're left for hand curation for now:
 - **Polpenazze del Garda, Prevalle, Puegnago del Garda, Valeggio sul
   Mincio, Tignale, San Zeno di Montagna, Soiano del Lago, Tenno, Dro,
   Arco**: no feed found, CMS not identified beyond that.
+- **Roè Volciano, Vobarno, Valvestino, Magasa, Paitone, Nuvolento, Vallio
+  Terme, Odolo, Preseglie, Barghe**: same SecovalWEB template as
+  Muscoline/Bedizzole/Gavardo (confirms it's common across small
+  Brescia-province comuni), `/it/eventi/feed` 404s on all of them, no
+  other feed found. Roè Volciano, Vobarno, Paitone, Valvestino and Magasa
+  had hand-curatable events on their own site or on `visitvalvestino.it`
+  (the shared Alto Garda Bresciano tourism portal for Valvestino/Magasa);
+  Nuvolento, Odolo, Preseglie, Barghe had none confirmed for 2026 as of
+  2026-07-17.
+- **Pozzolengo, Ponti sul Mincio, Monzambano, Volta Mantovana, Rivoli
+  Veronese, Ferrara di Monte Baldo, Caprino Veronese, Sant'Ambrogio di
+  Valpolicella, Sona, Fumane, Sommacampagna, Drena**: no feed on the
+  comune site (mix of MyCity, AGID/Bootstrap-Italia, Magnolia CMS,
+  OpenCity Italia, or a WordPress install whose `/it/eventi/feed` is real
+  RSS but permanently empty). Ferrara di Monte Baldo, Monzambano, Sona,
+  Fumane, Sommacampagna and Drena had hand-curatable events with a primary
+  source (comune site or official tourism board); the rest had only
+  secondary-press coverage (bresciatoday.it, mantovanotizie.com,
+  veronaoggi.it, radiopico.it) or no confirmed 2026 date, so nothing was
+  added for them yet.
 
 ### Sourcing policy: primary sources only
 

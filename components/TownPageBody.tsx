@@ -4,7 +4,8 @@ import type { EventItem } from "@/data/config";
 import { translate, townMetaTitle, townMetaDescription, type Lang } from "@/lib/i18n";
 import { formatDate, dateFromISO } from "@/components/EventDisplay";
 import { groupEventsByDate } from "@/lib/townPageData";
-import { buildEventJsonLd, jsonLdScriptProps } from "@/lib/eventJsonLd";
+import { buildEventJsonLd, buildBreadcrumbJsonLd, jsonLdScriptProps } from "@/lib/eventJsonLd";
+import { SITE_URL } from "@/lib/siteUrl";
 import TownEventCard from "@/components/TownEventCard";
 import SeoPageHeader from "@/components/SeoPageHeader";
 
@@ -31,6 +32,13 @@ export default function TownPageBody({
 }) {
   const grouped = groupEventsByDate(events);
   const jsonLd = buildEventJsonLd(events, town, lang, pageUrl);
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd({
+    town,
+    lang,
+    homeUrl: `${SITE_URL}${mapHref}`,
+    indexUrl: `${SITE_URL}${indexHref}`,
+    pageUrl,
+  });
 
   return (
     <div className="app">
@@ -72,6 +80,10 @@ export default function TownPageBody({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLdScriptProps(jsonLd)}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLdScriptProps(breadcrumbJsonLd)}
       />
     </div>
   );

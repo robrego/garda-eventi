@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: { town: string } })
       languages: { it: itPath, en: enPath, "x-default": itPath },
     },
     openGraph: { title, description, url: itPath, locale: "it_IT", type: "website" },
-    twitter: { card: "summary", title, description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

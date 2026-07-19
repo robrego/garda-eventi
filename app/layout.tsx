@@ -4,14 +4,15 @@ import { Analytics } from "@vercel/analytics/next";
 import { SITE_URL } from "@/lib/siteUrl";
 
 const title = "Lago di Garda e Dintorni – Eventi";
-const description = "Eventi sul Lago di Garda, sponda lombarda e veneta, giorno per giorno.";
+const description =
+  "Sagre, mercati, concerti e feste sul Lago di Garda: Lombardia, Veneto e Trentino. Eventi di oggi e dei prossimi giorni, aggiornati ogni settimana.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,
   openGraph: { title, description, url: "/", siteName: title, locale: "it_IT", type: "website" },
-  twitter: { card: "summary", title, description },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

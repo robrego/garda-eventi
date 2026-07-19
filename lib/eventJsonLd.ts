@@ -58,6 +58,30 @@ export function buildEventJsonLd(events: EventItem[], town: string, lang: Lang, 
   return { "@context": "https://schema.org", "@graph": graph };
 }
 
+export function buildBreadcrumbJsonLd({
+  town,
+  lang,
+  homeUrl,
+  indexUrl,
+  pageUrl,
+}: {
+  town: string;
+  lang: Lang;
+  homeUrl: string;
+  indexUrl: string;
+  pageUrl: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: homeUrl },
+      { "@type": "ListItem", position: 2, name: lang === "en" ? "Events" : "Eventi", item: indexUrl },
+      { "@type": "ListItem", position: 3, name: town, item: pageUrl },
+    ],
+  };
+}
+
 // `<` is escaped so a `</script>` (or similar) inside an event description
 // can't break out of the JSON-LD <script> tag it's embedded in.
 export function jsonLdScriptProps(data: unknown) {
