@@ -6,7 +6,7 @@ export default function BrandMark({ as: Tag = "h1" }: { as?: "h1" | "p" }) {
     <div className="brand-mark">
       <svg width="46" height="28" viewBox="0 0 42 26" fill="none">
         <path d="M3 9c4-3 8-3 12 0s8 3 12 0 8-3 12 0" stroke="#1e4d54" strokeWidth="2.6" strokeLinecap="round" fill="none" />
-        <path d="M3 18c4-3 8-3 12 0s8 3 12 0 8-3 12 0" stroke="#357f4e" strokeWidth="2.6" strokeLinecap="round" fill="none" />
+        <path d="M3 18c4-3 8-3 12 0s8 3 12 0 8-3 12 0" stroke="#2c6a72" strokeWidth="2.6" strokeLinecap="round" fill="none" />
       </svg>
       <Tag className="brand-mark-text">Lago di Garda</Tag>
     </div>
