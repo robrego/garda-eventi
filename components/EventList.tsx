@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { EventItem, CATEGORIES, CATEGORIES_EN, translateTime } from "@/data/config";
 import EditDescForm from "@/components/EditDescForm";
 import { LinkArrowIcon, CoverPlaceholder } from "@/components/EventDisplay";
 import { useLang } from "@/components/LanguageProvider";
+import { isOptimizableImageHost } from "@/lib/imageHosts";
 
 // Pulls in the Vercel Blob client-upload bundle, only needed once someone
 // actually opens the form — not worth it in every visitor's initial load.
@@ -103,11 +105,13 @@ export default function EventList({
                     }}
                     aria-label={t("ariaChangeCover")}
                   >
-                    <img
+                    <Image
                       src={e.image}
                       alt={lang === "en" ? e.titleEn ?? e.title : e.title}
                       className="event-cover"
-                      loading="lazy"
+                      width={92}
+                      height={130}
+                      unoptimized={!isOptimizableImageHost(e.image)}
                       onError={() => {
                         setBrokenImages((prev) => new Set(prev).add(e.id));
                       }}
@@ -115,11 +119,13 @@ export default function EventList({
                     <span className="event-cover-edit-overlay">{t("editLink")}</span>
                   </button>
                 ) : (
-                  <img
+                  <Image
                     src={e.image}
                     alt={lang === "en" ? e.titleEn ?? e.title : e.title}
                     className="event-cover"
-                    loading="lazy"
+                    width={92}
+                    height={130}
+                    unoptimized={!isOptimizableImageHost(e.image)}
                     onError={() => {
                       setBrokenImages((prev) => new Set(prev).add(e.id));
                     }}

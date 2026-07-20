@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { EventItem, CATEGORIES, CATEGORIES_EN, translateTime } from "@/data/config";
 import { LinkArrowIcon, CoverPlaceholder } from "@/components/EventDisplay";
 import { translate, type Lang } from "@/lib/i18n";
+import { isOptimizableImageHost } from "@/lib/imageHosts";
 
 // Read-only counterpart to EventList's event card, for the static/SEO town
 // pages: no select/edit/delete/cover-upload affordances, so it's a plain
@@ -11,11 +13,13 @@ export default function TownEventCard({ event: e, lang }: { event: EventItem; la
       <div className="event-card-body">
         <div className="event-cover-col">
           {e.image ? (
-            <img
+            <Image
               src={e.image}
               alt={lang === "en" ? e.titleEn ?? e.title : e.title}
               className="event-cover"
-              loading="lazy"
+              width={92}
+              height={130}
+              unoptimized={!isOptimizableImageHost(e.image)}
             />
           ) : (
             <div className="event-cover-placeholder" aria-hidden="true">
