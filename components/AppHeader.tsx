@@ -24,7 +24,7 @@ export default function AppHeader({
 
   return (
     <header className="top">
-      <BrandMark />
+      <BrandMark title={pathname === "/info" ? t("usefulInfoNav") : undefined} />
       <div className="header-actions">
         <Link
           href="/info"

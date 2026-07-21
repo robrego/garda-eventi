@@ -21,7 +21,6 @@ export default function UsefulInfoPage() {
         {t("backToMap")}
       </Link>
 
-      <h2 className="info-page-title">{t("usefulInfoTitle")}</h2>
       <p className="info-page-subtitle">{t("usefulInfoSubtitle")}</p>
 
       <div className="info-list">
@@ -30,7 +29,7 @@ export default function UsefulInfoPage() {
           return (
             <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer" className="info-card">
               <div className={`info-card-icon icon-${link.icon}`} aria-hidden="true">
-                <Icon size={24} strokeWidth={1.75} />
+                <Icon size={26} strokeWidth={1.75} />
               </div>
               <div className="info-card-body">
                 <span className="info-card-area">{lang === "en" ? link.areaEn : link.area}</span>
