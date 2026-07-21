@@ -49,4 +49,24 @@ export const SCRAPERS = [
     "https://comune.brenzone.vr.it/it/eventi/feed",
     "comune.brenzone.vr.it"
   ),
+  createMunicipiumScraper(
+    "Montichiari",
+    "https://www.comune.montichiari.bs.it/it/eventi/feed",
+    "comune.montichiari.bs.it"
+  ),
+  createMunicipiumScraper(
+    "Carpenedolo",
+    "https://www.comune.carpenedolo.bs.it/it/eventi/feed",
+    "comune.carpenedolo.bs.it"
+  ),
+  createMunicipiumScraper(
+    "Brentino Belluno",
+    "https://comune.brentino.vr.it/it/eventi/feed",
+    "comune.brentino.vr.it"
+  ),
+  createMunicipiumScraper(
+    "Dolcè",
+    "https://comune.dolce.vr.it/it/eventi/feed",
+    "comune.dolce.vr.it"
+  ),
 ];

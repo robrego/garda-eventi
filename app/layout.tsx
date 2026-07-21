@@ -1,7 +1,21 @@
 import type { Metadata } from "next";
+import { Bricolage_Grotesque, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SITE_URL } from "@/lib/siteUrl";
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-work-sans",
+  display: "swap",
+});
 
 const title = "Lago di Garda e Dintorni – Eventi";
 const description =
@@ -31,14 +45,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Work+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="it" className={`${bricolage.variable} ${workSans.variable}`}>
       <body>
         {children}
         <Analytics />

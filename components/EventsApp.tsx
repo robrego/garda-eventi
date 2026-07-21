@@ -83,41 +83,43 @@ export default function EventsApp({ events: allEvents }: { events: EventItem[] }
     <div className="app">
       <AppHeader email={email} onEmailChange={handleEmailChange} />
 
-      <DateRibbon
-        weekAnchor={weekAnchor}
-        setWeekAnchor={setWeekAnchor}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-        todayISO={todayISO}
-        datesWithEvents={datesWithEvents}
-      />
-
-      <Filters
-        selectedTowns={selectedTowns}
-        setSelectedTowns={setSelectedTowns}
-        selectedDateLabel={selectedDateLabel}
-        selectedDate={selectedDate}
-        onDatePick={handleDatePick}
-        dateHeading={dateHeading}
-      />
-
-      <div className={layoutClass}>
-        <div className="map-pane">
-          <div id="map">
-            <EventMap events={dayEvents} selectedId={selectedId} onSelect={setSelectedId} />
-          </div>
-        </div>
-        <EventList
-          events={dayEvents}
-          selectedId={selectedId}
-          onSelect={setSelectedId}
-          canEdit={!!email}
-          canDelete={isAdmin}
-          onCoverSaved={() => router.refresh()}
-          onDescSaved={() => router.refresh()}
-          onDeleted={() => router.refresh()}
+      <main>
+        <DateRibbon
+          weekAnchor={weekAnchor}
+          setWeekAnchor={setWeekAnchor}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          todayISO={todayISO}
+          datesWithEvents={datesWithEvents}
         />
-      </div>
+
+        <Filters
+          selectedTowns={selectedTowns}
+          setSelectedTowns={setSelectedTowns}
+          selectedDateLabel={selectedDateLabel}
+          selectedDate={selectedDate}
+          onDatePick={handleDatePick}
+          dateHeading={dateHeading}
+        />
+
+        <div className={layoutClass}>
+          <div className="map-pane">
+            <div id="map">
+              <EventMap events={dayEvents} selectedId={selectedId} onSelect={setSelectedId} />
+            </div>
+          </div>
+          <EventList
+            events={dayEvents}
+            selectedId={selectedId}
+            onSelect={setSelectedId}
+            canEdit={!!email}
+            canDelete={isAdmin}
+            onCoverSaved={() => router.refresh()}
+            onDescSaved={() => router.refresh()}
+            onDeleted={() => router.refresh()}
+          />
+        </div>
+      </main>
     </div>
   );
 }

@@ -76,7 +76,7 @@ export default function EventList({
         </div>
       )}
 
-      {sorted.map((e) => (
+      {sorted.map((e, index) => (
         <div
           key={e.id}
           id={`card-${e.id}`}
@@ -111,6 +111,7 @@ export default function EventList({
                       className="event-cover"
                       width={92}
                       height={130}
+                      priority={index === 0}
                       unoptimized={!isOptimizableImageHost(e.image)}
                       onError={() => {
                         setBrokenImages((prev) => new Set(prev).add(e.id));
@@ -125,6 +126,7 @@ export default function EventList({
                     className="event-cover"
                     width={92}
                     height={130}
+                    priority={index === 0}
                     unoptimized={!isOptimizableImageHost(e.image)}
                     onError={() => {
                       setBrokenImages((prev) => new Set(prev).add(e.id));

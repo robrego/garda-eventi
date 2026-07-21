@@ -4496,5 +4496,210 @@
     "desc": "Concerto gratuito a Gardola, Piazza Umberto I, chiusura della rassegna estiva Giovedì Live.",
     "src": "tignale.org",
     "url": "https://www.tignale.org/lagodigarda/musica-e-cultura.html"
+  },
+  {
+    "date": "2026-07-17",
+    "town": "Ferrara di Monte Baldo",
+    "title": "2ª Fiera Regionale del Tartufo Veneto – Apertura",
+    "titleEn": "2nd Veneto Regional Truffle Fair – Opening",
+    "cat": "sagra",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Apertura della fiera regionale dedicata al tartufo, \"L'oro della nostra terra\": stand gastronomici e prodotti tipici. Prosegue fino al 20 luglio.",
+    "descEn": "Opening of the regional fair dedicated to truffles, \"the gold of our land\": food stalls and local products. Continues until July 20.",
+    "src": "comune.ferraradimontebaldo.vr.it"
+  },
+  {
+    "date": "2026-07-18",
+    "town": "Drena",
+    "title": "Dame in un mondo di scacchi",
+    "titleEn": "Ladies in a world of chess",
+    "cat": "cultura",
+    "time": "09:30–16:00",
+    "desc": "Evento a tema scacchistico-storico al Castello di Drena, con rievocazioni e giochi per grandi e piccoli.",
+    "descEn": "A chess-and-history themed event at Drena Castle, with reenactments and games for all ages.",
+    "src": "gardatrentino.it"
+  },
+  {
+    "date": "2026-07-20",
+    "town": "Ferrara di Monte Baldo",
+    "title": "2ª Fiera Regionale del Tartufo Veneto – Chiusura",
+    "titleEn": "2nd Veneto Regional Truffle Fair – Closing",
+    "cat": "sagra",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Ultimo giorno della fiera regionale del tartufo \"L'oro della nostra terra\", con stand gastronomici e prodotti tipici.",
+    "descEn": "Last day of the regional truffle fair \"the gold of our land\", with food stalls and local products.",
+    "src": "comune.ferraradimontebaldo.vr.it"
+  },
+  {
+    "date": "2026-07-21",
+    "town": "Roè Volciano",
+    "title": "Itinerari di Meraviglia – Teatro di strada",
+    "titleEn": "Itinerari di Meraviglia – Street theatre",
+    "cat": "teatro",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Tappa a Roè Volciano della rassegna itinerante di teatro di strada e circo contemporaneo \"Itinerari di Meraviglia\".",
+    "descEn": "Roè Volciano stop of the touring street-theatre and contemporary circus festival \"Itinerari di Meraviglia\".",
+    "src": "comune.roevolciano.bs.it"
+  },
+  {
+    "date": "2026-07-23",
+    "town": "Vobarno",
+    "title": "R'estate a Vobarno – Apertura",
+    "titleEn": "R'estate a Vobarno – Opening",
+    "cat": "concert",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Prima serata della rassegna di concerti estivi a Largo Donatori di Sangue. Prosegue fino al 26 luglio.",
+    "descEn": "Opening night of the summer concert series at Largo Donatori di Sangue. Continues until July 26.",
+    "src": "comune.vobarno.bs.it"
+  },
+  {
+    "date": "2026-07-24",
+    "town": "Sommacampagna",
+    "title": "Marialuna Live Band",
+    "cat": "concert",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Concerto della Marialuna Live Band a Villa Venier, nell'ambito della rassegna culturale comunale.",
+    "descEn": "Marialuna Live Band concert at Villa Venier, part of the town's cultural events programme.",
+    "src": "comune.sommacampagna.vr.it"
+  },
+  {
+    "date": "2026-07-26",
+    "town": "Roè Volciano",
+    "title": "Itinerari di Meraviglia – Teatro di strada",
+    "titleEn": "Itinerari di Meraviglia – Street theatre",
+    "cat": "teatro",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Seconda tappa a Roè Volciano della rassegna itinerante di teatro di strada e circo contemporaneo \"Itinerari di Meraviglia\".",
+    "descEn": "Second Roè Volciano stop of the touring street-theatre and contemporary circus festival \"Itinerari di Meraviglia\".",
+    "src": "comune.roevolciano.bs.it"
+  },
+  {
+    "date": "2026-07-26",
+    "town": "Vobarno",
+    "title": "R'estate a Vobarno – Chiusura",
+    "titleEn": "R'estate a Vobarno – Closing",
+    "cat": "concert",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Serata conclusiva della rassegna di concerti estivi a Largo Donatori di Sangue.",
+    "descEn": "Closing night of the summer concert series at Largo Donatori di Sangue.",
+    "src": "comune.vobarno.bs.it"
+  },
+  {
+    "date": "2026-07-26",
+    "town": "Paitone",
+    "title": "Concerto in Villa",
+    "cat": "concert",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Concerto serale in Via Colombaro, nell'ambito della rassegna estiva comunale.",
+    "descEn": "Evening concert on Via Colombaro, part of the town's summer events programme.",
+    "src": "comune.paitone.bs.it"
+  },
+  {
+    "date": "2026-08-10",
+    "town": "Magasa",
+    "title": "Festa di San Lorenzo",
+    "cat": "festival",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Festa patronale a Cadria di Magasa, con stand gastronomici e momenti conviviali.",
+    "descEn": "Patron saint feast in Cadria di Magasa, with food stalls and community gatherings.",
+    "src": "visitvalvestino.it"
+  },
+  {
+    "date": "2026-08-22",
+    "town": "Monzambano",
+    "title": "Sagra di San Bartolomeo – Apertura",
+    "titleEn": "Sagra di San Bartolomeo – Opening",
+    "cat": "sagra",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Apertura della festa patronale in Piazza Tito Zaniboni, con stand gastronomici, vini delle cantine di Monzambano e musica dal vivo. Prosegue fino al 24 agosto.",
+    "descEn": "Opening of the patron saint festival in Piazza Tito Zaniboni, with food stalls, wine from Monzambano's cellars and live music. Continues until August 24.",
+    "src": "monzambanotourist.it"
+  },
+  {
+    "date": "2026-08-23",
+    "town": "Valvestino",
+    "title": "Perdono di Turano",
+    "cat": "festival",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Festa religiosa tradizionale a Turano di Valvestino, la penultima domenica di agosto.",
+    "descEn": "Traditional religious feast in Turano di Valvestino, held on the second-to-last Sunday of August.",
+    "src": "visitvalvestino.it"
+  },
+  {
+    "date": "2026-08-24",
+    "town": "Monzambano",
+    "title": "Sagra di San Bartolomeo – Chiusura",
+    "titleEn": "Sagra di San Bartolomeo – Closing",
+    "cat": "sagra",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Serata conclusiva della festa patronale in Piazza Tito Zaniboni, con stand gastronomici e musica dal vivo.",
+    "descEn": "Closing night of the patron saint festival in Piazza Tito Zaniboni, with food stalls and live music.",
+    "src": "monzambanotourist.it"
+  },
+  {
+    "date": "2026-08-29",
+    "town": "Sona",
+    "title": "E...State a Sona – Sugarmama, tributo a Zucchero",
+    "titleEn": "E...State a Sona – Sugarmama, Zucchero tribute",
+    "cat": "concert",
+    "time": "21:00",
+    "desc": "Serata conclusiva della rassegna estiva comunale a Corte Boscaini, Lugagnano, con Sugarmama in concerto tributo a Zucchero.",
+    "descEn": "Closing night of the town's summer events series at Corte Boscaini, Lugagnano, with Sugarmama performing a Zucchero tribute.",
+    "src": "comune.sona.vr.it"
+  },
+  {
+    "date": "2026-09-13",
+    "town": "Magasa",
+    "title": "Sagra del Formaggio",
+    "titleEn": "Cheese Festival",
+    "cat": "sagra",
+    "time": "Vedi il sito per l'orario",
+    "desc": "45ª edizione della sagra dedicata al formaggio Tombea, Presidio Slow Food, a Cima Rest.",
+    "descEn": "45th edition of the festival dedicated to Tombea cheese, a Slow Food Presidium, at Cima Rest.",
+    "src": "visitvalvestino.it"
+  },
+  {
+    "date": "2026-10-05",
+    "town": "Fumane",
+    "title": "Autunno Contadino – Molina di Fumane",
+    "titleEn": "Autunno Contadino – Molina di Fumane",
+    "cat": "market",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Prima tappa della rassegna \"Autunno Contadino\": mercatino contadino a Molina di Fumane, con prodotti tipici della Valpolicella.",
+    "descEn": "First stop of the \"Autunno Contadino\" series: a farmers' market in Molina di Fumane, with typical Valpolicella produce.",
+    "src": "comune.fumane.vr.it"
+  },
+  {
+    "date": "2026-10-12",
+    "town": "Fumane",
+    "title": "Autunno Contadino – Mercato di Gorgusello",
+    "titleEn": "Autunno Contadino – Gorgusello Market",
+    "cat": "market",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Mercatino contadino a Gorgusello, tappa della rassegna \"Autunno Contadino\".",
+    "descEn": "Farmers' market in Gorgusello, part of the \"Autunno Contadino\" series.",
+    "src": "comune.fumane.vr.it"
+  },
+  {
+    "date": "2026-10-19",
+    "town": "Fumane",
+    "title": "Autunno Contadino – Antica Fiera del Rosario",
+    "titleEn": "Autunno Contadino – Antica Fiera del Rosario",
+    "cat": "market",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Antica fiera del Rosario a Breonio, tappa della rassegna \"Autunno Contadino\", con prodotti tipici e mercatini.",
+    "descEn": "The historic Fiera del Rosario in Breonio, part of the \"Autunno Contadino\" series, with local produce and market stalls.",
+    "src": "comune.fumane.vr.it"
+  },
+  {
+    "date": "2026-10-26",
+    "town": "Fumane",
+    "title": "Autunno Contadino – Mercato di Cavalo",
+    "titleEn": "Autunno Contadino – Cavalo Market",
+    "cat": "market",
+    "time": "Vedi il sito per l'orario",
+    "desc": "Mercatino contadino a Cavalo, tappa conclusiva della rassegna \"Autunno Contadino\".",
+    "descEn": "Farmers' market in Cavalo, the closing stop of the \"Autunno Contadino\" series.",
+    "src": "comune.fumane.vr.it"
   }
 ]

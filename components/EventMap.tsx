@@ -66,9 +66,9 @@ export default function EventMap({
             center={TOWN_COORDS[e.town]}
             radius={selected ? 14 : 10}
             pathOptions={{
-              color: selected ? "#1e4d54" : "#0b7f8f",
+              color: selected ? "#1e4d54" : "#0f93a4",
               weight: selected ? 3 : 1,
-              fillColor: "#0b7f8f",
+              fillColor: "#0f93a4",
               fillOpacity: 0.9,
             }}
             eventHandlers={{ click: () => onSelect(e.id) }}
