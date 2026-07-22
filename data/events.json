@@ -2090,6 +2090,50 @@
     "url": "https://www.gardanotizie.it/gargnano-eventi-2026-il-programma-completo-tra-cultura-sport-e-territorio/"
   },
   {
+    "date": "2026-07-22",
+    "town": "Gargnano",
+    "title": "\"Gargnano, la Storia e i suoi luoghi\" – 1945. Le ultime settimane di guerra",
+    "titleEn": "\"Gargnano, its History and Places\" – 1945. The Last Weeks of War",
+    "cat": "cultura",
+    "time": "21:00",
+    "desc": "Seconda edizione del ciclo di conferenze sulla Repubblica Sociale Italiana a Gargnano, a cura del Prof. Bruno Festa. Primo incontro nel Giardino di Palazzo Bettoni a Bogliaco. Partecipazione gratuita, prenotazione obbligatoria entro le 12:00 del giorno lavorativo precedente presso la Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In caso di maltempo si terrà all'interno del palazzo.",
+    "descEn": "Second edition of a lecture series on the Italian Social Republic period in Gargnano, curated by Prof. Bruno Festa. First talk in the garden of Palazzo Bettoni in Bogliaco. Free, booking required by 12:00 the previous working day via Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In case of bad weather it will be held inside the palace.",
+    "src": "Pro Loco Gargnano APS"
+  },
+  {
+    "date": "2026-07-29",
+    "town": "Gargnano",
+    "title": "\"Gargnano, la Storia e i suoi luoghi\" – Saccheggio di documenti sul lago",
+    "titleEn": "\"Gargnano, its History and Places\" – Looting of Documents on the Lake",
+    "cat": "cultura",
+    "time": "21:00",
+    "desc": "Secondo incontro del ciclo di conferenze sulla Repubblica Sociale Italiana a Gargnano, a cura del Prof. Bruno Festa. Si terrà nel Giardino di Palazzo Feltrinelli a Gargnano. Partecipazione gratuita, prenotazione obbligatoria entro le 12:00 del giorno lavorativo precedente presso la Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In caso di maltempo si terrà all'interno del palazzo.",
+    "descEn": "Second talk in the lecture series on the Italian Social Republic period in Gargnano, curated by Prof. Bruno Festa. Held in the garden of Palazzo Feltrinelli in Gargnano. Free, booking required by 12:00 the previous working day via Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In case of bad weather it will be held inside the palace.",
+    "src": "Pro Loco Gargnano APS"
+  },
+  {
+    "date": "2026-08-05",
+    "town": "Gargnano",
+    "title": "\"Gargnano, la Storia e i suoi luoghi\" – Cibo, requisizioni e mercato nero durante la RSI",
+    "titleEn": "\"Gargnano, its History and Places\" – Food, Requisitions and Black Market during the RSI",
+    "cat": "cultura",
+    "time": "21:00",
+    "desc": "Terzo incontro del ciclo di conferenze sulla Repubblica Sociale Italiana a Gargnano, a cura del Prof. Bruno Festa. Si terrà in Piazza di Villa. Partecipazione gratuita, prenotazione obbligatoria entro le 12:00 del giorno lavorativo precedente presso la Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In caso di maltempo l'incontro sarà ospitato presso la Sala Castellani.",
+    "descEn": "Third talk in the lecture series on the Italian Social Republic period in Gargnano, curated by Prof. Bruno Festa. Held in Piazza di Villa. Free, booking required by 12:00 the previous working day via Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In case of bad weather it will be held at Sala Castellani.",
+    "src": "Pro Loco Gargnano APS"
+  },
+  {
+    "date": "2026-08-12",
+    "town": "Gargnano",
+    "title": "\"Gargnano, la Storia e i suoi luoghi\" – Il Duce e il parroco",
+    "titleEn": "\"Gargnano, its History and Places\" – The Duce and the Parish Priest",
+    "cat": "cultura",
+    "time": "21:00",
+    "desc": "Quarto e ultimo incontro del ciclo di conferenze sulla Repubblica Sociale Italiana a Gargnano, a cura del Prof. Bruno Festa. Si terrà nel Brolo della Canonica di Gargnano. Partecipazione gratuita, prenotazione obbligatoria entro le 12:00 del giorno lavorativo precedente presso la Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In caso di maltempo l'incontro sarà ospitato presso la Sala Castellani. Il ciclo include anche una visita guidata con Cinzia Pasini, \"Ville, Uffici e luoghi della RSI a Gargnano\" (prenotazioni: 340 3503863, cinzia.pasini@arteconnoi.it).",
+    "descEn": "Fourth and final talk in the lecture series on the Italian Social Republic period in Gargnano, curated by Prof. Bruno Festa. Held in the Brolo della Canonica in Gargnano. Free, booking required by 12:00 the previous working day via Pro Loco Gargnano APS (info@thisisgargnano.it, 348 6591447 / 0365 042100). In case of bad weather it will be held at Sala Castellani. The series also includes a guided tour with Cinzia Pasini, \"Villas, Offices and RSI Sites in Gargnano\" (bookings: 340 3503863, cinzia.pasini@arteconnoi.it).",
+    "src": "Pro Loco Gargnano APS"
+  },
+  {
     "date": "2026-07-16",
     "town": "Gargnano",
     "title": "Concerto live – Piazza Vittorio Veneto",
@@ -4139,6 +4183,18 @@
     "descEn": "Closing night of the third edition of the Jazz Festival, with Rita Marcotulli solo piano, in the courtyard of Lonato's library.",
     "src": "lonatoturismo.it",
     "url": "https://www.lonatoturismo.it/it/tutti-gli-eventi"
+  },
+  {
+    "date": "2026-08-07",
+    "town": "Lonato del Garda",
+    "title": "Luce del Nord – Concerto di musica sacra",
+    "titleEn": "Northern Light – Sacred Music Concert",
+    "cat": "concert",
+    "time": "20:45",
+    "desc": "Concerto di musica sacra nella Chiesa di Sant'Antonio Abate, con musiche di Nystedt, Gjeilo, Grieg, Olsson e altri. Coro da camera Kammerchor Baden-Württemberg di Stoccarda, diretto da Jochen Woll. Ingresso libero.",
+    "descEn": "Sacred music concert at the Chiesa di Sant'Antonio Abate, featuring music by Nystedt, Gjeilo, Grieg, Olsson and others. Performed by the Kammerchor Baden-Württemberg chamber choir from Stuttgart, conducted by Jochen Woll. Free entry.",
+    "src": "lonatoturismo.it",
+    "url": "https://www.lonatoturismo.it/it/concerto-luce-del-nord-2026-08-07"
   },
   {
     "date": "2026-09-20",
