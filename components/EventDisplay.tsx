@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { TOWN_CREST } from "@/data/config";
 import { DOW_FULL, MONTHS } from "@/lib/i18n";
+import { isOptimizableImageHost } from "@/lib/imageHosts";
 
 export function LinkArrowIcon() {
   return (
@@ -17,7 +19,23 @@ export function LinkArrowIcon() {
 export function CoverPlaceholder({ town }: { town: string }) {
   const crest = TOWN_CREST[town];
   if (crest) {
-    return <img src={crest} alt="" className="event-cover-crest" loading="lazy" />;
+    // SVG crests are already tiny (vector data) and next/image refuses to
+    // optimize SVG sources without dangerouslyAllowSVG, so only route the
+    // large raster (.png) crests through the optimizer.
+    if (crest.endsWith(".svg")) {
+      return <img src={crest} alt="" className="event-cover-crest" loading="lazy" />;
+    }
+    return (
+      <Image
+        src={crest}
+        alt=""
+        width={42}
+        height={42}
+        className="event-cover-crest"
+        loading="lazy"
+        unoptimized={!isOptimizableImageHost(crest)}
+      />
+    );
   }
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="event-cover-icon">

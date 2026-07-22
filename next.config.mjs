@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    // Crest/stemma placeholder images never change once published, so cache
+    // the optimized output for a long time (default is 60s).
+    minimumCacheTTL: 2592000,
     // Domains event cover photos are actually hosted on today (scraped
     // sources + hand-curated `image` fields in data/events.json), plus the
     // Municipium CDN wildcard. The Municipium scraper (data/scrapers/
@@ -11,6 +14,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "**.municipiumapp.it" },
       { protocol: "https", hostname: "api.gdb.atexcloud.io" },
+      { protocol: "https", hostname: "upload.wikimedia.org" },
       { protocol: "https", hostname: "citynews-bresciatoday.stgy.ovh" },
       { protocol: "https", hostname: "gardatoday.it" },
       { protocol: "https", hostname: "mycity.s3.sbg.io.cloud.ovh.net" },

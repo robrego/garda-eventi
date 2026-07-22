@@ -26,6 +26,7 @@ const ALLOWED_HOSTS = new Set([
   "www.panesalamina.com",
   "www.rettore.com",
   "www.visitlimonesulgarda.com",
+  "upload.wikimedia.org",
 ]);
 
 export function isOptimizableImageHost(src: string): boolean {
