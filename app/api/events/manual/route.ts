@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getSessionEmail } from "@/lib/auth";
+import { getSessionEmail, isAdminEmail, isTrustedSubmitterEmail } from "@/lib/auth";
 import { addManualEvent } from "@/lib/manualEvents";
 import { TOWNS, CATEGORIES } from "@/data/config";
 
@@ -50,6 +50,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Il link deve essere un URL http(s)" }, { status: 400 });
   }
 
+  const status = isAdminEmail(email) || isTrustedSubmitterEmail(email) ? "approved" : "pending";
+
   await addManualEvent({
     date,
     town,
@@ -61,6 +63,7 @@ export async function POST(req: NextRequest) {
     ...(image ? { image } : {}),
     ...(url ? { url } : {}),
     addedBy: email,
+    status,
   });
 
   return NextResponse.json({ ok: true });

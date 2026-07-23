@@ -26,7 +26,6 @@ export default function AuthWidget({
   const [formPassword, setFormPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [pendingAdd, setPendingAdd] = useState(false);
 
   const submit = async () => {
     setBusy(true);
@@ -48,10 +47,6 @@ export default function AuthWidget({
       setFormEmail("");
       setFormPassword("");
       router.refresh();
-      if (pendingAdd) {
-        setPendingAdd(false);
-        setShowAdd(true);
-      }
     } catch {
       setError(t("errorConnection"));
     }
@@ -83,7 +78,6 @@ export default function AuthWidget({
             type="button"
             className="add-event-btn add-event-btn-outline"
             onClick={() => {
-              setPendingAdd(true);
               setMode("register");
               setShowAuth(true);
             }}

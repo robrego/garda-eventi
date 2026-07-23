@@ -66,3 +66,16 @@ export function isAdminEmail(email: string | null): email is string {
     .filter(Boolean);
   return allowlist.includes(email.toLowerCase());
 }
+
+// Trusted collaborators (e.g. a tourism-office contact) whose event
+// submissions publish immediately instead of sitting in the /admin
+// moderation queue — same allowlist pattern as isAdminEmail, but without
+// admin/delete rights.
+export function isTrustedSubmitterEmail(email: string | null): email is string {
+  if (!email) return false;
+  const allowlist = (process.env.TRUSTED_SUBMITTER_EMAILS || "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+  return allowlist.includes(email.toLowerCase());
+}
