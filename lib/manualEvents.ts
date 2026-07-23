@@ -15,10 +15,28 @@ export async function readManualEvents(): Promise<RawEvent[]> {
   }
 }
 
+// New submissions default to 'pending': they need a moderator's approval
+// before showing up on the public site (see /admin and /api/admin/approve).
 export async function addManualEvent(event: RawEvent): Promise<void> {
   const events = await readManualEvents();
-  events.push({ ...event, createdAt: new Date().toISOString() });
+  events.push({ ...event, source: "user", status: "pending", createdAt: new Date().toISOString() });
   await put(MANUAL_EVENTS_BLOB_PATHNAME, JSON.stringify(events), {
+    access: "private",
+    contentType: "application/json",
+    addRandomSuffix: false,
+    allowOverwrite: true,
+  });
+}
+
+// Used by the moderation page to publish a pending submission.
+export async function approveManualEvent(target: { date: string; town: string; title: string }): Promise<void> {
+  const events = await readManualEvents();
+  const updated = events.map((e) =>
+    e.date === target.date && e.town === target.town && e.title.toLowerCase() === target.title.toLowerCase()
+      ? { ...e, status: "approved" as const }
+      : e
+  );
+  await put(MANUAL_EVENTS_BLOB_PATHNAME, JSON.stringify(updated), {
     access: "private",
     contentType: "application/json",
     addRandomSuffix: false,

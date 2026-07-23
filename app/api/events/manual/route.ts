@@ -14,6 +14,13 @@ export async function POST(req: NextRequest) {
   }
 
   const body = await req.json().catch(() => null);
+
+  // Honeypot: real users never fill this hidden field. A bot that does gets
+  // a fake success without anything being written.
+  if (typeof body?.website === "string" && body.website.trim() !== "") {
+    return NextResponse.json({ ok: true });
+  }
+
   const date = typeof body?.date === "string" ? body.date : "";
   const town = typeof body?.town === "string" ? body.town : "";
   const title = typeof body?.title === "string" ? body.title.trim() : "";

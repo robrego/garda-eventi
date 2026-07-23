@@ -705,6 +705,25 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 .admin-undo:hover { background: rgba(63, 157, 95, 0.22); }
 .admin-undo:disabled { opacity: 0.5; cursor: default; }
 
+.admin-row-pending { border: 1px solid var(--green); }
+.admin-row-actions { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+.admin-approve, .admin-reject {
+  border: none;
+  font-family: var(--font-work-sans), sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.admin-approve { background: var(--green-soft); color: var(--lake-deep); }
+.admin-approve:hover { background: rgba(63, 157, 95, 0.22); }
+.admin-reject { background: none; border: 1px solid #963f3f; color: #963f3f; }
+.admin-reject:hover { background: rgba(150, 63, 63, 0.08); }
+.admin-approve:disabled, .admin-reject:disabled { opacity: 0.5; cursor: default; }
+
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 .info-back-link {
   display: inline-flex;
   align-items: center;

@@ -94,12 +94,19 @@ export async function getAllEvents(): Promise<{ events: EventItem[]; hasLiveData
     readDescOverrides(),
     readHiddenEvents(),
   ]);
-  const curated = dedupe([...manual, ...scraped, ...(rawEvents as RawEvent[])]);
+  const curated = dedupe([
+    ...manual.map((e) => ({ source: "user" as const, ...e })),
+    ...scraped.map((e) => ({ source: "scraper" as const, ...e })),
+    ...(rawEvents as RawEvent[]).map((e) => ({ source: "manual" as const, ...e })),
+  ]);
   const imageOverrideMap = new Map(imageOverrides.map((o) => [imageOverrideKey(o), o.image]));
   const descOverrideMap = new Map(descOverrides.map((o) => [descOverrideKey(o), o.desc]));
   const hiddenSet = new Set(hidden.map(hiddenEventKey));
 
   const events: EventItem[] = curated
+    // Pending user submissions never reach the public list/map, not even
+    // briefly — they only show up in the /admin moderation queue.
+    .filter((e) => e.status !== "pending")
     .filter((e) => !hiddenSet.has(hiddenEventKey(e)))
     .map((e, i) => {
       const image = imageOverrideMap.get(imageOverrideKey(e));

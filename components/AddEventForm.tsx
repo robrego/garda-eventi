@@ -23,9 +23,11 @@ export default function AddEventForm({
   const [src, setSrc] = useState("");
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot: left empty by real users, hidden via CSS
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleFile = async (file: File) => {
     setUploading(true);
@@ -45,7 +47,7 @@ export default function AddEventForm({
       const res = await fetch("/api/events/manual", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ date, town, title, cat, time, desc, src, image, url }),
+        body: JSON.stringify({ date, town, title, cat, time, desc, src, image, url, website }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -53,7 +55,8 @@ export default function AddEventForm({
         setBusy(false);
         return;
       }
-      onSaved();
+      setSubmitted(true);
+      setBusy(false);
     } catch {
       setError(t("errorConnection"));
       setBusy(false);
@@ -62,10 +65,39 @@ export default function AddEventForm({
 
   const categories = lang === "en" ? CATEGORIES_EN : CATEGORIES;
 
+  if (submitted) {
+    return createPortal(
+      <div className="modal-backdrop" onClick={onSaved}>
+        <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+          <h2>{t("addEventTitle")}</h2>
+          <p className="modal-subtitle">{t("eventPendingNotice")}</p>
+          <div className="modal-actions">
+            <button type="button" className="modal-primary" onClick={onSaved}>
+              {t("closeModal")}
+            </button>
+          </div>
+        </div>
+      </div>,
+      document.body
+    );
+  }
+
   return createPortal(
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
         <h2>{t("addEventTitle")}</h2>
+
+        <label className="hp-field" aria-hidden="true">
+          Sito web
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+          />
+        </label>
 
         <label className="form-field">
           {t("fieldDate")}

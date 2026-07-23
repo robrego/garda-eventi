@@ -17,12 +17,14 @@ export default async function AdminPage() {
     );
   }
 
-  const [manual, hidden, images, descs] = await Promise.all([
+  const [allManual, hidden, images, descs] = await Promise.all([
     readManualEvents(),
     readHiddenEvents(),
     readImageOverrides(),
     readDescOverrides(),
   ]);
+  const pending = allManual.filter((e) => e.status === "pending");
+  const manual = allManual.filter((e) => e.status !== "pending");
 
-  return <AdminDashboard manual={manual} hidden={hidden} images={images} descs={descs} />;
+  return <AdminDashboard pending={pending} manual={manual} hidden={hidden} images={images} descs={descs} />;
 }

@@ -29,6 +29,11 @@ const STRINGS = {
   fieldImageUrlOptional: { it: "Immagine (URL, opzionale)", en: "Image (URL, optional)" },
   fieldEventUrlOptional: { it: "Link alla pagina dell'evento (opzionale)", en: "Link to the event's page (optional)" },
   saveEvent: { it: "Salva evento", en: "Save event" },
+  eventPendingNotice: {
+    it: "Grazie! Il tuo evento è stato inviato ed è in attesa di approvazione prima di comparire sul sito.",
+    en: "Thanks! Your event has been submitted and is awaiting approval before it appears on the site.",
+  },
+  closeModal: { it: "Chiudi", en: "Close" },
 
   editDescTitle: { it: "Modifica descrizione", en: "Edit description" },
   saveDesc: { it: "Salva descrizione", en: "Save description" },

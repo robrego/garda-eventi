@@ -307,6 +307,11 @@ export type EventItem = {
   url?: string; // direct link to the event's own page, if known
   addedBy?: string; // email of the user who submitted it manually, if any
   createdAt?: string; // ISO timestamp, set server-side when submitted
+  // Missing/undefined is treated as "approved" so existing curated/scraped
+  // data (and manual events added before moderation existed) keep showing
+  // up without a migration. Only new user submissions get 'pending' set.
+  status?: "approved" | "pending";
+  source?: "scraper" | "user" | "manual"; // provenance, independent of moderation status
 };
 
 // A handful of curated events use a descriptive (non-clock) time instead of
