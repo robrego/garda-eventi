@@ -48,29 +48,37 @@ app/
     page.tsx               # town directory, grouped by region
     [town]/page.tsx         # one town's upcoming events + Event JSON-LD
   en/events/               # English mirror of app/eventi/, same structure
+  admin/page.tsx           # moderation dashboard, gated by ADMIN_EMAILS
   api/
     auth/{login,register,logout,me}/route.ts   # session via JWT cookie
-    events/{manual,image,desc}/route.ts        # submissions from authenticated users
+    events/{manual,image,desc,hide}/route.ts   # submissions/overrides/soft-delete
+    admin/{approve,revert}/route.ts            # approve a pending event, undo any override
+    upload/route.ts                            # @vercel/blob client-upload token endpoint (auth required)
+    cover/[...path]/route.ts                   # re-streams a private cover blob publicly, no auth
     cron/scrape/route.ts                       # scraper cron (see below)
 components/
   EventsApp.tsx           # main state (date, filters, view, mobile menu)
   DateRibbon.tsx          # 7-day ribbon + week navigation
-  Filters.tsx             # date picker + town filter + view selector + IT/EN
+  Filters.tsx             # date picker + multi-select town filter + view selector + IT/EN
   EventList.tsx           # the day's event list (interactive: select/edit/delete)
   EventDisplay.tsx        # presentational pieces shared by EventList and the
                             # static SEO cards: icons, cover placeholder,
                             # source-link detection, date formatting
   EventMap.tsx            # Leaflet map (client-only, dynamic import in EventsApp)
-  AuthWidget.tsx           # login/register/logout, opens AddEventForm
-  AddEventForm.tsx         # manual event submission (logged-in users)
+  AuthWidget.tsx           # login/register/logout
+  AddEventForm.tsx         # manual event submission (logged-in users), honeypot field
   EditDescForm.tsx         # override an existing event's description
   AddCoverForm.tsx         # override an existing event's cover image
+  AdminDashboard.tsx       # pending-approval queue + recent manual/hidden/override
+                            # entries, each with one-click approve/undo (app/admin)
   LanguageProvider.tsx     # IT/EN context, persisted to localStorage (interactive app only)
   AppHeader.tsx            # header for the interactive app: nav, IT/EN toggle, auth
   SeoPageHeader.tsx        # minimal header for the SEO pages: fixed-locale, no client state
   TownDirectoryBody.tsx    # town-directory page body, reused by app/eventi and app/en/events
   TownPageBody.tsx         # town landing-page body: date-grouped events + JSON-LD script tag
   TownEventCard.tsx        # read-only event card for the SEO pages (no edit/delete/select)
+  UsefulInfoPage.tsx       # body for the "Trasporti" useful-info page
+  BrandMark.tsx, BurgerIcon.tsx, ChevronDownIcon.tsx   # small shared SVG icons
 data/
   events.json             # real events collected by hand from official sources
   config.ts               # town coordinates, categories (IT/EN), market days, area grouping
@@ -79,15 +87,22 @@ data/
     index.ts              # list of active scrapers (SCRAPERS)
     municipium.ts          # generic parser for comuni on the Municipium CMS
 lib/
-  auth.ts, users.ts       # JWT session (cookie) + users on Vercel Blob
-  manualEvents.ts         # events submitted by logged-in users (Blob)
+  auth.ts, users.ts       # JWT session (cookie) + users on Vercel Blob; also
+                           # isAdminEmail/isTrustedSubmitterEmail (env allowlists)
+  manualEvents.ts         # events submitted by logged-in users (Blob), pending/approved status
+  hiddenEvents.ts         # admin soft-delete overlay (Blob), reversible, keyed like getEvents' dedupe
   imageOverrides.ts       # cover-image override for an existing event (Blob)
   descOverrides.ts        # description override for an existing event (Blob)
+  imageHosts.ts           # allow-listed remote image hosts, mirrors next.config.mjs
+  uploadImage.ts          # uploads a user-submitted cover image to Blob
+  coverCleanup.ts         # deletes an orphaned cover image from Blob
+  useAuthUser.ts          # client hook wrapping /api/auth/me
   i18n.ts                 # IT/EN string dictionary + day/month names
   townSlugs.ts            # town name <-> URL slug (accent-stripped), for the SEO pages
   townPageData.ts         # fetches + filters + groups a town's upcoming events by date
   eventJsonLd.ts           # builds the schema.org Event JSON-LD for a town page
   siteUrl.ts               # resolves the absolute site origin (see "Quick start" above)
+next.config.mjs           # remote image host allowlist, cache TTL, browserslist
 vercel.json               # scraper cron schedule
 ```
 
@@ -98,14 +113,28 @@ vercel.json               # scraper cron schedule
   `LanguageProvider`. All navigation state (selected date, town filter,
   map/list view, mobile menu) lives in `useState` in `EventsApp`.
 - **Event sources**, merged by `getAllEvents()` in `data/getEvents.ts`, in
-  priority order: events submitted by hand by logged-in users (Blob),
-  events downloaded by the automatic scraper (Blob), curated events in
-  `data/events.json`, plus the generated occurrences of recurring weekly
-  markets. Image/description overrides (also on Blob) apply on top of any
-  source, per event.
+  priority order: events submitted by hand by logged-in users (Blob, only
+  once approved — see moderation below), events downloaded by the automatic
+  scraper (Blob), curated events in `data/events.json`, plus the generated
+  occurrences of recurring weekly markets. Image/description overrides
+  (also on Blob) apply on top of any source, per event; events soft-deleted
+  by an admin (`lib/hiddenEvents.ts`) are filtered out regardless of source.
 - **Authentication**: session via JWT cookie (`lib/auth.ts`), users stored
-  on Vercel Blob (`lib/users.ts`). It only exists to tell who can submit
-  events/corrections — there's no admin role, anyone who registers can do it.
+  on Vercel Blob (`lib/users.ts`). No admin "role" stored per-user — instead
+  two comma-separated env-var allowlists checked at request time:
+  `ADMIN_EMAILS` (gates `/admin`, deleting events, reverting overrides) and
+  `TRUSTED_SUBMITTER_EMAILS` (their submissions skip the moderation queue).
+  Anyone who registers can submit events/corrections.
+- **Moderation**: a manual event submitted by a regular registered user
+  defaults to `pending` and stays off the public site until an admin
+  approves it on `/admin` (`components/AdminDashboard.tsx` →
+  `/api/admin/approve`); submissions from `TRUSTED_SUBMITTER_EMAILS` and
+  from the scraper/curated sources publish immediately. Admins can also
+  soft-delete any event (reversible, `/api/events/hide` +
+  `lib/hiddenEvents.ts`) and revert any manual event/hidden entry/image or
+  description override from the same dashboard (`/api/admin/revert`).
+  `AddEventForm.tsx` includes a hidden honeypot field to silently drop bot
+  submissions.
 - **Automatic scraper**: `data/scrapers/` contains the parsers (one per
   confirmed-working source — see below), run by the
   `app/api/cron/scrape/route.ts` cron and saved to Vercel Blob.

@@ -80,13 +80,26 @@ README.md for the full architecture.
 ## Authentication and user contributions
 
 - Login/registration with a JWT cookie session (`lib/auth.ts`), users stored
-  on Vercel Blob (`lib/users.ts`) — there's no admin role, anyone who
-  registers can submit events or correct existing ones.
+  on Vercel Blob (`lib/users.ts`) — no admin role stored per-user, instead
+  two env-var email allowlists checked at request time: `ADMIN_EMAILS`
+  (`isAdminEmail`, gates `/admin`, deleting events, reverting overrides) and
+  `TRUSTED_SUBMITTER_EMAILS` (`isTrustedSubmitterEmail`, submissions skip
+  moderation). Anyone who registers can submit events or correct existing
+  ones.
 - A logged-in user can: add a manual event (`AddEventForm.tsx` →
   `lib/manualEvents.ts`), correct an existing event's description
   (`EditDescForm.tsx` → `lib/descOverrides.ts`), add a cover image
   (`AddCoverForm.tsx` → `lib/imageOverrides.ts`). All on Vercel Blob, no
   database.
+- **Moderation queue**: a manual event from a regular user defaults to
+  `pending` and is excluded from `getAllEvents()` until an admin approves it
+  on `/admin` (`AdminDashboard.tsx` → `POST /api/admin/approve`); events
+  from `TRUSTED_SUBMITTER_EMAILS`, the scraper, and `data/events.json`
+  publish immediately. `AddEventForm.tsx` has a hidden honeypot field to
+  drop bot spam. Admins can also soft-delete any event regardless of source
+  (`POST /api/events/hide` → `lib/hiddenEvents.ts`, reversible) and revert
+  any manual event/hidden entry/image or description override from the same
+  dashboard (`POST /api/admin/revert`).
 - Manual/scraped events and corrections have no English version
   (`titleEn`/`descEn`) — they stay in their original language even with the
   toggle set to EN. This is a known limitation, not a bug.
